@@ -5,9 +5,9 @@ Yleisiä linkkejä:
 * [Linkki sovellukseeni](https://www.cs.helsinki.fi)
 * [Linkki dokumentaatiooni](https://www.github.com)
 
-## Työn aihe
+## Varastotietokantasovellus
 
-Tietokantasovellus
+
 
 Varastotietokantasovellus on pienen yrityksen varaston ylläpitoon tarkoitettu web-pohjainen tietokantasovellus. Sovelluksen päätarkoitus on yrityksen tuotevalikoiman ja varastotietojen ylläpitäminen. Varastotietokantasovelluksen käyttöliittymä tarjoaa toiminnot yrityksen käyttäjä-, tuote- ja varastotietojen hallintaan.
 
