@@ -1,4 +1,4 @@
-# Varasto -tietokantasovelluksen
+# Varasto -tietokantasovellus
 
 Yleisiä linkkejä:
 
