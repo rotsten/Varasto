@@ -21,7 +21,7 @@ echo "Valmis!"
 echo "Siirretään tiedostot users-palvelimelle..."
 
 # Siirretään tiedostot palvelimelle
-scp -r app config lib vendor sql assets index.php composer.json $rotsten@users.cs.helsinki.fi:htdocs/$Varasto
+scp -r app config lib vendor sql assets index.php composer.json rotsten@users.cs.helsinki.fi:htdocs/Varasto
 
 echo "Valmis!"
 
@@ -35,4 +35,4 @@ curl -sS https://getcomposer.org/installer | php
 php composer.phar install
 exit"
 
-echo "Valmis! Sovelluksesi on nyt valmiina osoitteessa $rotsten.users.cs.helsinki.fi/$Varasto"
+echo "Valmis! Sovelluksesi on nyt valmiina osoitteessa rotsten.users.cs.helsinki.fi/Varasto"
