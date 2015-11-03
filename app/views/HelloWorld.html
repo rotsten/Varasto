@@ -10,7 +10,25 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <div><H1> "Hello World!"</H1>"</div>
-    </body>
+
+    <H1> "Hello World!"</H1>"
+    
+    {% extends "base.html" %}
+    {% block content %}
+        
+    <h1>Painikkeet</h1>
+    <button>Tavallinen painike</button>
+    <button class="btn btn-default">Bootstrap painike</button>
+    <button class="btn btn-primary">Bootstrap painike</button>
+    <button class="btn btn-success">Bootstrap painike</button>
+    <button class="btn btn-danger">Bootstrap painike</button>
+
+    <h1>Tekstikentät</h1>
+    <input type="text" placeholder="Tavallinen tekstikenttä">
+    <input type="text" class="form-control" placeholder="Bootstrap tekstikenttä">
+
+  <h1>Taulukot</h1>
+  <table>
+     
+  <thead>
 </html>
