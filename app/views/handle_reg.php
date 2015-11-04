@@ -38,4 +38,4 @@ function handle_reg (){
         //print '<p>Yritä uudelleen.</p>';
         return FALSE;
 }
-    ?>
+  
