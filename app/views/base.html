@@ -21,7 +21,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
 
@@ -33,15 +32,19 @@
             <span class="icon-bar"></span>
           </button>
           <!-- Sovelluksen nimi 
-          Testataan, voisiko tätä käyttää jotenkin...-->
-          <a class="navbar-brand" href="{{base_path}}">Varastotietokantasovellus</a>
+          Testataan, voisiko tätä käyttää jotenkin...
+          Miksi muuten nämä näyttää isommalta tekstiltä kuin tuo seuraava???-->
+          <a class="navbar-brand" href="{{base_path}}">Yleistä Varastosovelluksesta</a>
           <!--
           <a class="navbar-brand" href="{{base_path}}">Bootstrap</a>  -->
         </div>
 
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="nav navbar-nav">
-            <!-- Navigaation linkit -->
+            <!-- Navigaation linkit 
+            Tähän voisi tietysti laittaa nämä toiminnot linkkien taakse. 
+            Ensin pitää kuitenkin kirjautua järjestelmään
+            -->
             <li><a href="{{base_path}}">Tietoja tästä versiosta</a></li>
           </ul>
         </div>
@@ -60,7 +63,7 @@
       <!-- Bootstrap (skriptitiedosto) -->
       <script src="{{base_path}}/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-      <!-- Oma skriptitiedostomme -->
+      <!-- Oma skriptitiedostomme HelloWordl:iin-->
       <script src="{{base_path}}/assets/js/site.js"></script>
     {% endblock %}
   </body>
