@@ -4,18 +4,20 @@
    <div class="page-header">
     <h1>Varastosovellus!</h1>
    </div>
-
-    <img src ="\\Varasto-kansi.jpg">
-    
+   
     <!-- Kirjautuminen -->
     
     <form action="handle_reg.php" method="post">
         <p> Käyttäjätunnus: <input type ="text" name ="user_id" size="8"/></p>
         <p> Salasana: <input type ="text" name ="password" size="10"/></p>
-        <input type ="submit" name="submit" value ="Ok" />
-  
+        <input type ="submit" name="submit" value ="Kirjaudu!" />
+   <br>
+   <!-- Kirjautumisen tarkastaminen-->
      <?php handle_reg.php   
-    <br>
-    
-   
+     
+  <!-- Jos kirjautuminen on ok, pitäisi päästä seuraavalle sivulle, jossa ovat itse toiminnot-->  
+  
 {% endblock %}
+
+ <!-- Miksi tämä kirjautumissivun kansikuvapoika ei näY???-->
+  <img src ="Varasto-kansi.jpg">

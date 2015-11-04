@@ -4,8 +4,10 @@ Tietokantasovellus harjoitustyö, 2015
 Kirsi Rotstén 
  */
 
-<?php // This script receives two values from register.html:
-/* käyttäjätunnus, salasana, submit */
+<?php 
+/* This script receives two values from Home.html:
+ * These are: käyttäjätunnus & salasana 
+ * Returns the text, whether field is empty or not */
 
 // Success-flag setting
 $okay = TRUE;
@@ -25,9 +27,11 @@ if (empty($_POST['password'])) {
 // If there were no errors, print a success message:
 if ($okay) {
     print '<p>Onnistunut kirjautuminen.</p>';
+    return TRUE;
 }
 else 
     print '<p>Yritä uudelleen.</p>';
+    return false;
 ?>
 </body>
 </html>
