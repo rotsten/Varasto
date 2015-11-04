@@ -9,10 +9,11 @@
   });
   
   $routes->get('/game', function() {
-    HelloWorldController::game_list();
+    HelloWorldController::tuote_list();
   });
+  
   $routes->get('/game/1', function() {
-    HelloWorldController::game_show();
+    HelloWorldController::tuote_show();
   });
 
   $routes->get('/login', function() {
