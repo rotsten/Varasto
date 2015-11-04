@@ -33,5 +33,3 @@ else
     print '<p>Yritä uudelleen.</p>';
     return false;
 ?>
-</body>
-</html>
