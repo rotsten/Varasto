@@ -4,6 +4,9 @@ Tietokantasovellus harjoitustyö, 2015
 Kirsi Rotstén 
 
 -->
+{% extends "base.html" %}
+{% block content %}
+
 <html>
     <head>
         <title>Varasto - Tuotesivu</title>
@@ -32,8 +35,7 @@ Kirsi Rotstén
     <button class="btn btn-success">Varaston listaus</button>
     <button class="btn btn-danger">käyttäjien listaus (vain pääkäyttäjät)</button>
 -->
-<body>
-        
+    <body>     
         <H2>Varastotietokantasovellus</H2>
         <p><A href="paasivu.html"> Paluu pääsivulle </a></p>
         <p><A href="tuotteidenlistaus.html">Tuotteiden haku </a></p>
@@ -43,3 +45,4 @@ Kirsi Rotstén
     </body>
 </html>
 
+{% endblock %}
