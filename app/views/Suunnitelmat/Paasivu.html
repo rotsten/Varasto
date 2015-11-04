@@ -4,24 +4,18 @@ Tietokantasovellus harjoitustyö, 2015
 Kirsi Rotstén 
 
 -->
-<html>
-    <head>
-        <title>Varasto - Pääsivu</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <H2>Varastotietokantasovellus</H2>
+{% extends "base.html" %}
+{% block content %}
+    <H2>Varastotietokantasovellus</H2>
         
-         <h1>Valittava toiminto</h1>
-         <button class="btn btn-default">Tuotteen hakutoiminto</button>
-         <button class="btn btn-primary">Tuotteiden listaus</button>
-         <button class="btn btn-success">Varaston listaus</button>
-         <button class="btn btn-danger">käyttäjien listaus (vain pääkäyttäjät)</button>
+    <h1>Valittava toiminto</h1>
+    <button class="btn btn-default">Tuotteen hakutoiminto</button>
+    <button class="btn btn-primary">Tuotteiden listaus</button>
+    <button class="btn btn-success">Varaston listaus</button>
+    <button class="btn btn-danger">käyttäjien listaus (vain pääkäyttäjät)</button>
                  
-        <p>Tuotehaku: <A href="tuotesivu.html"> Tuote-ID:n tai Tuotteen nimen perusteella </a></p>
-        <p>Tuotteiden listaus: <A href="tuotteidenlistaus.html"> Tuotteiden listaus </a></p>
-        <p>Varaston listaus: <A href="varastonlistaus.html"> Varaston listaus </a></p>
-        <p>Käyttäjien listaus: <A href="kayttajienlistaus.html"> Käyttäjien listaus (vain pääkäyttäjälle)</a></p>
-    </body>
-</html>
+    <p>Tuotehaku: <A href="tuotesivu.html"> Tuote-ID:n tai Tuotteen nimen perusteella </a></p>
+    <p>Tuotteiden listaus: <A href="tuotteidenlistaus.html"> Tuotteiden listaus </a></p>
+    <p>Varaston listaus: <A href="varastonlistaus.html"> Varaston listaus </a></p>
+    <p>Käyttäjien listaus: <A href="kayttajienlistaus.html"> Käyttäjien listaus (vain pääkäyttäjälle)</a></p>
+{% endblock %}
