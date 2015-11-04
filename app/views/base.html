@@ -30,17 +30,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- Sovelluksen nimi 
-          Testataan, voisiko tätä käyttää jotenkin...
-          Miksi muuten nämä näyttää isommalta tekstiltä kuin tuo seuraava???-->
-          <a class="navbar-brand" href="{{base_path}}">Yleistä Varastosovelluksesta</a>
-          <!--
-          <a class="navbar-brand" href="{{base_path}}">Bootstrap</a>  -->
+          <!-- Sovelluksen nimi -->
+          <a class="navbar-brand" href="#">Varasto</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="nav navbar-nav">
-            <li><a href="{{base_path}}">Tietoja tästä versiosta</a></li>
+            <!-- NAvigaation linkit -->  
+            <li><a href="#">Kirjaudu sisään</a></li>
           </ul>
         </div>
       </div>
@@ -49,7 +46,7 @@
     <div id="main-container">
       <!-- Dynaaminen sisältö tulee tähän -->
       {% block content %}
-      
+      <img src ="Varasto-kansi.jpg">
       {% endblock %}
     </div>
 
