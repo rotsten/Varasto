@@ -14,23 +14,23 @@
       // View::make('HelloWorld.html');
     }
     
+    public static function login(){
+       View::make('Suunnitelmat/Aloitussivu.html');
+    }
+    
     public static function Kayttaja_list(){
-       View::make('suunnitelmat/Käyttäjienlistaus.html');
+       View::make('Suunnitelmat/Käyttäjienlistaus.html');
     }
     
     public static function Tuote_list(){
-       View::make('suunnitelmat/Tuotelistaus.html');
+       View::make('Suunnitelmat/Tuotelistaus.html');
     }
     
     public static function Varasto_list(){
-       View::make('suunnitelmat/Varastonlistaus.html');
+       View::make('Suunnitelmat/Varastonlistaus.html');
     }
 
     public static function Tuote_show(){
-      View::make('suunnitelmat/Tuotesivu.html');
-    }
-
-    public static function login(){
-       View::make('suunnitelmat/Aloitussivu.html');
+      View::make('Suunnitelmat/Tuotesivu.html');
     }
   }
