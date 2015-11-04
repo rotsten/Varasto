@@ -14,15 +14,20 @@ SQL > CREATE TABLE TUOTE (
 	Tuotteen_nimi	VARCHAR2(30) NOT NULL CHECK (Tuotteen_nimi <> ' ')
 	Kuvaus		VARCHAR2(150)
 	Valmistaja		VARCHAR2(30)
-	History-kuka-lisasi	VARCHAR(7) CONSTRAIN History-kuka-lisasi  DEFAULT (“Tuntematon”) FOREIGN KEY (KAYTTAJA) REFERENCES KAYTTAJA(kayttajatunnus)
-	History-date		DATE
+	History-kuka-lisasi	VARCHAR(7) CONSTRAIN TUOTE_History-kuka-lisasi_fkey FOREIGN KEY (Kayttajatunnus) 
+	REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE
+	ON UPDATE NO ACTION ON DELETE NO ACTION
+	History-date		timestamp
 );
 
 SQL > CREATE TABLE VARASTO (
-	Tuote-ID		NUMBER 7 CONSTRAIN FOREIGN KEY (Tuote-ID) REFERENCES TUOTE(Tuote-ID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update
+	Tuote-ID		NUMBER 7 CONSTRAIN VARASTO_Tuote-ID_fkey FOREIGN KEY (Tuote-ID) 
+	REFERENCES TUOTE (Tuote-ID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update
 	Lukumaara		INTEGER CONSTRAINT Lukumaara DEFAULT (0)
-	History-kuka-inventoi	VARCHAR(7) CONSTRAIN History-kuka-inventoi  DEFAULT (“Tuntematon”) FOREIGN KEY (KAYTTAJA) REFERENCES KAYTTAJA(kayttajatunnus)
-	History-date		DATE
+		History-kuka-inventoi	VARCHAR(7) CONSTRAIN VARASTO_History-kuka-inventoi_fkey FOREIGN KEY (Kayttajatunnus) 
+	REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE
+	ON UPDATE NO ACTION ON DELETE NO ACTION
+	History-date		timestamp
 );
 
 -- Lisää CREATE TABLE lauseet tähän tiedostoon

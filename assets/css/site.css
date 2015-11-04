@@ -8,3 +8,12 @@
   max-width: 1200px;
   margin: 0px auto;
 }
+
+h1 {
+ font-family:"Times New Roman", Times, serif;
+ font-size:3.8em;
+ font-weight:normal;
+ color:#333;
+ letter-spacing:-1px;
+ margin:20px 0;
+}

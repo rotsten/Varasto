@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+Tietokantasovellus harjoitustyö, 2015 
+Kirsi Rotstén 
+
+-->
+<html>
+    <head>
+        <title>Kirjautuminen</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <H2>Varastotietokantasovellus</H2>
+        
+            <!-- Kirjautuminen -->
+    
+        <form action="handle_reg.php" method="post">
+            <p> Käyttäjätunnus: <input type ="text" name ="user_id" size="8"/></p>
+            <p> Salasana: <input type ="text" name ="password" size="10"/></p>
+            <input type ="submit" name="submit" value ="Kirjaudu!" />
+        
+            <br>
+        <!-- Kirjautumisen tarkastaminen-->
+        if (handle_reg.php){
+            <!-- Kirjautuminen on onnistunut!! 
+
+            Tästä pitäisi päästä seuraavalle sivulle, 
+            jossa ovat itse toiminnot-->
+            <p>Tuotehaku: <A href="tuotesivu.html"> Tuote-ID:n tai Tuotteen nimen perusteella </a></p>
+            <p>Tuotteiden listaus: <A href="tuotteidenlistaus.html"> Tuotteiden listaus </a></p>
+            <p>Varaston listaus: <A href="varastonlistaus.html"> Varaston listaus </a></p>
+            <p>Käyttäjien listaus: <A href="kayttajienlistaus.html"> Käyttäjien listaus (vain pääkäyttäjälle)</a></p>
+        else 
+          print '<p>Yritä uudelleen.</p>';
+        }
+        
+        <p>Kirjaudu sisään tästä: <A href="paasivu.html"> käyttis - salasana </a></p>
+        <img src ="Varasto-kansi.jpg">
+    </body>
+</html>

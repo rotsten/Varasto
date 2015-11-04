@@ -2,7 +2,7 @@
 --SQL> CREATE DATABASE Varastotietokanta WITH Masteruser
 
 SQL > CREATE TABLE KAYTTAJA (
-	Kayttajatunnus	VARCHAR 10 CONSTRAIN Kayttajatunnus PRIMARY KEY
+	Kayttajatunnus	NUMBER 8 CONSTRAIN Kayttajatunnus PRIMARY KEY
 	Salasana		VARCHAR2(30) NOT NULL CHECK (Salasana <> ' ')
 	Etunimi		VARCHAR2(20) NOT NULL CHECK (Etunimi <> ' ')
 	Sukunimi		VARCHAR2(30)
@@ -10,21 +10,21 @@ SQL > CREATE TABLE KAYTTAJA (
 );
 
 SQL > CREATE TABLE TUOTE (
-	Tuote-ID		NUMBER 7 CONSTRAIN Tuote-ID PRIMARY KEY
+	Tuote-ID		NUMBER 13 CONSTRAIN Tuote-ID PRIMARY KEY
 	Tuotteen_nimi	VARCHAR2(30) NOT NULL CHECK (Tuotteen_nimi <> ' ')
 	Kuvaus		VARCHAR2(150)
 	Valmistaja		VARCHAR2(30)
-	History-kuka-lisasi	VARCHAR(7) CONSTRAIN TUOTE_History-kuka-lisasi_fkey FOREIGN KEY (Kayttajatunnus) 
+	History-kuka-lisasi	NUMBER (8) CONSTRAIN TUOTE_History-kuka-lisasi_fkey FOREIGN KEY (Kayttajatunnus) 
 	REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 	History-date		timestamp
 );
 
 SQL > CREATE TABLE VARASTO (
-	Tuote-ID		NUMBER 7 CONSTRAIN VARASTO_Tuote-ID_fkey FOREIGN KEY (Tuote-ID) 
+	Tuote-ID		NUMBER 13 CONSTRAIN VARASTO_Tuote-ID_fkey FOREIGN KEY (Tuote-ID) 
 	REFERENCES TUOTE (Tuote-ID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update
 	Lukumaara		INTEGER CONSTRAINT Lukumaara DEFAULT (0)
-		History-kuka-inventoi	VARCHAR(7) CONSTRAIN VARASTO_History-kuka-inventoi_fkey FOREIGN KEY (Kayttajatunnus) 
+		History-kuka-inventoi	NUMBER (8) CONSTRAIN VARASTO_History-kuka-inventoi_fkey FOREIGN KEY (Kayttajatunnus) 
 	REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE
 	ON UPDATE NO ACTION ON DELETE NO ACTION
 	History-date		timestamp
