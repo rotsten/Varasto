@@ -13,10 +13,19 @@
         <input type ="submit" name="submit" value ="Kirjaudu!" />
    <br>
    <!-- Kirjautumisen tarkastaminen-->
-     <?php handle_reg.php   
-     
-  <!-- Jos kirjautuminen on ok, pitäisi päästä seuraavalle sivulle, jossa ovat itse toiminnot-->  
-  
+   if (handle_reg.php){
+       <!-- Kirjautuminen on onnistunut!! 
+       
+       Tästä pitäisi päästä seuraavalle sivulle, 
+       jossa ovat itse toiminnot-->
+       <p>Tuotehaku: <A href="tuotesivu.html"> Tuote-ID:n tai Tuotteen nimen perusteella </a></p>
+        <p>Tuotteiden listaus: <A href="tuotteidenlistaus.html"> Tuotteiden listaus </a></p>
+        <p>Varaston listaus: <A href="varastonlistaus.html"> Varaston listaus </a></p>
+        <p>Käyttäjien listaus: <A href="kayttajienlistaus.html"> Käyttäjien listaus (vain pääkäyttäjälle)</a></p>
+   else 
+     print '<p>Yritä uudelleen.</p>';
+   }
+   
 {% endblock %}
 
  <!-- Miksi tämä kirjautumissivun kansikuvapoika ei näY???-->

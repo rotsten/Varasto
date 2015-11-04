@@ -12,24 +12,25 @@ Kirsi Rotstén
 // Success-flag setting
 $okay = TRUE;
 
-// Validate the email address:
+// Tsekkaa antoiko käyttäjätunnuksen:
 if (empty($_POST['user_id'])) {
 	print '<p class="error">Anna käyttäjätunnus.</p>';
 	$okay = FALSE;
 }
 
-// Validate the password:
+// Tsekkaa antoiko salasanan:
 if (empty($_POST['password'])) {
 	print '<p class="error">Anna salasana.</p>';
 	$okay = FALSE;
 }
 
-// If there were no errors, print a success message:
+/* Pitäisi tarkastella Käyttäjä-taulun tiedoista myös, löytyykö käyttäjä */
+
 if ($okay) {
-    print '<p>Onnistunut kirjautuminen.</p>';
+    // print '<p>Onnistunut kirjautuminen.</p>';
     return TRUE;
 }
 else 
-    print '<p>Yritä uudelleen.</p>';
-    return false;
+    //print '<p>Yritä uudelleen.</p>';
+    return FALSE;
 ?>
