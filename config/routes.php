@@ -8,14 +8,14 @@
     HelloWorldController::sandbox();
   });
   
-  $routes->get('/game', function() {
+  $routes->get('Suunnitelmat/Tuotesivu', function() {
     HelloWorldController::tuote_list();
   });
   
-  $routes->get('/game/1', function() {
+  $routes->get('Suunnitelmat/Tuotelistaus', function() {
     HelloWorldController::tuote_show();
   });
 
-  $routes->get('/login', function() {
+  $routes->get('Suunnitelmat/Aloitussivu', function() {
     HelloWorldController::login();
   });
