@@ -17,5 +17,5 @@
   });
 
   $routes->get('Suunnitelmat/Aloitussivu', function() {
-    HelloWorldController::login();
+    HelloWorldController::handle_reg();
   });
