@@ -4,7 +4,7 @@
     HelloWorldController::index();
   });
   
-  $routes->get('handle_reg()', function() {
+  $routes->get('/Suunnitelmat/Paasivu', function() {
     HelloWorldController::handle_reg();
   });
 
