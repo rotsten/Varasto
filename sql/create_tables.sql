@@ -2,7 +2,7 @@
 --SQL> CREATE DATABASE Varastotietokanta WITH Masteruser
 
 CREATE TABLE KAYTTAJA (
-	Kayttajatunnus	varchar (8) SERIAL PRIMARY KEY,
+	Kayttajatunnus	varchar (8) serial PRIMARY KEY,
 	Salasana	varchar(30) NOT NULL CHECK (Salasana <> ' '),
 	Etunimi		varchar(20) NOT NULL CHECK (Etunimi <> ' '),
 	Sukunimi	varchar(30),
@@ -10,7 +10,7 @@ CREATE TABLE KAYTTAJA (
 );
 
 CREATE TABLE TUOTE (
-	Tuote_ID	NUMBER (13) SERIAL PRIMARY KEY,
+	Tuote_ID	NUMBER (13) serial PRIMARY KEY,
 	Tuotteen_nimi	varchar(30) NOT NULL CHECK (Tuotteen_nimi <> ' '),
 	Kuvaus		varchar(150),
 	Valmistaja	varchar(30),
