@@ -12,26 +12,26 @@
     HelloWorldController::sandbox();
   });
   
-  $routes->get('Suunnitelmat/Tuotesivu', function() {
+  $routes->get('/Suunnitelmat/Tuotesivu', function() {
     HelloWorldController::tuote_show();
   });
   
-  $routes->get('Suunnitelmat/Tuotelistaus', function() {
+  $routes->get('/Suunnitelmat/Tuotelistaus', function() {
     HelloWorldController::tuote_list();
   });
   
-    $routes->get('Suunnitelmat/Kayttajienlistaus', function() {
+    $routes->get('/Suunnitelmat/Kayttajienlistaus', function() {
     HelloWorldController::kayttaja_list();
   });
 
-  $routes->get('Suunnitelmat/Varastotilanteenmuutos', function() {
+  $routes->get('/Suunnitelmat/Varastotilanteenmuutos', function() {
     HelloWorldController::varasto_show();
   });
   
-  $routes->get('Suunnitelmat/Varastolistaus', function() {
+  $routes->get('/Suunnitelmat/Varastolistaus', function() {
     HelloWorldController::varasto_list();
   });
 
-  $routes->get('Suunnitelmat/Aloitussivu', function() {
+  $routes->get('/Suunnitelmat/Aloitussivu', function() {
     HelloWorldController::handle_reg();
   });
