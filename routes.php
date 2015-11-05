@@ -3,6 +3,10 @@
   $routes->get('/', function() {
     HelloWorldController::index();
   });
+  
+  $routes->get('handle_reg()', function() {
+    HelloWorldController::handle_reg();
+  });
 
   $routes->get('Suunnitelmat/Login', function() {
     HelloWorldController::login();
