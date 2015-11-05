@@ -10,24 +10,22 @@ CREATE TABLE KAYTTAJA (
 );
 
 CREATE TABLE TUOTE (
-	Tuote-ID	NUMBER (13) SERIAL PRIMARY KEY,
+	Tuote_ID	NUMBER (13) SERIAL PRIMARY KEY,
 	Tuotteen_nimi	varchar(30) NOT NULL CHECK (Tuotteen_nimi <> ' '),
 	Kuvaus		varchar(150),
 	Valmistaja	varchar(30),
-	History-kuka-lisasi	varchar (8) CONSTRAIN TUOTE_History-kuka-lisasi_fkey FOREIGN KEY (Kayttajatunnus) 
-	REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE
-	ON UPDATE NO ACTION ON DELETE NO ACTION,
-	History-date		timestamp
+	History_kuka_lisasi	varchar (8) TUOTE_History_kuka_lisasi_fkey FOREIGN KEY (Kayttajatunnus) 
+	REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
+	History_date		timestamp
 );
 
 CREATE TABLE VARASTO (
-	Tuote-ID		NUMBER (13) CONSTRAIN VARASTO_Tuote-ID_fkey FOREIGN KEY (Tuote-ID) 
-	REFERENCES TUOTE (Tuote-ID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update,
-	Lukumaara		INTEGER CONSTRAINT Lukumaara DEFAULT (0),
-	History-kuka-inventoi	varchar(8) CONSTRAIN VARASTO_History-kuka-inventoi_fkey FOREIGN KEY (Kayttajatunnus) 
-	REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE
-	ON UPDATE NO ACTION ON DELETE NO ACTION,
-	History-date		timestamp
+	Tuote_ID		NUMBER (13) VARASTO_Tuote_ID_fkey FOREIGN KEY (Tuote-ID) 
+	REFERENCES TUOTE (TuoteID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update,
+	Lukumaara		INTEGER DEFAULT (0),
+	History_kuka_inventoi	varchar(8) VARASTO_History_kuka_inventoi_fkey FOREIGN KEY (Kayttajatunnus) 
+	REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
+	History_date		timestamp
 );
 
 -- Lisää CREATE TABLE lauseet tähän tiedostoon
