@@ -18,7 +18,6 @@
     }
     
     public static function tuote_show(){
-      echo 'Hello World!';
       View::make('Suunnitelmat/Tuotesivu.html');
     }
 

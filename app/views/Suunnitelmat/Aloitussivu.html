@@ -4,7 +4,7 @@
         <H2>Kirjautuminen</H2>  
         <!-- Kirjautuminen -->
     
-        <form action="handle_reg.php" method="POST">
+        <form action="handle_reg()" method="POST">
             <p> Käyttäjätunnus: <input type ="text" name ="user_id" size="8"/></p>
             <p> Salasana: <input type ="text" name ="password" size="10"/></p>
             <input type ="submit" name="submit" value ="Kirjaudu!" />
@@ -14,9 +14,12 @@
             <p>Varaston listaus: <A href="Varastonlistaus.html"> Varaston listaus </a></p>
               
             <br><br>
+        
         <!-- Kirjautumisen tarkastaminen
         if (handle_reg){
              
+            Tulosta PÄÄSIVU tai nämä...
+        
             <p>Tuotehaku: <A href="tuotesivu.html"> Tuote-ID:n tai Tuotteen nimen perusteella </a></p>
             <p>Tuotteiden listaus: <A href="tuotteidenlistaus.html"> Tuotteiden listaus </a></p>
             <p>Varaston listaus: <A href="varastonlistaus.html"> Varaston listaus </a></p>
