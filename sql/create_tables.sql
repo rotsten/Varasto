@@ -1,7 +1,7 @@
 --SQL> CREATE ROLE Masteruser WITH SUPERUSER
 --SQL> CREATE DATABASE Varastotietokanta WITH Masteruser
 
-SQL > CREATE TABLE KAYTTAJA (
+CREATE TABLE KAYTTAJA (
 	Kayttajatunnus	varchar (8) SERIAL PRIMARY KEY,
 	Salasana	varchar(30) NOT NULL CHECK (Salasana <> ' '),
 	Etunimi		varchar(20) NOT NULL CHECK (Etunimi <> ' '),
@@ -9,7 +9,7 @@ SQL > CREATE TABLE KAYTTAJA (
 	Kayttooikeudet	Boolean --True for Paakayttaja, false for varastotyöntekijä
 );
 
-SQL > CREATE TABLE TUOTE (
+CREATE TABLE TUOTE (
 	Tuote-ID	NUMBER (13) SERIAL PRIMARY KEY,
 	Tuotteen_nimi	varchar(30) NOT NULL CHECK (Tuotteen_nimi <> ' '),
 	Kuvaus		varchar(150),
@@ -20,7 +20,7 @@ SQL > CREATE TABLE TUOTE (
 	History-date		timestamp
 );
 
-SQL > CREATE TABLE VARASTO (
+CREATE TABLE VARASTO (
 	Tuote-ID		NUMBER (13) CONSTRAIN VARASTO_Tuote-ID_fkey FOREIGN KEY (Tuote-ID) 
 	REFERENCES TUOTE (Tuote-ID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update,
 	Lukumaara		INTEGER CONSTRAINT Lukumaara DEFAULT (0),

@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-  
     <form action="handle_form.php">
 
 	<p>Tuote-ID: <input type ="text" name ="product_id" size="13"/></p>
@@ -9,13 +8,13 @@
 	<p>Valmistaja: <input type="text" name="producer" size="20" /></p>
 	<p>Tuotekuvaus: <textarea name="Product_description" rows="3" cols="30"></textarea></p>
 	
-        <input type="submit" name="Hae tuotetta" value="Search_the_product" />
-        <input type="submit" name="Lisää tuote" value="Add_the_product" />
-        <input type="submit" name="Muuta tuotetietoja" value="Update_the_product" />
+        <input type="submit" name="Hae tuotetta" value="Hae tuotetta" />
+        <input type="submit" name="Lisää tuote" value="Lisää tuote" />
+        <input type="submit" name="Muuta tuotetietoja" value="Muuta tuotetietoja" />
 
     </form>
     
-    <button class="btn btn-default"><A href="paasivu.html"> Paluu pääsivulle</A></button> 
+    <button class="btn btn-default"><A href="{{base_path}}/Suunnitelmat/Paasivu.html"> Paluu pääsivulle</A></button> 
     
 <!--
     <button class="btn btn-primary">Tuotteiden listaus</button>
