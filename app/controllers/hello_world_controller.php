@@ -22,7 +22,7 @@
     }
     
     public static function tuote_show(){
-      View::make('helloworld.html');
+      View::make('/Suunnitelmat/Tuotesivu.html');
     }
 
     public static function varasto_list(){
