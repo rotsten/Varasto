@@ -18,19 +18,23 @@
        View::make('Suunnitelmat/Aloitussivu.html');
     }
     
-    public static function Kayttaja_list(){
+    public static function kayttaja_list(){
        View::make('Suunnitelmat/Käyttäjienlistaus.html');
     }
     
-    public static function Tuote_list(){
+    public static function tuote_list(){
        View::make('Suunnitelmat/Tuotelistaus.html');
     }
     
-    public static function Varasto_list(){
+    public static function varasto_list(){
        View::make('Suunnitelmat/Varastonlistaus.html');
     }
 
-    public static function Tuote_show(){
+    public static function tuote_show(){
       View::make('Suunnitelmat/Tuotesivu.html');
+    }
+    
+    public static function varasto_show(){
+      View::make('Suunnitelmat/Varastotilanteenmuutos.html');
     }
   }
