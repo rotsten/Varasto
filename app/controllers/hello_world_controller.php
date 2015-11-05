@@ -12,6 +12,10 @@
        View::make('Suunnitelmat/Aloitussivu.html');
     }
     
+    public static function handle_reg(){
+       View::make('Suunnitelmat/Paasivu.html');
+    }
+    
     public static function tuote_list(){
        echo 'Hello World!';
        View::make('Suunnitelmat/Tuotteidenlistaus.html');
