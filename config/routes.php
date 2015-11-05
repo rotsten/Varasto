@@ -16,6 +16,10 @@
     HelloWorldController::sandbox();
   });
   
+  $routes->get('/Suunnitelmat/Paasivu', function() {
+    HelloWorldController::paasivu_show();
+  });
+  
   $routes->get('/Suunnitelmat/Tuotesivu', function() {
     HelloWorldController::tuote_show();
   });

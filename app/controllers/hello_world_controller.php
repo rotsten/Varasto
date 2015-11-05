@@ -16,6 +16,10 @@
        View::make('/Suunnitelmat/Paasivu.html');
     }
     
+    public static function paasivu_show(){
+      View::make('/Suunnitelmat/Paasivu.html');
+    }
+    
     public static function tuote_list(){
        echo 'Hello World!';
        View::make('/Suunnitelmat/Tuotteidenlistaus.html');
