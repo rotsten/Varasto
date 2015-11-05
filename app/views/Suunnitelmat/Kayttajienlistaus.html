@@ -6,15 +6,29 @@ Kirsi Rotstén
 {% extends "base.html" %}
 {% block content %}
 
-<html>
-    <!--
-    <head>
-        <title>Käyttäjien listaus</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head -->
-        <div>Tähän koko taulukon listaus</div>
-         <p><A href="paasivu.html"> Paluu pääsivulle </a></p>
-</html>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Käyttäjätunnus</th>
+        <th>Etunimi</th>
+        <th>Sukunimi</th>
+        <th>Käyttöoikeudet</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Listataan käyttäjät tähän -->
+      <tr>
+        <td><a href="#"> xx</a></td>
+        <td>xxx</td>
+        <td>xxxx</td>
+        <td>xxx</td>
+        <td>xxxx</td>
+        <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+      </tr>
+    </tbody>
+  </table>
+    <p><A href="paasivu.html"> Paluu pääsivulle </a></p>
 
 {% endblock %}

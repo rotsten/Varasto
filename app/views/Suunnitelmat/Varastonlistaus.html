@@ -6,17 +6,37 @@ Kirsi Rotstén
 {% extends "base.html" %}
 {% block content %}
 
-<html>
-    <!--
-    <head>
-        <title>Varaston listaus</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    -->
-        <!--Tähän koko Varasto-taulukon listaus-->
+   <p>
+    <a href="#" class="btn btn-success">Lisää tuote</a>
+  </p>
 
-        <p><A href="paasivu.html"> Paluu pääsivulle </a></p>
-</html>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Tuote-ID</th>
+        <th>Tuotteen nimi</th>
+        <th>Lukumäärä</th>
+        <th>Inventoinut</th>
+        <th>Inventointipäivä</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Listataan Varaston tuotteet tähän eli haetaan, jos lukumäärä > 0 -->
+      <tr>
+        <td><a href="#"> xx</a></td>
+        <td>xxx</td>
+        <td>xxxx</td>
+        <td>xxxx</td>
+        <td><label class="label label-danger">kesken</label></td>
+        <td>xxx</td>
+        <td>xxx</td>
+        <th><a class="btn btn-default btn-sm" href="#">Muokkaa</a></th>
+      </tr>
+    </tbody>
+  </table>
+
+   <p><A href="paasivu.html"> Paluu pääsivulle </a></p>
 
 {% endblock %}

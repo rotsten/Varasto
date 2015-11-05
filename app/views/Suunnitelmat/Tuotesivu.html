@@ -6,15 +6,7 @@ Kirsi Rotstén
 {% extends "base.html" %}
 {% block content %}
 
-<html>
-    <!--
-    <head>
-        <title>Varasto - Tuotesivu</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    -->
-    
+  
     <form action="handle_form.php">
 
 	<p>Tuote-ID: <input type ="text" name ="product_id" size="13"/></p>
@@ -41,6 +33,5 @@ Kirsi Rotstén
         <p><A href="tuotteidenlistaus.html">Tuotteiden listaus </a></p>
         <p>Tuotteen muutos: </p>
         <p>Tuotteen poisto (vain pääkäyttäjälle)</p>
-</html>
 
 {% endblock %}
