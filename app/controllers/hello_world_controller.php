@@ -45,7 +45,7 @@
     }
     
     public static function kayttaja_list(){
-       View::make('Suunnitelmat/Käyttäjienlistaus.html');
+       View::make('Suunnitelmat/Kayttajienlistaus.html');
     }
     
     public static function sandbox(){
