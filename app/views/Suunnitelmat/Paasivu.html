@@ -2,14 +2,15 @@
 {% block content %}
       
     <h1>Valittava toiminto</h1>
+    
     <button class="btn btn-default">Tuotteen hakutoiminto</button>
-    <button class="btn btn-primary">Tuotteiden listaus</button>
+    <button class="btn btn-primary"><A href="{{base_path}}/Suunnitelmat/Tuotteidenlistaus">Tuotteiden listaus</A></button>
     <button class="btn btn-success">Varaston listaus</button>
     <button class="btn btn-danger">käyttäjien listaus (vain pääkäyttäjät)</button>
                  
-    <p>Tuotehaku: <A href="{{base_path}}/Suunnitelmat/Tuotesivu.html"> Tuote-ID:n tai Tuotteen nimen perusteella </a></p>
-    <p>Tuotteiden listaus: <A href="{{base_path}}/Suunnitelmat/Tuotteidenlistaus.html"> Tuotteiden listaus </a></p>
-    <p>Varaston listaus: <A href="{{base_path}}/Suunnitelmat/Varastonlistaus.html"> Varaston listaus </a></p>
-    <p>Käyttäjien listaus: <A href="{{base_path}}/Suunnitelmat/Kayttajienlistaus.html"> Käyttäjien listaus (vain pääkäyttäjälle)</a></p>
+    <p>Tuotehaku         : <A href="{{base_path}}/Suunnitelmat/Tuotesivu"> Tuote-ID:n tai Tuotteen nimen perusteella </a></p>
+    <p>Tuotteiden listaus: <A href="{{base_path}}/Suunnitelmat/Tuotteidenlistaus"> Tuotteiden listaus </a></p>
+    <p>Varaston listaus  : <A href="{{base_path}}/Suunnitelmat/Varastonlistaus"> Varaston listaus </a></p>
+    <p>Käyttäjien listaus: <A href="{{base_path}}/Suunnitelmat/Kayttajienlistaus"> Käyttäjien listaus (vain pääkäyttäjälle)</a></p>
 
 {% endblock %}
