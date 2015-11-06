@@ -13,11 +13,14 @@
     }
     
     public static function tuote_show(){
-      View::make('/Suunnitelmat/Tuotesivu.html');
+      View::make('Suunnitelmat/Tuotesivu.html');
+    }
+    
+    public static function tuote_edit(){
+      View::make('Suunnitelmat/Tuotetietojenmuutos.html');
     }
     
     public static function tuote_list(){
-       echo 'Hello World!';
        View::make('Suunnitelmat/Tuotteidenlistaus.html');
     }
     

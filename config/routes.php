@@ -8,7 +8,7 @@
     HelloWorldController::handle_reg();
   });
 
-  $routes->get('Suunnitelmat/Login', function() {
+  $routes->get('/Suunnitelmat/Login', function() {
     HelloWorldController::login();
   });
   

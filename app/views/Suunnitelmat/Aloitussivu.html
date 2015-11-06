@@ -1,9 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-        <H2>Kirjautuminen</H2>  
-        <!-- Kirjautuminen -->
+    <H2>Kirjautuminen</H2>  
+    <!-- Kirjautuminen -->
+        
+   <form>
+    <!-- Tekstikenttä käyttäjätunnukselle -->
+    <div class="form-group">
+      <label>Käyttäjätunnus</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <!-- Salasanakenttä salasanalle -->
+    <div class="form-group">
+      <label>Salasana</label>
+      <input type="password" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
+  </form>
+
+  <img src="{{base_path}}/Suunnitelmat/Varasto-kansi.jpg" alt="Varastomiehiä_työssään">
+
+  {% endblock %}
     
+<!-- 
         <form action="handle_reg()" method="POST">
             <p> Käyttäjätunnus: <input type ="text" name ="user_id" size="8"/></p>
             <p> Salasana: <input type ="text" name ="password" size="10"/></p>
@@ -27,7 +48,7 @@
         else 
           print '<p>Yritä uudelleen.</p>';
         } -->
-        
-        <img src="{{base_path}}/Suunnitelmat/Varasto-kansi.jpg" alt="Varastomiehiä_työssään">
+    
+       
     
 {% endblock %}
