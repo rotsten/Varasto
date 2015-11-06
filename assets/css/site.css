@@ -9,6 +9,10 @@
   margin: 0px auto;
 }
 
+btn btn-primary {
+  background-color:SandyBrown;
+}
+
 h1 {
  font-family:"Times New Roman", Times, serif;
  font-size:3.8em;
