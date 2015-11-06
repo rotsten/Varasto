@@ -32,7 +32,7 @@
     HelloWorldController::varasto_show();
   });
   
-  $routes->get('/Suunnitelmat/Varastolistaus', function() {
+  $routes->get('/Suunnitelmat/Varastonlistaus', function() {
     HelloWorldController::varasto_list();
   });
 
