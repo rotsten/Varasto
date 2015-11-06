@@ -28,6 +28,10 @@
     HelloWorldController::tuote_list();
   });
   
+  $routes->get('/Suunnitelmat/Tuotteenhakeminen', function() {
+    HelloWorldController::tuote_search();
+  });
+  
   $routes->get('/Suunnitelmat/Tuotetietojenmuutos', function() {
     HelloWorldController::tuote_edit();
   });

@@ -1,29 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <H2>Kirjautuminen</H2>  
+    <H1> Aloitussivu</H1>
+    <H2> Firman nimi + kansikuva </h2>
     <!-- Kirjautuminen -->
-        
-   <form>
+   
+   <!-- 
+   <form> --> 
     <!-- Tekstikenttä käyttäjätunnukselle -->
+    <!-- 
     <div class="form-group">
       <label>Käyttäjätunnus</label>
       <input type="text" class="form-control">
     </div>
+    -->
 
     <!-- Salasanakenttä salasanalle -->
+     <!-- 
     <div class="form-group">
       <label>Salasana</label>
       <input type="password" class="form-control">
     </div>
 
     <button type="submit" class="btn btn-primary">Kirjaudu sisään</button>
-  </form>
+    </form>
+    -->
 
   <img src="Varasto-kansi" alt="Varasto">
   
-  
-  <H2>Onnistuneen kirjautumisen jälkeen voi siirtyä toimintoihin <A href="{{base_path}}/Suunnitelmat/Paasivu">Pääsivulle</a></p>
+    <H2>Onnistuneen kirjautumisen jälkeen voi siirtyä toimintoihin <A href="{{base_path}}/Suunnitelmat/Paasivu">Pääsivulle</a></p>
 
   {% endblock %}
   
