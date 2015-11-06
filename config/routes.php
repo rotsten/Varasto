@@ -16,7 +16,7 @@
     HelloWorldController::sandbox();
   });
   
-  $routes->get('/Paasivu', function() {
+  $routes->get('/Suunnitelmat/Paasivu', function() {
     HelloWorldController::paasivu_show();
   });
   
@@ -24,7 +24,7 @@
     HelloWorldController::tuote_show();
   });
   
-  $routes->get('/Tuotelistaus', function() {
+  $routes->get('/Suunnitelmat/Tuotelistaus', function() {
     HelloWorldController::tuote_list();
   });
   
