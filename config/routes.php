@@ -20,7 +20,7 @@
     HelloWorldController::tuote_show();
   });
   
-  $routes->get('/Suunnitelmat/Tuotelistaus', function() {
+  $routes->get('/Suunnitelmat/Tuotteidenlistaus', function() {
     HelloWorldController::tuote_list();
   });
   
