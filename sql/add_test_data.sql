@@ -1,18 +1,26 @@
--- Lisää INSERT INTO lauseet tähän tiedostoon
 INSERT INTO KAYTTAJA (Kayttajatunnus, Salasana, Etunimi, Sukunimi, Kayttooikeudet)
-VALUES
- (Tuikku, tuikkurlz, Tiina-Liisa, Matikainen, true ),
- (Antti, the_boss, Antti, Matikainen, true ),
- (Salminen, mies74, Jarkko, Salminen, false);
- 
-INSERT INTO TUOTE (Tuote-ID, Tuotteen_nimi, Kuvaus, Valmistaja, Lukumaara, history-date)
-VALUES
- (9789513233259, Aku Ankan taskukirja nro 390 "Outolintu", Aku Ankan taskukirja vuodelta 2002, Sanoma Magazines, 7, 2015-05-11 20:45), --in format 1999-01-08 04:05:06
- (9789522641632, Ha-Joon Chang "23 tosiasiaa kapitalismista", Kansainvälinen bestselleri, Into Kustannus Oy, 1, 2015-05-11 21:09),
- (6430032616506, A4 Avolehtiö, 7x7 mm ruudullinen avolehtiö kokoa A4, Wulff Oy Ab, 210, 2015-05-11 21:11)
+VALUES ('Taneli', 'tuikkurlz', 'Taina-Liisa', 'Matikainen', 'true');
 
-INSERT INTO VARASTO (Tuote-ID, History-kuka-inventoi)
-VALUES
- (9789513233259, Tuikku), 
- (9789522641632, Salminen),
- (6430032616506, Salminen)
+INSERT INTO KAYTTAJA (Kayttajatunnus, Salasana, Etunimi, Sukunimi, Kayttooikeudet)
+VALUES ('Antti', 'the_boss', 'Antti', ' ', 'true');
+
+INSERT INTO KAYTTAJA (Kayttajatunnus, Salasana, Etunimi, Sukunimi, Kayttooikeudet)
+VALUES ('Salmi_1', 'mies74', 'Jarkko', 'Salminen', 'false');
+ 
+INSERT INTO TUOTE (Tuote_ID, Tuotteen_nimi, Kuvaus, Valmistaja, Lukumaara, history_date)
+VALUES ('9789522910325', 'Big data & pilvipalvelut', 'Immo Salo: Big data & pilvipalvelut', 'Docendo', '7', '2015-05-11 20:45');
+
+INSERT INTO TUOTE (Tuote_ID, Tuotteen_nimi, Kuvaus, Valmistaja, Lukumaara, history_date)
+VALUES ('9781292061351', 'W. Stallings: Operating Syst.', 'W. Stallings: Operating Systems, Internals and design principles', 'Pearson', '1', '2015-05-11 21:09');
+
+INSERT INTO TUOTE (Tuote_ID, Tuotteen_nimi, Kuvaus, Valmistaja, Lukumaara, history_date)
+VALUES('9789511174684', 'Suomen lasten kalevala', 'Kuvitettu teos', 'Otava', '5', '2015-05-11 21:11');
+
+INSERT INTO VARASTO (Tuote_ID, History_kuka_inventoi)
+VALUES ('9789522910325', 'Taneli');
+
+INSERT INTO VARASTO (Tuote_ID, History_kuka_inventoi)
+VALUES ('9781292061351', 'Salmi_1');
+
+INSERT INTO VARASTO (Tuote_ID, History_kuka_inventoi)
+VALUES ('9789511174684', 'Salmi_1');

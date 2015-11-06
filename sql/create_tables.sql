@@ -19,8 +19,6 @@ CREATE TABLE TUOTE (
 );
 
 CREATE TABLE VARASTO (
-	Tuote_ID		NUMBER (13) REFERENCES TUOTE (Tuote_ID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update,
-	History_kuka_inventoi	varchar(8) REFERENCES KAYTTAJA (kayttajatunnus) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
+	Tuote_ID		varchar(13) REFERENCES TUOTE (Tuote_ID) MATCH FULL,
+	History_kuka_inventoi	varchar(8) REFERENCES KAYTTAJA (kayttajatunnus) MATCH SIMPLE
 );
-
--- Lisää CREATE TABLE lauseet tähän tiedostoon
