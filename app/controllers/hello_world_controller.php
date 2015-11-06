@@ -20,6 +20,10 @@
       View::make('Suunnitelmat/Tuotetietojenmuutos.html');
     }
     
+    public static function tuote_search(){
+      View::make('Suunnitelmat/Tuotteenhakeminen.html');
+    }
+    
     public static function tuote_list(){
        View::make('Suunnitelmat/Tuotteidenlistaus.html');
     }
@@ -36,7 +40,7 @@
        View::make('Suunnitelmat/Varastonlistaus.html');
     }
     
-    public static function varasto_show(){
+    public static function varasto_edit(){
       View::make('Suunnitelmat/Varastotilanteenmuutos.html');
     }
     

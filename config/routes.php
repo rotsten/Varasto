@@ -28,6 +28,10 @@
     HelloWorldController::tuote_list();
   });
   
+  $routes->get('/Suunnitelmat/Tuotetietojenmuutos', function() {
+    HelloWorldController::tuote_edit();
+  });
+  
   $routes->get('/Suunnitelmat/Varastotilanteenmuutos', function() {
     HelloWorldController::varasto_show();
   });
