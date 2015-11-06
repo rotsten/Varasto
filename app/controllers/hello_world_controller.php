@@ -13,7 +13,7 @@
     }
     
     public static function tuote_edit(){
-      View::make('/Tuotetietojenmuutos.html');
+      View::make('Suunnitelmat/Tuotetietojenmuutos.html');
     }
     
     public static function tuote_search(){
@@ -21,7 +21,7 @@
     }
     
     public static function login(){
-       View::make('/Aloitussivu.html');
+       View::make('Suunnitelmat/Aloitussivu.html');
     }
     
     public static function tuote_list(){
