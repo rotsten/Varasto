@@ -2,27 +2,25 @@
 --SQL> CREATE DATABASE Varastotietokanta WITH Masteruser
 
 CREATE TABLE KAYTTAJA (
-	Kayttajatunnus	serial PRIMARY KEY, 
+	Kayttajatunnus	varchar(8)PRIMARY KEY, 
 	Salasana	varchar(30) NOT NULL,
 	Etunimi		varchar(20) NOT NULL,
 	Sukunimi	varchar(30),
-	Kayttooikeudet	Boolean DEFAULT FALSE --True for Paakayttaja, false for varastotyöntekijä
+	Kayttooikeudet	Boolean DEFAULT FALSE 
 );
 
 CREATE TABLE TUOTE (
-	Tuote_ID	serial PRIMARY KEY, 
+	Tuote_ID	varchar(13)PRIMARY KEY, 
 	Tuotteen_nimi	varchar(30) NOT NULL,
 	Kuvaus		varchar(150),
 	Valmistaja	varchar(30),
-	History_kuka_lisasi	varchar (8) REFERENCES KAYTTAJA (Kayttajatunnus) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
-	History_date		timestamp
+	Lukumaara       INTEGER DEFAULT (0),
+	History_date	timestamp
 );
 
 CREATE TABLE VARASTO (
-	Tuote_ID		NUMBER (13) REFERENCES TUOTE (TuoteID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update,
-	Lukumaara		INTEGER DEFAULT (0),
-	History_kuka_inventoi	varchar(8) REFERENCES KAYTTAJA(kayttajatunnus) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
-	History_date		timestamp
+	Tuote_ID		NUMBER (13) REFERENCES TUOTE (Tuote_ID) MATCH FULL ON DELETE delete MATCH FULL ON UPDATE update,
+	History_kuka_inventoi	varchar(8) REFERENCES KAYTTAJA (kayttajatunnus) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
 );
 
 -- Lisää CREATE TABLE lauseet tähän tiedostoon
