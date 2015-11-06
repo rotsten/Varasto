@@ -4,10 +4,6 @@
     HelloWorldController::index();
   });
   
-  $routes->get('/Suunnitelmat/Paasivu', function() {
-    HelloWorldController::handle_reg();
-  });
-
   $routes->get('/Suunnitelmat/Login', function() {
     HelloWorldController::login();
   });
