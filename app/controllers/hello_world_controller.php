@@ -24,7 +24,7 @@
     }
     
     public static function login(){
-       View::make('Suunnitelmat/Aloitussivu.html');
+       View::make('Suunnitelmat/Login.html');
     }
     
     public static function tuote_list(){
