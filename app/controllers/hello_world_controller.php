@@ -8,6 +8,9 @@
       // echo 'Tämä on etusivu!';
     }
    
+    public static function show_kuva(){
+      View::load('Suunnitelmat/Varasto-kansi.jpg');
+    }
     public static function tuote_show(){
       View::make('Suunnitelmat/Tuotesivu.html');
     }

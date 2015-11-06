@@ -16,6 +16,10 @@
     HelloWorldController::paasivu_show();
   });
   
+  $routes->get('/Suunnitelmat/Varasto-kansi', function() {
+    HelloWorldController::show_kuva();
+  });
+  
   $routes->get('/Suunnitelmat/Tuotesivu', function() {
     HelloWorldController::tuote_show();
   });
