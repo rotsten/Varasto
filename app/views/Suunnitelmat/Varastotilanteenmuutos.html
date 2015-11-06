@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form action="handle_form.php">
+
+	<p>Tuote-ID: <input type ="text" name ="product_id" size="13"/></p>
+        <p>Tuotten nimi: <input type="text" name="product_name" size="20" /></p>
+	<p>Lukumäärä: <input type="text" name="amounth" size="6" /></p>
+	
+        <input type="submit" name="Muuta tuotetietoja" value="Tee päivitys" />
+
+    </form>
+    
+    <button class="btn btn-default"><A href="{{base_path}}/Suunnitelmat/Tuote.html"> Tuotesivulle</A></button> 
+    <button class="btn btn-default"><A href="{{base_path}}/Suunnitelmat/Paasivu.html"> Pääsivulle</A></button> 
+    
+<!--
+    <button class="btn btn-primary">Tuotteiden listaus</button>
+    <button class="btn btn-success">Varaston listaus</button>
+    <button class="btn btn-danger">käyttäjien listaus (vain pääkäyttäjät)</button>
+-->
+        <H2>Varastotietokantasovellus</H2>
+        <p><A href="paasivu.html"> Paluu pääsivulle </a></p>
+        <p><A href="tuotteidenlistaus.html">Tuotteiden haku </a></p>
+        
+{% endblock %}

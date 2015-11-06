@@ -12,12 +12,8 @@
        View::make('Suunnitelmat/Aloitussivu.html');
     }
     
-    public static function handle_reg(){
-       View::make('/Suunnitelmat/Paasivu.html');
-    }
-    
-    public static function paasivu_show(){
-      View::make('/Suunnitelmat/Paasivu.html');
+    public static function tuote_show(){
+      View::make('/Suunnitelmat/Tuotesivu.html');
     }
     
     public static function tuote_list(){
@@ -25,10 +21,14 @@
        View::make('/Suunnitelmat/Tuotteidenlistaus.html');
     }
     
-    public static function tuote_show(){
-      View::make('/Suunnitelmat/Tuotesivu.html');
+    //public static function handle_reg(){
+    //   View::make('/Suunnitelmat/Paasivu.html');
+    //}
+    
+    public static function paasivu_show(){
+      View::make('/Suunnitelmat/Paasivu.html');
     }
-
+    
     public static function varasto_list(){
        View::make('/Suunnitelmat/Varastonlistaus.html');
     }
