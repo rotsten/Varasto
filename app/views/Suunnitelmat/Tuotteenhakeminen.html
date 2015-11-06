@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Tuotteen hakeminen. Tuotetta voi hakea sekä Tuote-ID:n että nimen perusteella</h1>
+
+  <form>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">
+        <!-- Tästä voisi olla valittavissa hakutapa ??-->.
+      </label>
+    </div>
+
+        <div class="form-group">
+          <label>Tuote-ID</label>
+          <input type="text" class="form-control" value=" ">
+        </div>
+      
+        <div class="form-group">
+          <label>Tuotteen nimi</label>
+          <input type="text" class="form-control" value=" ">
+        </div>
+      
+        <div class="form-group">
+          <label>Valmistaja</label>
+          <input type="text" class="form-control" value=" ">
+        </div>
+       
+        <div class="form-group">
+          <label>Kuvaus</label>
+          <textarea class="form-control">  </textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Tallenna</button>
+        </div>
+  </form>
+{% endblock %}
