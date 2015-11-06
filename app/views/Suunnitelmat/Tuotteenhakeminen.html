@@ -1,28 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-  <h2>Tuotteen hakeminen. Tuotetta voi hakea sekä Tuote-ID:n että nimen perusteella</h2>
+<H2>Tuotteen hakeminen.</H2>
+<H3>Tuotetta voi hakea sekä Tuote-ID:n että nimen perusteella</H3>
 
   <form>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox">
-        <!-- Tästä voisi olla valittavissa hakutapa ??-->.
-      </label>
-    </div>
-
-        <div class="form-group">
-          <label>Tuote-ID</label>
-          <input type="text" class="form-control" value=" ">
-        </div>
+     <div class="form-group">
+       <label>Tuote-ID</label>
+       <input type="text" class="form-control" value=" ">
+     </div>
       
-        <div class="form-group">
-          <label>Tuotteen nimi</label>
-          <input type="text" class="form-control" value=" ">
-        </div>
+     <div class="form-group">
+       <label>Tuotteen nimi</label>
+       <input type="text" class="form-control" value=" ">
+     </div>
       
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Hae!</button>
-        </div>
-      <h2>"Tulokset tulostuvat tuotteiden listaussivulle"</h2>
+     <div class="form-group">
+       <button type="submit" class="btn btn-primary"><A href="{{base_path}}/Suunnitelmat/Tuotteidenlistaus">Hae!</a></button>
+     </div>
+     <h2>"Tulokset tulostuvat tuotteiden listaussivulle"</h2>
   </form>
 {% endblock %}
