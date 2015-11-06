@@ -7,21 +7,21 @@
       View::make('Suunnitelmat/Aloitussivu.html');
       // echo 'Tämä on etusivu!';
     }
-
-    public static function login(){
-       View::make('Suunnitelmat/Aloitussivu.html');
-    }
-    
+   
     public static function tuote_show(){
       View::make('Suunnitelmat/Tuotesivu.html');
     }
     
     public static function tuote_edit(){
-      View::make('Suunnitelmat/Tuotetietojenmuutos.html');
+      View::make('/Tuotetietojenmuutos.html');
     }
     
     public static function tuote_search(){
       View::make('Suunnitelmat/Tuotteenhakeminen.html');
+    }
+    
+    public static function login(){
+       View::make('/Aloitussivu.html');
     }
     
     public static function tuote_list(){
