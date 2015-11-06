@@ -18,7 +18,7 @@
     
     public static function tuote_list(){
        echo 'Hello World!';
-       View::make('/Suunnitelmat/Tuotteidenlistaus.html');
+       View::make('Suunnitelmat/Tuotteidenlistaus.html');
     }
     
     //public static function handle_reg(){
@@ -26,19 +26,19 @@
     //}
     
     public static function paasivu_show(){
-      View::make('/Suunnitelmat/Paasivu.html');
+      View::make('Suunnitelmat/Paasivu.html');
     }
     
     public static function varasto_list(){
-       View::make('/Suunnitelmat/Varastonlistaus.html');
+       View::make('Suunnitelmat/Varastonlistaus.html');
     }
     
     public static function varasto_show(){
-      View::make('/Suunnitelmat/Varastotilanteenmuutos.html');
+      View::make('Suunnitelmat/Varastotilanteenmuutos.html');
     }
     
     public static function kayttaja_list(){
-       View::make('/Suunnitelmat/Käyttäjienlistaus.html');
+       View::make('Suunnitelmat/Käyttäjienlistaus.html');
     }
     
     public static function sandbox(){
