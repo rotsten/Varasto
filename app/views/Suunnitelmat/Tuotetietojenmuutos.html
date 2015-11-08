@@ -3,12 +3,6 @@
   <h1>Muokkaa tuotteen tietoja</h1>
 
   <form>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox">
-        <-- Tähän voisi laittaa jonkun tavan päivittää tietoja.
-      </label>
-    </div>
     <div class="form-group">
       <label>Nimi</label>
       <input type="text" class="form-control" value="Pitäisi myös tulostaa nykyiset tuotetiedot näkyviin">
@@ -26,7 +20,7 @@
           <textarea class="form-control">  </textarea>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Tallenna</button>
+          <button type="submit" class="btn btn-default"><A href="{{base_path}}/Suunnitelmat/Paasivu">Tallenna</A></button>
         </div>
   </form>
 {% endblock %}

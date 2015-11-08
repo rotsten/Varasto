@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Muokkaa käyttäjän tietoja</h1>
+
+  <form>
+    <div class="form-group">
+      <label>Käyttäjä</label>
+      <input type="text" class="form-control" value="Pitäisi myös tulostaa nykyiset käyttäjätiedot näkyviin">
+    </div>
+     <div class="form-group">
+          <label>Salasana</label>
+          <input type="text" class="form-control" value=" ">
+        </div>
+        <div class="form-group">
+          <label>Etunimi</label>
+          <input type="text" class="form-control" value=" ">
+        </div>
+        <div class="form-group">
+          <label>Sukunimi</label>
+          <textarea class="form-control">  </textarea>
+        </div>
+        <div class="form-group">
+          <label>Käyttöoikeudet</label>
+          <select name="Annettavat käyttöoikeidet">
+              <option value="rajoitetut inventointi oikeudet"></option>
+              <option value="täydet pääkäyttäjän oikeudet"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default"><A href="{{base_path}}/Suunnitelmat/Paasivu">Tallenna</A></button>
+        </div>
+  </form>
+{% endblock %}
