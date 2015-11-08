@@ -31,10 +31,6 @@
        View::make('Suunnitelmat/Tuotteidenlistaus.html');
     }
     
-    public static function tuote_edit(){
-       View::make('Suunnitelmat/Tuotetietojenmuutos.html');
-    }
-    
     //public static function handle_reg(){
     //   View::make('/Suunnitelmat/Paasivu.html');
     //}
