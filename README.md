@@ -5,8 +5,7 @@
 Yleisiä linkkejä:
 
 
-* [Linkki sovellukseeni, pahasti kesken](http://rotsten.users.cs.helsinki.fi/Varasto/)
-* [Linkki käyttöliittymäsuunnitelmaani] http://rotsten.users.cs.helsinki.fi/Varasto/Suunnitelmat/Aloitussivu.html)
+* [Linkki sovellukseeni](http://rotsten.users.cs.helsinki.fi/Varasto/)
 * [Linkki dokumentaatiooni](https://github.com/rotsten/Varasto/blob/master/doc/dokumentaatio.pdf)
 
 
