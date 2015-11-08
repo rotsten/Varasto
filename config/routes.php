@@ -37,7 +37,7 @@
   });
   
   $routes->get('/Suunnitelmat/Varastotilanteenmuutos', function() {
-    HelloWorldController::varasto_show();
+    HelloWorldController::varasto_edit();
   });
   
   $routes->get('/Suunnitelmat/Varastonlistaus', function() {
@@ -46,5 +46,9 @@
 
   $routes->get('/Suunnitelmat/Kayttajienlistaus', function() {
     HelloWorldController::kayttaja_list();
+  });
+  
+    $routes->get('/Suunnitelmat/Kayttajatietojenmuutos', function() {
+    HelloWorldController::kayttaja_edit();
   });
 

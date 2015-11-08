@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<H2>Tuotetietojen listaussivu</H2>
+
     <form action="handle_form.php">
 
 	<p>Tuote-ID      : <input type ="text" name ="product_id" size="20"/></p>
@@ -8,9 +10,9 @@
 	<p>Valmistaja    : <input type="text" name="producer" size="20" /></p>
 	<p>Tuotekuvaus   : <textarea name="Product_description" rows="3" cols="30"></textarea></p>
 	
-        <button class="btn btn-default" <input type="submit" <A href="{{base_path}}/Suunnitelmat/Tuotteenhakeminen">Hae tuotetta</A></button>
-        <button class="btn btn-default" <input type="submit" <A href="{{base_path}}/Suunnitelmat/Paasivu">Lisää tuote</A></button>
-        <button class="btn btn-default" <input type="submit" <A href="{{base_path}}/Suunnitelmat/Tuotetietojenmuutos">Muuta tuotetietoja</a></button>
+        <button class="btn btn-default"> <A href="{{base_path}}/Suunnitelmat/Tuotteenhakeminen">Hae tuotetta</A></button>
+        <button class="btn btn-default"> <A href="{{base_path}}/Suunnitelmat/Paasivu">Lisää tuote</A></button>
+        <button class="btn btn-default"> <A href="{{base_path}}/Suunnitelmat/Tuotetietojenmuutos">Muuta tuotetietoja</a></button>
 
     </form>
 
@@ -22,7 +24,7 @@
     <p><strong>Tuotteen nimi:</strong> Aku Ankan taskukirja nro 390 "Outolintu"</p>
     <p><strong>Valmistaja   : </strong>Sanoma Magazines</p>
     <p><strong>Lisäyspäivä  :</strong> 9.12.2014</p>
-    <p><strong>Kuvaus       :</strong> 9.12.2014</p>
+    <p><strong>Kuvaus       :</strong> xxx </p>
 
 <!-- Kuvaus tulee tähän -->
 <p> Tähän tulee näkyviin, miten Tuote-taulun Kuvaus-tietoon on talletettu.

@@ -31,6 +31,10 @@
        View::make('Suunnitelmat/Tuotteidenlistaus.html');
     }
     
+    public static function tuote_edit(){
+       View::make('Suunnitelmat/Tuotetietojenmuutos.html');
+    }
+    
     //public static function handle_reg(){
     //   View::make('/Suunnitelmat/Paasivu.html');
     //}
@@ -49,6 +53,10 @@
     
     public static function kayttaja_list(){
        View::make('Suunnitelmat/Kayttajienlistaus.html');
+    }
+    
+    public static function kayttaja_edit(){
+       View::make('Suunnitelmat/Kayttajatietojenmuutos.html');
     }
     
     public static function sandbox(){
