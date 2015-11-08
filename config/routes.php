@@ -24,6 +24,10 @@
     HelloWorldController::tuote_show();
   });
   
+  $routes->get('/Suunnitelmat/Lisaatuote', function() {
+    HelloWorldController::tuote_add();
+  });
+  
   $routes->get('/Suunnitelmat/Tuotteidenlistaus', function() {
     HelloWorldController::tuote_list();
   });

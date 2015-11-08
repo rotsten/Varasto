@@ -31,6 +31,10 @@
        View::make('Suunnitelmat/Tuotteidenlistaus.html');
     }
     
+    public static function tuote_add(){
+       View::make('Suunnitelmat/Lisaatuote.html');
+    }
+    
     //public static function handle_reg(){
     //   View::make('/Suunnitelmat/Paasivu.html');
     //}
