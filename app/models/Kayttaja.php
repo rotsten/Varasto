@@ -88,5 +88,6 @@ class Kayttaja extends BaseModel {
       return $kayttaja;
     } // end of if
   } // db_search_kayttaja ($kayttajatunnus) 
+  
 } // end of class
 
