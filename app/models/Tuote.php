@@ -52,7 +52,7 @@ class Tuote extends BaseModel {
         'tuote_id' => $row['tuote_id'],
         'tuotteen_nimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
-        'kuvaus' => $row['tuotekuvaus'],
+        'tuotekuvaus' => $row['kuvaus'],
         'added' => $row['added']
       ));
     } // end of foreach
