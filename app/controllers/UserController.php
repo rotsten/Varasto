@@ -12,8 +12,10 @@ class UserController extends BaseController {
  * Later add also other mechanisms to check the validity of the inputs... 
  */
 
-public static function handle_login ($submit){
+public static function handle_login (){
 
+    $params = $_POST;
+    
     // Success-flag setting
     $okay = TRUE;
    
