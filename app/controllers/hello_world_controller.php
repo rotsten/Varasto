@@ -15,7 +15,7 @@
     public static function sandbox(){
       // Testaa koodiasi täällä
       echo 'Hello World!';
-      $Tuotteet = Tuote::edit();
+      $Kayttajat = Kayttaja::all();
       //$Tuotteet = Tuote::all();
       // View::make('HelloWorld.html');
     }
