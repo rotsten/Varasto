@@ -27,12 +27,12 @@
     }
 
     public static function paasivu_show(){
-      View::make('Paasivu.html');
+      View::make('/Paasivu.html');
     }
    
     
     public static function login(){
-       View::make('Login.html');
+       View::make('/Login.html');
     }
    
     // Tuotteeseen liittyvät funktiot 
