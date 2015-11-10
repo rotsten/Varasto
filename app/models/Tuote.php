@@ -36,7 +36,5 @@ class Tuote extends BaseModel {
     $this->tuotekuvaus = $tuotekuvaus;
   }
   */
-  
-  
-  
+   
 } // end of class
