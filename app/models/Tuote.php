@@ -95,12 +95,18 @@ class Tuote extends BaseModel {
      */
     
     // Päivitetään tuotteen_nimi
-    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, temp_aiemmat_tuotetiedot => $tuotteen_nimi,$tuotteen_nimi');
+    $temp_nimi = ($temp_aiemmat_tuotetiedot = $tuotteen_nimi);
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(temp_tuotteen_nimi, tuotteen_nimi, $tuotteen_nimi) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään valmistajan tiedot
+    $temp_valmistaja = ($temp_aiemmat_tuotetiedot = $valmistaja);
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(temp_valmistaja, valmistaja, $valmistaja) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään tuotekuvaus
-      
+    $temp_tuotekuvaus = ($temp_aiemmat_tuotetiedot = $tuotekuvaus);
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(temp_tuotekuvaus, kuvaus, $tuotekuvaus) WHERE tuote_id = $tuote_id;');
+  
+    
   }     
   
   public function search ($tuote_id, $tuotteen_nimi){

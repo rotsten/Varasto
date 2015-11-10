@@ -51,7 +51,7 @@ class Kayttaja extends BaseModel {
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
 
-      $kayttajat[] = new Game(array(
+      $kayttajat[] = new Kayttaja(array(
         'kayttajatunnus' => $row['kayttajatunnus'],
         'salasana' => $row['salasana'],
         'etunimi' => $row['etunimi'],
@@ -61,7 +61,7 @@ class Kayttaja extends BaseModel {
       ));
     } // end of foreach
     return $kayttajat;
-  }  // end of tuote_list
+  }  // end of kayttaja_list
   
   // olioon liittyvä julkinen metodi
   public function edit($salasana, $etunimi, $sukunimi, $kayttooikeus){
