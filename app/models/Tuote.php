@@ -50,7 +50,7 @@ class Tuote extends BaseModel {
 
       $tuotteet[] = new Tuote (array(
         'tuote_id' => $row['tuote_id'],
-        'tuotteennimi' => $row['tuotteennimi'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
         'tuotekuvaus' => $row['tuotekuvaus'],
         'added' => $row['added']
