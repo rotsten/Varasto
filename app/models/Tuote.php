@@ -11,6 +11,7 @@
  *
  * @author rotsten
  */
+
 class Tuote extends BaseModel {
    // attribuutit
   public $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus;
