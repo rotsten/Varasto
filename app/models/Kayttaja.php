@@ -86,7 +86,7 @@ public static function handle_login ($submit){
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
-    $kayttajat = array();
+    $Kayttajat = array();
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
@@ -99,7 +99,7 @@ public static function handle_login ($submit){
         'kayttooikeus' => $row['kayttooikeus']
       ));
     } // end of foreach
-    return $kayttajat;
+    return $Kayttajat;
   }  // end of kayttaja_list
   
   // olioon liittyvä julkinen metodi
@@ -117,7 +117,7 @@ public static function handle_login ($submit){
     $row = $query->fetch();
 
     if($row){
-      $tuote = new Kayttaja(array(
+      $Found_Kayttaja = new Kayttaja(array(
         'kayttajatunnus' => $row['kayttajatunnus'],
         'salasana' => $row['salasana'],
         'etunimi' => $row['etunimi'],
@@ -125,7 +125,7 @@ public static function handle_login ($submit){
         'kayttooikeus' => $row['kayttooikeus']
       ));
       
-      return $kayttaja;
+      return $Found_Kayttaja;
     } // end of if
   } // db_search_kayttaja ($kayttajatunnus) 
   
