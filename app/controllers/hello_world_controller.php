@@ -30,6 +30,7 @@
       View::make('Kayttaja/Paasivu.html');
     }
    
+    
     public static function login(){
        View::make('Kayttaja/Login.html');
     }
