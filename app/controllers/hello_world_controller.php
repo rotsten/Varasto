@@ -22,17 +22,17 @@
     
     public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
-      View::make('Kayttaja/Aloitussivu.html');
+      View::make('Aloitussivu.html');
       // echo 'Tämä on etusivu!';
     }
 
     public static function paasivu_show(){
-      View::make('Kayttaja/Paasivu.html');
+      View::make('Paasivu.html');
     }
    
     
     public static function login(){
-       View::make('Kayttaja/Login.html');
+       View::make('Login.html');
     }
    
     // Tuotteeseen liittyvät funktiot 
