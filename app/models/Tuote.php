@@ -147,11 +147,8 @@ class Tuote extends BaseModel {
      // Luodaan annettuja arvoja käyttäen uusi tuote.
       
      $uusi_tuote = new Tuote ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara
-     
-    $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara');
+     $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara');
   
-     
-     return uusi_tuote;
   }*/
   
 } // end of class
