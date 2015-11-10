@@ -3,12 +3,14 @@
   $routes->get('/', function() {
     HelloWorldController::index();
   });
-  
+ 
+  /* 
   $routes->get('/login', function(){
     // Kirjautumislomakkeen esittäminen
     UserController::login();
   });
-
+  */
+  
   $routes->post('/login', function(){
     // Kirjautumisen käsittely
     UserController::handle_login();
@@ -18,7 +20,7 @@
     HelloWorldController::sandbox();
   });
   
-  $routes->get('/Kayttaja/Paasivu', function() {
+  $routes->get('/Paasivu', function() {
     HelloWorldController::paasivu_show();
   });
   
