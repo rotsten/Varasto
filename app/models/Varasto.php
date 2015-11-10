@@ -36,8 +36,7 @@ class Varasto extends BaseModel{
 
       $varaston_tilanne[] = new Varasto(array(
         'tuote_id' => $row['tuote_id'],
-        'kayttajatunnus' => $row['kayttajatunnus'],
-        'added' => $row['added']
+        'kayttajatunnus' => $row['kayttajatunnus']
       ));
     } // end of foreach
     return $varaston_tilannet;

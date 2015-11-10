@@ -56,8 +56,7 @@ class Kayttaja extends BaseModel {
         'salasana' => $row['salasana'],
         'etunimi' => $row['etunimi'],
         'sukunimi' => $row['sukunimi'],
-        'kayttooikeus' => $row['kayttooikeus'],
-        'added' => $row['added']
+        'kayttooikeus' => $row['kayttooikeus']
       ));
     } // end of foreach
     return $kayttajat;
@@ -83,8 +82,7 @@ class Kayttaja extends BaseModel {
         'salasana' => $row['salasana'],
         'etunimi' => $row['etunimi'],
         'sukunimi' => $row['sukunimi'],
-        'kayttooikeus' => $row['kayttooikeus'],
-        'added' => $row['added']
+        'kayttooikeus' => $row['kayttooikeus']
       ));
       
       return $kayttaja;

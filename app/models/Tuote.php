@@ -52,8 +52,7 @@ class Tuote extends BaseModel {
         'tuote_id' => $row['tuote_id'],
         'tuotteen_nimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
-        'tuotekuvaus' => $row['kuvaus'],
-        'added' => $row['added']
+        'tuotekuvaus' => $row['kuvaus']
       ));
     } // end of foreach
     return $tuotteet;
@@ -105,8 +104,7 @@ class Tuote extends BaseModel {
     // Päivitetään tuotekuvaus
     $temp_tuotekuvaus = ($temp_aiemmat_tuotetiedot = $tuotekuvaus);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(temp_tuotekuvaus, kuvaus, $tuotekuvaus) WHERE tuote_id = $tuote_id;');
-  
-    
+      
   }     
   
   public function search ($tuote_id, $tuotteen_nimi){
@@ -131,10 +129,9 @@ class Tuote extends BaseModel {
     if($row){
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
-        'tuotteennimi' => $row['tuotteennimi'],
+        'tuotteennimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
-        'tuotekuvaus' => $row['tuotekuvaus'],
-        'added' => $row['added']
+        'tuotekuvaus' => $row['kuvaus']
       ));
       
       return $tuote;
@@ -156,11 +153,10 @@ class Tuote extends BaseModel {
     if($row){
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
-        'tuotteennimi' => $row['tuotteennimi'],
+        'tuotteennimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
-        'tuotekuvaus' => $row['tuotekuvaus'],
-        'lukumaara' => $row['lukumaara'],
-        'added' => $row['added']
+        'tuotekuvaus' => $row['kuvaus'],
+        'lukumaara' => $row['lukumaara']
       ));
      
       return $tuote;
