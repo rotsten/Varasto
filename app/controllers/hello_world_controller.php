@@ -22,38 +22,38 @@
     
     public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
-      View::make('Suunnitelmat/Aloitussivu.html');
+      View::make('Kayttaja/Aloitussivu.html');
       // echo 'Tämä on etusivu!';
     }
 
     public static function paasivu_show(){
-      View::make('Suunnitelmat/Paasivu.html');
+      View::make('Kayttaja/Paasivu.html');
     }
    
     public static function login(){
-       View::make('Suunnitelmat/Login.html');
+       View::make('Kayttaja/Login.html');
     }
    
     // Tuotteeseen liittyvät funktiot 
     
     public static function tuote_show(){
-      View::make('Suunnitelmat/Tuotesivu.html');
+      View::make('Tuote/Tuotesivu.html');
     }
 
     public static function tuote_list(){
-       View::make('Suunnitelmat/Tuotteidenlistaus.html');
+       View::make('Tuote/Tuotteidenlistaus.html');
     }
 
     public static function tuote_add(){
-       View::make('Suunnitelmat/Lisaatuote.html');
+       View::make('Tuote/Lisaatuote.html');
     }
     
     public static function tuote_edit(){
-      View::make('Suunnitelmat/Tuotetietojenmuutos.html');
+      View::make('Tuote/Tuotetietojenmuutos.html');
     }
     
     public static function tuote_search(){
-      View::make('Suunnitelmat/Tuotteenhakeminen.html');
+      View::make('Tuote/Tuotteenhakeminen.html');
     }
        
     //public static function handle_reg(){
@@ -64,20 +64,20 @@
     // Varastoon liittyvät funktiot
     
     public static function varasto_list(){
-       View::make('Suunnitelmat/Varastonlistaus.html');
+       View::make('Varasto/Varastonlistaus.html');
     }
     
     public static function varasto_edit(){
-      View::make('Suunnitelmat/Varastotilanteenmuutos.html');
+      View::make('Varasto/Varastotilanteenmuutos.html');
     }
     
     // Käyttäjään littyvät funktiot
     
     public static function kayttaja_list(){
-       View::make('Suunnitelmat/Kayttajienlistaus.html');
+       View::make('Kayttaja/Kayttajienlistaus.html');
     }
     
     public static function kayttaja_edit(){
-       View::make('Suunnitelmat/Kayttajatietojenmuutos.html');
+       View::make('Kayttaja/Kayttajatietojenmuutos.html');
     }
   }

@@ -12,47 +12,45 @@
     HelloWorldController::sandbox();
   });
   
-  $routes->get('/Suunnitelmat/Paasivu', function() {
+  $routes->get('/Kayttaja/Paasivu', function() {
     HelloWorldController::paasivu_show();
   });
   
-  $routes->get('/Suunnitelmat/Varasto-kansi', function() {
-    HelloWorldController::show_kuva();
-  });
-  
-  $routes->get('/Suunnitelmat/Tuotesivu', function() {
-    HelloWorldController::tuote_show();
-  });
-  
-  $routes->get('/Suunnitelmat/Lisaatuote', function() {
-    HelloWorldController::tuote_add();
-  });
-  
-  $routes->get('/Suunnitelmat/Tuotteidenlistaus', function() {
-    HelloWorldController::tuote_list();
-  });
-  
-  $routes->get('/Suunnitelmat/Tuotteenhakeminen', function() {
-    HelloWorldController::tuote_search();
-  });
-  
-  $routes->get('/Suunnitelmat/Tuotetietojenmuutos', function() {
-    HelloWorldController::tuote_edit();
-  });
-  
-  $routes->get('/Suunnitelmat/Varastotilanteenmuutos', function() {
-    HelloWorldController::varasto_edit();
-  });
-  
-  $routes->get('/Suunnitelmat/Varastonlistaus', function() {
-    HelloWorldController::varasto_list();
-  });
-
-  $routes->get('/Suunnitelmat/Kayttajienlistaus', function() {
+  $routes->get('/Kayttaja/Kayttajienlistaus', function() {
     HelloWorldController::kayttaja_list();
   });
   
-    $routes->get('/Suunnitelmat/Kayttajatietojenmuutos', function() {
+  $routes->get('/Kayttaja/Kayttajatietojenmuutos', function() {
     HelloWorldController::kayttaja_edit();
   });
+    
+  $routes->get('/Tuote/Tuotesivu', function() {
+    HelloWorldController::tuote_show();
+  });
+  
+  $routes->get('/Tuote/Lisaatuote', function() {
+    HelloWorldController::tuote_add();
+  });
+  
+  $routes->get('/Tuote/Tuotteidenlistaus', function() {
+    HelloWorldController::tuote_list();
+  });
+  
+  $routes->get('/Tuote/Tuotteenhakeminen', function() {
+    HelloWorldController::tuote_search();
+  });
+  
+  $routes->get('/Tuote/Tuotetietojenmuutos', function() {
+    HelloWorldController::tuote_edit();
+  });
+  
+  $routes->get('/Varasto/Varastotilanteenmuutos', function() {
+    HelloWorldController::varasto_edit();
+  });
+  
+  $routes->get('/Varasto/Varastonlistaus', function() {
+    HelloWorldController::varasto_list();
+  });
+
+
 
