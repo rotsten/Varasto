@@ -74,11 +74,33 @@ class Tuote extends BaseModel {
  */
   
   // olioon liittyvät julkiset metodit
-  public function edit($tuotteen_nimi, $valmistaja, $tuotekuvaus){
-    // Tuote-id on hakuavain ja sitä ei voi editoida
-    $this->tuotteen_nimi = $tuotteen_nimi;
-    $this->valmistaja = $valmistaja;
-    $this->tuotekuvaus = $tuotekuvaus;
+  public function edit($tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus){
+    
+    /*
+     *  Tuote-id on hakuavain. Sitä ei voi editoida.
+     *  Lukumäärätietoa voisi varmaan päivittää myös tässäkin, mutta se vaatisi
+     *  käyttäjäoikeuksien tarkastamista. On selkeämpää, jos koko tuotetietojenmuutos -sivu
+     *  on inventointioikeuksilla estetty. --> Jatkokehityspohde.
+     * 
+     *  Muutoskomento vaatii myös attribuuttien aiempien tietojen
+     *  antamista. Siispä ne pitää hakea
+     */
+  
+    $temp_aiemmat_tuotetiedot = db_search_tuote_id($tuote_id);
+  
+    /*
+     * UPDATE table
+     *   SET column = REPLACE(column,old_text,new_text)
+     *   WHERE condition
+     */
+    
+    // Päivitetään tuotteen_nimi
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, temp_aiemmat_tuotetiedot => $tuotteen_nimi,$tuotteen_nimi');
+    
+    // Päivitetään valmistajan tiedot
+    
+    // Päivitetään tuotekuvaus
+      
   }     
   
   public function search ($tuote_id, $tuotteen_nimi){
