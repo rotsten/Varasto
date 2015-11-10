@@ -5,10 +5,12 @@
   
   class HelloWorldController extends BaseController{
 
+ /*
     public static function sandbox(){
       $Tuotteet = Tuote::all();
       Kint::dump ($Tuotteet);
     }
+ */
     
     public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
