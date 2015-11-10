@@ -48,7 +48,7 @@ class Tuote extends BaseModel {
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
 
-      $tuotteet[] = new Game(array(
+      $tuotteet[] = new Tuote (array(
         'tuote_id' => $row['tuote_id'],
         'tuotteennimi' => $row['tuotteennimi'],
         'valmistaja' => $row['valmistaja'],
@@ -59,6 +59,20 @@ class Tuote extends BaseModel {
     return $tuotteet;
   }  // end of tuote_list
 
+ /*
+    // Toinen yritelmä samasta teemasta
+  
+    public static function db_list_tuote(){
+        $query = DB::connection()->prepare('SELECT * FROM TUOTE');
+        $query->execute(array('tuote_id' => $tuote_id));
+        $Tuotteet = new array(Tuote);
+
+        $Tuotteet = $query->fetchAll('tuote_id', 'tuotteennimi', 'valmistaja');
+      return $Tuotteet;
+  } // end of db_list_tuote
+  
+ */
+  
   // olioon liittyvät julkiset metodit
   public function edit($tuotteen_nimi, $valmistaja, $tuotekuvaus){
     // Tuote-id on hakuavain ja sitä ei voi editoida
@@ -80,7 +94,7 @@ class Tuote extends BaseModel {
       }
       return $tulos;
   }
-
+ 
   public static function db_search_tuote_id($tuote_id){
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
@@ -102,11 +116,12 @@ class Tuote extends BaseModel {
   public static function db_search_tuotteennimi($tuotteennimi){
       
       /*
-       * Halutulosta pitäisi laajentaa niin, että se listaisi useampia tuotteita.
+       * Hakutulosta pitäisi laajentaa niin, että se listaisi useampia tuotteita.
        * Myös ne, joiden nimessä annettu sana esiintyy, ei vain niitä, jotka 
        * täydellisesti täyttävät hakuehdon.
        */
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuotteen_nimi = $tuotteennimi LIMIT 1');
+    
+    $query = DB::connection()->prepare('SELECT Tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteennimi LIMIT 1');
     $query->execute(array('tuotteenimi' => $tuotteennimi));
     $row = $query->fetch();
 
@@ -116,13 +131,27 @@ class Tuote extends BaseModel {
         'tuotteennimi' => $row['tuotteennimi'],
         'valmistaja' => $row['valmistaja'],
         'tuotekuvaus' => $row['tuotekuvaus'],
+        'lukumaara' => $row['lukumaara'],
         'added' => $row['added']
       ));
-      
+     
       return $tuote;
     } // end of if
-
     return null;
   } // end of db_search_tuotteennimi
+  
+  /*
+  public static function db_lisaa_tuote($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara){
+     
+     // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
+     // Luodaan annettuja arvoja käyttäen uusi tuote.
+      
+     $uusi_tuote = new Tuote ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara
+     
+    $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara');
+  
+     
+     return uusi_tuote;
+  }*/
   
 } // end of class

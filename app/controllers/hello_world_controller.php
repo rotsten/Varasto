@@ -1,7 +1,18 @@
 <?php
 
+  require 'app/models/Tuote.php';
+  require 'app/models/Kayttaja.php';
+  
   class HelloWorldController extends BaseController{
 
+    public static function sandbox(){
+      $Tuotteet = Tuote::all();
+      Kint::dump ($Tuotteet);
+ 
+      //View::make('Suunnitelmat/Aloitussivu.html');
+      // echo 'Tämä on etusivu!';
+    }
+    
     public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
       View::make('Suunnitelmat/Aloitussivu.html');
