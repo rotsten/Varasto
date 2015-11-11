@@ -5,10 +5,7 @@
     <thead>
       <tr>
         <th>Tuote-ID</th>
-        //<th>Tuotteen nimi</th>
-        //<th>Lukumäärä</th>
         <th>Inventoinut</th>
-        //<th>Inventointipäivä</th>
         <th></th>
       </tr>
     </thead>
@@ -18,14 +15,10 @@
       {% for Varasto in varaston_tilanne %}
           <tr>
             <td><a href="#">{{Varasto.tuote_id}}</a></td>
-            //<td>{{Tuote.tuotteen_nimi}}</td>
-            //<td>{{Tuote.lukumaara}}</td>
             <td>{{Varasto.kayttajatunnus}}</td>
           <tr>
             <td><a href="#"> xxx</a></td>
             <td>xxx</td>
-           // <td>xxx</td>
-           // <td>xxx</td>
             <th><a class="btn btn-default btn-sm"<A href="{{base_path}}/Varasto/Varastotilanteenmuutos"> Muokkaa</a></th>
           </tr>
       {% endfor %}
