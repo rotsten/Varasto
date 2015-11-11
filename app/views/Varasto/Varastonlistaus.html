@@ -5,17 +5,24 @@
     <thead>
       <tr>
         <th>Tuote-ID</th>
+        <th>Tuotteen nimi</th>
+        <th>Lukumäärä</th>
         <th>Inventoinut</th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <!-- Listataan Varaston tuotteet tähän eli haetaan, jos lukumäärä > 0 -->
+      <!-- Listataan Varaston tuotteet tähän eli haetaan, jos lukumäärä > 0 
+           Tämä vaantii koontitaulun luomista tietokantaan ja sen sisällön 
+           listaamista
+      -->
       {% for Varasto in varastotilanne %}
           <tr>
             <td><a href="#">{{Varasto.tuote_id}}</a></td>
-            <td>{{Varasto.history_kuka_inventoi}}</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>{{Varasto.history_kuka_inventoi-> kayttajatunnus}}</td>
             <th><a class="btn btn-default btn-sm"<A href="{{base_path}}/Varasto/Varastotilanteenmuutos"> Muokkaa</a></th>
           </tr>
       {% endfor %}
