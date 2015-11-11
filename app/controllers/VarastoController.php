@@ -18,7 +18,7 @@ class VarastoController {
        $varastotilanne = Varasto::all();
        View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
     }
-    
+    // sama omalla tyylillä ja omilla nimillä...
     
     public static function varasto_list(){
     /*

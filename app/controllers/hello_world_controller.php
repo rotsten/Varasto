@@ -13,7 +13,6 @@
       $kayttajat = Kayttaja::all();
       $Tuotteet = Tuote::all();
       
-
       Kint::dump ($Tuotteet);
       Kint::dump ($varastotilanne);
       Kint::dump ($kayttajat);
