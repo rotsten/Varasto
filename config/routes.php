@@ -58,9 +58,7 @@
   $routes->get('/Tuote/Tuotteenhakeminen', function() {
     TuoteController::tuote_search();
   });
-  
-
-  
+ 
   $routes->post('/find_tuotteennimi', function(){
     TuoteController::find_tuotteennimi();
   });

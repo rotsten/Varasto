@@ -130,7 +130,16 @@ class TuoteController extends BaseController{
       
       return $tuote;
     } // end of if
-  } // end of db_search_tuote_id
+  } // end of find_tuote (Tuote_id)
+  
+  public function tuote_show($Tuote_id) {
+      
+      /* Etsitään näytettävän tuotteen
+       * tiedot
+       */
+      $listattava_tuote = find_tuote ($Tuote_id);
+      return $listattava_tuote;
+  }
   
   public function find_tuotteennimi($tuotteennimi){
       
