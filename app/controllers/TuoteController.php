@@ -100,7 +100,7 @@ class TuoteController extends BaseController{
       
   }     
   
-  public function search ($tuote_id, $tuotteen_nimi){
+  public function tuote_search ($tuote_id, $tuotteen_nimi){
       $tulos=0;
       
       if ($tuote_id != 0) {
@@ -113,7 +113,7 @@ class TuoteController extends BaseController{
       }
       return $tulos;
   }
- 
+    
   public function find_tuote ($tuote_id){
       
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
