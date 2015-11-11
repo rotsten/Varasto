@@ -46,7 +46,7 @@
   });
 
   $routes->post('/find_tuote', function(){
-    TuoteController::find_tuote();
+    TuoteController::find_tuote($Tuote_id);
   });
   
    /*
@@ -68,11 +68,11 @@
   });
   
   $routes->get('/Tuote/Tuotetietojenmuutos', function() {
-    TuoteController::tuote_edit();
+    TuoteController::tuote_edit($Tuote_id);
   });
   
   $routes->get('/Varasto/Varastotilanteenmuutos', function() {
-    VarastoController::varasto_edit();
+    VarastoController::varasto_edit($Tuote_id);
   });
   
   $routes->get('/Varasto/Varastonlistaus', function() {
