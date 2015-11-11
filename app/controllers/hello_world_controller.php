@@ -8,7 +8,7 @@
  
     public static function sandbox(){
       $Tuotteet = Tuote::all();
-      Kint::dump ($Tuotteet);
+      //Kint::dump ($Tuotteet);
     }
  
 /*
@@ -53,11 +53,6 @@
       View::make('Tuote/Tuotteenhakeminen.html');
     }
        
-    //public static function handle_reg(){
-    //   View::make('Paasivu.html');
-    //}
-    
-
     // Varastoon liittyvät funktiot
     
     public static function varasto_list(){
