@@ -3,7 +3,7 @@
 
   <h1>Kirjaudu sisään</h1>
 
-   <form method="post" action="/UserController/{{kayttajatunnus}{salasana}}/handle_login">
+  <form method="post" action="{{base_path}}/UserController/">
     <!-- Tekstikenttä käyttäjätunnukselle -->
     
     <div class="form-group">
@@ -15,10 +15,14 @@
     <div class="form-group">
       <label>Salasana</label>
       <input type="password" name="salasana" class="form-control">
-    </div>
-
-    <button class="btn btn-default" name="Kirjaudu!" type="submit" onsubmit="/UserController/{{kayttajatunnus}{salasana}}/handle_login"></button>
-                                                                          
+   
+   <!-- testataan....
+   btton class="btn btn-default" name="Kirjaudu!" type="submit" onsubmit="/UserController/{{kayttajatunnus}{salasana}}/handle_login"></button>
+   -->     
+      
+  <button class="btn btn-default" name="Kirjaudu!" type="submit"></button>
+  </div>
+  
   </form>
 
   {% endblock %}
