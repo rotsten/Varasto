@@ -37,6 +37,29 @@ class TuoteController extends BaseController{
   
  */
   
+  public function tallenna(){
+    // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
+    $params = $_POST;
+    
+    $Uusi_tuote = new Tuote(array(
+      'tuote_id' => $params['tuote_id'],  
+      'tuotteen_nimi' => $params['tuotteen_nimi'],
+      'valmistaja' => $params['valmistaja'],
+      'kuvaus' => $params['kuvaus'],
+    ));
+
+    // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
+    $Uusi_tuote->save();
+
+    /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
+     * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
+     * kerralla väärin.
+     */
+    
+    Redirect::to('/Tuote/Tuotesivu' . $Tuote_id->Tuote_id, $Uusi_tuote);
+ 
+  }
+  
   // olioon liittyvät julkiset metodit
   public function edit($tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus){
     
