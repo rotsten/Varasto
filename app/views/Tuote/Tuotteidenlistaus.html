@@ -9,7 +9,7 @@
         <th>Tuote-ID</th>
         <th>Tuotteen nimi</th>
         <th>Valmistaja</th>
-        <th>Kuvaus</th>
+        <th>Tuotekuvaus</th>
         <th></th>
         <th></th>
       </tr>
@@ -21,7 +21,7 @@
             <td><a href="#">{{Tuote.tuote_id}}</a></td>
             <td>{{Tuote.tuotteen_nimi}}</td>
             <td>{{Tuote.valmistaja}}</td>
-            <td>{{Tuote.tuotekuvaus}}</td>
+            <td>{{Tuote.kuvaus}}</td>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/Tuotesivu">Katso tiedot</a></th>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/{{Tuote.tuote_id}}/Tuotetietojenmuutos">Muokkaa</a></th>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Paasivu">Poista</a></th> 

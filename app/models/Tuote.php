@@ -14,7 +14,7 @@
 
 class Tuote extends BaseModel {
    // attribuutit
-  public $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus;
+  public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus;
   
   // konstruktori
   public function __construct ($attributes){
@@ -56,7 +56,7 @@ class Tuote extends BaseModel {
             'tuote_id' => $row['tuote_id'],
             'tuotteen_nimi' => $row['tuotteen_nimi'],
             'valmistaja' => $row['valmistaja'],
-            'tuotekuvaus' => $row['kuvaus']
+            'kuvaus' => $row['kuvaus']
           ));
       } // end of foreach
     return $tuotteet;
