@@ -8,12 +8,7 @@
     HelloWorldController::kirjaudu();
   });
   
-  $routes->get('/login', function(){
-    // Kirjautumislomakkeen esittäminen
-    HelloWorldController::login();
-  });
-
-  $routes->post('/login', function(){
+  $routes->post('/kirjaudu', function(){
     // Kirjautumisen käsittely
     UserController::handle_login();
   });
