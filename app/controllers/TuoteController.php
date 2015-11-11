@@ -12,6 +12,11 @@
  * @author rotsten
  */
 class TuoteController extends BaseController{
+    
+  public static function index(){
+    $Tuotteet = Tuote::all();
+    View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+  }
  
   public static function tuote_list(){
     /*

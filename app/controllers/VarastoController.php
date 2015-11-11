@@ -12,7 +12,15 @@
  * @author rotsten
  */
 class VarastoController {
-      public static function varasto_list(){
+    
+    
+    public static function index(){
+       $varastotilanne = Varasto::all();
+       View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
+    }
+    
+    
+    public static function varasto_list(){
     /*
      * Tämä funktio kutsuu, all-funktiota,
      * mikä hakee varastotilanteen tietokannasta

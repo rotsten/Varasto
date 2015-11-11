@@ -12,7 +12,12 @@
  * @author rotsten
  */
 class KayttajaController {
-          
+    
+    public static function index(){
+       $kayttajat = Kayttaja::all();
+       View::make('kayttajat/Kayttajienlistaus.html', array('kayttajat' => $kayttajat));
+    }
+    
     public static function kayttaja_list(){
     /*
      * Tämä funktio kutsuu, all-funktiota,
