@@ -12,7 +12,7 @@
       $Tuotteet = Tuote::all();
 
       Kint::dump ($Tuotteet);
-      Kint::dump ($varaston_tilanne);
+      Kint::dump ($varastotilanne);
       Kint::dump ($kayttajat);
     }
  
