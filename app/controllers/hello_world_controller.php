@@ -8,6 +8,7 @@
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
       $Tuotteet = Tuote::all();
+      $varaston_tilanne = Varasto::all();
       Kint::dump ($Tuotteet);
     }
  
