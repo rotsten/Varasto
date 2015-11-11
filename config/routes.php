@@ -4,6 +4,9 @@
     HelloWorldController::index();
   });
  
+  $routes->get('/Kirjaudu', function() {
+    HelloWorldController::kirjaudu();
+  });
   
   $routes->get('/login', function(){
     // Kirjautumislomakkeen esittäminen
@@ -19,10 +22,7 @@
     HelloWorldController::sandbox();
   });
   
-  $routes->get('/Kirjaudu', function() {
-    HelloWorldController::kirjaudu();
-  });
-  
+
   
   $routes->get('/Paasivu', function() {
     HelloWorldController::paasivu_show();

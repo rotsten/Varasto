@@ -39,7 +39,7 @@ class Kayttaja extends BaseModel {
   }
   */
   
-  public static function kayttaja_list(){
+  public static function all(){
     // Alustetaan kysely tietokantayhteydellämme
     $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA');
     // Suoritetaan kysely
@@ -59,7 +59,7 @@ class Kayttaja extends BaseModel {
         'kayttooikeus' => $row['kayttooikeus']
       ));
     } // end of foreach
-    return $Kayttajat;
+    return $kayttajat;
   }  // end of kayttaja_list
   
   // olioon liittyvä julkinen metodi
