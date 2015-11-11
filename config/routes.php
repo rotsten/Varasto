@@ -7,10 +7,9 @@
   
   $routes->get('/login', function(){
     // Kirjautumislomakkeen esittäminen
-    UserController::login();
+    HelloWorldController::login();
   });
-  
-    
+
   $routes->post('/login', function(){
     // Kirjautumisen käsittely
     UserController::handle_login();

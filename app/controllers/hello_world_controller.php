@@ -4,11 +4,11 @@
   //require 'app/models/Kayttaja.php';
   
   class HelloWorldController extends BaseController{
-
  
     public static function sandbox(){
+      echo 'Hip-hei, täällä ollaan!';
       $Tuotteet = Tuote::all();
-      //Kint::dump ($Tuotteet);
+      Kint::dump ($Tuotteet);
     }
  
 /*
@@ -32,7 +32,6 @@
     }
    
     // Tuotteeseen liittyvät funktiot 
-    
     public static function tuote_show(){
       View::make('Tuote/Tuotesivu.html');
     }
@@ -64,7 +63,6 @@
     }
     
     // Käyttäjään littyvät funktiot
-    
     public static function kayttaja_list(){
        View::make('Kayttaja/Kayttajienlistaus.html');
     }
