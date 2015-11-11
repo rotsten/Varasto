@@ -84,8 +84,8 @@ class Tuote extends BaseModel {
                           'kuvaus' => $this->kuvaus,
                           'valmistaja' => $this->valmistaja, 
                           'lukumaara' => $this->lukumaara,
-                          'history_date' => timestamp
-                          );
+                          'history_date' => $timestamp
+                          ));
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
     $row = $query->fetch();
     // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
