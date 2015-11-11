@@ -36,5 +36,31 @@ class Tuote extends BaseModel {
     $this->tuotekuvaus = $tuotekuvaus;
   }
   */
+
+   public static function all(){
+    /*
+     * Tämä funktio hakee kaikki tuotteet tietokannasta ja
+     * palauttaa ne Tuotteet -nimisessä taulukossa
+     */
    
-} // end of class
+      $query = DB::connection()->prepare('SELECT * FROM TUOTE');
+      // Suoritetaan kysely
+      $query->execute();
+      // Haetaan kyselyn tuottamat rivit
+      $rows = $query->fetchAll();
+      $tuotteet = array();
+
+      // Käydään kyselyn tuottamat rivit läpi
+      foreach($rows as $row){
+          $tuotteet[] = new Tuote (array(
+            'tuote_id' => $row['tuote_id'],
+            'tuotteen_nimi' => $row['tuotteen_nimi'],
+            'valmistaja' => $row['valmistaja'],
+            'tuotekuvaus' => $row['kuvaus']
+          ));
+      } // end of foreach
+    return $tuotteet;
+   } // end of 
+
+   
+      } // end of class

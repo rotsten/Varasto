@@ -20,16 +20,13 @@
     }
     
     public static function index(){
-      // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
       View::make('Aloitussivu.html');
-      // echo 'Tämä on etusivu!';
     }
 
     public static function paasivu_show(){
       View::make('Paasivu.html');
     }
    
-    
     public static function login(){
        View::make('Login.html');
     }
@@ -57,7 +54,7 @@
     }
        
     //public static function handle_reg(){
-    //   View::make('/Suunnitelmat/Paasivu.html');
+    //   View::make('Paasivu.html');
     //}
     
 

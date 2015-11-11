@@ -14,25 +14,13 @@
 class TuoteController extends BaseController{
  
   public static function tuote_list(){
-    // Alustetaan kysely tietokantayhteydellämme
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE');
-    // Suoritetaan kysely
-    $query->execute();
-    // Haetaan kyselyn tuottamat rivit
-    $rows = $query->fetchAll();
-    $tuotteet = array();
-
-    // Käydään kyselyn tuottamat rivit läpi
-    foreach($rows as $row){
-
-      $tuotteet[] = new Tuote (array(
-        'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
-        'valmistaja' => $row['valmistaja'],
-        'tuotekuvaus' => $row['kuvaus']
-      ));
-    } // end of foreach
-    return $tuotteet;
+    /*
+     * Tämä funktio kutsuu, all-funktiota,
+     * mikä hakee kaikki tuotteet tietokannasta
+     */
+     $Tuotteet = Tuote::all();
+     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+    
   }  // end of tuote_list
 
  /*
