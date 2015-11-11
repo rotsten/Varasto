@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>Muokkaa käyttäjän tietoja</h1>
+<form method="post" action="{{base_path}}/Kayttaja">
+  
+  <H2>Nykyiset tiedot</H2>  
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Kayttajatunnus</th>
+        <th>Salasana</th>
+        <th>Etunimi</th>
+        <th>Sukunimi</th>
+        <th>Käyttäjäoikeudet</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+        {% for Kayttaja in muutettava_kayttaja%}
+           <tr>
+             <td><a href="#">{{Kayttaja.kayttajatunnus}}</a></td>
+             <td>{{Kayttaja.salasana}})</td>
+             <td>{{Kayttaja.etunimi}}</td>
+             <td>{{Kayttaja.sukunimi}})</td>
+             <td>{{Kayttaja.kayttooikeudet}})</td>
+          </tr>
+        {% endfor %}
+     </tbody>       
+  </table>
+  
+    <div class="form-group">
+        <label>{Kayttaja.kayttajatunnus}}</label>
+    </div>
+  
+    <div class="form-group">
+        <label>Salasana</label>
+        <input type ="text" name ="salasana" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Etunimi</label>
+        <input type ="text" name ="etunimi" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Sukunimi</label>
+        <input type ="text" name ="sukunimi" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Käyttöoikeudet</label>
+      <select name="Annettavat käyttöoikeidet">
+          <option value="default"> Valitse listasta</option>
+          <option value="default"> Rajoitetut inventointioikeudet</option>
+          <option value="master_user">Täydet pääkäyttäjän oikeudet</option>
+      </select> 
+    </div>
+
+    <button type ="submit" class="btn btn-default">Tallenna</button>
+    <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu tallentamatta</A></button>
+    </form>
+</form> 
+</body>
+{% endblock %}

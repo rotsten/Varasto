@@ -25,7 +25,7 @@
     KayttajaController::kayttaja_list();
   });
   
-  $routes->get('/Kayttaja/Kayttajatietojenmuutos', function() {
+  $routes->get('/Kayttaja/Kayttajatietojenmuutos-testi', function() {
     KayttajaController::kayttaja_edit();
   });
     
