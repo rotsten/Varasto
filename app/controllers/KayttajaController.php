@@ -24,7 +24,7 @@ class KayttajaController {
      * mikä hakee varastotilanteen tietokannasta
      */
      $kayttajat = Kayttaja::all();
-     View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $kayttajat));
+     View::make('Kayttaja/Kayttajienlistaus.html', array('kayttajat' => $kayttajat));
     
   }  // end of kayttaja_list
 }

@@ -177,4 +177,18 @@ class TuoteController extends BaseController{
      $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara');
   
   }*/
+  
+  public static function tuote_delete($Tuote_id){
+    
+    /*
+     * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen
+     * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
+     */
+      
+    $poistettava_tuote = new Tuote(array('Tuote_id' => $Tuote_id));
+    $poistettava_tuote->destroy();
+
+    // Käyttäjä näkee listauksesta, että tuote on poistunut 
+    Redirect::to('/Tuote', array());
+  }
 }
