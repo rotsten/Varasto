@@ -33,6 +33,10 @@
     TuoteController::tuote_show();
   });
   
+  $routes->get('/Tuote/Tuotesivu', function($Tuote_id) {
+    TuoteController::tuote_show($Tuote_id);
+  });
+  
   $routes->get('/Tuote/Lisaatuote', function() {
     TuoteController::tuote_add();
   });
@@ -40,14 +44,22 @@
   $routes->get('/Tuote/Tuotteidenlistaus', function() {
     TuoteController::tuote_list();
   });
+
+  $routes->post('/find_tuote', function(){
+    TuoteController::find_tuote();
+  });
   
+   /*
+    * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
+    * taan tuote_search() -funktiota.
+    * 
+    * Tällä hetkellä tekstihaku on edelleen kehittelyvaiheessa.
+    */
   $routes->get('/Tuote/Tuotteenhakeminen', function() {
     TuoteController::tuote_search();
   });
   
-  $routes->post('/find_tuote', function(){
-    TuoteController::find_tuote();
-  });
+
   
   $routes->post('/find_tuotteennimi', function(){
     TuoteController::find_tuotteennimi();
