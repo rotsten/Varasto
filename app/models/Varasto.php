@@ -29,17 +29,18 @@ class Varasto extends BaseModel{
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
-    $varaston_tilanne = array();
+    $varastotilanne = array();
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
 
-      $varaston_tilanne[] = new Varasto(array(
+      $varastotilanne[] = new Varasto(array(
         'tuote_id' => $row['tuote_id'],
         'history_kuka_inventoi' => $row['history_kuka_inventoi']
       ));
     } // end of foreach
-    return $varaston_tilanne;
+    
+    return $varastotilanne;
 
  }  // end of varasto_list
 } // end of class

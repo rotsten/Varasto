@@ -7,19 +7,13 @@
  
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
-      $Tuotteet = Tuote::all();
       $varaston_tilanne = Varasto::all();
+      $Tuotteet = Tuote::all();
+
       Kint::dump ($Tuotteet);
+      Kint::dump ($varaston_tilanne);
     }
  
-/*
-    public static function sandbox(){
-      // Testaa koodiasi täällä
-      UserController::handle_login();
-      //$Tuotteet = Tuote::all();
-      // View::make('HelloWorld.html');
-    }
- */   
     public static function index(){
       View::make('Aloitussivu.html');
     }
@@ -28,7 +22,7 @@
       View::make('Paasivu.html');
     }
    
-    public static function login(){
+    public static function kirjaudu(){
        View::make('Kirjaudu.html');
     }
    

@@ -19,6 +19,11 @@
     HelloWorldController::sandbox();
   });
   
+  $routes->get('/Kirjaudu', function() {
+    HelloWorldController::kirjaudu();
+  });
+  
+  
   $routes->get('/Paasivu', function() {
     HelloWorldController::paasivu_show();
   });

@@ -12,7 +12,7 @@
 
     <tbody>
       <!-- Listataan Varaston tuotteet tähän eli haetaan, jos lukumäärä > 0 -->
-      {% for Varasto in varaston_tilanne %}
+      {% for Varasto in varastotilanne %}
           <tr>
             <td><a href="#">{{Varasto.tuote_id}}</a></td>
             <td>{{Varasto.history_kuka_inventoi}}</td>
