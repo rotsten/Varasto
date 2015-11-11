@@ -7,7 +7,7 @@
  
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
-      $varaston_tilanne = Varasto::all();
+      $varastotilanne = Varasto::all();
       $kayttajat = Kayttaja::all();
       $Tuotteet = Tuote::all();
 
