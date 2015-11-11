@@ -56,7 +56,7 @@ class Kayttaja extends BaseModel {
         'salasana' => $row['salasana'],
         'etunimi' => $row['etunimi'],
         'sukunimi' => $row['sukunimi'],
-        'kayttooikeus' => $row['kayttooikeus']
+        'kayttooikeudet' => $row['kayttooikeus']
       ));
     } // end of foreach
     return $kayttajat;
