@@ -22,27 +22,27 @@
   });
   
   $routes->get('/Kayttaja/Kayttajienlistaus', function() {
-    HelloWorldController::kayttaja_list();
+    KayttajaController::kayttaja_list();
   });
   
   $routes->get('/Kayttaja/Kayttajatietojenmuutos', function() {
-    HelloWorldController::kayttaja_edit();
+    KayttajaController::kayttaja_edit();
   });
     
   $routes->get('/Tuote/Tuotesivu', function() {
-    HelloWorldController::tuote_show();
+    TuoteController::tuote_show();
   });
   
   $routes->get('/Tuote/Lisaatuote', function() {
-    HelloWorldController::tuote_add();
+    TuoteController::tuote_add();
   });
   
   $routes->get('/Tuote/Tuotteidenlistaus', function() {
-    HelloWorldController::tuote_list();
+    TuoteController::tuote_list();
   });
   
   $routes->get('/Tuote/Tuotteenhakeminen', function() {
-    HelloWorldController::tuote_search();
+    TuoteController::tuote_search();
   });
   
   $routes->post('/find_tuote', function(){
@@ -58,15 +58,15 @@
   });
   
   $routes->get('/Tuote/Tuotetietojenmuutos', function() {
-    HelloWorldController::tuote_edit();
+    TuoteController::tuote_edit();
   });
   
   $routes->get('/Varasto/Varastotilanteenmuutos', function() {
-    HelloWorldController::varasto_edit();
+    VarastoController::varasto_edit();
   });
   
   $routes->get('/Varasto/Varastonlistaus', function() {
-    HelloWorldController::varasto_list();
+      VarastoController::varasto_list();
   });
 
 
