@@ -71,7 +71,8 @@ class Kayttaja extends BaseModel {
     $this->kayttooikeus = $kayttooikeus;
   }     
   
-  public static function db_search_kayttaja ($kayttajatunnus){
+  /*
+  public static function login ($kayttajatunnus){
     $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus = $kayttajatunnus LIMIT 1');
     $query->execute(array('kayttajatunnus' => $kayttajatunnus));
     $row = $query->fetch();
@@ -94,6 +95,6 @@ class Kayttaja extends BaseModel {
         return null;
     }// end of if
   } // login 
-  
+ */
 } // end of class
 

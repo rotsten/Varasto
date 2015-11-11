@@ -4,12 +4,12 @@
     HelloWorldController::index();
   });
  
-  /*
+  
   $routes->get('/login', function(){
     // Kirjautumislomakkeen esittäminen
     UserController::login();
   });
-   */
+  
     
   $routes->post('/login', function(){
     // Kirjautumisen käsittely

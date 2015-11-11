@@ -60,7 +60,19 @@ class Tuote extends BaseModel {
           ));
       } // end of foreach
     return $tuotteet;
-   } // end of 
+   } // end of function all
 
+  public function validate_tuotteen_nimi(){
+    $errors = array();
+    if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
+      $errors[] = 'Nimi ei saa olla tyhjä!';
+    }
+    
+    if(strlen($this->tuotteen_nimi) < 2){
+      $errors[] = 'Nimen pituuden tulee olla vähintään kaksi merkkiä!';
+    }
+
+  return $errors;
+}
    
-      } // end of class
+} // end of class
