@@ -14,15 +14,16 @@
     </thead>
 
     <tbody>
-      <!-- Listataan käyttäjät tähän -->
-      <tr>
-        <td><a href="#"> xxx</a></td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <td>xxx</td>
-        <th><a class="btn btn-default btn-sm" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos">Muokkaa</a></th>
-        <th><a class="btn btn-default btn-sm" href="#">Poista</a></th>
-      </tr>
+      {% for Kayttaja in kayttajat %}
+          <tr>
+            <td><a href="#"> {{Kayttaja.kayttajatunnus}}</a></td>
+            <td>{{Kayttaja.etunimi}}</td>
+            <td>{{Kayttaja.sukunimi}}</td>
+            <td>{{Kayttaja.kayttooikeudet}}</td>
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos">Muokkaa</a></th>
+            <th><a class="btn btn-default btn-sm" href="#">Poista</a></th>
+          </tr>
+      {% endfor %}
     </tbody>
   </table>
 
