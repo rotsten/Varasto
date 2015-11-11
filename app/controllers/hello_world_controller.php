@@ -7,8 +7,8 @@
  
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
-      $Tuote = Tuote::find_tuotteen_nimi('Lakua');
-      $Tuote = Tuote::find_tuote('9789522910325');
+      TuoteController::find_tuotteen_nimi('Lakua');
+      TuoteController::find_tuote('9789522910325');
       $varastotilanne = Varasto::all();
       $kayttajat = Kayttaja::all();
       $Tuotteet = Tuote::all();
