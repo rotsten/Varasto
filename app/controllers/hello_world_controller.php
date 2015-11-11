@@ -5,20 +5,20 @@
   
   class HelloWorldController extends BaseController{
 
- /*
+ 
     public static function sandbox(){
       $Tuotteet = Tuote::all();
       Kint::dump ($Tuotteet);
     }
- */
-
+ 
+/*
     public static function sandbox(){
       // Testaa koodiasi täällä
       UserController::handle_login();
       //$Tuotteet = Tuote::all();
       // View::make('HelloWorld.html');
     }
-    
+ */   
     public static function index(){
       View::make('Aloitussivu.html');
     }

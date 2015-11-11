@@ -4,14 +4,14 @@
     HelloWorldController::index();
   });
  
-  /* 
+  /*
   $routes->get('/login', function(){
     // Kirjautumislomakkeen esittäminen
     UserController::login();
   });
-  */
-  
-  $routes->post('/login', function(){
+   */
+    
+  $routes->post('login', function(){
     // Kirjautumisen käsittely
     UserController::handle_login();
   });
@@ -20,7 +20,7 @@
     HelloWorldController::sandbox();
   });
   
-  $routes->get('/Paasivu', function() {
+  $routes->get('Paasivu', function() {
     HelloWorldController::paasivu_show();
   });
   
