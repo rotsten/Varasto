@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 <H2>Tuotteen hakeminen</H2>
-<H3>Tuotetta voi hakea sekä Tuote-ID:n että nimen perusteella</H3>
+<H3>Anna joko etsittävän tuotteen Tuote-ID tai koko tuotenimi</H3>
 
   <form>
      <div class="form-group">
        <label>Tuote-ID</label>
-       <input type="text" class="form-control" value=" ">
+       <input type="text" class="form-control" value="Tuote_id">
      </div>
       
      <div class="form-group">
        <label>Tuotteen nimi</label>
-       <input type="text" class="form-control" value=" ">
+       <input type="text" class="form-control" value="tuotteen_nimi">
      </div>
       
      <div class="form-group">
-       <button type="submit" class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Hae!</a></button>
+       <button type="submit" class="btn btn-default"><A href="{{base_path}}/Tuote/{{Tuote_id, tuotteen_nimi}}/search">Hae!</a></button>
+                                                                           
      </div>
      <h3>Tulokset tulostuvat tuotteiden listaussivulle</h3>
   </form>

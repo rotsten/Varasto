@@ -76,17 +76,17 @@ class TuoteController extends BaseController{
       $tulos=0;
       
       if ($tuote_id != 0) {
-        $tulos -> $this->db_search_tuote_id ($tuote_id);
+        $tulos -> $this->find_tuote ($tuote_id);
         // Tänne pitää tallentaan haun tuloksena saadun olion datat    
       }
       else {
-        $tulos -> $this->db_search_tuotteennimi($tuotteen_nimi);
+        $tulos -> $this->find_tuotteennimi($tuotteen_nimi);
         // Tänne pitää tallentaan haun tuloksena saadun olion datat
       }
       return $tulos;
   }
  
-  public static function db_search_tuote_id($tuote_id){
+  public static function find_tuote ($tuote_id){
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
@@ -103,7 +103,7 @@ class TuoteController extends BaseController{
     } // end of if
   } // end of db_search_tuote_id
   
-  public static function db_search_tuotteennimi($tuotteennimi){
+  public static function find_tuotteennimi($tuotteennimi){
       
       /*
        * Hakutulosta pitäisi laajentaa niin, että se listaisi useampia tuotteita.
