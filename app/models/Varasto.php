@@ -22,7 +22,7 @@ class Varasto extends BaseModel{
       parent::__construct($attributes);
   }
   
-  public static function varasto_list(){
+  public static function all(){
     // Alustetaan kysely tietokantayhteydellämme
     $query = DB::connection()->prepare('SELECT * FROM VARASTO;');
     // Suoritetaan kysely
@@ -39,7 +39,7 @@ class Varasto extends BaseModel{
         'kayttajatunnus' => $row['kayttajatunnus']
       ));
     } // end of foreach
-    return $varaston_tilannet;
+    return $varaston_tilanne;
 
  }  // end of varasto_list
 } // end of class

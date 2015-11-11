@@ -28,7 +28,7 @@
     }
    
     public static function login(){
-       View::make('Login.html');
+       View::make('Kirjaudu.html');
     }
    
     // Tuotteeseen liittyvät funktiot 
