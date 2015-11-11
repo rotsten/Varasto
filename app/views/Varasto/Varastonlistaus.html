@@ -15,10 +15,7 @@
       {% for Varasto in varastotilanne %}
           <tr>
             <td><a href="#">{{Varasto.tuote_id}}</a></td>
-            <td>{{Varasto.history_kuka_inventoi}}</td>
-          <tr>
-            <td><a href="#"> xxx</a></td>
-            <td>xxx</td>
+            <td>{{Varasto.history_kuka_inventoi}}</td
             <th><a class="btn btn-default btn-sm"<A href="{{base_path}}/Varasto/Varastotilanteenmuutos"> Muokkaa</a></th>
           </tr>
       {% endfor %}
