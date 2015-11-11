@@ -14,7 +14,7 @@
 class Kayttaja extends BaseModel {
     
    // attribuutit
-  public $kayttajatunnus, $salasana, $etunimi, $sukunimi, $kayttooikeus;
+  public $kayttajatunnus, $salasana, $etunimi, $sukunimi, $kayttooikeudet;
   
 
   // konstruktori
@@ -56,7 +56,7 @@ class Kayttaja extends BaseModel {
         'salasana' => $row['salasana'],
         'etunimi' => $row['etunimi'],
         'sukunimi' => $row['sukunimi'],
-        'kayttooikeudet' => $row['kayttooikeus']
+        'kayttooikeudet' => $row['kayttooikeudet']
       ));
     } // end of foreach
     return $kayttajat;
