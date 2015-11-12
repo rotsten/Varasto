@@ -11,6 +11,25 @@ class UserController extends BaseController {
  * Returns the text, whether fields are empty or not.
  * Later add also other mechanisms to check the validity of the inputs... 
  */
+    
+public function authenticate ($kayttajatunnus, $salasana) {
+ 
+    $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus = $kayttajatunnus AND salasana = $salasana LIMIT 1');
+    $query->execute(array('kayttajatunnus' => $kayttajatunnus, 'salasana' => $salasana));
+    $row = $query->fetch();
+    if($row){
+      $found_kayttaja = new Kayttaja(array(
+          'kayttajatunnus' => $row['kayttajatunnus'],
+          'salasana' => $row['salasana'],
+          'etunimi' => $row['etunimi'],
+          'sukunimi' => $row['sukunimi'],
+          'kayttooikeus' => $row['kayttooikeus']
+        ));
+      return found_kayttaja;
+    }else{
+      return null;
+    } // end of if-else
+}  // end of authenticate
 
 public static function handle_login (){
 
@@ -44,35 +63,16 @@ public static function handle_login (){
             $okay = FALSE;
     }*/
     if ($okay) {
-        $query = DB::connection()->prepare ('SELECT * KAYTTAJA WHERE kayttajatunnus = $aneettu_kayttajatunnus and salasana = $annettu_salasana;');
-        $query->execute(array('kayttajatunnus' => $annettu_kayttajatunnus));
-        $row = $query->fetch();
-    
-        if($row){
-            // Käyttäjä löytyi!
-            $Found_Kayttaja = new Kayttaja(array(
-              'kayttajatunnus' => $row['kayttajatunnus'],
-              'salasana' => $row['salasana'],
-              'etunimi' => $row['etunimi'],
-              'sukunimi' => $row['sukunimi'],
-              'kayttooikeus' => $row['kayttooikeus']
-            ));
-            
-            // Tässä pitäisi siirtää käyttäjä pääsivulle. 
-            // Käyttäjä näkee listauksesta, että tuote on poistunut 
-            Redirect::to('/Paasivu');
-        } 
-        else
-        {
-          // Käyttäjää ei löytynyt
-          print 'Käyttäjää ei löytynyt. Yritä uudelleen.';
-          return null;
-        } // end of if 
-    }
-    else  // not "okay"
-    {
-      print 'Yritä uudelleen.';
-      return null;
-    } // end of if-else
-} // end of function
-}
+       $user = Kayttaja::authenticate($annettu_kayttajatunnus, $annettu_salasana);
+       //$user = Kayttaja::authenticate($params['kayttajatunnus'], $params['salasana']);
+
+      if(!$user){
+          View::make('/login.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $annettu_kayttajatunnus));
+      } else{
+          $_SESSION['kayttajatunnus'] = $user->kayttajatunnus;
+
+          Redirect::to('/paasivu', array('message' => 'Tervetuloa takaisin ' . $user->etunimi . '!'));
+      } // the end of function
+    } // the end of function
+  } // the end of handle_login()
+} // THE END of class
