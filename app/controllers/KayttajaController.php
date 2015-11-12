@@ -31,7 +31,7 @@ class KayttajaController extends BaseController {
           'salasana' => $row['salasana'],
           'etunimi' => $row['etunimi'],
           'sukunimi' => $row['sukunimi'],
-          'kayttooikeus' => $row['kayttooikeus']
+          'kayttooikeudet' => $row['kayttooikeudet']
         ));
       return found_kayttaja;
     }
