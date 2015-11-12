@@ -14,7 +14,7 @@
 
 class Tuote extends BaseModel {
   // attribuutit
-  public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus;
+  public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date;
   
   //konstruktori
   /*
@@ -29,15 +29,17 @@ class Tuote extends BaseModel {
     $this->tuotteen_nimi = $tuotteen_nimi;
   }
  */ 
-  public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus){
+  public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
     
-    parent::__construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus);
+    parent::__construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date);
     
     // Kun annetaan kaikki tiedot
     $this->tuote_id = $tuote_id;
     $this->tuotteen_nimi = $tuotteen_nimi;
     $this->valmistaja = $valmistaja;
     $this->kuvaus = $kuvaus;
+    $this->lukumaara = $lukumaara; 
+    $this-> history_date = $history_date;
   }
 
    public static function all(){
@@ -59,7 +61,9 @@ class Tuote extends BaseModel {
             'tuote_id' => $row['tuote_id'],
             'tuotteen_nimi' => $row['tuotteen_nimi'],
             'valmistaja' => $row['valmistaja'],
-            'kuvaus' => $row['kuvaus']
+            'kuvaus' => $row['kuvaus'],
+            'lukumaara' => $row['lukumaara'], 
+            'history_date' => $row['history_date']
           ));
       } // end of foreach
     return $tuotteet;
