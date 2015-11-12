@@ -13,7 +13,7 @@
  */
 
 class Tuote extends BaseModel {
-   // attribuutit
+  // attribuutit
   public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus;
   
   // konstruktori
@@ -34,7 +34,7 @@ class Tuote extends BaseModel {
     $this->tuote_id = $tuote_id;
     $this->tuotteen_nimi = $tuotteen_nimi;
     $this->valmistaja = $valmistaja;
-    $this->tuotekuvaus = $tuotekuvaus;
+    $this->kuvaus = $tuotekuvaus;
   }
 
    public static function all(){
