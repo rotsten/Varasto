@@ -31,7 +31,7 @@ class Tuote extends BaseModel {
  */ 
   public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
     
-    parent::__construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date);
+    parent::__construct();
     
     // Kun annetaan kaikki tiedot
     $this->tuote_id = $tuote_id;
