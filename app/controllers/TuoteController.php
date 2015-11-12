@@ -148,7 +148,7 @@ class TuoteController extends BaseController{
        * tiedot
        */
 
-      $listattava_tuote = find_tuote($Tuote_id);
+      $listattava_tuote = TuoteController::find_tuote($Tuote_id);
       return $listattava_tuote;
   }
   
