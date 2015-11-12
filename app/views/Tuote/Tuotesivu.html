@@ -18,7 +18,6 @@
         </thead>
 
         <tbody>
-            {% for Tuote in listattava_tuote%}
                <tr>
                  <td><a href="#">{{Tuote.tuote_id}}</a></td>
                  <td>{{Tuote.tuotteen_nimi}})</td>
@@ -27,7 +26,6 @@
                  <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/{{Tuote.tuote_id}}Tuotetietojenmuutos">Muokkaa</a></th>
                  <th><a class="btn btn-default btn-sm" href="{{base_path}}/Paasivu">Poista</a></th> 
               </tr>
-            {% endfor %}
          </tbody>    
       </table>
     </form>    
