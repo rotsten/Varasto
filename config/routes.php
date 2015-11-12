@@ -45,8 +45,8 @@
     TuoteController::tuote_list();
   });
 
-  $routes->post('/find_tuote', function($Tuote_id){
-    TuoteController::find_tuote($Tuote_id);
+  $routes->post('/find_tuote', function($tuote_id){
+    TuoteController::find_tuote($tuote_id);
   });
   
    /*
@@ -72,18 +72,18 @@
     TuoteController::tallenna();
   });
   */
-  $routes->get('/Tuote/Tuotetietojenmuutos', function($Tuote_id) {
-    TuoteController::tuote_edit($Tuote_id);
+  $routes->get('/Tuote/Tuotetietojenmuutos', function($tuote_id) {
+    TuoteController::tuote_edit($tuote_id);
   });
 
-  $routes->get('/Tuotesivu/:Tuote_id', function($Tuote_id) {
-    TuoteController::tuote_show($Tuote_id);
+  $routes->get('/Tuotesivu/:Tuote_id', function($tuote_id) {
+    TuoteController::tuote_show($tuote_id);
   });
   
   // Varastoon liittyvät
   
-  $routes->get('/Varasto/Varastotilanteenmuutos', function($Tuote_id) {
-    VarastoController::varasto_edit($Tuote_id);
+  $routes->get('/Varasto/Varastotilanteenmuutos', function($tuote_id) {
+    VarastoController::varasto_edit($tuote_id);
   });
   
   $routes->get('/Varasto/Varastonlistaus', function() {

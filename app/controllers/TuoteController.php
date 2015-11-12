@@ -188,18 +188,18 @@ class TuoteController extends BaseController{
      // Luodaan annettuja arvoja käyttäen uusi tuote.
       
      $uusi_tuote = new Tuote ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara
-     $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara');
+     $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
   
   }*/
   
-  public static function tuote_delete($Tuote_id){
+  public static function tuote_delete($tuote_id){
     
     /*
      * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
      */
       
-    $poistettava_tuote = new Tuote(array('Tuote_id' => $Tuote_id));
+    $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));
     $poistettava_tuote->destroy();
 
     // Käyttäjä näkee listauksesta, että tuote on poistunut 
