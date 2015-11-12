@@ -40,7 +40,7 @@
   });
   
   $routes->get('/Tuote/Lisaatuote', function() {
-    TuoteController::tuote_add();
+    TuoteController::tallenna();
   });
   
   $routes->get('/Tuote/Tuotteidenlistaus', function() {
