@@ -3,23 +3,19 @@
 
   <h1>Kirjaudu sisään</h1>
 
-  <form method="post">
-    <!-- Tekstikenttä käyttäjätunnukselle -->
-    
+  <form method="post">  
     <div class="form-group">
       <label>Käyttäjätunnus</label>
-      <input type="text" name="kayttajatunnus" class="form-control" value="{{kayttajatunnus}}">
+      <input type="submit" name="kayttajatunnus" class="form-control" value="{{kayttajatunnus}}">
     </div>
 
-    <!-- Salasanakenttä salasanalle -->
     <div class="form-group">
       <label>Salasana</label>
-      <input type="password" name="salasana" class="form-control">  
+      <input type="submit" name="salasana" class="form-control" value=""{{salasana}}"> 
     
     </div>    
-    <button class="btn btn-default" name="Kirjaudu!" type="submit"></button>
-
-  
+    <button class="btn btn-default" type="submit" value=handle_reg>Kirjaudu!</button>
+    
   </form>
 
   {% endblock %}

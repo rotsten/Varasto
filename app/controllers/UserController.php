@@ -14,25 +14,38 @@ class UserController extends BaseController {
 
 public static function handle_login (){
 
-    $params = $_POST;
+    $annettu_kayttajatunnus=$_POST['kayttajatunnus'];
+    $annettu_salasana      =$_POST['salasana'];
     
     // Success-flag setting
     $okay = TRUE;
    
     // Tsekkaa antoiko käyttäjä käyttäjätunnuksen:
-    if (empty($submit['user_id'])) {
+    if (empty(anettu_kayttajatunnus)){
+       print '<p class="error">Anna käyttäjätunnus.</p>';
+       $okay = FALSE;
+    }
+    /*
+    if (empty($submit'kayttajatunnus'])) {
             print '<p class="error">Anna käyttäjätunnus.</p>';
             $okay = FALSE;
-    }
+    }*/
 
     // Tsekkaa antoiko käyttäjä salasanan:
-    if (empty($submit['password'])) {
+    
+    if (empty(anettu_salasana)){
+       print '<p class="error">Anna salasana.</p>';
+       $okay = FALSE;
+    }
+    
+    /*
+    if (empty($submit['salasana'])) {
             print '<p class="error">Anna salasana.</p>';
             $okay = FALSE;
-    }
+    }*/
     if ($okay) {
-        $query = DB::connection()->prepare ('SELECT * KAYTTAJA WHERE kayttajatunnus = $kayttajatunnus and salasana = $salasana;');
-        $query->execute(array('kayttajatunnus' => $kayttajatunnus));
+        $query = DB::connection()->prepare ('SELECT * KAYTTAJA WHERE kayttajatunnus = $aneettu_kayttajatunnus and salasana = $annettu_salasana;');
+        $query->execute(array('kayttajatunnus' => $annettu_kayttajatunnus));
         $row = $query->fetch();
     
         if($row){
