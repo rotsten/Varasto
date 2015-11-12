@@ -18,14 +18,14 @@
         </thead>
 
         <tbody>
-               <tr>
-                 <td><a href="#">{{Tuote.tuote_id}}</a></td>
-                 <td>{{Tuote.tuotteen_nimi}})</td>
-                 <td>{{Tuote.valmistaja}}</td>
-                 <td>{{Tuote.kuvaus}})</td>
-                 <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/{{Tuote.tuote_id}}Tuotetietojenmuutos">Muokkaa</a></th>
-                 <th><a class="btn btn-default btn-sm" href="{{base_path}}/Paasivu">Poista</a></th> 
-              </tr>
+           <tr>
+             <td><a href="{{base_path}}/Tuote/{{Tuote.Tuote_id}}"></td>
+             <td>{{Tuote.Tuotteen_nimi}}</td>  
+             <td>{{Tuote.valmistaja}}</td>
+             <td>{{Tuote.kuvaus}})</td>
+             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
+             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Paasivu">Poista</a></th> 
+          </tr>
          </tbody>    
       </table>
     </form>    
@@ -38,16 +38,7 @@
         <button class="btn btn-default"> <A href="{{base_path}}/Tuote/Tuotteenhakeminen">Hae tuotetta</A></button>
         <button class="btn btn-default"> <A href="{{base_path}}/Tuote/Lisaatuote">Lisää tuote</A></button>
         <button class="btn btn-default"> <A href="{{base_path}}/Tuote/{{Tuote_id}}/Tuotetietojenmuutos">Muuta tuotetietoja</a></button>
-     
-
-    <H3>Esimerkkitulostus:</H3>
-
-    <p><strong>Tuote-ID     :</strong>9789513233259</p>
-    <p><strong>Tuotteen nimi:</strong> Aku Ankan taskukirja nro 390 "Outolintu"</p>
-    <p><strong>Valmistaja   : </strong>Sanoma Magazines</p>
-    <p><strong>Lisäyspäivä  :</strong> 9.12.2014</p>
-    <p><strong>Kuvaus       :</strong> xxx </p>
-
+   
 -->
 
 <button class="btn btn-default"><A href="{{base_path}}/Paasivu"> Pääsivulle</A></button>
