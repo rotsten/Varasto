@@ -132,7 +132,7 @@ class TuoteController extends BaseController{
     if($row){
       $tuote = new Tuote(array(
         'Tuote_id' => $row['tuote_id'],
-        'tuotteennimi' => $row['tuotteen_nimi'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
         'tuotekuvaus' => $row['kuvaus']
       ));
