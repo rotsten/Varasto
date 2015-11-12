@@ -6,22 +6,22 @@
     <form method="post" action="{{base_path}}/Tuote">
         <div class="form-group">
             <label>Tuote-id </label>
-            <input type ="text" name ="Tuote_id" class="form-control">
+            <input type ="text" name ="Tuote_id" class="form-control" value="{{tuote_id}}">
         </div>
         
         <div class="form-group">
             <label>Tuotteen nimi</label>
-            <input type ="text" name ="tuotteen_nimi" class="form-control">
+            <input type ="text" name ="tuotteen_nimi" class="form-control" value="{{tuotteen_nimi}}">
         </div>
         
         <div class="form-group">
             <label>Valmistaja</label>
-            <input type ="text" name ="valmistaja" class="form-control">
+            <input type ="text" name ="valmistaja" class="form-control" value="{{valmistaja}}">
         </div>
 
         <div class="form-group">
             <label>Tuotekuvaus</label>
-            <input type ="text" name ="kuvaus" class="form-control">
+            <input type ="text" name ="kuvaus" class="form-control" value="{{kuvaus}}">
         </div>
         
         <button type ="submit" class="btn btn-default">Tallenna</button>

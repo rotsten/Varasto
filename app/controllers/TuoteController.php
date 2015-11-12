@@ -78,7 +78,8 @@ class TuoteController extends BaseController{
      *  antamista. Siispä ne pitää hakea
      */
   
-    $temp_aiemmat_tuotetiedot = db_search_tuote_id($tuote_id);
+    $uudet_tiedot = $_POST; 
+    $aiemmat_tuotetiedot = find_tuote($tuote_id);
   
     /*
      * UPDATE table
@@ -87,11 +88,14 @@ class TuoteController extends BaseController{
      */
     
     // Päivitetään tuotteen_nimi
-    $temp_nimi = ($temp_aiemmat_tuotetiedot = $tuotteen_nimi);
-    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(temp_tuotteen_nimi, tuotteen_nimi, $tuotteen_nimi) WHERE tuote_id = $tuote_id;');
+    'tuote_id' => $params['tuote_id'], 
+            
+    $old_nimi = ($aiemmat_tuotetiedot = $tuotteen_nimi);
+    $new_nimi = ($uudet_tiedot['tuotteen_nimi']);
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, old_tuotteen_nimi, new_tuotteen_nimi) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään valmistajan tiedot
-    $temp_valmistaja = ($temp_aiemmat_tuotetiedot = $valmistaja);
+    $old_valmistaja = ($aiemmat_tuotetiedot = $valmistaja);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(temp_valmistaja, valmistaja, $valmistaja) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään tuotekuvaus

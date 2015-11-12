@@ -57,18 +57,21 @@ public static function handle_login (){
               'sukunimi' => $row['sukunimi'],
               'kayttooikeus' => $row['kayttooikeus']
             ));
-
-            return $Found_Kayttaja;
+            
+            // Tässä pitäisi siirtää käyttäjä pääsivulle. 
+            // Käyttäjä näkee listauksesta, että tuote on poistunut 
+            Redirect::to('/Paasivu');
         } 
         else
         {
           // Käyttäjää ei löytynyt
+          print 'Käyttäjää ei löytynyt. Yritä uudelleen.';
           return null;
         } // end of if 
     }
     else  // not "okay"
     {
-      //print '<p>Yritä uudelleen.</p>';
+      print 'Yritä uudelleen.';
       return null;
     } // end of if-else
 } // end of function
