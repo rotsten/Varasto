@@ -35,7 +35,7 @@
     TuoteController::tuote_show();
   });
   
-  $routes->get('/Tuote/Tuotesivu', function($Tuote_id) {
+  $routes->get('/Tuote/:Tuote_id', function($Tuote_id) {
     TuoteController::tuote_show($Tuote_id);
   });
   
@@ -69,7 +69,11 @@
   $routes->post('/Tuote/Tallenna', function(){
     TuoteController::tallenna();
   });
-  
+  /*
+  $routes->post('/Tuote/Tuotteidenhakeminen', function(){
+    TuoteController::tallenna();
+  });
+  */
   $routes->get('/Tuote/Tuotetietojenmuutos', function() {
     TuoteController::tuote_edit($Tuote_id);
   });

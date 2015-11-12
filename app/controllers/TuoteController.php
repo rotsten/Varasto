@@ -17,6 +17,11 @@ class TuoteController extends BaseController{
     $Tuotteet = Tuote::all();
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
+  public function save(){
+      
+      // Lisätään tänne SQL-lause
+  }
+          
  
   public static function tuote_list(){
     /*
