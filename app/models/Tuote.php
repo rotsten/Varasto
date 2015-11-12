@@ -28,13 +28,13 @@ class Tuote extends BaseModel {
     $this->tuotteen_nimi = $tuotteen_nimi;
   }
  */ 
-  public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus){
+  public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus){
       parent::__construct();
     // Kun annetaan kaikki tiedot
     $this->tuote_id = $tuote_id;
     $this->tuotteen_nimi = $tuotteen_nimi;
     $this->valmistaja = $valmistaja;
-    $this->kuvaus = $tuotekuvaus;
+    $this->kuvaus = $kuvaus;
   }
 
    public static function all(){
@@ -56,7 +56,7 @@ class Tuote extends BaseModel {
             'tuote_id' => $row['tuote_id'],
             'tuotteen_nimi' => $row['tuotteen_nimi'],
             'valmistaja' => $row['valmistaja'],
-            'kuvaus' => $row['tuotekuvaus']
+            'kuvaus' => $row['kuvaus']
           ));
       } // end of foreach
     return $tuotteet;

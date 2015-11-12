@@ -41,7 +41,7 @@ class TuoteController extends BaseController{
         $query->execute(array('tuote_id' => $tuote_id));
         $Tuotteet = new array(Tuote);
 
-        $Tuotteet = $query->fetchAll('tuote_id', 'tuotteennimi', 'valmistaja');
+        $Tuotteet = $query->fetchAll('tuote_id', 'tuotteen_nimi', 'valmistaja');
       return $Tuotteet;
   } // end of db_list_tuote
   
@@ -104,7 +104,7 @@ class TuoteController extends BaseController{
     
     // Päivitetään tuotekuvaus
     $new_kuvaus = ($uudet_tiedot['kuvaus']);
-    $old_tuotekuvaus = ($aiemmat_tuotetiedot = $tuotekuvaus);
+    $old_kuvaus = ($aiemmat_tuotetiedot = $kuvaus);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(kuvaus, old_kuvaus, new_kuvaus) WHERE tuote_id = $tuote_id;');
       
   }     
@@ -117,7 +117,7 @@ class TuoteController extends BaseController{
         // Tänne pitää tallentaan haun tuloksena saadun olion datat    
       }
       else {
-        $tulos -> $this->find_tuotteennimi($tuotteen_nimi);
+        $tulos -> $this->find_tuotteen_nimi($tuotteen_nimi);
         // Tänne pitää tallentaan haun tuloksena saadun olion datat
       }
       return $tulos;
@@ -134,7 +134,7 @@ class TuoteController extends BaseController{
         'Tuote_id' => $row['tuote_id'],
         'tuotteen_nimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
-        'tuotekuvaus' => $row['kuvaus']
+        'kuvaus' => $row['kuvaus']
       ));
       
       return $tuote;
@@ -155,7 +155,7 @@ class TuoteController extends BaseController{
       return $listattava_tuote;
   }
   
-  public function find_tuotteennimi($tuotteennimi){
+  public function find_tuotteen_nimi($tuotteen_nimi){
       
       /*
        * Hakutulosta pitäisi laajentaa niin, että se listaisi useampia tuotteita.
@@ -163,23 +163,23 @@ class TuoteController extends BaseController{
        * täydellisesti täyttävät hakuehdon.
        */
     
-    $query = DB::connection()->prepare('SELECT Tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteennimi LIMIT 1');
-    $query->execute(array('tuotteenimi' => $tuotteennimi));
+    $query = DB::connection()->prepare('SELECT Tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteen_nimi LIMIT 1');
+    $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
     $row = $query->fetch();
 
     if($row){
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
-        'tuotteennimi' => $row['tuotteen_nimi'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
-        'tuotekuvaus' => $row['kuvaus'],
+        'kuvaus' => $row['kuvaus'],
         'lukumaara' => $row['lukumaara']
       ));
      
       return $tuote;
     } // end of if
     return null;
-  } // end of db_search_tuotteennimi
+  } // end of db_search_tuotteen_nimi
   
   /*
   public static function db_lisaa_tuote($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara){
