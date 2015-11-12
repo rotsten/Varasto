@@ -22,7 +22,7 @@ class KayttajaController extends BaseController {
    
   public function authenticate ($kayttajatunnus, $salasana) {
  
-    $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus = $kayttajatunnus AND salasana = $salasana LIMIT 1');
+    $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus =: $kayttajatunnus AND salasana =: $salasana LIMIT 1');
     $query->execute(array('kayttajatunnus' => $kayttajatunnus, 'salasana' => $salasana));
     $row = $query->fetch();
     if($row){
