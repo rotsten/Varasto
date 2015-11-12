@@ -123,15 +123,15 @@ class TuoteController extends BaseController{
       return $tulos;
   }
     
-  public function find_tuote ($Tuote_id){
+  public function find_tuote($Tuote_id){
       
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
-    $query->execute(array('tuote_id' => $tuote_id));
+    $query->execute(array('tuote_id' => $Tuote_id));
     $row = $query->fetch();
 
     if($row){
       $tuote = new Tuote(array(
-        'Tuote_id' => $row['tuote_id'],
+        'Tuote_id' => $row['Tuote_id'],
         'tuotteennimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
         'tuotekuvaus' => $row['kuvaus']
@@ -148,7 +148,7 @@ class TuoteController extends BaseController{
        * tiedot
        */
 
-      $listattava_tuote = find_tuote($Tuote_id);
+      $listattava_tuote = $this->find_tuote($Tuote_id);
       return $listattava_tuote;
   }
   
