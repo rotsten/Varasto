@@ -141,16 +141,16 @@ class TuoteController extends BaseController{
     } // end of if
   } // end of find_tuote (Tuote_id)
   
-  /*
+
   public function tuote_show($Tuote_id) {
-  */    
+    
       /* Etsitään näytettävän tuotteen
        * tiedot
        */
-  /*
+
       $listattava_tuote = find_tuote ($Tuote_id);
       return $listattava_tuote;
-  }*/
+  }
   
   public function find_tuotteennimi($tuotteennimi){
       
