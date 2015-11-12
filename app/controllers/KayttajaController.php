@@ -82,7 +82,7 @@ class KayttajaController extends BaseController {
       } else{
           $_SESSION['kayttajatunnus'] = $user->kayttajatunnus;
 
-          Redirect::to('Paasivu', array('message' => 'Tervetuloa takaisin ' . $user->etunimi . '!'));
+          Redirect::to('/Paasivu', array('message' => 'Tervetuloa takaisin ' . $user->etunimi . '!'));
       } // the end of function
     } // the end of function
   } // the end of handle_login()
