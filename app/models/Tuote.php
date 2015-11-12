@@ -57,14 +57,13 @@ class Tuote extends BaseModel {
 
       // Käydään kyselyn tuottamat rivit läpi
       foreach($rows as $row){
-          $tuotteet[] = new Tuote (array(
-            'tuote_id' => $row['tuote_id'],
+          $tuotteet[] = new Tuote (['tuote_id' => $row['tuote_id'],
             'tuotteen_nimi' => $row['tuotteen_nimi'],
             'valmistaja' => $row['valmistaja'],
             'kuvaus' => $row['kuvaus'],
             'lukumaara' => $row['lukumaara'], 
             'history_date' => $row['history_date']
-          ));
+            ]);
       } // end of foreach
     return $tuotteet;
    } // end of function all
