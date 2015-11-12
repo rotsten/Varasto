@@ -16,8 +16,8 @@ class Tuote extends BaseModel {
   // attribuutit
   public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus;
   
-  // konstruktori
-  /*public function __construct ($attributes){
+  //konstruktori
+  public function __construct ($attributes){
       parent::__construct($attributes);
   }
   
@@ -29,7 +29,9 @@ class Tuote extends BaseModel {
   }
  */ 
   public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus){
-      parent::__construct();
+    
+    parent::__construct();
+    
     // Kun annetaan kaikki tiedot
     $this->tuote_id = $tuote_id;
     $this->tuotteen_nimi = $tuotteen_nimi;
