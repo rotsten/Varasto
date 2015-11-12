@@ -123,7 +123,7 @@ class TuoteController extends BaseController{
       return $tulos;
   }
     
-  public function find_tuote($Tuote_id){
+  public static function find_tuote($Tuote_id){
       
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $Tuote_id));
@@ -142,7 +142,7 @@ class TuoteController extends BaseController{
   } // end of find_tuote (Tuote_id)
   
 
-  public function tuote_show($Tuote_id) {
+  public static function tuote_show($Tuote_id) {
     
       /* Etsitään näytettävän tuotteen
        * tiedot
