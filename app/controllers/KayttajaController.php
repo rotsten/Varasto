@@ -33,7 +33,7 @@ class KayttajaController extends BaseController {
           'sukunimi' => $row['sukunimi'],
           'kayttooikeudet' => $row['kayttooikeudet']
         ));
-      return found_kayttaja;
+      return $found_kayttaja;
     }
     else{
       return null;
