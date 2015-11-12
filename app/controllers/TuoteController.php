@@ -87,20 +87,20 @@ class TuoteController extends BaseController{
      *   WHERE condition
      */
     
-    // Päivitetään tuotteen_nimi
-    'tuote_id' => $params['tuote_id'], 
-            
+    // Päivitetään tuotteen_nimi          
     $old_nimi = ($aiemmat_tuotetiedot = $tuotteen_nimi);
     $new_nimi = ($uudet_tiedot['tuotteen_nimi']);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, old_tuotteen_nimi, new_tuotteen_nimi) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään valmistajan tiedot
     $old_valmistaja = ($aiemmat_tuotetiedot = $valmistaja);
-    $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(temp_valmistaja, valmistaja, $valmistaja) WHERE tuote_id = $tuote_id;');
+    $new_nimi = ($uudet_tiedot['valmista']);
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(valmistaja, old_valmistaja, new_valmistaja) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään tuotekuvaus
-    $temp_tuotekuvaus = ($temp_aiemmat_tuotetiedot = $tuotekuvaus);
-    $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(temp_tuotekuvaus, kuvaus, $tuotekuvaus) WHERE tuote_id = $tuote_id;');
+    $new_kuvaus = ($uudet_tiedot['kuvaus']);
+    $old_tuotekuvaus = ($aiemmat_tuotetiedot = $tuotekuvaus);
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(kuvaus, old_kuvaus, new_kuvaus) WHERE tuote_id = $tuote_id;');
       
   }     
   

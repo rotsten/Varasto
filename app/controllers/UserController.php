@@ -33,26 +33,21 @@ public function authenticate ($kayttajatunnus, $salasana) {
 
 public static function handle_login (){
 
-    $annettu_kayttajatunnus=$_POST['kayttajatunnus'];
-    $annettu_salasana      =$_POST['salasana'];
+    $params = $_POST;
+    //$annettu_kayttajatunnus=$_POST['kayttajatunnus'];
+    //$annettu_salasana      =$_POST['salasana'];
     
     // Success-flag setting
     $okay = TRUE;
    
     // Tsekkaa antoiko käyttäjä käyttäjätunnuksen:
-    if (empty(anettu_kayttajatunnus)){
+    if (empty($params['kayttajatunnus'])){
        print '<p class="error">Anna käyttäjätunnus.</p>';
        $okay = FALSE;
     }
-    /*
-    if (empty($submit'kayttajatunnus'])) {
-            print '<p class="error">Anna käyttäjätunnus.</p>';
-            $okay = FALSE;
-    }*/
-
-    // Tsekkaa antoiko käyttäjä salasanan:
     
-    if (empty(anettu_salasana)){
+    // Tsekkaa antoiko käyttäjä salasanan:   
+    if (empty($params['salasana'])){
        print '<p class="error">Anna salasana.</p>';
        $okay = FALSE;
     }
@@ -63,11 +58,11 @@ public static function handle_login (){
             $okay = FALSE;
     }*/
     if ($okay) {
-       $user = Kayttaja::authenticate($annettu_kayttajatunnus, $annettu_salasana);
-       //$user = Kayttaja::authenticate($params['kayttajatunnus'], $params['salasana']);
+       //$user = Kayttaja::authenticate($annettu_kayttajatunnus, $annettu_salasana);
+       $user = Kayttaja::authenticate($params['kayttajatunnus'], $params['salasana']);
 
       if(!$user){
-          View::make('/login.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $annettu_kayttajatunnus));
+          View::make('/login.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['kayttajatunnus']));
       } else{
           $_SESSION['kayttajatunnus'] = $user->kayttajatunnus;
 
