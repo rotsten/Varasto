@@ -36,11 +36,7 @@
     TuoteController::tuote_show();
   });
   */
-  
-  $routes->get('/Tuote/:Tuote_id', function($Tuote_id) {
-    TuoteController::tuote_show($Tuote_id);
-  });
-  
+    
   $routes->get('/Tuote/Lisaatuote', function() {
     TuoteController::tallenna();
   });
@@ -80,6 +76,10 @@
     TuoteController::tuote_edit($Tuote_id);
   });
 
+  $routes->get('/Tuote/:Tuote_id', function($Tuote_id) {
+    TuoteController::tuote_show($Tuote_id);
+  });
+  
   // Varastoon liittyvät
   
   $routes->get('/Varasto/Varastotilanteenmuutos', function($Tuote_id) {
