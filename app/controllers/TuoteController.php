@@ -52,7 +52,7 @@ class TuoteController extends BaseController{
     $params = $_POST;
     
     $Uusi_tuote = new Tuote(array(
-      'tuote_id' => $params['tuote_id'],  
+      'Tuote_id' => $params['tuote_id'],  
       'tuotteen_nimi' => $params['tuotteen_nimi'],
       'valmistaja' => $params['valmistaja'],
       'kuvaus' => $params['kuvaus'],
@@ -123,7 +123,7 @@ class TuoteController extends BaseController{
       return $tulos;
   }
     
-  public function find_tuote ($tuote_id){
+  public function find_tuote ($Tuote_id){
       
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
@@ -131,7 +131,7 @@ class TuoteController extends BaseController{
 
     if($row){
       $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
+        'Tuote_id' => $row['tuote_id'],
         'tuotteennimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
         'tuotekuvaus' => $row['kuvaus']
