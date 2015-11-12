@@ -102,7 +102,7 @@ class KayttajaController extends BaseController {
    */
       
     $query = DB::connection()->prepare ('SELECT * KAYTTAJA WHERE kayttajatunnus = $kayttajatunnus');
-    $query->execute(array('tuote_id' => $tuote_id));
+    $query->execute(array('kayttajatunnus' => $kayttajatunnus));
     $row = $query->fetch();
 
     if($row){
