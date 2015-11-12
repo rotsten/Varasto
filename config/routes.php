@@ -10,7 +10,7 @@
   
   $routes->post('/kirjaudu', function(){
     // Kirjautumisen käsittely
-    UserController::handle_login();
+    KayttajaController::handle_login();
   });
   
   $routes->get('/hiekkalaatikko', function() {
@@ -63,7 +63,7 @@
     TuoteController::find_tuotteennimi();
   });
   
-    $routes->post('/Tuote/Tallenna', function(){
+  $routes->post('/Tuote/Tallenna', function(){
     TuoteController::tallenna();
   });
   
@@ -76,7 +76,7 @@
   });
   
   $routes->get('/Varasto/Varastonlistaus', function() {
-      VarastoController::varasto_list();
+    VarastoController::varasto_list();
   });
 
 
