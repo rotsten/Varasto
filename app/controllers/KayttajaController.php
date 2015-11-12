@@ -75,7 +75,7 @@ class KayttajaController extends BaseController {
     }*/
     if ($okay) {
        //$user = Kayttaja::authenticate($annettu_kayttajatunnus, $annettu_salasana);
-       $user = Kayttaja::authenticate($params['kayttajatunnus'], $params['salasana']);
+       $user = authenticate($params['kayttajatunnus'], $params['salasana']);
 
       if(!$user){
           View::make('Kirjaudu.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['kayttajatunnus']));
