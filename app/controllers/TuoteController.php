@@ -149,6 +149,8 @@ class TuoteController extends BaseController{
        */
 
       $listattava_tuote = TuoteController::find_tuote($Tuote_id);
+      View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+      
       return $listattava_tuote;
   }
   
