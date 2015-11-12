@@ -8,7 +8,7 @@
     HelloWorldController::kirjaudu();
   });
   
-  $routes->post('/kirjaudu', function(){
+  $routes->post('/Kirjaudu', function(){
     // Kirjautumisen käsittely
     KayttajaController::handle_login();
   });
@@ -21,6 +21,7 @@
     HelloWorldController::paasivu_show();
   });
   
+  // Käyttäjään liittyvät
   $routes->get('/Kayttaja/Kayttajienlistaus', function() {
     KayttajaController::kayttaja_list();
   });
@@ -28,7 +29,8 @@
   $routes->get('/Kayttaja/Kayttajatietojenmuutos-testi', function() {
     KayttajaController::kayttaja_edit();
   });
-    
+  
+  // Tuotteisiin liittyvät
   $routes->get('/Tuote/Tuotesivu', function() {
     TuoteController::tuote_show();
   });
@@ -55,10 +57,11 @@
     * 
     * Tällä hetkellä tekstihaku on edelleen kehittelyvaiheessa.
     */
+/*
   $routes->get('/Tuote/Tuotteenhakeminen', function() {
     TuoteController::tuote_search();
   });
- 
+*/
   $routes->post('/find_tuotteennimi', function(){
     TuoteController::find_tuotteennimi();
   });
@@ -70,6 +73,8 @@
   $routes->get('/Tuote/Tuotetietojenmuutos', function() {
     TuoteController::tuote_edit($Tuote_id);
   });
+
+  // Varastoon liittyvät
   
   $routes->get('/Varasto/Varastotilanteenmuutos', function() {
     VarastoController::varasto_edit($Tuote_id);
