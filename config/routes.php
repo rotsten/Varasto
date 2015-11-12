@@ -81,7 +81,6 @@
   });
   
   // Varastoon liittyvät
-  
   $routes->get('/Varasto/Varastotilanteenmuutos', function($tuote_id) {
     VarastoController::varasto_edit($tuote_id);
   });

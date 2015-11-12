@@ -29,25 +29,25 @@ class Tuote extends BaseModel {
     $this->tuotteen_nimi = $tuotteen_nimi;
   }
  */ 
-  public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
-    
-    parent::__construct();
-    
-    // Kun annetaan kaikki tiedot
-    $this->tuote_id = $tuote_id;
-    $this->tuotteen_nimi = $tuotteen_nimi;
-    $this->valmistaja = $valmistaja;
-    $this->kuvaus = $kuvaus;
-    $this->lukumaara = $lukumaara; 
-    $this-> history_date = $history_date;
-  }
+    public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
 
-   public static function all(){
+      parent::__construct();
+
+      // Kun annetaan kaikki tiedot
+      $this->tuote_id = $tuote_id;
+      $this->tuotteen_nimi = $tuotteen_nimi;
+      $this->valmistaja = $valmistaja;
+      $this->kuvaus = $kuvaus;
+      $this->lukumaara = $lukumaara; 
+      $this-> history_date = $history_date;
+    }
+
+    public static function all(){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
      * palauttaa ne Tuotteet -nimisessä taulukossa
      */
-   
+
       $query = DB::connection()->prepare('SELECT * FROM TUOTE');
       // Suoritetaan kysely
       $query->execute();
@@ -66,14 +66,14 @@ class Tuote extends BaseModel {
              'history_date' => $row['history_date']
            ));
       } // end of foreach
-    return $tuotteet;
-   } // end of function all
+      return $tuotteet;
+    } // end of function all
 
   public function find_tuote($Tuote_id){
-      // Ei järin fksu funtio, mutta....
-      $etsitty_tuote = find_tuote($Tuote_id);
+    // Ei järin fksu funtio, mutta....
+    $etsitty_tuote = find_tuote($Tuote_id);
       
-   return $etsitty_tuote;
+    return $etsitty_tuote;
   }
   
   public function save() {
@@ -103,13 +103,12 @@ class Tuote extends BaseModel {
     $errors = array();
     if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
       $errors[] = 'Nimi ei saa olla tyhjä!';
-    }
+    } // end of if
     
     if(strlen($this->tuotteen_nimi) < 2){
       $errors[] = 'Nimen pituuden tulee olla vähintään kaksi merkkiä!';
-    }
+    } // end of if
 
-  return $errors;
-}
-   
-} // end of class
+    return $errors;
+  } // The end of validate_tuotteen_nimi 
+} // The end of class
