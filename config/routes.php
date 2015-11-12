@@ -76,7 +76,7 @@
     TuoteController::tuote_edit($Tuote_id);
   });
 
-  $routes->get('/Tuote/:Tuote_id', function($Tuote_id) {
+  $routes->get('/Tuotesivu/:Tuote_id', function($Tuote_id) {
     TuoteController::tuote_show($Tuote_id);
   });
   
