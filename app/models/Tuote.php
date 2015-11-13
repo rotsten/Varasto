@@ -17,7 +17,7 @@ class Tuote extends BaseModel {
   public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date;
   
   //konstruktori
-  /*
+  
   public function __construct ($attributes){
       parent::__construct($attributes);
   }
@@ -29,6 +29,7 @@ class Tuote extends BaseModel {
     $this->tuotteen_nimi = $tuotteen_nimi;
   }
  */ 
+  /*
     public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
 
       parent::__construct();
@@ -41,7 +42,7 @@ class Tuote extends BaseModel {
       $this->lukumaara = $lukumaara; 
       $this-> history_date = $history_date;
     }
-
+*/
     public static function all(){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
