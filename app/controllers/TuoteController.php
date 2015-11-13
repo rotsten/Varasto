@@ -181,6 +181,18 @@ class TuoteController extends BaseController{
     return null;
   } // end of db_search_tuotteen_nimi
   
+    public static function tuote_create ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara){
+     
+     // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
+     // Luodaan annettuja arvoja käyttäen uusi tuote.
+      
+     //$uusi_tuote = new Tuote ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara
+     //$query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
+ 
+  }
+  
+  
+  
   /*
   public static function db_lisaa_tuote($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara){
      

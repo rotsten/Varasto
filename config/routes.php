@@ -36,10 +36,21 @@
     TuoteController::tuote_show();
   });
   */
-    
-  $routes->get('/Tuote/Lisaatuote', function() {
+
+  $routes->post('/Tuote', function() {
     TuoteController::tallenna();
   });
+  
+  // Pelin lisäyslomakkeen näyttäminen
+  $routes->get('/Tuote/Lisaatuote', function(){
+    TuoteController::tuote_create();
+  });
+  
+  /*
+  $routes->post('/Tuote/Tallenna/:tuote_id', function($tuote_id){
+    TuoteController::tallenna($tuote_id);
+  });
+  */
   
   $routes->get('/Tuote/Tuotteidenlistaus', function() {
     TuoteController::tuote_list();
@@ -64,9 +75,6 @@
     TuoteController::find_tuotteennimi();
   });
   
-  $routes->post('/Tuote/Tallenna', function(){
-    TuoteController::tallenna();
-  });
   /*
   $routes->post('/Tuote/Tuotteidenhakeminen', function(){
     TuoteController::tallenna();
