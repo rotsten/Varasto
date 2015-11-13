@@ -21,28 +21,7 @@ class Tuote extends BaseModel {
   public function __construct ($attributes){
       parent::__construct($attributes);
   }
-  
-  /*
-  public function __construct($tuote_id, $tuotteen_nimi){
-    // vain tuotteen pakolliset tiedot
-    $this->tuote_id = $tuote_id;
-    $this->tuotteen_nimi = $tuotteen_nimi;
-  }
- */ 
-  /*
-    public function __construct($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
 
-      parent::__construct();
-
-      // Kun annetaan kaikki tiedot
-      $this->tuote_id = $tuote_id;
-      $this->tuotteen_nimi = $tuotteen_nimi;
-      $this->valmistaja = $valmistaja;
-      $this->kuvaus = $kuvaus;
-      $this->lukumaara = $lukumaara; 
-      $this-> history_date = $history_date;
-    }
-*/
     public static function all(){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
