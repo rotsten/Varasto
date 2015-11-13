@@ -72,11 +72,11 @@
     TuoteController::tallenna();
   });
   */
-  $routes->get('/Tuote/Tuotetietojenmuutos', function($tuote_id) {
+  $routes->post('/Tuote/Tuotetietojenmuutos', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
 
-  $routes->get('/Tuotesivu/:Tuote_id', function($tuote_id) {
+  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
   
