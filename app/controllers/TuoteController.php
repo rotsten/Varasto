@@ -52,7 +52,7 @@ class TuoteController extends BaseController{
     $params = $_POST;
     
     $Uusi_tuote = new Tuote(array(
-      'Tuote_id' => $params['tuote_id'],  
+      'tuote_id' => $params['tuote_id'],  
       'tuotteen_nimi' => $params['tuotteen_nimi'],
       'valmistaja' => $params['valmistaja'],
       'kuvaus' => $params['kuvaus'],
@@ -66,7 +66,7 @@ class TuoteController extends BaseController{
      * kerralla väärin.
      */
     
-    Redirect::to('/Tuote/Tuotesivu' . $Tuote_id->Tuote_id, $Uusi_tuote);
+    Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
  
   }
   
@@ -139,7 +139,7 @@ class TuoteController extends BaseController{
       
       return $tuote;
     } // end of if
-  } // end of find_tuote (Tuote_id)
+  } // end of find_tuote (tuote_id)
   
 
   public static function tuote_show($tuote_id) {
@@ -163,7 +163,7 @@ class TuoteController extends BaseController{
        * täydellisesti täyttävät hakuehdon.
        */
     
-    $query = DB::connection()->prepare('SELECT Tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteen_nimi LIMIT 1');
+    $query = DB::connection()->prepare('SELECT tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteen_nimi LIMIT 1');
     $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
     $row = $query->fetch();
 
