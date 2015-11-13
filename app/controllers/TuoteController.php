@@ -181,7 +181,7 @@ class TuoteController extends BaseController{
     return null;
   } // end of db_search_tuotteen_nimi
   
-    public static function tuote_create ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara){
+    public static function tuote_create ($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus){
      
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
      // Luodaan annettuja arvoja käyttäen uusi tuote.
