@@ -49,9 +49,9 @@ class Tuote extends BaseModel {
       return $tuotteet;
     } // end of function all
 
-  public function find_tuote($Tuote_id){
+  public function find_tuote($tuote_id){
     // Ei järin fksu funtio, mutta....
-    $etsitty_tuote = find_tuote($Tuote_id);
+    $etsitty_tuote = find_tuote($tuote_id);
       
     return $etsitty_tuote;
   }
