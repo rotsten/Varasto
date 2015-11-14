@@ -62,7 +62,7 @@ class TuoteController extends BaseController{
   }
   
   // olioon liittyvät julkiset metodit
-  public function edit($tuote_id){
+  public function tuote_edit($tuote_id){
     
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
