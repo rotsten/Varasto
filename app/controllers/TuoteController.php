@@ -73,7 +73,7 @@ class TuoteController extends BaseController{
      return;
   }
   
-  public function save(){
+  public static function save(){
     
     //$timestamp = strtotime(time,now); 
     
