@@ -36,10 +36,12 @@ class TuoteController extends BaseController{
     
     Kint::dump($params);
     
-    $date=date_create();
-    $timestamp = date_timestamp_get($date);
+    if (empty($params['history_date'])){
+        $t=time();
+        $timestamp = (date("Y-m-d",$t));
+         //$timestamp = strtotime(time,now); 
+    }
     
-    //$timestamp = strtotime(time,now); 
     
     if (empty($params['lukumaara'])){
       $params['lukumaara'] = 0;
