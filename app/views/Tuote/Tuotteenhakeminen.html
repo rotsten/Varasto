@@ -6,10 +6,10 @@
   <form method="post" action="{{base_path}}/Tuote"> 
      <div class="form-group">
        <label>Tuote-ID</label>
-       <input type="text" class="form-control" value="Tuote_id">
+       <input type="text" class="form-control" value="tuote_id">
      </div>
      <div class="form-group">
-       <button type="submit" class="btn btn-default"><A href="{{base_path}}/Tuote/{{tuote_id}}find_tuote">Hae!</a></button>
+       <button type="submit" class="btn btn-default" value=find_tuote>Hae </button>
     <!-- 
      Tutkitaan myöhemmin, miten tekstihaku toimisi.
     
@@ -18,13 +18,13 @@
        <label>Tuotteen nimi</label>
        <input type="text" class="form-control" value="tuotteen_nimi">
      </div>
-    -->
-    
+
     <div class="form-group">
        <button type="submit" class="btn btn-default"><A href="{{base_path}}/Tuote/{{tuotteen_nimi}}find_tuotteen_nimi">Hae!</a></button>
      </div> 
-      
-      <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
+     --> 
+     
+     <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
 
   </form>
 {% endblock %}
