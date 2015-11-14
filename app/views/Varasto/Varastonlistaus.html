@@ -14,7 +14,7 @@
 
     <tbody>
       <!-- Listataan Varaston tuotteet tähän eli haetaan, jos lukumäärä > 0 
-           Tämä vaantii koontitaulun luomista tietokantaan ja sen sisällön 
+           Tämä vaatii koontitaulun luomista tietokantaan ja sen sisällön 
            listaamista
       -->
       {% for Varasto in varastotilanne %}
@@ -23,7 +23,7 @@
             <td>xxx</td>
             <td>xxx</td>
             <td>{{Varasto.kayttajatunnus}}</td>
-            <th><a class="btn btn-default btn-sm"<A href="{{base_path}}/Varasto/Varastotilanteenmuutos-testi"> Muokkaa</a></th>
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilanteenmuutos/{{Tuote.tuote_id}}"> Muokkaa</a></th>
           </tr>
       {% endfor %}
     </tbody>

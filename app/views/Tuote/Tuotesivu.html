@@ -8,10 +8,10 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>Tuote-ID</th>
-            <th>Tuotteen nimi</th>
-            <th>Valmistaja</th>
-            <th>Tuotekuvaus</th>
+            <th>tuote_id</th>
+            <th>tuotteen nimi</th>
+            <th>valmistaja</th>
+            <th>tuotekuvaus</th>
             <th></th>
             <th></th>
             <th></th>
@@ -21,8 +21,8 @@
         <tbody>
            <tr>
              <td></td>
-             <td>{{listattava_tuote.tuote_id}}</td>
              <td>{{listattava_tuote.tuotteen_nimi}}</td>  
+             <td>{{listattava_tuote.tuote_id}}</td> <!--Jostain syystä tämä ei tulostu, eikä siis myös välity Muokkaa-sivulle -->
              <td>{{listattava_tuote.valmistaja}}</td>
              <td>{{listattava_tuote.kuvaus}}</td>
              <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
