@@ -26,27 +26,74 @@ class TuoteController extends BaseController{
     View::make('/Tuote/Tuotteenhakeminen.html');
   }
   
-  public function save(){
+    //public static function tuote_create ($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
+  public static function tuote_create (){    
+     // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
+     // Luodaan annettuja arvoja käyttäen uusi tuote.
+     
+    // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
+    $params = $_POST;
+    
+    Kint::dump($params);
     
     $timestamp = strtotime(time,now); 
+    
+    if (empty($params['lukumaara'])){
+      $temp_lukumaara=0;
+    } 
+      
+    $Uusi_tuote = new Tuote(array(
+      'tuote_id' => $params['tuote_id'],  
+      'tuotteen_nimi' => $params['tuotteen_nimi'],
+      'valmistaja' => $params['valmistaja'],
+      'kuvaus' => $params['kuvaus'],
+      $temp_lukumaara => $params['lukumaara'],
+      $timestamp => $params['history_date']
+    ));
+         
+     $uusi_tuote -> tallenna();
+             
+          //$query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
+     
+          // Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
+         
+     return;
+  }
+  
+  public function save(){
+    
+    //$timestamp = strtotime(time,now); 
     
     // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
     $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
             tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
-            VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, lukumaara, 
-            timestamp) RETURNING id');
+            VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, :lukumaara, 
+            :timestamp) RETURNING id');
     
     $query->execute(array('tuote_id' => $this->tuote_id, 
                           'tuotteen_nimi' => $this->tuotteen_nimi, 
                           'kuvaus' => $this->kuvaus,
                           'valmistaja' => $this->valmistaja, 
                           'lukumaara' => $this->lukumaara,
-                          'history_date' => $timestamp
+                          'history_date' => $this->timestamp
                           ));
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
     $row = $query->fetch();
     // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
     //$this->tuote_id = $row['id'];
+  }
+  
+    public function tallenna(){
+
+    // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
+    $Uusi_tuote->save();
+
+    /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
+     * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
+     * kerralla väärin.
+     */
+    
+    Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
   }
   
   public static function tuote_list(){
@@ -73,21 +120,6 @@ class TuoteController extends BaseController{
   
  */
   
-  public function tallenna(){
-
-    // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-    $Uusi_tuote->save();
-
-    /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
-     * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
-     * kerralla väärin.
-     */
-    
-    Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
- 
-  }
-  
-  // olioon liittyvät julkiset metodit
   public function tuote_edit($tuote_id){
     
     /*
@@ -212,32 +244,6 @@ class TuoteController extends BaseController{
     } // end of if
     return null;
   } // end of db_search_tuotteen_nimi
-  
-  //public static function tuote_create ($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
-  public static function tuote_create (){    
-     // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
-     // Luodaan annettuja arvoja käyttäen uusi tuote.
-     
-    // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
-    $params = $_POST;
-
-    Kint::dump($params);
-    
-    $Uusi_tuote = new Tuote(array(
-      'tuote_id' => $params['tuote_id'],  
-      'tuotteen_nimi' => $params['tuotteen_nimi'],
-      'valmistaja' => $params['valmistaja'],
-      'kuvaus' => $params['kuvaus'],
-      'lukumaara' => $params['lukumaara'],
-      'history_date' => $params['history_date']
-    ));
-
-    
-     $uusi_tuote = new Tuote ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara, $history_date);
-     $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
-     return;
-  }
-  
   
   /*
   public static function db_lisaa_tuote($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara){
