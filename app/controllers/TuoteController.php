@@ -81,9 +81,10 @@ class TuoteController extends BaseController{
     View::make('/Tuotetietojenmuutos'); 
   }
  
-   public function tuote_edit_post($tuote_id, $muutettava_tuote){
+   public function tuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
+    $muutettava_tuote = TuoteController::find_tuote($tuote_id);
   
     Kint::dump($uudet_tiedot);
     Kint::dump($muutettava_tuote);
