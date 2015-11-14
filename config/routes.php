@@ -46,10 +46,15 @@
     TuoteController::tuote_lisaa_show();
   });
   
+  $routes->post('/Tuote/Lisaatuote', function(){
+    TuoteController::tuote_create();
+  });
+  
+  /*
   $routes->post('/Tuote/Lisaatuote', function($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
     TuoteController::tuote_create($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date);
   });
-  
+  */
   /*
   $routes->post('/Tuote/Tallenna/:tuote_id', function($tuote_id){
     TuoteController::tallenna($tuote_id);

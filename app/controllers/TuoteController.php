@@ -27,10 +27,28 @@ class TuoteController extends BaseController{
   }
   
   public function save(){
-      
-      // Lisätään tänne SQL-lause
+    
+    $timestamp = strtotime(time,now); 
+    
+    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
+            tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
+            VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, lukumaara, 
+            timestamp) RETURNING id');
+    
+    $query->execute(array('tuote_id' => $this->tuote_id, 
+                          'tuotteen_nimi' => $this->tuotteen_nimi, 
+                          'kuvaus' => $this->kuvaus,
+                          'valmistaja' => $this->valmistaja, 
+                          'lukumaara' => $this->lukumaara,
+                          'history_date' => $timestamp
+                          ));
+    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
+    $row = $query->fetch();
+    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+    //$this->tuote_id = $row['id'];
   }
- 
+  
   public static function tuote_list(){
     /*
      * Tämä funktio kutsuu, all-funktiota,
@@ -195,8 +213,8 @@ class TuoteController extends BaseController{
     return null;
   } // end of db_search_tuotteen_nimi
   
-    public static function tuote_create ($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
-     
+  //public static function tuote_create ($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
+  public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
      // Luodaan annettuja arvoja käyttäen uusi tuote.
      
@@ -219,7 +237,6 @@ class TuoteController extends BaseController{
      $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
      return;
   }
-  
   
   
   /*
