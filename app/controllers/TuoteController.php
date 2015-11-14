@@ -34,19 +34,17 @@ class TuoteController extends BaseController{
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
     
-    Kint::dump($params);
-    
     if (empty($params['history_date'])){
         $t=time();
         $params['history_date'] = (date("Y-m-d",$t));
          //$timestamp = strtotime(time,now); 
     }
     
-    
     if (empty($params['lukumaara'])){
       $params['lukumaara'] = 0;
     } 
 
+    Kint::dump($params);
       
     $Uusi_tuote = new Tuote(array(
       'tuote_id' => $params['tuote_id'],  
