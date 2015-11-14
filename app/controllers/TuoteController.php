@@ -34,11 +34,12 @@ class TuoteController extends BaseController{
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
     
+    /*
     if (empty($params['history_date'])){
         $t=time();
         $params['history_date'] = (date("Y-m-d",$t));
          //$timestamp = strtotime(time,now); 
-    }
+    }*/
     
     if (empty($params['lukumaara'])){
       $params['lukumaara'] = 0;
