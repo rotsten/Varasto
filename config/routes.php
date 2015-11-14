@@ -84,7 +84,7 @@
     TuoteController::tuote_edit($tuote_id);
   });
 
-  $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id $muutettava_tuote) {
+  $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id, $muutettava_tuote) {
     TuoteController::tuote_edit_post($tuote_id, $muutettava_tuote);
   });
           
