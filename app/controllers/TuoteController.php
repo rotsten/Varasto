@@ -77,12 +77,15 @@ class TuoteController extends BaseController{
     $uudet_tiedot = $_POST; 
     $aiemmat_tuotetiedot = find_tuote($tuote_id);
   
+    Kint::dump($uudet_tiedot);
+    
     /*
      * UPDATE table
      *   SET column = REPLACE(column,old_text,new_text)
      *   WHERE condition
      */
     
+    /*
     // Päivitetään tuotteen_nimi          
     $old_nimi = ($aiemmat_tuotetiedot = $tuotteen_nimi);
     $new_nimi = ($uudet_tiedot['tuotteen_nimi']);
@@ -97,7 +100,9 @@ class TuoteController extends BaseController{
     $new_kuvaus = ($uudet_tiedot['kuvaus']);
     $old_kuvaus = ($aiemmat_tuotetiedot = $kuvaus);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(kuvaus, old_kuvaus, new_kuvaus) WHERE tuote_id = $tuote_id;');
-      
+    */
+    
+    View::make('/Tuotteidenlistaus'); 
   }     
   
   public function tuote_search ($tuote_id, $tuotteen_nimi){
@@ -140,7 +145,7 @@ class TuoteController extends BaseController{
        */
 
       $listattava_tuote = TuoteController::find_tuote($tuote_id);
-      Kint::dump($listattava_tuote);
+      //Kint::dump($listattava_tuote);
       View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
       
       return $listattava_tuote;
