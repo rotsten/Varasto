@@ -42,8 +42,8 @@
   });
   
   // Pelin lisäyslomakkeen näyttäminen
-  $routes->get('/Tuote/Lisaatuote', function($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
-    TuoteController::tuote_create();
+  $routes->post('/Tuote/Lisaatuote', function($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
+    TuoteController::tuote_create($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date);
   });
   
   /*

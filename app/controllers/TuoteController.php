@@ -48,15 +48,6 @@ class TuoteController extends BaseController{
  */
   
   public function tallenna(){
-    // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
-    $params = $_POST;
-    
-    $Uusi_tuote = new Tuote(array(
-      'tuote_id' => $params['tuote_id'],  
-      'tuotteen_nimi' => $params['tuotteen_nimi'],
-      'valmistaja' => $params['valmistaja'],
-      'kuvaus' => $params['kuvaus'],
-    ));
 
     // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
     $Uusi_tuote->save();
@@ -149,7 +140,7 @@ class TuoteController extends BaseController{
        */
 
       $listattava_tuote = TuoteController::find_tuote($tuote_id);
-      //Kint::dump($listattava_tuote);
+      Kint::dump($listattava_tuote);
       View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
       
       return $listattava_tuote;
@@ -185,9 +176,22 @@ class TuoteController extends BaseController{
      
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
      // Luodaan annettuja arvoja käyttäen uusi tuote.
-      
-     //$uusi_tuote = new Tuote ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara
-     //$query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
+     
+    // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
+    $params = $_POST;
+    
+    $Uusi_tuote = new Tuote(array(
+      'tuote_id' => $params['tuote_id'],  
+      'tuotteen_nimi' => $params['tuotteen_nimi'],
+      'valmistaja' => $params['valmistaja'],
+      'kuvaus' => $params['kuvaus'],
+      'lukumaara' => $params['lukumaara'],
+      'history_date' => $params['history_date']
+    ));
+
+    
+     $uusi_tuote = new Tuote ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara, $history_date);
+     $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
      return;
   }
   
