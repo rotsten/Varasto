@@ -57,7 +57,14 @@ class TuoteController extends BaseController{
       'timestamp' => $params['history_date']
     ));
          
-     $uusi_tuote -> tallenna();
+     $uusi_tuote -> save();
+     
+    /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
+     * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
+     * kerralla väärin.
+     */
+    
+    Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
              
           //$query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
      
@@ -87,6 +94,10 @@ class TuoteController extends BaseController{
     $row = $query->fetch();
     // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
     //$this->tuote_id = $row['id'];
+    
+    Kint::trace();
+    Kint::dump($row);
+    
   }
   
     public function tallenna(){
