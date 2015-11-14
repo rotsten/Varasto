@@ -38,7 +38,7 @@ class TuoteController extends BaseController{
     
     if (empty($params['history_date'])){
         $t=time();
-        $timestamp = (date("Y-m-d",$t));
+        $params['history_date'] = (date("Y-m-d",$t));
          //$timestamp = strtotime(time,now); 
     }
     
@@ -54,7 +54,7 @@ class TuoteController extends BaseController{
       'valmistaja' => $params['valmistaja'],
       'kuvaus' => $params['kuvaus'],
       'lukumaara' => $params['lukumaara'],
-      $timestamp => $params['history_date']
+      'timestamp' => $params['history_date']
     ));
          
      $uusi_tuote -> tallenna();
