@@ -36,6 +36,8 @@ class TuoteController extends BaseController{
     
     Kint::dump($params);
     
+    $time = time();
+    
     $timestamp = strtotime(time,now); 
     
     if (empty($params['lukumaara'])){
