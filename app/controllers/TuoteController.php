@@ -42,15 +42,16 @@ class TuoteController extends BaseController{
     //$timestamp = strtotime(time,now); 
     
     if (empty($params['lukumaara'])){
-      $temp_lukumaara=0;
+      $params['lukumaara'] = 0;
     } 
+
       
     $Uusi_tuote = new Tuote(array(
       'tuote_id' => $params['tuote_id'],  
       'tuotteen_nimi' => $params['tuotteen_nimi'],
       'valmistaja' => $params['valmistaja'],
       'kuvaus' => $params['kuvaus'],
-      $temp_lukumaara => $params['lukumaara'],
+      'lukumaara' => $params['lukumaara'],
       $timestamp => $params['history_date']
     ));
          
