@@ -189,10 +189,11 @@ class TuoteController extends BaseController{
     
   public static function find_tuote($tuote_id){
     
-    //$params = $_POST;
-    
-    $find_tuote_id = _POST[tuote_id]
-      
+    /*
+     * Tässä tapauksessa _POST sisältää vain tuote_id -tiedon
+     */
+    $find_tuote_id  = $_POST; 
+       
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $find_tuote_id));
     $row = $query->fetch();
