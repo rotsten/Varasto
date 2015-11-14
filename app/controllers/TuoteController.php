@@ -75,7 +75,7 @@ class TuoteController extends BaseController{
      */
   
     $muutettava_tuote = TuoteController::find_tuote($tuote_id);
-    //Kint::dump($muutettava_tuote);
+    Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
       
     View::make('/Tuotetietojenmuutos'); 

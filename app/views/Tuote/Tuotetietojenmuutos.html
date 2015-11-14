@@ -4,23 +4,54 @@
 
   <form  method="post">
     <div class="form-group">
-      <label>Nimi</label>
-      <input type="text" class="form-control" value="Pitäisi myös tulostaa nykyiset tuotetiedot näkyviin">
+      <label>{{muutettava_tuote.tuotteen_nimi}}</label>
+      <input type="text" class="form-control" value="Nykyiset tiedot">
     </div>
+ 
+   <!---
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Tuote-ID</th>
+          <th>Tuotteen nimi</th>
+          <th>Valmistaja</th>
+          <th>Tuotekuvaus</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+         <tr>
+         <td></td>
+          <td>{{muutettava_tuote.tuote_id}}</td>
+          <td>{{muutettava_tuote.tuotteen_nimi}}</td>  
+          <td>{{muutettava_tuote.valmistaja}}</td>
+          <td>{{muutettava_tuote.kuvaus}}</td>
+        </tr>
+      </tbody>    
+    </table>
+    -->
+    
      <div class="form-group">
           <label>Tuotteen nimi</label>
-          <input type="text" class="form-control" value="{{salasana}}">
+          <input type="text" class="form-control" value="{{muutettava_tuote.tuotteen_nimi}}">
         </div>
         <div class="form-group">
           <label>Valmistaja</label>
-          <input type="text" class="form-control" value="{{valmistaja}}">
+          <input type="text" class="form-control" value="{{muutettava_tuote.valmistaja}}">
         </div>
         <div class="form-group">
           <label>Kuvaus</label>
           <textarea class="form-control">  </textarea>
         </div>
         <div class="form-group">
-          <button type ="submit" class="btn btn-default" name= "Tallenna"> {{tuote_id}}edit()></button>
+          <label>Lukumäärä</label>
+          <input type="text" class="form-control" value="{{muutettava_tuote.lukumaara}}">
+        </div>
+        <div class="form-group">
+          <button type ="submit" class="btn btn-default" value=tuote_post_edit($tuote_id)></button>
           <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu tallentamatta</A></button>
         </div>
   </form>
