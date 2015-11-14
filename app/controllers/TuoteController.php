@@ -19,9 +19,13 @@ class TuoteController extends BaseController{
   }
   
   public static function tuote_lisaa_show(){
-    View::make('Lisaatuote.html');
+    View::make('Tuote/Lisaatuote.html');
   }
-    
+  
+  public static function tuote_hae_show(){
+    View::make('/Tuote/Tuotteenhakeminen.html');
+  }
+  
   public function save(){
       
       // Lisätään tänne SQL-lause

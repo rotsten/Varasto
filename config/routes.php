@@ -59,6 +59,14 @@
   $routes->get('/Tuote/Tuotteidenlistaus', function() {
     TuoteController::tuote_list();
   });
+  
+  $routes->get('/Tuote/Tuotteenhakeminen', function() {
+    TuoteController::tuote_hae_show();
+  });
+  
+  $routes->post('/Tuote/Tuotteenhakeminen', function() {
+    TuoteController::find_tuote($tuote_id);
+  });
 
   $routes->post('/find_tuote', function($tuote_id){
     TuoteController::find_tuote($tuote_id);
