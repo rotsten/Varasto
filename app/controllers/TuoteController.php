@@ -17,11 +17,15 @@ class TuoteController extends BaseController{
     $Tuotteet = Tuote::all();
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
+  
+  public static function tuote_lisaa_show(){
+    View::make('Lisaatuote.html');
+  }
+    
   public function save(){
       
       // Lisätään tänne SQL-lause
   }
-          
  
   public static function tuote_list(){
     /*
@@ -112,7 +116,7 @@ class TuoteController extends BaseController{
     $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(kuvaus, old_kuvaus, new_kuvaus) WHERE tuote_id = $tuote_id;');
     */
     
-    View::make('/Tuotteidenlistaus'); 
+    View::make('/Tuote/Tuotteidenlistaus'); 
   }     
   
   public function tuote_search ($tuote_id, $tuotteen_nimi){
@@ -194,6 +198,8 @@ class TuoteController extends BaseController{
      
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
+
+    Kint::dump($params);
     
     $Uusi_tuote = new Tuote(array(
       'tuote_id' => $params['tuote_id'],  
