@@ -80,7 +80,7 @@
     TuoteController::tallenna();
   });
   */
-  $routes->post('/Tuote/Tuotetietojenmuutos', function($tuote_id) {
+  $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
 
