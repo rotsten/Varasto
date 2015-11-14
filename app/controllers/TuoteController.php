@@ -62,7 +62,7 @@ class TuoteController extends BaseController{
   }
   
   // olioon liittyvät julkiset metodit
-  public function edit($tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus){
+  public function edit($tuote_id){
     
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
@@ -74,10 +74,19 @@ class TuoteController extends BaseController{
      *  antamista. Siispä ne pitää hakea
      */
   
+    $muutettava_tuote = TuoteController::find_tuote($tuote_id);
+    //Kint::dump($muutettava_tuote);
+    View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
+      
+    View::make('/Tuotetietojenmuutos'); 
+  }
+ 
+   public function tuote_edit_post($tuote_id, $muutettava_tuote){
+    
     $uudet_tiedot = $_POST; 
-    $aiemmat_tuotetiedot = find_tuote($tuote_id);
   
     Kint::dump($uudet_tiedot);
+    Kint::dump($muutettava_tuote);
     
     /*
      * UPDATE table

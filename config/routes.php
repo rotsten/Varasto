@@ -80,10 +80,14 @@
     TuoteController::tallenna();
   });
   */
-  $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
+  $routes->get('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
 
+  $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id $muutettava_tuote) {
+    TuoteController::tuote_edit_post($tuote_id, $muutettava_tuote);
+  });
+          
   $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
