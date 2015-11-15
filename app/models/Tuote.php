@@ -75,12 +75,12 @@ class Tuote extends BaseModel {
                           ));
     */
     
-    $query->execute(array('tuote_id' => $this.tuote_id, 
-                          'tuotteen_nimi' => $this.tuotteen_nimi, 
-                          'kuvaus' => $this.kuvaus,
-                          'valmistaja' => $this.valmistaja, 
-                          'lukumaara' => $this.lukumaara,
-                          'history_date' => $this.timestamp
+    $query->execute(array('tuote_id' => $this->tuote_id, 
+                          'tuotteen_nimi' => $this->tuotteen_nimi, 
+                          'kuvaus' => $this->kuvaus,
+                          'valmistaja' => $this->valmistaja, 
+                          'lukumaara' => $this->lukumaara,
+                          'history_date' => $this->timestamp
                           ));
         
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
