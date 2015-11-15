@@ -26,8 +26,6 @@ class TuoteController extends BaseController{
     View::make('/Tuote/Tuotteenhakeminen.html');
   }
   
-  
-    //public static function tuote_create ($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
      // Luodaan annettuja arvoja käyttäen uusi tuote.
@@ -65,11 +63,7 @@ class TuoteController extends BaseController{
      */
     
      Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
-             
-      //$query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
-
-      // Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
-         
+                     
      return;
   }
   
@@ -94,20 +88,6 @@ class TuoteController extends BaseController{
     
   }  // end of tuote_list
 
- /*
-    // Toinen yritelmä samasta teemasta
-  
-    public static function db_list_tuote(){
-        $query = DB::connection()->prepare('SELECT * FROM TUOTE');
-        $query->execute(array('tuote_id' => $tuote_id));
-        $Tuotteet = new array(Tuote);
-
-        $Tuotteet = $query->fetchAll('tuote_id', 'tuotteen_nimi', 'valmistaja');
-      return $Tuotteet;
-  } // end of db_list_tuote
-  
- */
-  
   public function tuote_edit($tuote_id){
     
     /*
@@ -179,13 +159,11 @@ class TuoteController extends BaseController{
     /*
      * POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa 
      * Tässä tapauksessa _POST sisältää tuote_id -tiedon.
-     * 
-     * Miten siihen voi viitata?
      */
       
     $params = $_POST;
     $find_tuote_id  = $params[tuote_id]; 
-       
+          
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $find_tuote_id));
     $row = $query->fetch();
