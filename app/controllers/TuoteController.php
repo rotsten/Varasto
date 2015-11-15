@@ -186,16 +186,19 @@ class TuoteController extends BaseController{
       /* Etsitään näytettävän tuotteen
        * tiedot
        */
-   
-      $listattava_tuote = new Tuote();
       
+      /*
       // model->attribute = $_POST['attribute']
       $listattava_tuote->tuote_id =  $_POST['tuote_id'];
       
       // käytetään pelkkää tuote-id:tä kyselyssä
       $find_tuote_id = $listattava_tuote->tuote_id;
-              
-      $listattava_tuote = TuoteController::find_tuote_with_tuote_id($find_tuote_id);
+      */
+      
+      $params = $_POST;
+      $find_tuote_id  = $params[tuote_id]; 
+      
+      $listattava_tuote = TuoteController::find_tuote_with_tuote_id($tuote_id);
       //Kint::dump($listattava_tuote);
       View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $listattava_tuote));
       
@@ -258,7 +261,7 @@ class TuoteController extends BaseController{
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
-
+    
     if($row){
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],

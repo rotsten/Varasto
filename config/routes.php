@@ -32,16 +32,18 @@
   
   // Tuotteisiin liittyvät
  
- /* Tulosta tuotesivu, kun tuote_id on saatu */
-  
+ /* Tulosta tuotesivu, kun tuote_id on saatu */ 
   $routes->post('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show_with_tuote_id($tuote_id);
   }); 
   
+  /*
+  // Näyttää tuotesivun
   $routes->get('/Tuote/Tuotesivu', function() {
     TuoteController::tuote_show();
-  }); 
-    
+  });
+  */
+      
   /*
   $routes->post('/Tuote', function() {
     Tuote::Save();
@@ -69,7 +71,7 @@
   
   // Tulostaa tuotteen hakusivun
   $routes->get('/Tuote/Tuotteenhakeminen', function() {
-    TuoteController::tuote_show();
+    TuoteController::tuote_hae_show();
   });
   
   // Tulostaa tuotteen hakutulokset tuotesivulle käyttäen $_POST
