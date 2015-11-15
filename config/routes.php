@@ -31,18 +31,19 @@
   });
   
   // Tuotteisiin liittyvät
-  /*
+  
   $routes->get('/Tuote/Tuotesivu', function() {
     TuoteController::tuote_show();
   });
-  */
   
-  /*
+  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
+    TuoteController::tuote_show($tuote_id);
+  });
+    
   $routes->post('/Tuote', function() {
     Tuote::Save();
   });
- */
-  
+   
   // Pelin lisäyslomakkeen näyttäminen
   $routes->get('/Tuote/Lisaatuote', function(){
     TuoteController::tuote_lisaa_show();
@@ -52,11 +53,6 @@
     TuoteController::tuote_create();
   });
   
-  /*
-  $routes->post('/Tuote/Lisaatuote', function($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
-    TuoteController::tuote_create($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date);
-  });
-  */
   /*
   $routes->post('/Tuote/Tallenna/:tuote_id', function($tuote_id){
     TuoteController::tallenna($tuote_id);
@@ -75,11 +71,6 @@
     TuoteController::find_tuote_with_tuote_id($tuote_id);
   });
 
-  /*
-  $routes->post('/find_tuote', function($tuote_id){
-    TuoteController::find_tuote($tuote_id);
-  });
-  */
    /*
     * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
     * taan tuote_search() -funktiota.
@@ -108,11 +99,7 @@
   $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
   });
-          
-  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
-    TuoteController::tuote_show($tuote_id);
-  });
-  
+           
   // Varastoon liittyvät
   $routes->get('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
     VarastoController::varasto_edit($tuote_id);

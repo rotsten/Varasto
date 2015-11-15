@@ -33,8 +33,7 @@ class TuoteController extends BaseController{
      
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
-    
-    
+        
     if (empty($params['history_date'])){
         $t=time();
         $params['history_date'] = (date("Y-m-d",$t));
@@ -57,23 +56,23 @@ class TuoteController extends BaseController{
     ));
          
      $uusi_tuote ->save();
+     $tuote_id = ($uusi_tuote['tuote_id']);
      
     /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
      * kerralla väärin.
      */
     
-    Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
+     Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
              
-          //$query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
-     
-          // Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
+      //$query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
+
+      // Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
          
      return;
   }
   
-  
-    public function tallenna(){
+  public function tallenna(){
 
     // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
     $Uusi_tuote->save();
@@ -82,8 +81,6 @@ class TuoteController extends BaseController{
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
      * kerralla väärin.
      */
-    
-    Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
   }
   
   public static function tuote_list(){
@@ -142,24 +139,22 @@ class TuoteController extends BaseController{
      *   SET column = REPLACE(column,old_text,new_text)
      *   WHERE condition
      */
-    
-    /*
+        
     // Päivitetään tuotteen_nimi          
-    $old_nimi = ($aiemmat_tuotetiedot = $tuotteen_nimi);
+    $old_nimi = ($muutettava_tuote = $tuotteen_nimi);
     $new_nimi = ($uudet_tiedot['tuotteen_nimi']);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, old_tuotteen_nimi, new_tuotteen_nimi) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään valmistajan tiedot
-    $old_valmistaja = ($aiemmat_tuotetiedot = $valmistaja);
+    $old_valmistaja = ($muutettava_tuote = $valmistaja);
     $new_nimi = ($uudet_tiedot['valmista']);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(valmistaja, old_valmistaja, new_valmistaja) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään tuotekuvaus
     $new_kuvaus = ($uudet_tiedot['kuvaus']);
-    $old_kuvaus = ($aiemmat_tuotetiedot = $kuvaus);
+    $old_kuvaus = ($muutettava_tuote = $kuvaus);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(kuvaus, old_kuvaus, new_kuvaus) WHERE tuote_id = $tuote_id;');
-    */
-    
+        
     View::make('/Tuote/Tuotteidenlistaus'); 
   }     
   
@@ -206,8 +201,7 @@ class TuoteController extends BaseController{
   } // end of find_tuote (tuote_id)
   
  public static function find_tuote_with_tuote_id($tuote_id){
-    
-       
+      
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
