@@ -18,8 +18,17 @@ class KayttajaController extends BaseController {
        $kayttajat = Kayttaja::all();
        View::make('kayttajat/Kayttajienlistaus.html', array('kayttajat' => $kayttajat));
     } */
+  
+/*  
+  public static function kayttaja_list(){
+    View::make('Kayttaja/Kayttajienlistaus.html');
+  }
     
-   
+  public static function kayttaja_edit(){
+    View::make('Kayttaja/Kayttajatietojenmuutos.html');
+  }
+  */
+    
   public function authenticate ($kayttajatunnus, $salasana) {
  
     $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus = :kayttajatunnus AND salasana = :salasana LIMIT 1');

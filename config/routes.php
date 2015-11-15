@@ -7,12 +7,11 @@
   $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
   });
- /*
+ 
   $routes->get('/Kirjaudu', function() {
     HelloWorldController::kirjaudu();
   });
-  */
-  
+   
   $routes->post('/Kirjaudu', function(){
     // Kirjautumisen käsittely
     KayttajaController::handle_login();

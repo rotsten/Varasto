@@ -26,6 +26,7 @@ class TuoteController extends BaseController{
     View::make('/Tuote/Tuotteenhakeminen.html');
   }
   
+  
     //public static function tuote_create ($tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date){
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
