@@ -227,7 +227,7 @@ class TuoteController extends BaseController{
        */
       
       $listattava_tuote = TuoteController::find_tuote_with_tuote_id($tuote_id);
-      //Kint::dump($listattava_tuote);
+      Kint::dump($listattava_tuote);
       
       //View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $listattava_tuote));
       
