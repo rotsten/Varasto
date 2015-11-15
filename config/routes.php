@@ -32,15 +32,18 @@
   
   // Tuotteisiin liittyvät
 
+  $routes->get('/Tuote/Tuotesivu', function() {
+    TuoteController::tuote_show();
+  });
+  
+  
   $routes->get('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show_with_tuote_id($tuote_id);
   });
  
-  /*
-  $routes->get('/Tuote/Tuotesivu', function() {
-    TuoteController::tuote_show();
-  });
-  */
+ 
+
+ 
   
   /*
   $routes->post('/Tuote', function() {
@@ -88,15 +91,18 @@
     TuoteController::tuote_search();
   });
 */
+  
+/*
   $routes->post('/find_tuotteennimi', function(){
     TuoteController::find_tuotteennimi();
   });
-  
-  /*
+*/  
+/*
   $routes->post('/Tuote/Tuotteidenhakeminen', function(){
     TuoteController::tallenna();
   });
-  */
+*/
+  
   $routes->get('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
@@ -114,6 +120,4 @@
   $routes->get('/Varasto/Varastonlistaus', function() {
     VarastoController::varasto_list();
   });
-
-
 
