@@ -31,9 +31,9 @@
   });
   
   // Tuotteisiin liittyvät
+  /* Tulosta tuotesivu, kun tuote_id on saatu parametrina */ 
  
- /* Tulosta tuotesivu, kun tuote_id on saatu */ 
-  $routes->post('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
+  $routes->get('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show_with_tuote_id($tuote_id);
   }); 
   
