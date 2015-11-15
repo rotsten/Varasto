@@ -3,6 +3,10 @@
   $routes->get('/', function() {
     HelloWorldController::index();
   });
+  
+  $routes->get('/hiekkalaatikko', function() {
+    HelloWorldController::sandbox();
+  });
  
   $routes->get('/Kirjaudu', function() {
     HelloWorldController::kirjaudu();
@@ -11,10 +15,6 @@
   $routes->post('/Kirjaudu', function(){
     // Kirjautumisen käsittely
     KayttajaController::handle_login();
-  });
-  
-  $routes->get('/hiekkalaatikko', function() {
-    HelloWorldController::sandbox();
   });
     
   $routes->get('/Paasivu', function() {
@@ -36,10 +36,12 @@
     TuoteController::tuote_show();
   });
   */
-
+  
+  /*
   $routes->post('/Tuote', function() {
     Tuote::Save();
   });
+ */
   
   // Pelin lisäyslomakkeen näyttäminen
   $routes->get('/Tuote/Lisaatuote', function(){

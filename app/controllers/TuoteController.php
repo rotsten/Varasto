@@ -47,7 +47,7 @@ class TuoteController extends BaseController{
 
     //Kint::dump($params);
       
-    $Uusi_tuote = new Tuote(array(
+    $uusi_tuote = new Tuote(array(
       'tuote_id' => $params['tuote_id'],  
       'tuotteen_nimi' => $params['tuotteen_nimi'],
       'valmistaja' => $params['valmistaja'],
@@ -56,7 +56,7 @@ class TuoteController extends BaseController{
       'timestamp' => $params['history_date']
     ));
          
-     $uusi_tuote -> save();
+     $uusi_tuote ->save();
      
     /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
