@@ -162,7 +162,7 @@ class TuoteController extends BaseController{
      */
       
     $params = $_POST;
-    $find_tuote_id  = $params[tuote_id]; 
+    $find_tuote_id  = $params['tuote_id']; 
           
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $find_tuote_id));
