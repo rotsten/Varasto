@@ -71,8 +71,8 @@
     TuoteController::tuote_hae_show();
   });
   
-  $routes->post('/Tuote/Tuotteenhakeminen', function() {
-    TuoteController::tuote_show();
+  $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id) {
+    TuoteController::find_tuote_with_tuote_id($tuote_id);
   });
 
   /*
