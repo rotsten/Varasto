@@ -62,15 +62,15 @@ class Tuote extends BaseModel {
             tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
             VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, :lukumaara, 
             :history_date)');
-    
+   
+    // Suoraan mallista otettu viittaus, joka silti tökähtää joka kerran.
     $query->execute(array('tuote_id' => $this->tuote_id, 
                           'tuotteen_nimi' => $this->tuotteen_nimi, 
                           'kuvaus' => $this->kuvaus,
                           'valmistaja' => $this->valmistaja, 
                           'lukumaara' => $this->lukumaara,
                           'history_date' => $this->history_date
-                          ));
-           
+                          ));      
   }
   
   public function validate_tuotteen_nimi(){
