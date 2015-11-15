@@ -2,7 +2,7 @@
 {% block content %}
 <H2>Tuotteen hakeminen</H2>
 
-  <form method="post" action="Varasto/Tuote/Tuotesivu/{{Tuote.tuote_id}}"> 
+  <form method="post" action="{{base_path}}/Tuote/Tuotesivu/{{Tuote.tuote_id}}"> 
      <div class="form-group">
        <label>Anna etsittävän tuotteen tuote-ID</label>
        <input type="text" class="form-control"value="{{tuote_id}}">
