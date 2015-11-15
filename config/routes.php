@@ -72,15 +72,17 @@
     TuoteController::tuote_hae_show();
   });
   
-  // Tulostaa tuotteen hakutulokset tuotesivulle 
+  // Tulostaa tuotteen hakutulokset tuotesivulle käyttäen $_POST
   $routes->post('/Tuote/Tuotteenhakeminen', function(){
     TuoteController::tuote_show();
   });
   
+  /*
   // Tulostaa tuotteen hakutulokset tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
-  });
+  }); 
+   */
 
    /*
     * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu

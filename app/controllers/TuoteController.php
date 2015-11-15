@@ -186,11 +186,15 @@ class TuoteController extends BaseController{
       /* Etsitään näytettävän tuotteen
        * tiedot
        */
-      $params = $_POST;
-      Kint::dump($params);
+   
+      $listattava_tuote = new Tuote();
       
-      $find_tuote_id  = $params[tuote_id]; 
+      // model->attribute = $_POST['attribute']
+      $listattava_tuote->tuote_id =  $_POST['tuote_id'];
       
+      // käytetään pelkkää tuote-id:tä kyselyssä
+      $find_tuote_id = $listattava_tuote->tuote_id;
+              
       $listattava_tuote = TuoteController::find_tuote_with_tuote_id($find_tuote_id);
       //Kint::dump($listattava_tuote);
       View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $listattava_tuote));
