@@ -64,7 +64,7 @@ class Tuote extends BaseModel {
     $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
             tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
             VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, :lukumaara, 
-            :history_date) RETURNING id');
+            :history_date)');
     /*
     $query->execute(array('tuote_id' => $this->tuote_id, 
                           'tuotteen_nimi' => $this->tuotteen_nimi, 
@@ -84,7 +84,7 @@ class Tuote extends BaseModel {
                           ));
         
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
-    $row = $query->fetch();
+    //$row = $query->fetch();
     // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
     //$this->tuote_id = $row['id'];
     
