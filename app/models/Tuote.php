@@ -56,6 +56,32 @@ class Tuote extends BaseModel {
     return $etsitty_tuote;
   }
   
+  public static function save(){
+    
+    //$timestamp = strtotime(time,now); 
+    
+    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
+    $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
+            tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
+            VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, :lukumaara, 
+            :timestamp) RETURNING id');
+    
+    $query->execute(array('tuote_id' => $this->tuote_id, 
+                          'tuotteen_nimi' => $this->tuotteen_nimi, 
+                          'kuvaus' => $this->kuvaus,
+                          'valmistaja' => $this->valmistaja, 
+                          'lukumaara' => $this->lukumaara,
+                          'history_date' => $this->timestamp
+                          ));
+    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
+    $row = $query->fetch();
+    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
+    //$this->tuote_id = $row['id'];
+    
+    Kint::trace();
+    Kint::dump($row);
+    
+  }
   
   public function validate_tuotteen_nimi(){
     $errors = array();

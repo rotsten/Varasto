@@ -34,18 +34,18 @@ class TuoteController extends BaseController{
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
     
-    /*
+    
     if (empty($params['history_date'])){
         $t=time();
         $params['history_date'] = (date("Y-m-d",$t));
          //$timestamp = strtotime(time,now); 
-    }*/
+    }
     
     if (empty($params['lukumaara'])){
       $params['lukumaara'] = 0;
     } 
 
-    Kint::dump($params);
+    //Kint::dump($params);
       
     $Uusi_tuote = new Tuote(array(
       'tuote_id' => $params['tuote_id'],  
@@ -72,32 +72,6 @@ class TuoteController extends BaseController{
      return;
   }
   
-  public static function save(){
-    
-    //$timestamp = strtotime(time,now); 
-    
-    // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
-    $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
-            tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
-            VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, :lukumaara, 
-            :timestamp) RETURNING id');
-    
-    $query->execute(array('tuote_id' => $this->tuote_id, 
-                          'tuotteen_nimi' => $this->tuotteen_nimi, 
-                          'kuvaus' => $this->kuvaus,
-                          'valmistaja' => $this->valmistaja, 
-                          'lukumaara' => $this->lukumaara,
-                          'history_date' => $this->timestamp
-                          ));
-    // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
-    $row = $query->fetch();
-    // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
-    //$this->tuote_id = $row['id'];
-    
-    Kint::trace();
-    Kint::dump($row);
-    
-  }
   
     public function tallenna(){
 
