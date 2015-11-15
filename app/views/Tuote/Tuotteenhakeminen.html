@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <H2>Tuotteen hakeminen</H2>
-<H3>Anna etsittävän tuotteen Tuote-ID</H3>
 
-  <form method="post" action="/Tuote/Tuotesivu/{{Tuote.tuote_id}}"> 
+  <form method="post" action="Varasto/Tuote/Tuotesivu/{{Tuote.tuote_id}}"> 
      <div class="form-group">
-       <label>Tuote-ID</label>
+       <label>Anna etsittävän tuotteen tuote-ID</label>
        <input type="text" class="form-control"value="{{tuote_id}}">
      </div>
      <div class="form-group">
