@@ -36,12 +36,16 @@
   $routes->get('/Tuote/Tuotesivu', function() {
     TuoteController::tuote_show();
   });
-    
+  
+  $routes->post('Tuote/Tuotesivu/:tuote_id', function() {
+    TuoteController::find_tuote();
+  }); 
+   
+  /*
   $routes->get('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::show_tuote_with_tuote_id($tuote_id);
   }); 
- 
-  
+  */ 
   /*
   // Näyttää tuotesivun
   $routes->get('/Tuote/Tuotesivu', function() {
