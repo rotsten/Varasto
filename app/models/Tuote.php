@@ -65,7 +65,7 @@ class Tuote extends BaseModel {
             tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
             VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, :lukumaara, 
             :timestamp) RETURNING id');
-    
+    /*
     $query->execute(array('tuote_id' => $this->tuote_id, 
                           'tuotteen_nimi' => $this->tuotteen_nimi, 
                           'kuvaus' => $this->kuvaus,
@@ -73,6 +73,16 @@ class Tuote extends BaseModel {
                           'lukumaara' => $this->lukumaara,
                           'history_date' => $this->timestamp
                           ));
+    */
+    
+    $query->execute(array('tuote_id' => $this.tuote_id, 
+                          'tuotteen_nimi' => $this.tuotteen_nimi, 
+                          'kuvaus' => $this.kuvaus,
+                          'valmistaja' => $this.valmistaja, 
+                          'lukumaara' => $this.lukumaara,
+                          'history_date' => $this.timestamp
+                          ));
+        
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
     $row = $query->fetch();
     // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
