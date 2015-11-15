@@ -33,9 +33,14 @@
   // Tuotteisiin liittyvät
   /* Tulosta tuotesivu, kun tuote_id on saatu parametrina */ 
  
+  $routes->get('/Tuote/Tuotesivu', function() {
+    TuoteController::tuote_show();
+  });
+    
   $routes->get('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
-    TuoteController::tuote_show_with_tuote_id($tuote_id);
+    TuoteController::show_tuote_with_tuote_id($tuote_id);
   }); 
+ 
   
   /*
   // Näyttää tuotesivun

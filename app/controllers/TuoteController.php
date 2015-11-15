@@ -205,7 +205,11 @@ class TuoteController extends BaseController{
       return $listattava_tuote;
   }
   
-  public static function tuote_show_with_tuote_id($tuote_id) {
+  public static function show_tuote_with_tuote_id($tuote_id) {
+      
+      /* Tätä funktiota kutsutaan, kun tuotteen listaussivulta, valitaan
+       * tarkasteltava tuote
+       */
     
       /* Etsitään näytettävän tuotteen
        * tiedot
