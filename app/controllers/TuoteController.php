@@ -140,19 +140,20 @@ class TuoteController extends BaseController{
      *   WHERE condition
      */
         
-    // Päivitetään tuotteen_nimi          
-    $old_nimi = ($muutettava_tuote = $tuotteen_nimi);
+    // Päivitetään tuotteen_nimi    
+    
+    $old_nimi = ($muutettava_tuote['tuotteen_nimi']);
     $new_nimi = ($uudet_tiedot['tuotteen_nimi']);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, old_tuotteen_nimi, new_tuotteen_nimi) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään valmistajan tiedot
-    $old_valmistaja = ($muutettava_tuote = $valmistaja);
-    $new_nimi = ($uudet_tiedot['valmista']);
+    $old_valmistaja = ($muutettava_tuote['valmistaja']);
+    $new_nimi = ($uudet_tiedot['valmistaja']);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(valmistaja, old_valmistaja, new_valmistaja) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään tuotekuvaus
     $new_kuvaus = ($uudet_tiedot['kuvaus']);
-    $old_kuvaus = ($muutettava_tuote = $kuvaus);
+    $old_kuvaus = ($muutettava_tuote['kuvaus']);
     $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(kuvaus, old_kuvaus, new_kuvaus) WHERE tuote_id = $tuote_id;');
         
     View::make('/Tuote/Tuotteidenlistaus'); 
@@ -182,7 +183,7 @@ class TuoteController extends BaseController{
      */
       
     $params = $_POST;
-    $find_tuote_id  = $params->tuote_id; 
+    $find_tuote_id  = $params[tuote_id]; 
        
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $find_tuote_id));
@@ -230,6 +231,19 @@ class TuoteController extends BaseController{
       $find_tuote_id  = $params[tuote_id]; 
       
       $listattava_tuote = TuoteController::find_tuote_with_tuote_id($find_tuote_id);
+      Kint::dump($listattava_tuote);
+      View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $listattava_tuote));
+      
+      return $listattava_tuote;
+  }
+  
+  public static function tuote_show_with_tuote_id($tuote_id) {
+    
+      /* Etsitään näytettävän tuotteen
+       * tiedot
+       */
+      
+      $listattava_tuote = TuoteController::find_tuote_with_tuote_id($tuote_id);
       Kint::dump($listattava_tuote);
       View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $listattava_tuote));
       
