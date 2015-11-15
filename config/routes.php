@@ -32,7 +32,7 @@
   
   // Tuotteisiin liittyvät
 
-  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
+  $routes->get('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show_with_tuote_id($tuote_id);
   });
  
