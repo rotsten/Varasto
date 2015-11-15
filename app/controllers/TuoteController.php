@@ -180,9 +180,14 @@ class TuoteController extends BaseController{
   public static function find_tuote($tuote_id){
     
     /*
-     * Tässä tapauksessa _POST sisältää vain tuote_id -tiedon
+     * POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa 
+     * Tässä tapauksessa _POST sisältää tuote_id -tiedon.
+     * 
+     * Miten siihen voi viitata?
      */
-    $find_tuote_id  = $_POST; 
+      
+    $params = $_POST;
+    $find_tuote_id  = $params[Tuote.tuote_id]; 
        
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $find_tuote_id));

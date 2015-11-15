@@ -38,7 +38,7 @@
   */
 
   $routes->post('/Tuote', function() {
-    TuoteController::tallenna();
+    Tuote::Save();
   });
   
   // Pelin lisäyslomakkeen näyttäminen

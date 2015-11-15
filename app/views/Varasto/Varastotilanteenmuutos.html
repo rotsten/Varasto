@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <form action="handle_form.php">
-
-        <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Paasivu">Päivitä lukumäärä</a></button>
-        <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotesivu">Tuotesivulle</a></button> 
-        <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Paasivu">Palaa pääsivulle</a></button> 
+     <form  method="post">
+     <div class="form-group">
+          <label>Tuote-id </label>
+          <input type="text" class="form-control" value="{{inventoidun_tuotteen.tuote_id}}">
+        </div>
+        <div class="form-group">
+          <label>Lukumäärä</label>
+          <input type="text" class="form-control" value="{{inventoidun_tuotteen.lukumaara}}">
+        </div>
+        <div class="form-group">
+          <button type ="submit" class="btn btn-default" value=tuote_post_edit{{muutettava_tuote.tuote_id}}>Tallenna muutokset</button>
+          <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle tallentamatta</A></button>
+        </div>
     </form>
     
         

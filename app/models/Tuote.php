@@ -56,7 +56,7 @@ class Tuote extends BaseModel {
     return $etsitty_tuote;
   }
   
-  public static function save(){
+  public function save(){
     
     //$timestamp = strtotime(time,now); 
     
