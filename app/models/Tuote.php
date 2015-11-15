@@ -88,8 +88,8 @@ class Tuote extends BaseModel {
     // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
     //$this->tuote_id = $row['id'];
     
-    Kint::trace();
-    Kint::dump($row);
+    //Kint::trace();
+    //Kint::dump($row);
     
   }
   
