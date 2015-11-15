@@ -206,13 +206,15 @@ class TuoteController extends BaseController{
   } // end of find_tuote (tuote_id)
   
 
-  public static function tuote_show($tuote_id) {
+  public static function tuote_show() {
     
       /* Etsitään näytettävän tuotteen
        * tiedot
        */
+      $params = $_POST;
+      $find_tuote_id  = $params[Tuote.tuote_id]; 
 
-      $listattava_tuote = TuoteController::find_tuote($tuote_id);
+      $listattava_tuote = TuoteController::find_tuote($find_tuote_id);
       //Kint::dump($listattava_tuote);
       View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
       

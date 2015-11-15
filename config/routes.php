@@ -72,7 +72,7 @@
   });
   
   $routes->post('/Tuote/Tuotteenhakeminen', function() {
-    TuoteController::find_tuote();
+    TuoteController::tuote_show();
   });
 
   /*
