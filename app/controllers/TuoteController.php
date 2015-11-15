@@ -196,7 +196,7 @@ class TuoteController extends BaseController{
       */
       
       $params = $_POST;
-      $find_tuote_id  = $params[tuote_id]; 
+      $find_tuote_id  = $params['tuote_id']; 
       
       $listattava_tuote = TuoteController::find_tuote_with_tuote_id($tuote_id);
       //Kint::dump($listattava_tuote);
