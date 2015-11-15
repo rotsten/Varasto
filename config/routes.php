@@ -72,13 +72,14 @@
   });
   
   $routes->post('/Tuote/Tuotteenhakeminen', function() {
-    TuoteController::find_tuote($tuote_id);
+    TuoteController::find_tuote();
   });
 
+  /*
   $routes->post('/find_tuote', function($tuote_id){
     TuoteController::find_tuote($tuote_id);
   });
-  
+  */
    /*
     * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
     * taan tuote_search() -funktiota.

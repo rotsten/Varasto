@@ -80,7 +80,7 @@ class Tuote extends BaseModel {
                           'kuvaus' => $this->kuvaus,
                           'valmistaja' => $this->valmistaja, 
                           'lukumaara' => $this->lukumaara,
-                          'history_date' => $this->timestamp
+                          'history_date' => $this->history_date
                           ));
         
     // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon

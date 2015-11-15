@@ -177,7 +177,7 @@ class TuoteController extends BaseController{
       return $tulos;
   }
     
-  public static function find_tuote($tuote_id){
+  public static function find_tuote(){
     
     /*
      * POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa 
