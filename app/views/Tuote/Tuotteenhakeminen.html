@@ -7,6 +7,8 @@
   
   action="{{base_path}}/Tuote/Tuotteenhakeminen/{{Tuote.tuote_id}"
   
+  <button type="submit" class="btn btn-default" value=find_tuote_with_tuote_id{{tuote_id}}>Hae!</button>
+  
   -->
   
   <form method="post"> 
@@ -17,9 +19,11 @@
      </div>
      <div class="form-group">
        <button type="submit" class="btn btn-default" value=find_tuote_with_tuote_id{{tuote_id}}>Hae!</button>
+       <button type="submit" class="btn btn-default" value=tuote_show>Hae!</button>
      </div>
     <!-- 
      Tutkitaan myöhemmin, miten tekstihaku toimisi.
+    
     
      </div>      
      <div class="form-group">
