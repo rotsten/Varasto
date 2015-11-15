@@ -6,32 +6,32 @@
     <form method="post">
         <div class="form-group">
             <label>Tuote-id </label>
-            <input type ="text" name ="tuote_id" class="form-control">
+            <input type ="text" name ="tuote_id" class="form-control" value="{{tuote_id}}">
         </div>
         
         <div class="form-group">
             <label>Tuotteen nimi</label>
-            <input type ="text" name ="tuotteen_nimi" class="form-control">
+            <input type ="text" name ="tuotteen_nimi" class="form-control" value="{{tuotteen:nimi}}">
         </div>
         
         <div class="form-group">
             <label>Valmistaja</label>
-            <input type ="text" name ="valmistaja" class="form-control">
+            <input type ="text" name ="valmistaja" class="form-control" value="{{valmistaja}}">
         </div>
 
         <div class="form-group">
             <label>Tuotekuvaus</label>
-            <input type ="text" name ="kuvaus" class="form-control">
+            <input type ="text" name ="kuvaus" class="form-control" value="{{kuvaus}}">
         </div>
         
         <div class="form-group">
             <label>Lukumäärä</label>
-            <input type ="text" name ="lukumaara" class="form-control">
+            <input type ="text" name ="lukumaara" class="form-control" value="{{lukunaara}}">
         </div>
         
         <div class="form-group">
             <label>Päivämäärä ja aika (esim. 2015-11-14 21:11:00)</label>
-            <input type ="text" name ="history_date (Y-m-d)" class="form-control">
+            <input type ="text" name ="history_date (Y-m-d)" class="form-control" value="{{history_date}}">
         </div>
         
         <button type ="submit" class="btn btn-default"value=tuote_create>Tallenna</button>
