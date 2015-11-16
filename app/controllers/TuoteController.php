@@ -193,7 +193,7 @@ class TuoteController extends BaseController{
       ));
       
     Kint::dump($tuote);
-    View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
+    //View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
             
     return $tuote;
     } // end of if
