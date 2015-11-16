@@ -33,13 +33,12 @@
   // Tuotteisiin liittyvät
   /* Tulosta tuotesivu, kun tuote_id on saatu parametrina */ 
  
+  /*
   $routes->get('/Tuote/Tuotesivu', function() {
     TuoteController::tuote_show();
   });
-  
-  $routes->post('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
-    TuoteController::find_tuote($tuote_id);
-  }); 
+  */
+
    
   /*
   $routes->get('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
@@ -84,8 +83,8 @@
   });
   
   // Tulostaa tuotteen hakutulokset tuotesivulle käyttäen $_POST
-  $routes->post('/Tuote/Tuotteenhakeminen', function(){
-    TuoteController::tuote_show();
+  $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
+    TuoteController::tuote_show($tuote_id);
   });
   
   /*
@@ -126,7 +125,12 @@
   $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
   });
-           
+
+  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
+    TuoteController::tuote_show($tuote_id);
+  }); 
+  
+  
   // Varastoon liittyvät
   $routes->get('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
     VarastoController::varasto_edit($tuote_id);
