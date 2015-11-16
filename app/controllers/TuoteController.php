@@ -179,7 +179,9 @@ class TuoteController extends BaseController{
   } // end of find_tuote (tuote_id)
   
    public static function find_tuote_with_tuote_id($tuote_id){
-      
+    
+    Kint::dump($tuote_id);
+    
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
