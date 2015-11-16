@@ -21,7 +21,13 @@ class TuoteController extends BaseController{
   public static function tuote_show(){
     View::make('Tuote/Tuotesivu.html');
   }
-    
+  
+  /*
+  public static function tuote_show_with_id($tuote_id){
+    View::make('Tuote/Tuotesivu.html'/$tuote_id);
+    View::make('/Tuote/Tuotesivu/:tuote_id');
+  }
+  */  
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
@@ -111,7 +117,6 @@ class TuoteController extends BaseController{
     //View::make('/Tuotetietojenmuutos'); 
   }
   
-  
    public function tuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
@@ -200,9 +205,10 @@ class TuoteController extends BaseController{
       
     //Kint::dump($tuote);
     //View::make('Tuote/Tuotesivu'/$tuote_id);
-    //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
+    View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
     //View::make('/Tuote/Tuotesivu/:tuote_id', array('listattava_tuote' => $tuote));
-    View::make('/Tuote/Tuotesivu/:tuote_id');
+    //View::make('/Tuote/Tuotesivu/:tuote_id');
+    $tuote->show
     //View::make('Tuote/Tuotesivu/:tuote_id');
     //Redirect::to('/Tuote/Tuotesivu/:tuote_id'); //Redirection loop.
     //Redirect::to('/Tuote/Tuotesivu/' .$tuote_id);
