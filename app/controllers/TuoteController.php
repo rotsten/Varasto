@@ -34,17 +34,23 @@ class TuoteController extends BaseController{
      
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
-        
+    
+    /*
+     * Asetetaan päivämäärä ja timestamp. 
+     * Olisi järkevää, jos tämä tulisi aina automaattisesti.
+     */
     if (empty($params['history_date'])){
         $t=time();
         $params['history_date'] = (date("Y-m-d",$t));
-         //$timestamp = strtotime(time,now); 
     }
-    
+
+    /* 
+     * Mikäli lukumäärää ei ole annettu, asetetaan arvoksi 
+     * nolla FFFF:n sijasta.
+     */
     if (empty($params['lukumaara'])){
       $params['lukumaara'] = 0;
     } 
-    //Kint::dump($params);
       
     $uusi_tuote = new Tuote(array(
       'tuote_id' => $params['tuote_id'],  
@@ -63,10 +69,9 @@ class TuoteController extends BaseController{
      * kerralla väärin.
      */
     
-     //Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
-     Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);
+    Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);
      
-     return;
+    return;
   }
   
   public function tallenna(){
@@ -229,6 +234,18 @@ class TuoteController extends BaseController{
     } // end of if
     return null;
   } // end of find_tuotteen_nimi
+  
+   public static function tuote_show($Tuote_id) {
+    
+     /* Etsitään näytettävän tuotteen
+      * tiedot
+      */
+     $listattava_tuote = TuoteController::find_tuote($Tuote_id);
+     //Kint::dump($listattava_tuote);
+     View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+      
+     return $listattava_tuote;
+  }
   
   public static function tuote_delete($tuote_id){
     

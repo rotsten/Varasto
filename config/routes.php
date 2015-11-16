@@ -90,23 +90,23 @@
     TuoteController::find_tuotteennimi();
   });
 */ 
-  /*
-   * tuote_show($tuote_id)  on jo poistettu
-   * 
+  
   $routes->get('/Tuotesivu/:Tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
-  */
+  
+  /*
   $routes->get('/Tuote/Tuotesivu/:Tuote_id', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
   }); 
+   */
   
   $routes->get('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
 
   // Jotenkin pitäisi välittää myös ne aiemmat tiedot.
-  $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
+  $routes->post('/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
   });
    
