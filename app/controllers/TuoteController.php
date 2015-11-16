@@ -18,14 +18,6 @@ class TuoteController extends BaseController{
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
   
-  public static function tuote_show(){
-    View::make('Tuote/Tuotesivu.html');
-  }
-
-  public static function tuote_list(){
-    View::make('Tuote/Tuotteidenlistaus.html');
-  }
-  
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
@@ -33,15 +25,6 @@ class TuoteController extends BaseController{
   public static function tuote_hae_show(){
     View::make('/Tuote/Tuotteenhakeminen.html');
   }
-  
-/*  
- public static function tuote_edit_post(){
-   View::make('Tuote/Tuotetietojenmuutos.html');
- }
-
-  public static function find_tuote_with_tuote_id(){
-   View::make('Tuote/Tuotteenhakeminen.html');
- */
   
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
@@ -94,7 +77,16 @@ class TuoteController extends BaseController{
      * kerralla väärin.
      */
   }
-
+  
+  public static function tuote_list(){
+    /*
+     * Tämä funktio kutsuu, all-funktiota,
+     * mikä hakee kaikki tuotteet tietokannasta
+     */
+     $Tuotteet = Tuote::all();
+     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+    
+  }  // end of tuote_list
 
   public function tuote_edit($tuote_id){
     
@@ -114,7 +106,8 @@ class TuoteController extends BaseController{
       
     //View::make('/Tuotetietojenmuutos'); 
   }
- 
+  
+  
    public function tuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
@@ -148,7 +141,6 @@ class TuoteController extends BaseController{
     View::make('/Tuote/Tuotteidenlistaus'); 
   }     
   
-  /*
   public function tuote_search ($tuote_id, $tuotteen_nimi){
       $tulos=0;
       
@@ -161,7 +153,7 @@ class TuoteController extends BaseController{
         // Tänne pitää tallentaan haun tuloksena saadun olion datat
       }
       return $tulos;
-  } */
+  }
     
   public static function find_tuote($tuote_id){
       
@@ -185,7 +177,7 @@ class TuoteController extends BaseController{
       
      } // end of if
   } // end of find_tuote (tuote_id)
-    
+  
    public static function find_tuote_with_tuote_id($tuote_id){
       
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
@@ -232,7 +224,7 @@ class TuoteController extends BaseController{
       return $tuote;
     } // end of if
     return null;
-  } // end of db_search_tuotteen_nimi
+  } // end of find_tuotteen_nimi
   
   public static function tuote_delete($tuote_id){
     
