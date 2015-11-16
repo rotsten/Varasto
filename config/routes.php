@@ -91,7 +91,7 @@
     TuoteController::find_tuotteennimi();
   });
 */  
-  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
+  $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
   }); 
   
