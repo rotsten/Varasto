@@ -89,8 +89,15 @@
   $routes->post('/find_tuotteennimi', function(){
     TuoteController::find_tuotteennimi();
   });
-*/  
-  $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
+*/ 
+  /*
+   * tuote_show($tuote_id)  on jo poistettu
+   * 
+  $routes->get('/Tuotesivu/:Tuote_id', function($tuote_id) {
+    TuoteController::tuote_show($tuote_id);
+  });
+  */
+  $routes->get('/Tuote/Tuotesivu/:Tuote_id', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
   }); 
   
