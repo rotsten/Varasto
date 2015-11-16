@@ -196,7 +196,8 @@ class TuoteController extends BaseController{
     Kint::dump($tuote);
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
-    View::make('/Tuote/Tuotesivu/:tuote_id', array('listattava_tuote' => $tuote));
+    View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+    //View::make('/Tuote/Tuotesivu/:tuote_id', array('listattava_tuote' => $tuote));
     // --> View::make('/Tuote/Tuotesivu/:tuote_id');
     //View::make('Tuote/Tuotesivu/:tuote_id');
     //Redirect::to('/Tuote/Tuotesivu/:tuote_id'); //Redirection loop.
