@@ -56,15 +56,16 @@ class TuoteController extends BaseController{
     ));
          
      $uusi_tuote ->save();
-     $tuote_id = $uusi_tuote['tuote_id'];
+     // $tuote_id = $uusi_tuote['tuote_id'];
      
     /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
      * kerralla väärin.
      */
     
-     Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
-                     
+     //Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
+     Redirect::to('/Tuote/Tuotesivu' . $params['tuote_id'], $Uusi_tuote);
+     
      return;
   }
   
@@ -194,8 +195,8 @@ class TuoteController extends BaseController{
     //Kint::dump($tuote);
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
-    //View::make('/Tuote/Tuotesivu/:tuote_id', array('listattava_tuote' => $tuote));
-    View::make('/Tuote/Tuotesivu/:tuote_id');
+    View::make('/Tuote/Tuotesivu/:tuote_id', array('listattava_tuote' => $tuote));
+    // --> View::make('/Tuote/Tuotesivu/:tuote_id');
     //View::make('Tuote/Tuotesivu/:tuote_id');
     //Redirect::to('/Tuote/Tuotesivu/:tuote_id'); //Redirection loop.
     //Redirect::to('/Tuote/Tuotesivu/' .$tuote_id);

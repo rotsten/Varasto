@@ -33,7 +33,6 @@
   // Tuotteisiin liittyvät
   /* Tulosta tuotesivu 
    */
-
    
   /*
   $routes->get('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
