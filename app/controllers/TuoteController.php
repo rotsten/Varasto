@@ -104,7 +104,7 @@ class TuoteController extends BaseController{
     Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
       
-    View::make('/Tuotetietojenmuutos'); 
+    //View::make('/Tuotetietojenmuutos'); 
   }
  
    public function tuote_edit_post($tuote_id){
@@ -155,6 +155,10 @@ class TuoteController extends BaseController{
   }
     
   public static function find_tuote($tuote_id){
+      
+    /* 
+     * Kutsutaan, kun etsitään tarkkoja tuotetietoja
+     */
                
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
@@ -173,49 +177,28 @@ class TuoteController extends BaseController{
      } // end of if
   } // end of find_tuote (tuote_id)
   
- 
-  public static function tuote_show() {
-    
-      /* Etsitään näytettävän tuotteen
-       * tiedot
-       */
-      
-      /*
-      // model->attribute = $_POST['attribute']
-      $listattava_tuote->tuote_id =  $_POST['tuote_id'];
-      
-      // käytetään pelkkää tuote-id:tä kyselyssä
-      $find_tuote_id = $listattava_tuote->tuote_id;
-      */
-      
-      $params = $_POST;
-      $find_tuote_id  = $params['tuote_id']; 
-      
-      $listattava_tuote = TuoteController::find_tuote_with_tuote_id($tuote_id);
-      Kint::dump($listattava_tuote);
-      
-      View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $listattava_tuote));
-      
-      return $listattava_tuote;
-  }
   
-  public static function show_tuote_with_tuote_id($tuote_id) {
+   public static function find_tuote_with_tuote_id($tuote_id){
       
-      /* Tätä funktiota kutsutaan, kun tuotteen listaussivulta, valitaan
-       * tarkasteltava tuote
-       */
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
+    $query->execute(array('tuote_id' => $tuote_id));
+    $row = $query->fetch();
     
-      /* Etsitään näytettävän tuotteen
-       * tiedot
-       */
+    if($row){
+      $tuote = new Tuote(array(
+        'tuote_id' => $row['tuote_id'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'],
+        'valmistaja' => $row['valmistaja'],
+        'kuvaus' => $row['kuvaus']
+      ));
       
-      $listattava_tuote = TuoteController::find_tuote_with_tuote_id($tuote_id);
-      Kint::dump($listattava_tuote);
-      
-      //View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $listattava_tuote));
-      
-      return $listattava_tuote;
-  }
+    Kint::dump($tuote);
+    View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
+            
+    return $tuote;
+    } // end of if
+  } // end of find_tuote (tuote_id)
+
   
   public function find_tuotteen_nimi($tuotteen_nimi){
       
@@ -242,38 +225,6 @@ class TuoteController extends BaseController{
     } // end of if
     return null;
   } // end of db_search_tuotteen_nimi
-  
-  /*
-  public static function db_lisaa_tuote($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara){
-     
-     // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
-     // Luodaan annettuja arvoja käyttäen uusi tuote.
-      
-     $uusi_tuote = new Tuote ($tuote_id, $tuotteennimi, $valmistaja, $tuotekuvaus, $lukumaara
-     $query = DB::connection()->prepare('INSERT INTO TUOTE values $tuote_id, $tuotteen_nimi, $valmistaja, $tuotekuvaus, $lukumaara');
-  
-  }*/
-
-   public static function find_tuote_with_tuote_id($tuote_id){
-      
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
-    $query->execute(array('tuote_id' => $tuote_id));
-    $row = $query->fetch();
-    
-    if($row){
-      $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
-        'valmistaja' => $row['valmistaja'],
-        'kuvaus' => $row['kuvaus']
-      ));
-      
-    Kint::dump($tuote);
-    View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
-            
-    return $tuote;
-    } // end of if
-  } // end of find_tuote (tuote_id)
   
   public static function tuote_delete($tuote_id){
     

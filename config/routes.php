@@ -35,7 +35,7 @@
  
   /*
   $routes->get('/Tuote/Tuotesivu', function() {
-    TuoteController::tuote_show();
+    TuoteController::find_tuote_with_tuote_id();
   });
   */
 
@@ -48,7 +48,7 @@
   /*
   // Näyttää tuotesivun
   $routes->get('/Tuote/Tuotesivu', function() {
-    TuoteController::tuote_show();
+    TuoteController::find_tuote_with_tuote_id();
   });
   */
       
@@ -84,7 +84,7 @@
   
   // Tulostaa tuotteen hakutulokset tuotesivulle käyttäen $_POST
   $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
-    TuoteController::tuote_show($tuote_id);
+    TuoteController::find_tuote_with_tuote_id($tuote_id);
   });
   
   /*
@@ -127,7 +127,7 @@
   });
 
   $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
-    TuoteController::tuote_show($tuote_id);
+    TuoteController::find_tuote_with_tuote_id($tuote_id);
   }); 
   
   
