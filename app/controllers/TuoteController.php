@@ -240,8 +240,9 @@ class TuoteController extends BaseController{
      $listattava_tuote = TuoteController::find_tuote($Tuote_id);
      //Kint::dump($listattava_tuote);
      View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
-      
-     return $listattava_tuote;
+     View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+     
+     //return $listattava_tuote;
   }
   
   public static function tuote_delete($tuote_id){
