@@ -202,8 +202,8 @@ class TuoteController extends BaseController{
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote));
     //View::make('Tuote/Tuotesivu/:tuote_id');
-    Redirect::to('/Tuote/Tuotesivu/:tuote_id');
-    //Redirect::to('/Tuote/Tuotesivu/' .$tuote_id);
+    //Redirect::to('/Tuote/Tuotesivu/:tuote_id');
+    Redirect::to('/Tuote/Tuotesivu/' .$tuote_id);
             
     //return $tuote;
     } // end of if
