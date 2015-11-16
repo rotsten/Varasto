@@ -64,7 +64,7 @@ class TuoteController extends BaseController{
      */
     
      //Redirect::to('/Tuote/Tuotesivu' . $tuote_id->tuote_id, $Uusi_tuote);
-     Redirect::to('/Tuote/Tuotesivu' . $params['tuote_id'], $Uusi_tuote);
+     Redirect::to('/Tuote/Tuotesivu' . $params['tuote_id'], $uusi_tuote);
      
      return;
   }
