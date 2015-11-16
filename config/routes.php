@@ -31,13 +31,8 @@
   });
   
   // Tuotteisiin liittyvät
-  /* Tulosta tuotesivu, kun tuote_id on saatu parametrina */ 
- 
-  /*
-  $routes->get('/Tuote/Tuotesivu', function() {
-    TuoteController::find_tuote_with_tuote_id();
-  });
-  */
+  /* Tulosta tuotesivu 
+   */
 
    
   /*
@@ -45,12 +40,6 @@
     TuoteController::show_tuote_with_tuote_id($tuote_id);
   }); 
   */ 
-  /*
-  // Näyttää tuotesivun
-  $routes->get('/Tuote/Tuotesivu', function() {
-    TuoteController::find_tuote_with_tuote_id();
-  });
-  */
       
   /*
   $routes->post('/Tuote', function() {
@@ -82,18 +71,11 @@
     TuoteController::tuote_hae_show();
   });
   
-  // Tulostaa tuotteen hakutulokset tuotesivulle käyttäen $_POST
+  // Tulostaa tuotteen hakutulokset tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
     TuoteController::find_tuote_with_tuote_id($tuote_id);
   });
   
-  /*
-  // Tulostaa tuotteen hakutulokset tuotesivulle 
-  $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id) {
-    TuoteController::find_tuote_with_tuote_id($tuote_id);
-  }); 
-   */
-
    /*
     * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
     * taan tuote_search() -funktiota.
@@ -104,18 +86,11 @@
   $routes->get('/Tuote/Tuotteenhakeminen', function() {
     TuoteController::tuote_search();
   });
-*/
-  
-/*
+
   $routes->post('/find_tuotteennimi', function(){
     TuoteController::find_tuotteennimi();
   });
 */  
-/*
-  $routes->post('/Tuote/Tuotteidenhakeminen', function(){
-    TuoteController::tallenna();
-  });
-*/
   
   $routes->get('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
@@ -129,8 +104,7 @@
   $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
   }); 
-  
-  
+    
   // Varastoon liittyvät
   $routes->get('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
     VarastoController::varasto_edit($tuote_id);

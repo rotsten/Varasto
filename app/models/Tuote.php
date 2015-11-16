@@ -73,6 +73,16 @@ class Tuote extends BaseModel {
                           ));      
   }
   
+ public static function tuote_list(){
+    /*
+     * Tämä funktio kutsuu, all-funktiota,
+     * mikä hakee kaikki tuotteet tietokannasta
+     */
+     $Tuotteet = Tuote::all();
+     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+    
+  }  // end of tuote_list
+  
   public function validate_tuotteen_nimi(){
     $errors = array();
     if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){

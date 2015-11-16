@@ -40,26 +40,9 @@
        View::make('Kayttaja/Kayttajatietojenmuutos.html');
     }
       
-    // Tuotteeseen liittyvät funktiot 
-    public static function tuote_show(){
-      View::make('Tuote/Tuotesivu.html');
-    }
-
-    public static function tuote_list(){
-       View::make('Tuote/Tuotteidenlistaus.html');
-    }
-
-    public static function tuote_add(){
-       View::make('Tuote/Lisaatuote.html');
-    }
     
-    public static function tuote_edit(){
-      View::make('Tuote/Tuotetietojenmuutos.html');
-    }
     
-    public static function tuote_search(){
-      View::make('Tuote/Tuotteenhakeminen.html');
-    }
+
        
     // Varastoon liittyvät funktiot
     public static function varasto_list(){

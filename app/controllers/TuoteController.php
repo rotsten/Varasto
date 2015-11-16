@@ -26,6 +26,32 @@ class TuoteController extends BaseController{
     View::make('/Tuote/Tuotteenhakeminen.html');
   }
   
+      // Tuotteeseen liittyvät funktiot 
+    public static function tuote_show(){
+      View::make('Tuote/Tuotesivu.html');
+    }
+
+    public static function tuote_list(){
+       View::make('Tuote/Tuotteidenlistaus.html');
+    }
+    /*
+    public static function tuote_add(){
+       View::make('Tuote/Lisaatuote.html');
+    }
+    */
+    
+    public static function tuote_edit_post(){
+      View::make('Tuote/Tuotetietojenmuutos.html');
+    }
+    
+    public static function tuote_edit_post($tuote_id){
+      View::make('Tuote/Tuotetietojenmuutos.html');
+    }
+    
+    public static function tuote_search(){
+      View::make('Tuote/Tuotteenhakeminen.html');
+    }
+  
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
      // Luodaan annettuja arvoja käyttäen uusi tuote.
@@ -78,15 +104,7 @@ class TuoteController extends BaseController{
      */
   }
   
-  public static function tuote_list(){
-    /*
-     * Tämä funktio kutsuu, all-funktiota,
-     * mikä hakee kaikki tuotteet tietokannasta
-     */
-     $Tuotteet = Tuote::all();
-     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
-    
-  }  // end of tuote_list
+
 
   public function tuote_edit($tuote_id){
     
@@ -140,6 +158,7 @@ class TuoteController extends BaseController{
     View::make('/Tuote/Tuotteidenlistaus'); 
   }     
   
+  /*
   public function tuote_search ($tuote_id, $tuotteen_nimi){
       $tulos=0;
       
@@ -152,7 +171,7 @@ class TuoteController extends BaseController{
         // Tänne pitää tallentaan haun tuloksena saadun olion datat
       }
       return $tulos;
-  }
+  } */
     
   public static function find_tuote($tuote_id){
       
