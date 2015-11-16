@@ -38,11 +38,10 @@ class TuoteController extends BaseController{
  public static function tuote_edit_post(){
    View::make('Tuote/Tuotetietojenmuutos.html');
  }
-*/
 
   public static function find_tuote_with_tuote_id(){
    View::make('Tuote/Tuotteenhakeminen.html');
- }
+ */
   
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
@@ -186,8 +185,7 @@ class TuoteController extends BaseController{
       
      } // end of if
   } // end of find_tuote (tuote_id)
-  
-  
+    
    public static function find_tuote_with_tuote_id($tuote_id){
       
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
