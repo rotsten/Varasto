@@ -10,11 +10,11 @@
   
   -->
   
-  <form> 
+  //<form action="{{base_path}}/Tuote/Tuotesivu/{{Tuote.tuote_id}}"> 
       
      <div class="form-group">
        <label>Anna etsittävän tuotteen tuote-ID</label>
-       <input type="text" class="form-control" value="{{tuote_id}}">
+       <input type="text" class="form-control" value="{{Tuote.tuote_id}}">
      <div class="form-group">
         <button class="btn btn-default" type="submit" value=find_tuote_with_tuote_id({{Tuote.tuote_id}})>Hae!</button>
      </div>
