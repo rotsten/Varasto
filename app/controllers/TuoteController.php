@@ -18,6 +18,14 @@ class TuoteController extends BaseController{
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
   
+  public static function tuote_show(){
+    View::make('Tuote/Tuotesivu.html');
+  }
+
+  public static function tuote_list(){
+    View::make('Tuote/Tuotteidenlistaus.html');
+  }
+  
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
@@ -26,31 +34,15 @@ class TuoteController extends BaseController{
     View::make('/Tuote/Tuotteenhakeminen.html');
   }
   
-      // Tuotteeseen liittyvät funktiot 
-    public static function tuote_show(){
-      View::make('Tuote/Tuotesivu.html');
-    }
+/*  
+ public static function tuote_edit_post(){
+   View::make('Tuote/Tuotetietojenmuutos.html');
+ }
+*/
 
-    public static function tuote_list(){
-       View::make('Tuote/Tuotteidenlistaus.html');
-    }
-    /*
-    public static function tuote_add(){
-       View::make('Tuote/Lisaatuote.html');
-    }
-    */
-    
-    public static function tuote_edit_post(){
-      View::make('Tuote/Tuotetietojenmuutos.html');
-    }
-    
-    public static function tuote_edit_post($tuote_id){
-      View::make('Tuote/Tuotetietojenmuutos.html');
-    }
-    
-    public static function tuote_search(){
-      View::make('Tuote/Tuotteenhakeminen.html');
-    }
+  public static function find_tuote_with_tuote_id(){
+   View::make('Tuote/Tuotteenhakeminen.html');
+ }
   
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
@@ -103,7 +95,6 @@ class TuoteController extends BaseController{
      * kerralla väärin.
      */
   }
-  
 
 
   public function tuote_edit($tuote_id){
