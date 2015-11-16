@@ -8,15 +8,10 @@
     // Tastaamista
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
-      TuoteController::find_tuotteennimi('Lakua');
-      TuoteController::find_tuote('9789522910325');
-      $varastotilanne = Varasto::all();
-      $kayttajat = Kayttaja::all();
-      $Tuotteet = Tuote::all();
-      
-      Kint::dump ($Tuotteet);
-      Kint::dump ($varastotilanne);
-      Kint::dump ($kayttajat);
+      //TuoteController::find_tuotteennimi('Lakua');
+      //TuoteController::find_tuote('9789522910325');
+      TuoteController::find_tuote_with_tuote_id('9789522910325');
+
     }
  
     public static function index(){
