@@ -186,7 +186,7 @@ class TuoteController extends BaseController{
     $row = $query->fetch();
     
     if($row){
-      $tuote = new Tuote(array(
+      $listattava_tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
         'tuotteen_nimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
