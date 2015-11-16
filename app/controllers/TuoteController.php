@@ -179,7 +179,7 @@ class TuoteController extends BaseController{
   
    public static function find_tuote_with_tuote_id($tuote_id){
     
-    //Kint::dump($tuote_id);
+    Kint::dump($tuote_id);
     
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
@@ -193,7 +193,7 @@ class TuoteController extends BaseController{
         'kuvaus' => $row['kuvaus']
       ));
       
-    //Kint::dump($tuote);
+    Kint::dump($tuote);
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
     View::make('/Tuote/Tuotesivu/:tuote_id', array('listattava_tuote' => $tuote));
