@@ -91,6 +91,9 @@
     TuoteController::find_tuotteennimi();
   });
 */  
+  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
+    TuoteController::find_tuote_with_tuote_id($tuote_id);
+  }); 
   
   $routes->get('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
@@ -100,11 +103,7 @@
   $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
   });
-
-  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
-    TuoteController::find_tuote_with_tuote_id($tuote_id);
-  }); 
-    
+   
   // Varastoon liittyvät
   $routes->get('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
     VarastoController::varasto_edit($tuote_id);
