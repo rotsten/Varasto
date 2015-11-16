@@ -37,8 +37,8 @@
     TuoteController::tuote_show();
   });
   
-  $routes->post('Tuote/Tuotesivu/:tuote_id', function() {
-    TuoteController::find_tuote();
+  $routes->post('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
+    TuoteController::find_tuote($tuote_id);
   }); 
    
   /*

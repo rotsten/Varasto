@@ -154,16 +154,8 @@ class TuoteController extends BaseController{
       return $tulos;
   }
     
-  public static function find_tuote(){
-    
-    /*
-     * POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa 
-     * Tässä tapauksessa _POST sisältää tuote_id -tiedon.
-     */
-      
-    $params = $_POST;
-    $tuote_id  = $params['tuote_id']; 
-          
+  public static function find_tuote($tuote_id){
+               
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
@@ -176,8 +168,9 @@ class TuoteController extends BaseController{
         'kuvaus' => $row['kuvaus']
       ));
       
-      return $tuote;
-    } // end of if
+      View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
+      
+     } // end of if
   } // end of find_tuote (tuote_id)
   
  
