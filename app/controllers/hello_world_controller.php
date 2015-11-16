@@ -36,10 +36,6 @@
     }
       
     // Tuotteeseen liittyvät funktiot 
-    public static function tuote_show(){
-      View::make('Tuote/Tuotesivu.html');
-    }
-
     public static function tuote_list(){
        View::make('Tuote/Tuotteidenlistaus.html');
     }

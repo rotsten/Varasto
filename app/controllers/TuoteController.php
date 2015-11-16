@@ -18,6 +18,10 @@ class TuoteController extends BaseController{
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
   
+  public static function tuote_show(){
+    View::make('Tuote/Tuotesivu.html');
+  }
+    
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
@@ -195,8 +199,9 @@ class TuoteController extends BaseController{
       ));
       
     Kint::dump($tuote);
-    View::make('/Tuotesivu'/$tuote_id);
+    //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote));
+    View::make('Tuote/Tuotesivu/{{tuote_id}}');
             
     //return $tuote;
     } // end of if
