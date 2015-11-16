@@ -1,11 +1,9 @@
 <?php
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  * Description of TuoteController
  *
@@ -21,13 +19,7 @@ class TuoteController extends BaseController{
   public static function tuote_show(){
     View::make('Tuote/Tuotesivu.html');
   }
-  
-  /*
-  public static function tuote_show_with_id($tuote_id){
-    View::make('Tuote/Tuotesivu.html'/$tuote_id);
-    View::make('/Tuote/Tuotesivu/:tuote_id');
-  }
-  */  
+    
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
@@ -52,7 +44,6 @@ class TuoteController extends BaseController{
     if (empty($params['lukumaara'])){
       $params['lukumaara'] = 0;
     } 
-
     //Kint::dump($params);
       
     $uusi_tuote = new Tuote(array(
@@ -78,10 +69,8 @@ class TuoteController extends BaseController{
   }
   
   public function tallenna(){
-
     // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
     $Uusi_tuote->save();
-
     /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
      * kerralla väärin.
@@ -97,7 +86,6 @@ class TuoteController extends BaseController{
      View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
     
   }  // end of tuote_list
-
   public function tuote_edit($tuote_id){
     
     /*
@@ -116,6 +104,7 @@ class TuoteController extends BaseController{
       
     //View::make('/Tuotetietojenmuutos'); 
   }
+  
   
    public function tuote_edit_post($tuote_id){
     
@@ -173,7 +162,6 @@ class TuoteController extends BaseController{
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
-
     if($row){
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
@@ -205,10 +193,9 @@ class TuoteController extends BaseController{
       
     //Kint::dump($tuote);
     //View::make('Tuote/Tuotesivu'/$tuote_id);
-    View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
+    //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
     //View::make('/Tuote/Tuotesivu/:tuote_id', array('listattava_tuote' => $tuote));
-    //View::make('/Tuote/Tuotesivu/:tuote_id');
-    $tuote->show
+    View::make('/Tuote/Tuotesivu/:tuote_id');
     //View::make('Tuote/Tuotesivu/:tuote_id');
     //Redirect::to('/Tuote/Tuotesivu/:tuote_id'); //Redirection loop.
     //Redirect::to('/Tuote/Tuotesivu/' .$tuote_id);
@@ -216,7 +203,6 @@ class TuoteController extends BaseController{
     //return $tuote;
     } // end of if
   } // end of find_tuote (tuote_id)
-
   
   public function find_tuotteen_nimi($tuotteen_nimi){
       
@@ -229,7 +215,6 @@ class TuoteController extends BaseController{
     $query = DB::connection()->prepare('SELECT tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteen_nimi LIMIT 1');
     $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
     $row = $query->fetch();
-
     if($row){
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
@@ -253,7 +238,6 @@ class TuoteController extends BaseController{
       
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));
     $poistettava_tuote->destroy();
-
     // Käyttäjä näkee listauksesta, että tuote on poistunut 
     Redirect::to('/Tuote', array());
   }
