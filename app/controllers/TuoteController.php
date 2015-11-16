@@ -55,7 +55,7 @@ class TuoteController extends BaseController{
     ));
          
      $uusi_tuote ->save();
-     $tuote_id = ($uusi_tuote['tuote_id']);
+     $tuote_id = $uusi_tuote['tuote_id'];
      
     /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 

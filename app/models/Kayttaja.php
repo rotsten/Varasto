@@ -22,23 +22,6 @@ class Kayttaja extends BaseModel {
       parent::__construct($attributes);
   }
   
-  /*
-  public function __construct($kayttajatunnus, $salasana, $etunimi, $kayttooikeus){
-    $this->kayttajatunnus = $kayttajatunnus;
-    $this->salasana = $salasana;
-    $this->etunimi = $etunimi;
-    $this->kayttooikeus = $kayttooikeus; 
-  }
-  
-  public function __construct($kayttajatunnus, $salasana, $etunimi, $sukunimi, $kayttooikeus){
-    $this->kayttajatunnus = $kayttajatunnus;
-    $this->salasana = $salasana;
-    $this->etunimi = $etunimi;
-    $this->sukunimi = $sukunimi;
-    $this->kayttooikeus = $kayttooikeus;
-  }
-  */
-  
   public static function all(){
     // Alustetaan kysely tietokantayhteydellämme
     $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA');
