@@ -44,6 +44,10 @@
        View::make('Tuote/Lisaatuote.html');
     }
     
+    public static function tuote_show(){
+      View::make('Tuote/Tuotesivu.html');
+    }
+  
     public static function tuote_edit(){
       View::make('Tuote/Tuotetietojenmuutos.html');
     }

@@ -15,11 +15,7 @@ class TuoteController extends BaseController{
     $Tuotteet = Tuote::all();
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
-  
-  public static function tuote_show(){
-    View::make('Tuote/Tuotesivu.html');
-  }
-    
+     
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
@@ -92,6 +88,7 @@ class TuoteController extends BaseController{
      View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
     
   }  // end of tuote_list
+  
   public function tuote_edit($tuote_id){
     
     /*
@@ -110,7 +107,6 @@ class TuoteController extends BaseController{
       
     //View::make('/Tuotetietojenmuutos'); 
   }
-  
   
    public function tuote_edit_post($tuote_id){
     
