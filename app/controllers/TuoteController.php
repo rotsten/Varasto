@@ -160,6 +160,8 @@ class TuoteController extends BaseController{
     /* 
      * Kutsutaan, kun etsitään tarkkoja tuotetietoja
      */
+    Kint::dump($tuote_id);
+    
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
@@ -170,8 +172,13 @@ class TuoteController extends BaseController{
         'valmistaja' => $row['valmistaja'],
         'kuvaus' => $row['kuvaus']
       ));
+    
+      Kint::dump($tuote);
       
-      View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
+      //View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
+      View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', $tuote);
+      //(Voisi myös kokeilla)
+      //Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $tuote);
       
      } // end of if
   } // end of find_tuote (tuote_id)
@@ -241,8 +248,8 @@ class TuoteController extends BaseController{
      $listattava_tuote = TuoteController::find_tuote($tuote_id);
      
      Kint::dump($listattava_tuote);
-     View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
-     View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+     //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+     //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
      
      //return $listattava_tuote;
   }
