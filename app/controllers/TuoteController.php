@@ -176,7 +176,7 @@ class TuoteController extends BaseController{
       Kint::dump($tuote);
       
       //View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
-      View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}');
+      View::make('Tuote/Tuotesivu/{{tuote_id}}');
       //(Voisi myös kokeilla)
       //Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $tuote);
       
