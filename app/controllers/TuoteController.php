@@ -72,7 +72,7 @@ class TuoteController extends BaseController{
   
   public function tallenna(){
     // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-    $Uusi_tuote->save();
+    $uusi_tuote->save();
     /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
      * kerralla väärin.
@@ -194,9 +194,10 @@ class TuoteController extends BaseController{
       ));
       
     Kint::dump($tuote);
+    Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $listattava_tuote);
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
-    View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+    //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
     //View::make('/Tuote/Tuotesivu/:tuote_id', array('listattava_tuote' => $tuote));
     // --> View::make('/Tuote/Tuotesivu/:tuote_id');
     //View::make('Tuote/Tuotesivu/:tuote_id');

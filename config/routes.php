@@ -100,6 +100,7 @@
     //TuoteController::find_tuote_with_tuote_id($tuote_id);
     TuoteController::tuote_show($tuote_id);
   }); 
+  
   // Listaus käyttää tätä
   $routes->get('/Tuotesivu/:Tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
