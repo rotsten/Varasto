@@ -21,12 +21,7 @@
     public static function paasivu_show(){
       View::make('Paasivu.html');
     }
-    
-    // Käyttäjään littyvät funktiot
-    public static function kirjaudu(){
-       View::make('Kirjaudu.html');
-    }
-    
+        
     public static function kayttaja_list(){
        View::make('Kayttaja/Kayttajienlistaus.html');
     }
