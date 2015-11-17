@@ -193,19 +193,19 @@ class TuoteController extends BaseController{
     $row = $query->fetch();
     
     if($row){
-      $listattava_tuote = new Tuote(array(
+      $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
         'tuotteen_nimi' => $row['tuotteen_nimi'],
         'valmistaja' => $row['valmistaja'],
         'kuvaus' => $row['kuvaus']
       ));
       
-    //Kint::dump($listattava_tuote);
+    //Kint::dump($tuote);
     //Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $listattava_tuote);
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
     //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
-    View::make('/Tuote/Tuotesivu/:$listattava_tuote->tuote_id');
+    View::make('/Tuote/Tuotesivu/:$tuote->tuote_id');
     //View::make('/Tuote/Tuotesivu/:tuote_id');
     //View::make('Tuote/Tuotesivu/:tuote_id');
     //Redirect::to('/Tuote/Tuotesivu/:tuote_id'); //Redirection loop.
@@ -246,13 +246,13 @@ class TuoteController extends BaseController{
       * tiedot
       */
      //Kint::dump($tuote_id);
-     $listattava_tuote = TuoteController::find_tuote($tuote_id);
+     $tuote = TuoteController::find_tuote($tuote_id);
      
      //Kint::dump($listattava_tuote);
      //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
      //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
      
-     return $listattava_tuote;
+     return $tuote;
   }
   
   public static function tuote_delete($tuote_id){
