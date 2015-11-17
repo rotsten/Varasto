@@ -100,18 +100,19 @@
   }); 
   */  
 
-  // Tuotteen haku (ja listaus) käyttää tätä
+  // Tuotteen "suora" haku sekä listauksesta valitseminen käyttää tätä...
   $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
   }); 
   
-  // Tuotteen haku (ja listaus) käyttää tätä
+  // Ja tulostaa tuotteen tiedot tätä käyttäen:
+  /*
   $routes->get('/Tuote/Tuotesivu/:$listattava_tuote->tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   }); 
-    
+  */  
   // Listaus käyttää tätä
-  $routes->get('/Tuotesivu/:Tuote_id', function($tuote_id) {
+  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
   
