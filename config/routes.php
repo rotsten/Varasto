@@ -13,7 +13,7 @@
    
   $routes->post('Kayttaja/Kirjaudu', function(){
     // Kirjautumisen käsittely
-    KaytajaController::handle_login();
+    KayttajaController::handle_login();
   });
     
   $routes->get('/Paasivu', function() {
@@ -50,6 +50,7 @@
     TuoteController::tuote_lisaa_show();
   });
   
+  // uuden tuotteen lisääminen
   $routes->post('/Tuote/Lisaatuote', function(){
     TuoteController::tuote_create();
   });
@@ -87,23 +88,24 @@
   // Tulostaa tuotteen hakutulokset tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
     TuoteController::find_tuote_tuote($tuote_id);
+    //TuoteController::find_tuote_with_tuote_id($tuote_id);
   });
   
-  // Tuotteen listaus käyttää tätä
- 
-  /*
-   * Tämä vaihtoehto ei tuottanut tulosta
-   
+  // Tuotteen listaus käyttää tätä, mutta...
+  // Tämä vaihtoehto ei tuottanut tulosta
+  
   $routes->get('/Tuote/Tuotesivu/{{tuote_id}}', function($tuote_id) {
     //TuoteController::find_tuote_with_tuote_id($tuote_id);
     TuoteController::tuote_show($tuote_id);
   }); 
-  */  
-
+   
+/*
+  
   // Tuotteen "suora" haku sekä listauksesta valitseminen käyttää tätä...
   $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
   }); 
+  */
   
   // Ja tulostaa tuotteen tiedot tätä käyttäen:
   /*
