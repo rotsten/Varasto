@@ -211,7 +211,7 @@ class TuoteController extends BaseController{
     //Redirect::to('/Tuote/Tuotesivu/:tuote_id'); //Redirection loop.
     //Redirect::to('/Tuote/Tuotesivu/' .$tuote_id);
             
-    return $tuote;
+    return $listattava_tuote;
     } // end of if
   } // end of find_tuote (tuote_id)
   

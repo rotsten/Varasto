@@ -33,7 +33,7 @@ class VarastoController {
   public static function varasto_edit($tuote_id){
     
       //Etsitään ensin tuote, mitä se koskee.
-      $muutettava_varastotieto = find_tuote_with_tuote_id($tuote_id);
+      $muutettava_varastotieto = TuoteController::find_tuote_with_tuote_id($tuote_id);
       
       //Sitten pitäisi olla luotuna psql.näkymä, johon päivitys tulis...   
       // Ensi viikkolla sitten
