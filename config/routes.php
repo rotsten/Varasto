@@ -101,10 +101,7 @@
   */  
 
   // Tuotteen haku (ja listaus) käyttää tätä
-  // Tämäkään ei vielä tulosta varsinaisesti mitään, mutta...
-  // Eipä tule myöskään ilmoitusta löytymättömästä sivusta.
-  
-  $routes->get('/Tuote/Tuotesivu/:Tuote_id', function($tuote_id) {
+  $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
     //TuoteController::tuote_show($tuote_id);
   }); 
