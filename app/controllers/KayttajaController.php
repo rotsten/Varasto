@@ -12,11 +12,7 @@
  * @author rotsten
  */
 class KayttajaController extends BaseController {
-      
-    public static function kirjaudu(){
-       View::make('Kayttaja/Kirjaudu.html');
-    }
-    
+         
     public function authenticate ($kayttajatunnus, $salasana) {
  
     $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus = :kayttajatunnus AND salasana = :salasana LIMIT 1');

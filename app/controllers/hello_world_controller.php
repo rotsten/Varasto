@@ -21,6 +21,10 @@
     public static function paasivu_show(){
       View::make('Paasivu.html');
     }
+    
+     public static function kirjaudu(){
+       View::make('Kayttaja/Kirjaudu.html');
+    }
         
     public static function kayttaja_list(){
        View::make('Kayttaja/Kayttajienlistaus.html');
