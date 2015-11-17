@@ -9,8 +9,8 @@
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
       //TuoteController::find_tuotteennimi('Lakua');
-      //TuoteController::find_tuote('9789522910325');
-      TuoteController::find_tuote_with_tuote_id('9789522910325');
+      TuoteController::find_tuote('9789522910325');
+      //TuoteController::find_tuote_with_tuote_id('9789522910325');
 
     }
  
@@ -38,11 +38,11 @@
     public static function tuote_add(){
        View::make('Tuote/Lisaatuote.html');
     }
-    
+ /*   
     public static function tuote_show(){
       View::make('Tuote/Tuotesivu.html');
     }
-  
+  */
     public static function tuote_edit(){
       View::make('Tuote/Tuotetietojenmuutos.html');
     }
