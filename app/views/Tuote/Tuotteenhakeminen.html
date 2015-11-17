@@ -16,7 +16,11 @@
        <label>Anna etsittävän tuotteen tuote-ID</label>
        <input type="text" class="form-control" value="{{tuote_id}}">
      <div class="form-group">
+        <!--
         <button class="btn btn-default" type="submit" value=TuoteController::find_tuote_with_tuote_id({{tuote_id}})>Hae!</button>
+        -->
+        <button class="btn btn-default"{{base_path}}/Tuote/Tuotesivu/{{tuote_id}})>Hae!</button>"
+        
         <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
      </div>
     <!-- 
