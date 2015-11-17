@@ -193,7 +193,7 @@ class TuoteController extends BaseController{
         'kuvaus' => $row['kuvaus']
       ));
       
-    Kint::dump($tuote);
+    Kint::dump($listattava_tuote);
     Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $listattava_tuote);
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
