@@ -103,7 +103,11 @@
   // Tuotteen haku (ja listaus) käyttää tätä
   $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::find_tuote_with_tuote_id($tuote_id);
-    //TuoteController::tuote_show($tuote_id);
+  }); 
+  
+  // Tuotteen haku (ja listaus) käyttää tätä
+  $routes->get('/Tuote/Tuotesivu/:$listattava_tuote->tuote_id', function($tuote_id) {
+    TuoteController::tuote_show($tuote_id);
   }); 
     
   // Listaus käyttää tätä
