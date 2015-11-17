@@ -7,13 +7,13 @@
     HelloWorldController::sandbox();
   });
  
-  $routes->get('/Kirjaudu', function() {
-    HelloWorldController::kirjaudu();
+  $routes->get('User/Kirjaudu', function() {
+    UserController::kirjaudu();
   });
    
-  $routes->post('/Kirjaudu', function(){
+  $routes->post('User/Kirjaudu', function(){
     // Kirjautumisen käsittely
-    KayttajaController::handle_login();
+    UserController::handle_login();
   });
     
   $routes->get('/Paasivu', function() {
