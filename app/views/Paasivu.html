@@ -12,14 +12,12 @@
     <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>
     
     {% if user_logged_in %}      
-         (if user_logged_in.kayttooikeudet) {
+         {% if check_user_rights %) {
             <!-- Vain pääkäyttäjälle -->
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus (näkyvissä vain pääkäyttäjille)</A></button>
          {% endif %}
      {% endif %}
-    
- 
-                 
+  
 {% endblock %}

@@ -30,5 +30,17 @@
 
         Redirect::to('/Kayttaja/Kirjaudu.html');     
     } 
+    
+    public static function check_user_rights(){
+
+        $tarkistettava_kayttaja = get_user_logged_in();
+        
+        if($tarkistettava_kayttaja['kayttooikeudet']){
+            return TRUE;
+        }
+
+        // EI ole pääkäyttäjä
+        return FALSE; 
+    } // end of check_user_rights()
 
   } // End of BaseController
