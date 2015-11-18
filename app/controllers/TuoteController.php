@@ -226,7 +226,6 @@ class TuoteController extends BaseController{
     //Kint::dump($tuote);
     //View::make('/Tuote/Tuotesivu/:tuote_id');
     
-    
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
     //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
@@ -278,9 +277,15 @@ class TuoteController extends BaseController{
      //Kint::dump($listattava_tuote);
      /* Tämä ei jostakin syystä nyt näkynyt Tuotesivulla */
      //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
-     View::make('/Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+     
+     //Aiempi
+     //View::make('/Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+     View::make('/Tuote/Tuotesivu/'. $tuote_id, $tuote);
     
-     return $tuote;
+     //Uudempi
+     //Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $tuote);
+                   
+     //return $tuote;
   } // The end of tuote_show
   
   public static function tuote_delete($tuote_id){
