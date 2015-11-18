@@ -22,11 +22,7 @@
     public static function paasivu_show(){
       View::make('Paasivu.html');
     }
-    
-    public static function Kirjaudu(){
-      View::make('Kayttaja/Kirjaudu.html');
-    }
-    
+        
     // Tuotteeseen liittyvät funktiot 
     public static function tuote_list(){
        View::make('Tuote/Tuotteidenlistaus.html');
