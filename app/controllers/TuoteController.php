@@ -142,17 +142,23 @@ class TuoteController extends BaseController{
      *
      */
     
+    $new_tuotteen_nimi = $uudet_tiedot['tuotteen_nimi'];
+    $new_kuvaus = $uudet_tiedot['kuvaus'];
+    $new_valmistaja = $uudet_tiedot['valmistaja'];
+    $new_lukumaara = $uudet_tiedot['lukumaara'];
+    $new_history_date =$uudet_tiedot['history_date'];
+    
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = new_tuotteen_nimi,
                                                           kuvaus =  new_kuvaus,
                                                           valmistaja = new_valmistaja,
                                                           lukumaara = new_lukumaara,
                                                           history_date = new_history_data) WHERE tuote_id = $tuote_id;');
     $query->execute(array('tuote_id' => $tuote_id, 
-                          'tuotteen_nimi' => $uudet_tiedot['tuotteen_nimi'], 
-                          'kuvaus' => $uudet_tiedot['kuvaus'],
-                          'valmistaja' => $uudet_tiedot['valmistaja'], 
-                          'lukumaara' => $uudet_tiedot['lukumaara'],
-                          'history_date' => $uudet_tiedot['history_date']
+                          'tuotteen_nimi' => $new_tuotteen_nimi, 
+                          'kuvaus' => $new_kuvaus,
+                          'valmistaja' => $new_valmistaja, 
+                          'lukumaara' => $new_lukumaara,
+                          'history_date' => $new_history_date
                           ));  
             
     View::make('/Tuote/Tuotteidenlistaus.html'); 
