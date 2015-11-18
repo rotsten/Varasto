@@ -4,13 +4,10 @@
     {% if user_logged_in %}
        <h1>{{user_logged_in.kayttajatunnus}}, valittavana olevat toiminnot:</h1>
            <h1>Käyttäjän {{user_logged_in.name}} pelikirjasto</h1>
-
-     {% endif %}
-     
-     <!-- Kaikille saatavilla olevat toiminnot -->
-    <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
-    <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>
-    
+    {else}
+       Redirect::to('/Kayttaja/Kirjaudu.html');     
+    {% endif %}
+        
     {% if user_logged_in %}      
          {% if check_user_rights %}
             <!-- Vain pääkäyttäjälle -->
@@ -18,6 +15,10 @@
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus (näkyvissä vain pääkäyttäjille)</A></button>
          {% endif %}
+      
+      <!-- Kaikille käyttäjille näkyvät toiminnot -->
+      <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
+      <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>    
      {% endif %}
   
 {% endblock %}
