@@ -89,8 +89,7 @@ class Tuote extends BaseModel {
             VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, :lukumaara, 
             :history_date)');
    
-    // Suoraan mallista otettu viittaus, joka silti tökähtää joka kerran.
-    $query->execute(array('tuote_id' => $this->tuote_id, 
+     $query->execute(array('tuote_id' => $this->tuote_id, 
                           'tuotteen_nimi' => $this->tuotteen_nimi, 
                           'kuvaus' => $this->kuvaus,
                           'valmistaja' => $this->valmistaja, 

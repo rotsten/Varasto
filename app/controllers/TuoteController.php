@@ -112,36 +112,49 @@ class TuoteController extends BaseController{
    public function tuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
-    $muutettava_tuote = TuoteController::find_tuote($tuote_id);
+    //$muutettava_tuote = TuoteController::find_tuote($tuote_id);
   
-    Kint::dump($uudet_tiedot);
-    
-    
-    /*
-     * UPDATE table
-     *   SET column = REPLACE(column,old_text,new_text)
-     *   WHERE condition
+        /*
+     * Asetetaan päivämäärä ja timestamp. 
+     * Olisi järkevää, jos tämä tulisi aina automaattisesti.
      */
-        
-    // Päivitetään tuotteen_nimi    
+    if (empty($uudet_tiedot['history_date'])){
+        $t=time();
+        $uudet_tiedot['history_date'] = (date("Y-m-d",$t));
+    }
+
+    /* 
+     * Mikäli lukumäärää ei ole annettu, asetetaan arvoksi 
+     * nolla FFFF:n sijasta.
+     */
+    if (empty($uudet_tiedot['lukumaara'])){
+      $uudet_tiedot['lukumaara'] = 0;
+    } 
     
-    //$old_nimi = $muutettava_tuote['tuotteen_nimi'];
-    $old_tuotteen_nimi = muutettava_tuote::get_tuotteennimi();
-    $new_nimi = $uudet_tiedot['tuotteen_nimi'];
-    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, old_tuotteen_nimi, new_tuotteen_nimi) WHERE tuote_id = $tuote_id;');
+    Kint::dump($uudet_tiedot);
+           
+    /*
+     * UPDATE TUOTE SET tuotteen_nimi = 'uusi nimi', 
+     *                  kuvaus = 'uusi kuvaus', 
+     *                  valmistaja = 'uusi valmistaja', 
+     *                  lukumaara = 5, 
+     *                  history_date = '2015-11-18 17:05:00' WHERE tuote_id = '345345';
+     *
+     */
     
-    Kint::dump($muutettava_tuote);
-    
-    // Päivitetään valmistajan tiedot
-    $old_valmistaja = muutettava_tuote::get_valmistaja();
-    $new_nimi = $uudet_tiedot['valmistaja'];
-    $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(valmistaja, old_valmistaja, new_valmistaja) WHERE tuote_id = $tuote_id;');
-    
-    // Päivitetään tuotekuvaus
-    $new_kuvaus = $uudet_tiedot['kuvaus'];
-    $old_kuvaus = $muutettava_tuote['kuvaus'];
-    $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(kuvaus, old_kuvaus, new_kuvaus) WHERE tuote_id = $tuote_id;');
-        
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = new_tuotteen_nimi,
+                                                          kuvaus =  new_kuvaus,
+                                                          valmistaja = new_valmistaja,
+                                                          lukumaara = new_lukumaara,
+                                                          history_date = new_history_data) WHERE tuote_id = $tuote_id;');
+    $query->execute(array('tuote_id' => $tuote_id, 
+                          'tuotteen_nimi' => $uudet_tiedot['tuotteen_nimi'], 
+                          'kuvaus' => $uudet_tiedot['kuvaus'],
+                          'valmistaja' => $uudet_tiedot['valmistaja'], 
+                          'lukumaara' => $uudet_tiedot['lukumaara'],
+                          'history_date' => $uudet_tiedot['history_date']
+                          ));  
+            
     View::make('/Tuote/Tuotteidenlistaus.html'); 
   }     
   
