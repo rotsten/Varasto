@@ -254,7 +254,7 @@ class TuoteController extends BaseController{
      View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
     
      return $tuote;
-  }
+  } // THe end of tuote_show
   
   public static function tuote_delete($tuote_id){
     
