@@ -277,7 +277,8 @@ class TuoteController extends BaseController{
      
      //Kint::dump($listattava_tuote);
      /* Tämä ei jostakin syystä nyt näkynyt Tuotesivulla */
-     View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+     //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+     View::make('/Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
     
      return $tuote;
   } // The end of tuote_show

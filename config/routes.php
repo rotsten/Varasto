@@ -7,11 +7,11 @@
     HelloWorldController::sandbox();
   });
  
-  $routes->get('Kayttaja/Kirjaudu', function() {
+  $routes->get('/Kayttaja/Kirjaudu', function() {
     KayttajaController::Kirjaudu();
   });
    
-  $routes->post('Kayttaja/Kirjaudu', function(){
+  $routes->post('/Kayttaja/Kirjaudu', function(){
     // Kirjautumisen käsittely
     KayttajaController::handle_login();
   });
