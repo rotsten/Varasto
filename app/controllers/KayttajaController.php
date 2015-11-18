@@ -14,15 +14,15 @@
 class KayttajaController extends BaseController {
     
     public static function Kirjaudu(){
-      View::make('Kayttaja/Kirjaudu.html');
+      View::make('/Kayttaja/Kirjaudu.html');
     }
     
     public static function kayttaja_list(){
-      View::make('Kayttaja/Kayttajienlistaus.html');
+      View::make('/Kayttaja/Kayttajienlistaus.html');
     }
     
     public static function kayttaja_edit(){
-      View::make('Kayttaja/Kayttajatietojenmuutos.html');
+      View::make('/Kayttaja/Kayttajatietojenmuutos.html');
     }
          
     public function authenticate ($kayttajatunnus, $salasana) {
@@ -83,7 +83,7 @@ class KayttajaController extends BaseController {
        $kayttaja = KayttajaController::authenticate($params['kayttajatunnus'], $params['salasana']);
 
       if(!$user){
-          View::make('Kayttaja/Kirjaudu.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['kayttajatunnus']));
+          View::make('/Kayttaja/Kirjaudu.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['kayttajatunnus']));
       } else{
           $_SESSION['kayttajatunnus'] = $kayttaja->kayttajatunnus;
 
@@ -109,7 +109,7 @@ class KayttajaController extends BaseController {
     * mikä hakee varastotilanteen tietokannasta
     */
     $kayttajat = Kayttaja::all();
-    View::make('Kayttaja/Kayttajienlistaus.html', array('kayttajat' => $kayttajat));
+    View::make('/Kayttaja/Kayttajienlistaus.html', array('kayttajat' => $kayttajat));
   } // end of kayttaja_list
     
   public static function kayttaja_find ($kayttajatunnus){
@@ -133,14 +133,18 @@ class KayttajaController extends BaseController {
     return $kayttaja;
     
   } // end of kayttaja_find
-     
+  
+  /*   
   public static function kayttaja_edit($kayttajatunnus){
    /*
     * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
     */
-      
+  /*    
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
     View::make('Kayttaja/Kayttajatietojenmuutos.html', $muutettava_kayttaja);
-    
+  */
+  /*
   } // end of kayttaja_edit
+  
+  */
 } // THE END of class
