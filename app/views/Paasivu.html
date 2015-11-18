@@ -21,4 +21,15 @@
       <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>    
      {% endif %}
   
+      <h4>Jos käyttäjä on sisäänkirjautunut, tutkitaan hänen käyttöoikeutensa ja sen mukaan näytetään käytettävissä olevat toiminnot.</h4>
+      <h5>Tässä oikotie toimintoihin, niin kauan, kun kirjautminen ei toimi. </h5>
+      
+       <!-- Vain pääkäyttäjälle -->
+            <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus (näkyvissä vain pääkäyttäjille)</A></button>
+       <!-- Kaikille käyttäjille näkyvät toiminnot -->
+      
+           <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
+           <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>        
 {% endblock %}
