@@ -50,8 +50,8 @@ class Tuote extends BaseModel {
     } // end of function all
 
   public function find_tuote($tuote_id){
-    // Ei järin fksu funtio, mutta....
-    $etsitty_tuote = find_tuote($tuote_id);
+    // Ei järin fiksu funtio, mutta....
+    $etsitty_tuote = TuoteController::find_tuote($tuote_id);
       
     return $etsitty_tuote;
   }

@@ -8,7 +8,7 @@
   });
  
   $routes->get('Kayttaja/Kirjaudu', function() {
-    KayttajaController::Kirjaudu();
+    HelloWorldController::Kirjaudu();
   });
    
   $routes->post('Kayttaja/Kirjaudu', function(){
