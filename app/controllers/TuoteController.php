@@ -114,7 +114,7 @@ class TuoteController extends BaseController{
     $uudet_tiedot = $_POST; 
     //$muutettava_tuote = TuoteController::find_tuote($tuote_id);
   
-        /*
+    /*
      * Asetetaan päivämäärä ja timestamp. 
      * Olisi järkevää, jos tämä tulisi aina automaattisesti.
      */
@@ -143,14 +143,16 @@ class TuoteController extends BaseController{
      */
     
     $new_tuotteen_nimi = $uudet_tiedot['tuotteen_nimi'];
-    $new_kuvaus = $uudet_tiedot['kuvaus'];
     $new_valmistaja = $uudet_tiedot['valmistaja'];
+    $new_kuvaus = $uudet_tiedot['kuvaus'];
     $new_lukumaara = $uudet_tiedot['lukumaara'];
     $new_history_date =$uudet_tiedot['history_date'];
     
+    // public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date;
+    
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = new_tuotteen_nimi,
-                                                          kuvaus =  new_kuvaus,
                                                           valmistaja = new_valmistaja,
+                                                          kuvaus =  new_kuvaus,
                                                           lukumaara = new_lukumaara,
                                                           history_date = new_history_data) WHERE tuote_id = $tuote_id;');
     $query->execute(array('tuote_id' => $tuote_id, 

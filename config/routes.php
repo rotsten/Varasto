@@ -119,7 +119,7 @@
   
   
   // Haettu aiemmasta
-  $routes->get('/Tuote/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
+  $routes->get('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
   
@@ -129,19 +129,19 @@
   });
   */
   
-  $routes->post('/Tuote/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
+  $routes->post('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
   });
   
   // Jotenkin pitäisi välittää myös ne aiemmat tiedot.
   /*
-  $routes->post('/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
+  $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
   });
   */
   
   // Listaus käyttää tätä (katsottu vanhasta toimivasta versiosta)
-  $routes->get('/Tuote/Tuotesivu/:Tuote_id', function($tuote_id) {
+  $routes->get('Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
    
