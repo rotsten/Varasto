@@ -101,6 +101,7 @@ class TuoteController extends BaseController{
      *  antamista. Siispä ne pitää hakea
      */
   
+    Kint::dump($tuote_id);
     $muutettava_tuote = TuoteController::find_tuote($tuote_id);
     Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
@@ -160,7 +161,7 @@ class TuoteController extends BaseController{
     /* 
      * Kutsutaan, kun etsitään tarkkoja tuotetietoja
      */
-    //Kint::dump($tuote_id);
+    Kint::dump($tuote_id);
     
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
@@ -173,16 +174,9 @@ class TuoteController extends BaseController{
         'kuvaus' => $row['kuvaus']
       ));
     
-      //Kint::dump($tuote);
-      //return $tuote;
-      
-      //View::make('Tuote/Tuotesivu/{{Tuote.tuote_id}}', array('listattava_tuote' => $tuote));
-      // View::make('Tuote/Tuotesivu/{{tuote_id}}');
-      View::make('/Tuote/Tuotesivu/:tuote_id');
-      
-      //(Voisi myös kokeilla)
-      //Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $tuote);
-      
+      Kint::dump($tuote);
+      return $tuote;
+            
      } // end of if
   } // end of find_tuote (tuote_id)
   
