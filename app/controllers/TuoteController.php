@@ -114,8 +114,8 @@ class TuoteController extends BaseController{
     $uudet_tiedot = $_POST; 
     $muutettava_tuote = TuoteController::find_tuote($tuote_id);
   
-    Kint::dump($uudet_tiedot);
-    Kint::dump($muutettava_tuote);
+    //Kint::dump($uudet_tiedot);
+    //Kint::dump($muutettava_tuote);
     
     /*
      * UPDATE table
@@ -125,18 +125,18 @@ class TuoteController extends BaseController{
         
     // Päivitetään tuotteen_nimi    
     
-    $old_nimi = ($muutettava_tuote['tuotteen_nimi']);
-    $new_nimi = ($uudet_tiedot['tuotteen_nimi']);
+    $old_nimi = $muutettava_tuote['tuotteen_nimi'];
+    $new_nimi = $uudet_tiedot['tuotteen_nimi'];
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, old_tuotteen_nimi, new_tuotteen_nimi) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään valmistajan tiedot
-    $old_valmistaja = ($muutettava_tuote['valmistaja']);
-    $new_nimi = ($uudet_tiedot['valmistaja']);
+    $old_valmistaja = $muutettava_tuote['valmistaja'];
+    $new_nimi = $uudet_tiedot['valmistaja'];
     $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(valmistaja, old_valmistaja, new_valmistaja) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään tuotekuvaus
-    $new_kuvaus = ($uudet_tiedot['kuvaus']);
-    $old_kuvaus = ($muutettava_tuote['kuvaus']);
+    $new_kuvaus = $uudet_tiedot['kuvaus'];
+    $old_kuvaus = $muutettava_tuote['kuvaus'];
     $query = DB::connection()->prepare ('UPDATE TUOTE SET kuvaus = REPLACE(kuvaus, old_kuvaus, new_kuvaus) WHERE tuote_id = $tuote_id;');
         
     View::make('/Tuote/Tuotteidenlistaus'); 
