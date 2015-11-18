@@ -197,17 +197,20 @@ class TuoteController extends BaseController{
       ));
       
     //Kint::dump($tuote);
-    //Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $listattava_tuote);
+    //View::make('/Tuote/Tuotesivu/:tuote_id');
+    
+    
     //View::make('Tuote/Tuotesivu'/$tuote_id);
     //View::make('/Tuote/Tuotesivu/{{tuote_id}}', array('listattava_tuote' => $tuote)); // unable to find
     //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
-    View::make('/Tuote/Tuotesivu/:tuote_id');
     //View::make('/Tuote/Tuotesivu/:tuote_id');
     //View::make('Tuote/Tuotesivu/:tuote_id');
+    
     //Redirect::to('/Tuote/Tuotesivu/:tuote_id'); //Redirection loop.
     //Redirect::to('/Tuote/Tuotesivu/' .$tuote_id);
+    //Redirect::to('/Tuote/Tuotesivu/' .$tuote_id, $listattava_tuote);
             
-    //return $listattava_tuote;
+    return $tuote_id;
     } // end of if
   } // end of find_tuote (tuote_id)
   
