@@ -125,12 +125,13 @@ class TuoteController extends BaseController{
         
     // Päivitetään tuotteen_nimi    
     
-    $old_nimi = $muutettava_tuote['tuotteen_nimi'];
+    //$old_nimi = $muutettava_tuote['tuotteen_nimi'];
+    $old_tuotteen_nimi = muutettava_tuote::get_tuotteennimi();
     $new_nimi = $uudet_tiedot['tuotteen_nimi'];
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = REPLACE(tuotteen_nimi, old_tuotteen_nimi, new_tuotteen_nimi) WHERE tuote_id = $tuote_id;');
     
     // Päivitetään valmistajan tiedot
-    $old_valmistaja = $muutettava_tuote['valmistaja'];
+    $old_valmistaja = muutettava_tuote::get_valmistaja();
     $new_nimi = $uudet_tiedot['valmistaja'];
     $query = DB::connection()->prepare ('UPDATE TUOTE SET valmistaja = REPLACE(valmistaja, old_valmistaja, new_valmistaja) WHERE tuote_id = $tuote_id;');
     

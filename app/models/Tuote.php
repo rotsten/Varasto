@@ -22,6 +22,32 @@ class Tuote extends BaseModel {
       parent::__construct($attributes);
   }
 
+  public static function get_tuote_id(){
+    return this.tuote.id;   
+  }
+  
+  public static function get_tuotteenimi(){
+    return this.tuotteennimi;   
+  }
+  
+  public static function get_valmistaja(){
+    return this.valmistaja;   
+  }
+  
+  public static function get_kuvaus(){
+    return this.kuvaus;   
+  }
+  
+    public static function get_lukumaara(){
+    return this.lukumaara;   
+  }
+  
+  public static function get_history_date(){
+    return this.history_date;   
+  }
+  
+
+    
     public static function all(){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
