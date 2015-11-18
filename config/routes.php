@@ -141,7 +141,7 @@
   */
   
   // Listaus käyttää tätä (katsottu vanhasta toimivasta versiosta)
-  $routes->get('/Tuotesivu/:Tuote_id', function($tuote_id) {
+  $routes->get('/Tuote/Tuotesivu/:Tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
    

@@ -171,8 +171,9 @@ class TuoteController extends BaseController{
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
         'tuotteen_nimi' => $row['tuotteen_nimi'],
+        'kuvaus' => $row['kuvaus'],  
         'valmistaja' => $row['valmistaja'],
-        'kuvaus' => $row['kuvaus']
+        'lukumaara' =>$row['lukumaara']
       ));
     
       //Kint::dump($tuote);
@@ -250,11 +251,12 @@ class TuoteController extends BaseController{
      //Kint::dump($tuote_id);
      $listattava_tuote = TuoteController::find_tuote($tuote_id);
      
-     Kint::dump($listattava_tuote);
+     //Kint::dump($listattava_tuote);
+     /* Tämä ei jostakin syystä nyt näkynyt Tuotesivulla */
      View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
     
      return $tuote;
-  } // THe end of tuote_show
+  } // The end of tuote_show
   
   public static function tuote_delete($tuote_id){
     
