@@ -8,7 +8,7 @@
   });
  
   $routes->get('Kayttaja/Kirjaudu', function() {
-    KayttajaController::kirjaudu();
+    KayttajaController::Kirjaudu();
   });
    
   $routes->post('Kayttaja/Kirjaudu', function(){
@@ -22,7 +22,7 @@
   
   // Käyttäjään liittyvät
   $routes->get('/Kayttaja/Kayttajienlistaus', function() {
-    KayttajaController::kayttaja_list();
+    KayttajaController::kayttajienlistaus();
   });
   
   $routes->get('/Kayttaja/Kayttajatietojenmuutos-testi', function() {
@@ -54,13 +54,7 @@
   $routes->post('/Tuote/Lisaatuote', function(){
     TuoteController::tuote_create();
   });
-  
-  /*
-  $routes->post('/Tuote/Tallenna/:tuote_id', function($tuote_id){
-    TuoteController::tallenna($tuote_id);
-  });
-  */
-  
+    
   $routes->get('/Tuote/Tuotteidenlistaus', function() {
     TuoteController::tuote_list();
   });
@@ -70,7 +64,7 @@
     TuoteController::tuote_hae_show();
   });
   
-     /*
+   /*
     * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
     * taan tuote_search() -funktiota.
     * 
@@ -84,20 +78,25 @@
     TuoteController::find_tuotteennimi();
   });
 */ 
+  $routes->post('/find_tuote', function($tuote_id){
+    TuoteController::find_tuote($tuote_id);
+  });
   
   // Tulostaa tuotteen hakutulokset tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
-    TuoteController::find_tuote_tuote($tuote_id);
+    TuoteController::find_tuote($tuote_id);
     //TuoteController::find_tuote_with_tuote_id($tuote_id);
   });
   
   // Tuotteen listaus käyttää tätä, mutta...
   // Tämä vaihtoehto ei tuottanut tulosta
-  
+ 
+  /*
   $routes->get('/Tuote/Tuotesivu/{{tuote_id}}', function($tuote_id) {
     //TuoteController::find_tuote_with_tuote_id($tuote_id);
     TuoteController::tuote_show($tuote_id);
   }); 
+  */
    
 /*
   
@@ -113,18 +112,37 @@
     TuoteController::tuote_show($tuote_id);
   }); 
   */  
-  // Listaus käyttää tätä
-  $routes->get('/Tuotesivu/:tuote_id', function($tuote_id) {
-    TuoteController::tuote_show($tuote_id);
+
+  $routes->post('/Tuote/Tallenna/', function(){
+    TuoteController::tallenna();
   });
   
-  $routes->get('/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
+  
+  // Haettu aiemmasta
+  $routes->get('/Tuote/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
   
+  /* 
+  $routes->get('/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
+    TuoteController::tuote_edit($tuote_id);
+  });
+  */
+  
+  $routes->post('/Tuote/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
+    TuoteController::tuote_edit_post($tuote_id);
+  });
+  
   // Jotenkin pitäisi välittää myös ne aiemmat tiedot.
+  /*
   $routes->post('/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
+  });
+  */
+  
+  // Listaus käyttää tätä (katsottu vanhasta toimivasta versiosta)
+  $routes->get('/Tuotesivu/:Tuote_id', function($tuote_id) {
+    TuoteController::tuote_show($tuote_id);
   });
    
   // Varastoon liittyvät

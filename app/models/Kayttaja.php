@@ -14,8 +14,7 @@
 class Kayttaja extends BaseModel {
     
    // attribuutit
-  public $kayttajatunnus, $salasana, $etunimi, $sukunimi, $kayttooikeudet;
-  
+  public $kayttajatunnus, $salasana, $etunimi, $sukunimi, $kayttooikeudet; 
 
   // konstruktori
   public function __construct ($attributes){
