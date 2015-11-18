@@ -13,10 +13,6 @@
  */
 class KayttajaController extends BaseController {
     
-    public static function Kirjaudu(){
-      View::make('Kayttaja/Kirjaudu.html');
-    }
-    
     public static function kayttaja_list(){
       View::make('Kayttaja/Kayttajienlistaus.html');
     }
