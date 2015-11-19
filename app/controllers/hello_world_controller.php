@@ -47,7 +47,11 @@
     public static function tuote_search(){
       View::make('Tuote/Tuotteenhakeminen.html');
     }
-       
+
+    public static function kayttajalistaus(){
+      View::make('/Kayttaja/Kayttajienlistaus.html');
+    }
+    
     // Varastoon liittyvät funktiot
     public static function varasto_list(){
        View::make('Varasto/Varastonlistaus.html');

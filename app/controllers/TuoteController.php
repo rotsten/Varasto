@@ -280,10 +280,10 @@ class TuoteController extends BaseController{
      
      //Aiempi
      //View::make('/Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
-     View::make('/Tuote/Tuotesivu/' . $tuote_id, $listattava_tuote);
+     //View::make('/Tuote/Tuotesivu/' . $tuote_id, $listattava_tuote);
     
      //Uudempi
-     //Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $tuote);
+     Redirect::to('/Tuote/Tuotesivu/' . $tuote_id, $listattava_tuote);
                    
      //return $listattava_tuote;
   } // The end of tuote_show
