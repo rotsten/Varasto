@@ -21,8 +21,8 @@
   });
   
   // Käyttäjään liittyvät
-  $routes->get('/Kayttaja/kayttajienlistaus', function() {
-    KayttajaController::kayttajienlistaus();
+  $routes->get('/Kayttaja/kayttajalistaus', function() {
+    KayttajaController::kayttajalistaus();
   });
   
   $routes->get('/Kayttaja/Kayttajatietojenmuutos-testi', function() {
