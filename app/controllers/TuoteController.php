@@ -161,8 +161,8 @@ class TuoteController extends BaseController{
                           'new_lukumaara' => $new_lukumaara,
                           'new_history_date' => $new_history_date
                           ));  
-            
-    View::make('/Tuote/Tuotteidenlistaus.html'); 
+    
+    TuoteController::tuote_list(); 
   }     
   
   public function tuote_search ($tuote_id, $tuotteen_nimi){
