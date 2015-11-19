@@ -58,7 +58,6 @@ class TuoteController extends BaseController{
     ));
          
      $uusi_tuote ->save();
-     // $tuote_id = $uusi_tuote['tuote_id'];
      
     /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
@@ -130,7 +129,21 @@ class TuoteController extends BaseController{
       $uudet_tiedot['lukumaara'] = 0;
     } 
     
-    $uudet_tiedot->modify();
+    //Luodaan uusi tuote, jolla kutsutaan modifya...
+    
+    $muuttujat= array(
+      'tuote_id' => $uudet_tiedot['tuote_id'],
+      'tuotteen_nimi' => $uudet_tiedot['tuotteen_nimi'],
+      'kuvaus'=> $uudet_tiedot['kuvaus'], 
+      'valmistaja'=> $uudet_tiedot['valmistaja'],
+      'lukumaara' => $uudet_tiedot['lukumaara'],
+      'history_date'=> $uudet_tiedot['history_date']
+    );
+
+    $muutettava_tuote = new Tuote ($muuttujat);
+    //$errors = $Tuote->errors();
+    
+    $muutettava_tuote ->modify();
     
     // Listataan tuotetiedot, jotta muutos näkyy
     TuoteController::tuote_list(); 

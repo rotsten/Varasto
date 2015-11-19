@@ -80,7 +80,6 @@ class Tuote extends BaseModel {
      *                  valmistaja = 'uusi valmistaja', 
      *                  lukumaara = 5, 
      *                  history_date = '2015-11-18 17:05:00' WHERE tuote_id = '345345';
-     *
      */
     
     /*
