@@ -70,9 +70,11 @@
     TuoteController::find_tuotteennimi();
   });
 */ 
+  /*
   $routes->post('/find_tuote', function($tuote_id){
     TuoteController::find_tuote_post($tuote_id);
   });
+  */
   
   // Tulostaa tuotteen hakutulokset tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
