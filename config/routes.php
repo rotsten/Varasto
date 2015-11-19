@@ -30,12 +30,6 @@
   });
   
   // Tuotteisiin liittyvät
-  
-  /* Tulosta tuotesivu 
-  $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
-    TuoteController::show_tuote_with_tuote_id($tuote_id);
-  }); 
-  */ 
       
   /*
   $routes->post('/Tuote', function() {
@@ -86,59 +80,18 @@
     //TuoteController::find_tuote_with_tuote_id($tuote_id);
   });
   
-  // Tuotteen listaus käyttää tätä, mutta...
-  // Tämä vaihtoehto ei tuottanut tulosta
- 
-  /*
-  $routes->get('/Tuote/Tuotesivu/{{tuote_id}}', function($tuote_id) {
-    //TuoteController::find_tuote_with_tuote_id($tuote_id);
-    TuoteController::tuote_show($tuote_id);
-  }); 
-  */
-   
-/*
-  
-  // Tuotteen "suora" haku sekä listauksesta valitseminen käyttää tätä...
-  $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
-    TuoteController::find_tuote_with_tuote_id($tuote_id);
-  }); 
-  */
-  
-  // Ja tulostaa tuotteen tiedot tätä käyttäen:
-  /*
-  $routes->get('/Tuote/Tuotesivu/:$listattava_tuote->tuote_id', function($tuote_id) {
-    TuoteController::tuote_show($tuote_id);
-  }); 
-  */  
-
   $routes->post('/Tuote/Tallenna/', function(){
     TuoteController::tallenna();
-  });
+  });  
   
-  
-  // Haettu aiemmasta
   $routes->get('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
-  
-  /* 
-  $routes->get('/Tuotetietojenmuutos/:Tuote_id', function($tuote_id) {
-    TuoteController::tuote_edit($tuote_id);
-  });
-  */
-  
+   
   $routes->post('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
   });
   
-  // Jotenkin pitäisi välittää myös ne aiemmat tiedot.
-  /*
-  $routes->post('/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
-    TuoteController::tuote_edit_post($tuote_id);
-  });
-  */
-  
-  // Listaus käyttää tätä (katsottu vanhasta toimivasta versiosta)
   $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
