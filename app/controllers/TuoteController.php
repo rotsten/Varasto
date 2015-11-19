@@ -259,12 +259,12 @@ class TuoteController extends BaseController{
      /* Etsitään näytettävän tuotteen
       * tiedot
       */
-     //Kint::dump($tuote_id);
+     Kint::dump($tuote_id);
      $listattava_tuote = TuoteController::find_tuote($tuote_id);
      
-     //Kint::dump($listattava_tuote);
+     Kint::dump($listattava_tuote);
      
-     View::make('/Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
+     View::make('/Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote));
                    
   } // The end of tuote_show
   

@@ -3,24 +3,24 @@
      
     {% if user_logged_in %}
        <h1>{{user_logged_in.kayttajatunnus}}, valittavana olevat toiminnot:</h1>
-           <h1>Käyttäjän {{user_logged_in.name}} pelikirjasto</h1>
-    {else}
-       Redirect::to('/Kayttaja/Kirjaudu.html');     
-    {% endif %}
-        
-    {% if user_logged_in %}      
-         {% if check_user_rights %}
-            <!-- Vain pääkäyttäjälle -->
+       {% if check_user_rights %}
+        <!-- Kaikille käyttäjille näkyvät toiminnot -->
+             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
+             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button> 
+        <!-- Vain pääkäyttäjälle -->
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus (näkyvissä vain pääkäyttäjille)</A></button>
-         {% endif %}
-      
-      <!-- Kaikille käyttäjille näkyvät toiminnot -->
-      <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
-      <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>    
-     {% endif %}
-  
+        {% else %}
+         <!-- Kaikille käyttäjille näkyvät toiminnot -->
+             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
+             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>    
+        {% endif %}
+    {% else %}
+       Redirect::to('/Kayttaja/Kirjaudu.html');     
+    {% endif %}
+        
+    
       <h4>Jos käyttäjä on sisäänkirjautunut, tutkitaan hänen käyttöoikeutensa, ja niiden mukaan näytetään käytettävissä olevat toiminnot.</h4>
       <h5>Tässä oikotie toimintoihin, niin kauan, kun kirjautuminen ei toimi. </h5>
       
