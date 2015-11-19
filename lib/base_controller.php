@@ -24,11 +24,9 @@
       // Toteuta kirjautumisen tarkistus tähän.
       // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
         
-        if($_SESSION['kayttaja'] == $kayttajatunnus){
-            return TRUE;
-        }
-
-        Redirect::to('/Kayttaja/Kirjaudu.html');     
+        if(!issset($_SESSION['kayttaja'])){
+            Redirect::to('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen')); 
+        }  
     } 
     
     public static function check_user_rights(){
