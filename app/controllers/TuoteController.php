@@ -263,12 +263,8 @@ class TuoteController extends BaseController{
      $listattava_tuote = TuoteController::find_tuote($tuote_id);
      
      //Kint::dump($listattava_tuote);
-     /* Tämä ei jostakin syystä nyt näkynyt Tuotesivulla */
-     //View::make('Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
-     //View::make('/Tuote/Tuotesivu/' . $tuote_id, $listattava_tuote); 
-     //Ei voi laittaa redirect. Tulee silmukka.
      
-     View::make('Tuote/Tuotesivu.html/' . $tuote_id, $listattava_tuote);
+     View::make('/Tuote/Tuotesivu.html', array('listattava_tuote' => $listattava_tuote));
                    
   } // The end of tuote_show
   
