@@ -56,7 +56,7 @@ class Tuote extends BaseModel {
      * Kutsutaan, kun etsitään tarkkoja tuotetietoja
      */
     
-    //Kint::dump($tuote_id);
+    Kint::dump($tuote_id);
     
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
@@ -70,7 +70,7 @@ class Tuote extends BaseModel {
         'lukumaara' =>$row['lukumaara']
       ));
     
-      //Kint::dump($tuote);
+      Kint::dump($tuote);
       return $tuote;
             
      } // end of if
