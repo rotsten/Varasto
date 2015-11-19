@@ -72,6 +72,40 @@ class Tuote extends BaseModel {
                           ));      
   }
   
+  public function modify () {
+                 
+    /*
+     * UPDATE TUOTE SET tuotteen_nimi = 'uusi nimi', 
+     *                  kuvaus = 'uusi kuvaus', 
+     *                  valmistaja = 'uusi valmistaja', 
+     *                  lukumaara = 5, 
+     *                  history_date = '2015-11-18 17:05:00' WHERE tuote_id = '345345';
+     *
+     */
+    
+    /*
+    $new_tuotteen_nimi = $uudet_tiedot['tuotteen_nimi'];
+    $new_valmistaja = $uudet_tiedot['valmistaja'];
+    $new_kuvaus = $uudet_tiedot['kuvaus'];
+    $new_lukumaara = $uudet_tiedot['lukumaara'];
+    $new_history_date =$uudet_tiedot['history_date'];
+    */
+    
+    // public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date;
+    
+    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = :new_tuotteen_nimi,
+                                                          valmistaja = :new_valmistaja,
+                                                          kuvaus = :new_kuvaus,
+                                                          lukumaara = :new_lukumaara,
+                                                          history_date = :new_history_date WHERE tuote_id =:tuote_id;');
+    $query->execute(array('tuote_id' => $this->tuote_id, 
+                          'new_tuotteen_nimi' => $this->tuotteen_nimi, 
+                          'new_kuvaus' => $this-> kuvaus,
+                          'new_valmistaja' => $this ->valmistaja, 
+                          'new_lukumaara' => $this ->lukumaara,
+                          'new_history_date' => $this->history_date
+                          )); 
+  }
   
   public function validate_tuotteen_nimi(){
     $errors = array();
