@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Muokkaa tuotteen $muutettava_tuote.tuote_id tietoja</h1>
+  <h1>Muokkaa tuotteen {{muutettava_tuote.tuote_id}} tietoja</h1>
 
   <form  method="post">
      <div class="form-group">
           <label></label>
           <label>Tuote-ID $muutettava_tuote.tuote_id, Tuotteen nimi</label>
-          <input type="text" class="form-control" value="{{muutettava_tuote.tuotteen_nimi}}">
+          <input type="text" class="form-control" name="tuotteen_nimi" "value="{{muutettava_tuote.tuotteen_nimi}}">
         </div>
         <div class="form-group">
           <label>Valmistaja</label>
-          <input type="text" class="form-control" value="{{muutettava_tuote.valmistaja}}">
+          <input type="text" class="form-control" name="valmistaja" value="{{muutettava_tuote.valmistaja}}">
         </div>
         <div class="form-group">
           <label>Kuvaus</label>
-          <input type="text" class="form-control" value="{{muutettava_tuote.kuvaus}}">
+          <input type="text" class="form-control" name="kuvaus" value="{{muutettava_tuote.kuvaus}}">
           <!--
           <textarea class="form-control">  </textarea>
           -->
         </div>
         <div class="form-group">
           <label>Lukumäärä</label>
-          <input type="text" class="form-control" value="{{muutettava_tuote.lukumaara}}">
+          <input type="text" class="form-control" name="lukumaara" value="{{muutettava_tuote.lukumaara}}">
         </div>
         <div class="form-group">
           <button type ="submit" class="btn btn-default" value=tuote_post_edit{{muutettava_tuote.tuote_id}}>Tallenna muutokset</button>
