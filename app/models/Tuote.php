@@ -49,12 +49,33 @@ class Tuote extends BaseModel {
       return $tuotteet;
     } // end of function all
 
-  public function find_tuote($tuote_id){
-    // Ei järin fiksu funtio, mutta....
-    $etsitty_tuote = TuoteController::find_tuote($tuote_id);
+  
+  public static function find_tuote($tuote_id){
       
-    return $etsitty_tuote;
-  }
+    /* 
+     * Kutsutaan, kun etsitään tarkkoja tuotetietoja
+     */
+    
+    //Kint::dump($tuote_id);
+    
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
+    $query->execute(array('tuote_id' => $tuote_id));
+    $row = $query->fetch();
+    if($row){
+      $tuote = new Tuote(array(
+        'tuote_id' => $row['tuote_id'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'],
+        'kuvaus' => $row['kuvaus'],  
+        'valmistaja' => $row['valmistaja'],
+        'lukumaara' =>$row['lukumaara']
+      ));
+    
+      //Kint::dump($tuote);
+      return $tuote;
+            
+     } // end of if
+  } // end of find_tuote (tuote_id)
+  
   
   public function save(){
     

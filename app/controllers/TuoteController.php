@@ -101,7 +101,7 @@ class TuoteController extends BaseController{
      */
   
     Kint::dump($tuote_id);
-    $muutettava_tuote = TuoteController::find_tuote($tuote_id);
+    $muutettava_tuote ->find_tuote($tuote_id);
     Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
       
@@ -163,56 +163,15 @@ class TuoteController extends BaseController{
       return $tulos;
   }
     
-  public static function find_tuote($tuote_id){
-      
-    /* 
-     * Kutsutaan, kun etsitään tarkkoja tuotetietoja
-     */
-    
-    //Kint::dump($tuote_id);
-    
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
-    $query->execute(array('tuote_id' => $tuote_id));
-    $row = $query->fetch();
-    if($row){
-      $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
-        'kuvaus' => $row['kuvaus'],  
-        'valmistaja' => $row['valmistaja'],
-        'lukumaara' =>$row['lukumaara']
-      ));
-    
-      //Kint::dump($tuote);
-      return $tuote;
-            
-     } // end of if
-  } // end of find_tuote (tuote_id)
-
-  /*
    public static function find_tuote_with_tuote_id($tuote_id){
     
-    //Kint::dump($tuote_id);
-    
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
-    $query->execute(array('tuote_id' => $tuote_id));
-    $row = $query->fetch();
-    
-    if($row){
-      $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
-        'valmistaja' => $row['valmistaja'],
-        'kuvaus' => $row['kuvaus']
-      ));
-      
-    //Kint::dump($tuote);
-            
-    return $tuote_id;
-    } // end of if
-  } // end of find_tuote (tuote_id)
-  */
-  
+    $etsittava_tuote->find($tuote_id);            
+    return $etsittava_tuote;
+
+  } // end of _find_tuote_eith_tuote_id[$tuote_id)
+ 
+ 
+  /*
   public function find_tuotteen_nimi($tuotteen_nimi){
       
       /*
@@ -220,7 +179,7 @@ class TuoteController extends BaseController{
        * Myös ne, joiden nimessä annettu sana esiintyy, ei vain niitä, jotka 
        * täydellisesti täyttävät hakuehdon.
        */
-    
+    /*
     $query = DB::connection()->prepare('SELECT tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteen_nimi LIMIT 1');
     $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
     $row = $query->fetch();
@@ -237,6 +196,7 @@ class TuoteController extends BaseController{
     } // end of if
     return null;
   } // end of find_tuotteen_nimi
+  */
   
    public static function tuote_show($tuote_id) {
     
@@ -244,7 +204,7 @@ class TuoteController extends BaseController{
       * tiedot
       */
      Kint::dump($tuote_id);
-     $listattava_tuote = TuoteController::find_tuote($tuote_id);
+     $listattava_tuote ->find_tuote($tuote_id);
      
      Kint::dump($listattava_tuote);
      
