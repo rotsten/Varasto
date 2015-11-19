@@ -153,7 +153,7 @@ class TuoteController extends BaseController{
                                                           valmistaja = :new_valmistaja,
                                                           kuvaus = :new_kuvaus,
                                                           lukumaara = :new_lukumaara,
-                                                          history_date = :new_history_date) WHERE tuote_id =:tuote_id;');
+                                                          history_date = :new_history_date WHERE tuote_id =:tuote_id;');
     $query->execute(array('tuote_id' => $tuote_id, 
                           'new_tuotteen_nimi' => $new_tuotteen_nimi, 
                           'new_kuvaus' => $new_kuvaus,
