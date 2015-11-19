@@ -24,7 +24,7 @@
       // Toteuta kirjautumisen tarkistus tähän.
       // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
         
-        if(!issset($_SESSION['kayttaja'])){
+        if(!isset($_SESSION['kayttaja'])){
             Redirect::to('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen')); 
         }  
     } 
@@ -36,7 +36,6 @@
         if($tarkistettava_kayttaja['kayttooikeudet']){
             return TRUE;
         }
-
         // EI ole pääkäyttäjä
         return FALSE; 
     } // end of check_user_rights()
