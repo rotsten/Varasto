@@ -17,7 +17,7 @@ class KayttajaController extends BaseController {
       View::make('/Kayttaja/Kirjaudu.html');
     }
     
-    public static function kayttaja_list(){
+    public static function kayttajienlistaus(){
       View::make('/Kayttaja/Kayttajienlistaus.html');
     }
     
