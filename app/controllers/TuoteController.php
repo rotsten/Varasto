@@ -175,6 +175,7 @@ class TuoteController extends BaseController{
  
      public static function find_tuote_post ($tuote_id){
     
+    Kint::dump($tuote_id);
     $etsittava_tuote = new Tuote();
     $etsittava_tuote->find($tuote_id);  
     Kint::dump($etsittava_tuote);
