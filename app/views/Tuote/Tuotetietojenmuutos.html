@@ -5,8 +5,9 @@
   <form  method="post">
      <div class="form-group">
           <label></label>
-          <label>Tuote-ID $muutettava_tuote.tuote_id, Tuotteen nimi</label>
-          <input type="text" class="form-control" name="tuotteen_nimi" "value="{{muutettava_tuote.tuotteen_nimi}}">
+          <label>Tuotteen nimi</label>
+          <input type="hidden" name="tuote_id" value ="{{muutettava_tuote.tuote_id}}">
+          <input type="text" class="form-control" name="tuotteen_nimi" value="{{muutettava_tuote.tuotteen_nimi}}">
         </div>
         <div class="form-group">
           <label>Valmistaja</label>
