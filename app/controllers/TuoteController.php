@@ -28,15 +28,11 @@ class TuoteController extends BaseController{
      * Tämä funktio kutsuu, all-funktiota,
      * mikä hakee kaikki tuotteet tietokannasta
      * 
-     * Näyttää tuotteen listaussivun
+     * Näyttää tuotteen listaussivun.
+     * 
      */
-
-     /*
-      * Tämä tarkennus on tarpeen, jotta Tuotteet voisi kutsua
-      * Tuote::all() -funktiota.
-      */
     
-     $tuotteet[] = new Tuote ();
+     $Tuotteet[] = new Tuote();
      $Tuotteet = Tuote::all();
      View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
     

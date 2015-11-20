@@ -39,7 +39,7 @@ class Tuote extends BaseModel {
     foreach($rows as $row){
       $tuotteet[] = new Tuote (array(
           'tuote_id' => $row['tuote_id'],
-          'tuotteen_nimi' => $row['tuotteen_nimi'],Tuotteet on taulukko, joka sisältää Tuote-olioita. 
+          'tuotteen_nimi' => $row['tuotteen_nimi'], 
           'valmistaja' => $row['valmistaja'],
           'kuvaus' => $row['kuvaus'],
           'lukumaara' => $row['lukumaara'], 
