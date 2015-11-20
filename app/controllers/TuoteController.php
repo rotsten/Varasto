@@ -51,11 +51,11 @@ class TuoteController extends BaseController{
       * tai hakutoiminnon jälkeen
       */
      Kint::dump($tuote_id);
-     $temp = "temp";
-     $listattava_tuote = new Tuote(123, $temp, $temp, $temp, 0, '0:0:0 0:0:0');
+     $listattava_tuote = new Tuote(9789511263661, 'Pirjo Hassinen: Popula', 'Otava', 'romaani', 1, '2015:11:21 14:05:00');
      /*
       * Attributes for new Tuote
       * $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date
+      * On asetettu järjelliset arvot, jotta construktori ei pillastu nollista.
       */
              
      $listattava_tuote ->find_tuote($tuote_id);
