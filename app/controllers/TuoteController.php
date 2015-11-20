@@ -164,6 +164,9 @@ class TuoteController extends BaseController{
   }
     
    public static function find_tuote_with_tuote_id($tuote_id){
+       
+       /* Tätä funktiota käytetään, kun 
+        */
     
     $etsittava_tuote = new Tuote();
     $etsittava_tuote->find($tuote_id);  
@@ -171,18 +174,23 @@ class TuoteController extends BaseController{
     
     return $etsittava_tuote;
 
-  } // end of _find_tuote_eith_tuote_id[$tuote_id)
+  } // end of find_tuote_with_tuote_id[$tuote_id)
  
      public static function find_tuote_post ($tuote_id){
+         
+     /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
+      * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
+      */
     
     Kint::dump($tuote_id);
     $etsittava_tuote = new Tuote();
+    
     $etsittava_tuote->find($tuote_id);  
     Kint::dump($etsittava_tuote);
     
     View::make('/Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
 
-  } // end of find_tuote_with_tuote_id[$tuote_id)
+  } // end of find_tuote_post
  
   /*
   public function find_tuotteen_nimi($tuotteen_nimi){
