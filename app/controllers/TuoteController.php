@@ -30,20 +30,10 @@ class TuoteController extends BaseController{
      * 
      * Näyttää tuotteen listaussivun
      */
-     
-     $tuote = new Tuote(arrayuote = new Tuote (array(
-          'tuote_id' => $row['tuote_id'],
-          'tuotteen_nimi' => $row['tuotteen_nimi'],
-          'valmistaja' => $row['valmistaja'],
-          'kuvaus' => $row['kuvaus'],
-          'lukumaara' => $row['lukumaara'], 
-          'history_date' => $row['history_date']
-       ));
-    } // 
-    
+
      /*
-      * Tämä tarkennuks on tarpeen, jotta Tuotteet voisi kutsua
-      * find -funktiota.
+      * Tämä tarkennus on tarpeen, jotta Tuotteet voisi kutsua
+      * Tuote::all() -funktiota.
       */
     
      $tuotteet[] = new Tuote ();
