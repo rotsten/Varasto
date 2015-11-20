@@ -74,12 +74,6 @@
     TuoteController::tuote_show($tuote_id);
   });
   
-  /*
-  $routes->post('/Tuote/Tallenna/', function(){
-    TuoteController::tallenna();
-  });  
-  */
-  
   // Näyttää tuotetietojen muutossivun
   $routes->get('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);

@@ -51,7 +51,7 @@ class TuoteController extends BaseController{
       * tai hakutoiminnon jälkeen
       */
      Kint::dump($tuote_id);
-     $listattava_tuote = new Tuote(9789511263661, 'Pirjo Hassinen: Popula', 'Otava', 'romaani', 1, '2015:11:21 14:05:00');
+     $listattava_tuote = new Tuote('9789511263661', 'Pirjo Hassinen: Popula', 'Otava', 'romaani', '1', '2015:11:21 14:05:00');'
      /*
       * Attributes for new Tuote
       * $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date
@@ -256,18 +256,6 @@ class TuoteController extends BaseController{
 
   } // end of find_tuote_post
 
-  /*
-   *   
-   * 
-   * // Aiemmin pelkkä tuotesivun esittely
-   * 
-   * 
-  public static function tuote_show(){
-    View::make('Tuote/Tuotesivu.html');
-  }
-    *
-    *
-    */
    
   /*****************************************
    * 
