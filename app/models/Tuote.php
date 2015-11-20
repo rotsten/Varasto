@@ -62,9 +62,7 @@ class Tuote extends BaseModel {
     return $errors;
   } // The end of validate_tuotteen_nimi 
   
-
-  
-    public function save(){
+  public function save(){
     
     $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
             tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
@@ -114,7 +112,7 @@ class Tuote extends BaseModel {
                           )); 
   }
   
-  public static function find_tuote($tuote_id){
+  public function find_tuote($tuote_id){
       
     /* 
      * Kutsutaan, kun etsitään tarkkoja tuotetietoja
@@ -168,4 +166,4 @@ class Tuote extends BaseModel {
     return null;
   } // end of find_tuotteen_nimi
   */ 
-} // The end of class
+} // THE END of class
