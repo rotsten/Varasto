@@ -27,8 +27,7 @@ class TuoteController extends BaseController{
      * Tämä funktio kutsuu, all-funktiota,
      * mikä hakee kaikki tuotteet tietokannasta
      * 
-     * Näyttää tuotteen listaussivun.
-     * 
+     * Näyttää tuotteen listaussivun. 
      */
     
     //$Tuotteet[] = new Tuote();
@@ -73,17 +72,11 @@ class TuoteController extends BaseController{
    * 
    *****************************************/
   
-   // Näyttää tuotteen lisäyssivun
+  // Näyttää tuotteen lisäyssivun
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
   
-  /*
-   * Tuskin käytetty missään
-  public static function tuote_add(){
-       View::make('Tuote/Lisaatuote.html');
-  }
-   */
  
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
@@ -117,8 +110,10 @@ class TuoteController extends BaseController{
       'lukumaara' => $params['lukumaara'],
       'timestamp' => $params['history_date']
     ));
+    
+    Kint::dump($uusi_tuote);
          
-     $uusi_tuote ->save();
+    $uusi_tuote ->save();
      
     /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
      * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
@@ -128,15 +123,6 @@ class TuoteController extends BaseController{
     Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);
      
     return;
-  }
-  
-  public function tallenna(){
-    // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-    $uusi_tuote->save();
-    /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
-     * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
-     * kerralla väärin.
-     */
   }
   
   /*****************************************
@@ -166,9 +152,9 @@ class TuoteController extends BaseController{
      *  antamista. Siispä ne pitää hakea
      */
   
-    Kint::dump($tuote_id);
+    //Kint::dump($tuote_id);
     $muutettava_tuote ->find_tuote($tuote_id);
-    Kint::dump($muutettava_tuote);
+    //Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
     
   }

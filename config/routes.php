@@ -78,9 +78,11 @@
     TuoteController::tuote_show($tuote_id);
   });
   
+  /*
   $routes->post('/Tuote/Tallenna/', function(){
     TuoteController::tallenna();
   });  
+  */
   
   // Näyttää tuotetietojen muutossivun
   $routes->get('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
@@ -98,10 +100,12 @@
   });
    
   // Varastoon liittyvät
+  // Varaston muuttamiseen liittyvä sivu
   $routes->get('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
     VarastoController::varasto_edit($tuote_id);
   });
   
+  // Varaston listaamiseen liittyvä sivu
   $routes->get('/Varasto/Varastonlistaus', function() {
     VarastoController::varasto_list();
   });
