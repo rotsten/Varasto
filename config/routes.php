@@ -1,10 +1,9 @@
 <?php
 
-/*
   $routes->get('/', function() {
     TuoteController::index();
   });
-*/  
+
   $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
   });

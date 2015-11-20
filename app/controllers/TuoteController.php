@@ -16,12 +16,12 @@ class TuoteController extends BaseController{
    * Tuotteiden listaus
    * 
    *****************************************/
-/*
+    
   public static function index(){
     $Tuotteet = Tuote::all();
-    View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
- */
+ 
   public static function tuote_list(){
 
     /*
