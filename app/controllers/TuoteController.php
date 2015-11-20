@@ -51,7 +51,12 @@ class TuoteController extends BaseController{
       * tai hakutoiminnon jälkeen
       */
      Kint::dump($tuote_id);
-     $listattava_tuote = new Tuote();
+     $listattava_tuote = new Tuote(0,0,0,0,0,0);
+     /*
+      * Attributes for new Tuote
+      * $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date
+      */
+             
      $listattava_tuote ->find_tuote($tuote_id);
      
      Kint::dump($listattava_tuote);
