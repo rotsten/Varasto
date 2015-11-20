@@ -16,9 +16,13 @@ class KayttajaController extends BaseController {
     public static function Kirjaudu(){
       View::make('/Kayttaja/Kirjaudu.html');
     }
-       
+                     
     public static function kayttaja_edit(){
       View::make('/Kayttaja/Kayttajatietojenmuutos.html');
+    }
+    
+    public static function paasivu_show(){
+      View::make('Paasivu.html');
     }
          
     public function authenticate ($kayttajatunnus, $salasana) {
@@ -108,28 +112,7 @@ class KayttajaController extends BaseController {
     View::make('/Kayttaja/Kayttajienlistaus.html', array('kayttajat' => $kayttajat));
   } // end of kayttaja_list
     
-  public static function kayttaja_find ($kayttajatunnus){
-  /*
-   * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
-   */
-      
-    $query = DB::connection()->prepare ('SELECT * KAYTTAJA WHERE kayttajatunnus = $kayttajatunnus');
-    $query->execute(array('kayttajatunnus' => $kayttajatunnus));
-    $row = $query->fetch();
-
-    if($row){
-       $muutettava_kayttaja = new Kayttaja(array(
-        'kayttajatunnus' => $row['kayttajatunnus'],
-        'salasana' => $row['salasana'],
-        'etunimi' => $row['etunimi'],
-        'sukunimi' => $row['sukunimi'],
-        'kayttooikeudet' => $row['kayttooikeudet']
-      ));
-    }
-    return $kayttaja;
-    
-  } // end of kayttaja_find
-  
+ 
   /*   
   public static function kayttaja_edit($kayttajatunnus){
    /*

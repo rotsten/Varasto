@@ -18,8 +18,7 @@ class TuoteController extends BaseController{
    *****************************************/
     
   public static function index(){
-    $Tuotteet = Tuote::all();
-    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+     View::make('Aloitussivu.html');
   }
  
   public static function tuote_list(){
@@ -32,10 +31,10 @@ class TuoteController extends BaseController{
      * 
      */
     
-     $Tuotteet[] = new Tuote();
-     $Tuotteet = Tuote::all();
-     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
-    
+    //$Tuotteet[] = new Tuote();
+    $Tuotteet = Tuote::all();
+    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+       
   }  // end of tuote_list  
 
   /*****************************************

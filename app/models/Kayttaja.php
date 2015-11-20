@@ -77,5 +77,27 @@ class Kayttaja extends BaseModel {
     }// end of if
   } // Find(kayttajatunnus)
   
+   public static function kayttaja_find ($kayttajatunnus){
+  /*
+   * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
+   */
+      
+    $query = DB::connection()->prepare ('SELECT * KAYTTAJA WHERE kayttajatunnus = $kayttajatunnus');
+    $query->execute(array('kayttajatunnus' => $kayttajatunnus));
+    $row = $query->fetch();
+
+    if($row){
+       $muutettava_kayttaja = new Kayttaja(array(
+        'kayttajatunnus' => $row['kayttajatunnus'],
+        'salasana' => $row['salasana'],
+        'etunimi' => $row['etunimi'],
+        'sukunimi' => $row['sukunimi'],
+        'kayttooikeudet' => $row['kayttooikeudet']
+      ));
+    }
+    return $kayttaja;
+    
+  } // end of kayttaja_find
+  
 } // end of class
 
