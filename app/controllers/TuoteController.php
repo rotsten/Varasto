@@ -10,7 +10,8 @@
  * @author rotsten
  */
 class TuoteController extends BaseController{
-    
+  
+  
   public static function index(){
     $Tuotteet = Tuote::all();
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
@@ -29,10 +30,21 @@ class TuoteController extends BaseController{
    * 
    */
    
-  // Näyttää tuotteen listaussivun
+
   public static function tuote_list(){
-    View::make('Tuote/Tuotteidenlistaus.html');
-  }
+
+    /*
+     * Tämä funktio kutsuu, all-funktiota,
+     * mikä hakee kaikki tuotteet tietokannasta
+     * 
+     * Näyttää tuotteen listaussivun
+     */
+      
+     $Tuotteet = Tuote::all();
+     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+    
+  }  // end of tuote_list  
+
  
   // Näyttää tuotteen hakusivun
   public static function tuote_hae_show(){
