@@ -39,14 +39,14 @@ class Tuote extends BaseModel {
     foreach($rows as $row){
       $tuotteet[] = new Tuote (array(
           'tuote_id' => $row['tuote_id'],
-          'tuotteen_nimi' => $row['tuotteen_nimi'],
+          'tuotteen_nimi' => $row['tuotteen_nimi'],Tuotteet on taulukko, joka sisältää Tuote-olioita. 
           'valmistaja' => $row['valmistaja'],
           'kuvaus' => $row['kuvaus'],
           'lukumaara' => $row['lukumaara'], 
           'history_date' => $row['history_date']
        ));
     } // end of foreach
-    return $tuotteet;
+    return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
   } // end of function all
   
   public function validate_tuotteen_nimi(){
