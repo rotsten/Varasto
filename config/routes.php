@@ -67,10 +67,6 @@
   $routes->post('/find_tuotteennimi', function(){
     TuoteController::find_tuotteennimi();
   });
-
-  $routes->post('/find_tuote', function($tuote_id){
-    TuoteController::find_tuote_post($tuote_id);
-  });
   */
   
   // Tulostaa tuotteen hakutulokset (haettu tuote-ide:llä) tuotesivulle 
@@ -100,12 +96,13 @@
   });
    
   // Varastoon liittyvät
+  // Varaston listaamiseen liittyvä sivu
+  $routes->get('/Varasto/Varastonlistaus', function() {
+    VarastoController::varasto_list();
+  });
+  
   // Varaston muuttamiseen liittyvä sivu
   $routes->get('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
     VarastoController::varasto_edit($tuote_id);
   });
   
-  // Varaston listaamiseen liittyvä sivu
-  $routes->get('/Varasto/Varastonlistaus', function() {
-    VarastoController::varasto_list();
-  });

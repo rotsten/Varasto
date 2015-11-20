@@ -58,7 +58,7 @@ class TuoteController extends BaseController{
       * On asetettu järjelliset arvot, jotta construktori ei pillastu nollista.
       */
              
-     $listattava_tuote ->find_tuote($tuote_id);
+     $listattava_tuote ->find($tuote_id);
      
      Kint::dump($listattava_tuote);
      
@@ -108,7 +108,7 @@ class TuoteController extends BaseController{
       'valmistaja' => $params['valmistaja'],
       'kuvaus' => $params['kuvaus'],
       'lukumaara' => $params['lukumaara'],
-      'timestamp' => $params['history_date']
+      'history_date' => $params['history_date']
     ));
     
     Kint::dump($uusi_tuote);
@@ -153,7 +153,7 @@ class TuoteController extends BaseController{
      */
   
     //Kint::dump($tuote_id);
-    $muutettava_tuote ->find_tuote($tuote_id);
+    $muutettava_tuote ->find($tuote_id);
     //Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
     
@@ -220,7 +220,7 @@ class TuoteController extends BaseController{
       $tulos=0;
       
       if ($tuote_id != 0) {
-        $tulos -> $this->find_tuote ($tuote_id);
+        $tulos -> $this->find($tuote_id);
         // Tänne pitää tallentaan haun tuloksena saadun olion datat    
       }
       else {

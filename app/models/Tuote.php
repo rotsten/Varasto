@@ -17,7 +17,6 @@ class Tuote extends BaseModel {
   public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date;
   
   //konstruktori
-  
   public function __construct ($attributes){
       parent::__construct($attributes);
   }
@@ -49,19 +48,6 @@ class Tuote extends BaseModel {
     return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
   } // end of function all
   
-  public function validate_tuotteen_nimi(){
-    $errors = array();
-    if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
-      $errors[] = 'Nimi ei saa olla tyhjä!';
-    } // end of if
-    
-    if(strlen($this->tuotteen_nimi) < 2){
-      $errors[] = 'Nimen pituuden tulee olla vähintään kaksi merkkiä!';
-    } // end of if
-
-    return $errors;
-  } // The end of validate_tuotteen_nimi 
-  
   public function save(){
     
     $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
@@ -70,12 +56,12 @@ class Tuote extends BaseModel {
             :history_date)');
    
      $query->execute(array('tuote_id' => $this->tuote_id, 
-                          'tuotteen_nimi' => $this->tuotteen_nimi, 
-                          'kuvaus' => $this->kuvaus,
-                          'valmistaja' => $this->valmistaja, 
-                          'lukumaara' => $this->lukumaara,
-                          'history_date' => $this->history_date
-                          ));      
+                           'tuotteen_nimi' => $this->tuotteen_nimi, 
+                           'kuvaus' => $this->kuvaus,
+                           'valmistaja' => $this->valmistaja, 
+                           'lukumaara' => $this->lukumaara,
+                           'history_date' => $this->history_date
+                           ));      
   }
   
   public function modify () {
@@ -87,14 +73,6 @@ class Tuote extends BaseModel {
      *                  lukumaara = 5, 
      *                  history_date = '2015-11-18 17:05:00' WHERE tuote_id = '345345';
      */
-    
-    /*
-    $new_tuotteen_nimi = $uudet_tiedot['tuotteen_nimi'];
-    $new_valmistaja = $uudet_tiedot['valmistaja'];
-    $new_kuvaus = $uudet_tiedot['kuvaus'];
-    $new_lukumaara = $uudet_tiedot['lukumaara'];
-    $new_history_date =$uudet_tiedot['history_date'];
-    */
     
     // public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date;
     
@@ -112,12 +90,11 @@ class Tuote extends BaseModel {
                           )); 
   }
   
-  public function find_tuote($tuote_id){
+  public function find($tuote_id){
       
     /* 
      * Kutsutaan, kun etsitään tarkkoja tuotetietoja
      */
-    
     Kint::dump($tuote_id);
     
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
@@ -165,5 +142,18 @@ class Tuote extends BaseModel {
     } // end of if
     return null;
   } // end of find_tuotteen_nimi
-  */ 
+  */
+    public function validate_tuotteen_nimi(){
+    $errors = array();
+    if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
+      $errors[] = 'Nimi ei saa olla tyhjä!';
+    } // end of if
+    
+    if(strlen($this->tuotteen_nimi) < 2){
+      $errors[] = 'Nimen pituuden tulee olla vähintään kaksi merkkiä!';
+    } // end of if
+
+    return $errors;
+  } // The end of validate_tuotteen_nimi 
+  
 } // THE END of class
