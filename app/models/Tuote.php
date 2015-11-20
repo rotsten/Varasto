@@ -22,62 +22,57 @@ class Tuote extends BaseModel {
       parent::__construct($attributes);
   }
    
-    public static function all(){
+  public static function all(){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
      * palauttaa ne Tuotteet -nimisessä taulukossa
      */
 
-      $query = DB::connection()->prepare('SELECT * FROM TUOTE');
-      // Suoritetaan kysely
-      $query->execute();
-      // Haetaan kyselyn tuottamat rivit
-      $rows = $query->fetchAll();
-      $tuotteet = array();
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE');
+    // Suoritetaan kysely
+    $query->execute();
+    // Haetaan kyselyn tuottamat rivit
+    $rows = $query->fetchAll();
+    $tuotteet = array();
 
-      // Käydään kyselyn tuottamat rivit läpi
-      foreach($rows as $row){
-          $tuotteet[] = new Tuote (array(
-             'tuote_id' => $row['tuote_id'],
-             'tuotteen_nimi' => $row['tuotteen_nimi'],
-             'valmistaja' => $row['valmistaja'],
-             'kuvaus' => $row['kuvaus'],
-             'lukumaara' => $row['lukumaara'], 
-             'history_date' => $row['history_date']
-           ));
-      } // end of foreach
-      return $tuotteet;
-    } // end of function all
-
+    // Käydään kyselyn tuottamat rivit läpi
+    foreach($rows as $row){
+      $tuotteet[] = new Tuote (array(
+          'tuote_id' => $row['tuote_id'],
+          'tuotteen_nimi' => $row['tuotteen_nimi'],
+          'valmistaja' => $row['valmistaja'],
+          'kuvaus' => $row['kuvaus'],
+          'lukumaara' => $row['lukumaara'], 
+          'history_date' => $row['history_date']
+       ));
+    } // end of foreach
+    return $tuotteet;
+  } // end of function all
   
-  public static function find_tuote($tuote_id){
-      
-    /* 
-     * Kutsutaan, kun etsitään tarkkoja tuotetietoja
+  public function validate_tuotteen_nimi(){
+    $errors = array();
+    if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
+      $errors[] = 'Nimi ei saa olla tyhjä!';
+    } // end of if
+    
+    if(strlen($this->tuotteen_nimi) < 2){
+      $errors[] = 'Nimen pituuden tulee olla vähintään kaksi merkkiä!';
+    } // end of if
+
+    return $errors;
+  } // The end of validate_tuotteen_nimi 
+  
+  public static function tuote_list(){
+    /*
+     * Tämä funktio kutsuu, all-funktiota,
+     * mikä hakee kaikki tuotteet tietokannasta
      */
+     $Tuotteet = Tuote::all();
+     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
     
-    Kint::dump($tuote_id);
-    
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
-    $query->execute(array('tuote_id' => $tuote_id));
-    $row = $query->fetch();
-    if($row){
-      $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
-        'kuvaus' => $row['kuvaus'],  
-        'valmistaja' => $row['valmistaja'],
-        'lukumaara' =>$row['lukumaara']
-      ));
-    
-      Kint::dump($tuote);
-      return $tuote;
-            
-     } // end of if
-  } // end of find_tuote (tuote_id)
+  }  // end of tuote_list
   
-  
-  public function save(){
+    public function save(){
     
     $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
             tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
@@ -127,16 +122,58 @@ class Tuote extends BaseModel {
                           )); 
   }
   
-  public function validate_tuotteen_nimi(){
-    $errors = array();
-    if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
-      $errors[] = 'Nimi ei saa olla tyhjä!';
-    } // end of if
+  public static function find_tuote($tuote_id){
+      
+    /* 
+     * Kutsutaan, kun etsitään tarkkoja tuotetietoja
+     */
     
-    if(strlen($this->tuotteen_nimi) < 2){
-      $errors[] = 'Nimen pituuden tulee olla vähintään kaksi merkkiä!';
+    Kint::dump($tuote_id);
+    
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
+    $query->execute(array('tuote_id' => $tuote_id));
+    $row = $query->fetch();
+    if($row){
+      $tuote = new Tuote(array(
+        'tuote_id' => $row['tuote_id'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'],
+        'kuvaus' => $row['kuvaus'],  
+        'valmistaja' => $row['valmistaja'],
+        'lukumaara' =>$row['lukumaara']
+      ));
+    
+      Kint::dump($tuote);
+      return $tuote;
+            
+     } // end of if
+  } // end of find_tuote (tuote_id)
+  
+  /*
+   * Ei toistaiseksi käytössä
+   *
+  public function find_tuotteen_nimi($tuotteen_nimi){
+      
+      /*
+       * Hakutulosta pitäisi laajentaa niin, että se listaisi useampia tuotteita.
+       * Myös ne, joiden nimessä annettu sana esiintyy, ei vain niitä, jotka 
+       * täydellisesti täyttävät hakuehdon.
+       */
+    /*
+    $query = DB::connection()->prepare('SELECT tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteen_nimi LIMIT 1');
+    $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
+    $row = $query->fetch();
+    if($row){
+      $tuote = new Tuote(array(
+        'tuote_id' => $row['tuote_id'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'],
+        'valmistaja' => $row['valmistaja'],
+        'kuvaus' => $row['kuvaus'],
+        'lukumaara' => $row['lukumaara']
+      ));
+     
+      return $tuote;
     } // end of if
-
-    return $errors;
-  } // The end of validate_tuotteen_nimi 
+    return null;
+  } // end of find_tuotteen_nimi
+  */ 
 } // The end of class

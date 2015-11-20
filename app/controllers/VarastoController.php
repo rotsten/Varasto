@@ -13,38 +13,11 @@
  */
 class VarastoController {
     
-    
-    public static function index(){
-       $varastotilanne = Varasto::all();
-       View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
-    }
-
-    
     public static function varasto_list(){
-    /*
-     * Tämä funktio kutsuu, all-funktiota,
-     * mikä hakee varastotilanteen tietokannasta
-     */
-     $varastotilanne = Varasto::all();
-     View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
+       View::make('Varasto/Varastonlistaus.html');
+    }
     
-  }  // end of varasto_list
-  
-  public static function varasto_edit($tuote_id){
-    
-      //Etsitään ensin tuote, mitä se koskee.
-      $muutettava_varastotieto = TuoteController::find_tuote_with_tuote_id($tuote_id);
-      
-      //Sitten pitäisi olla luotuna psql.näkymä, johon päivitys tulis...   
-      // Ensi viikkolla sitten
-      
-      /*
-       * Tämä funktio kutsuu, all-funktiota,
-       * mikä hakee varastotilanteen tietokannasta
-       */
-      
-     $varastotilanne = Varasto::all();
-     View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
-    
-  }  // end of varasto_list
+    public static function varasto_edit(){
+      View::make('Varasto/Varastotilanteenmuutos.html');
+    }
 }

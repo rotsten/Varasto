@@ -15,14 +15,35 @@ class TuoteController extends BaseController{
     $Tuotteet = Tuote::all();
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
-     
+ 
+  // Näyttää tuotteen lisäyssivun
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
   
-  public static function tuote_hae_show(){
-    View::make('/Tuote/Tuotteenhakeminen.html');
+  /*
+   * Tuskin käytetty missään
+  public static function tuote_add(){
+       View::make('Tuote/Lisaatuote.html');
   }
+   * 
+   */
+   
+  // Näyttää tuotteen listaussivun
+  public static function tuote_list(){
+    View::make('Tuote/Tuotteidenlistaus.html');
+  }
+ 
+  // Näyttää tuotteen hakusivun
+  public static function tuote_hae_show(){
+    View::make('Tuote/Tuotteenhakeminen.html');
+  }
+
+  /*
+ public static function tuote_search(){
+   View::make('Tuote/Tuotteenhakeminen.html');
+ }
+ */
   
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
@@ -78,15 +99,15 @@ class TuoteController extends BaseController{
      */
   }
   
-  public static function tuote_list(){
-    /*
-     * Tämä funktio kutsuu, all-funktiota,
-     * mikä hakee kaikki tuotteet tietokannasta
-     */
-     $Tuotteet = Tuote::all();
-     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
-    
-  }  // end of tuote_list
+  /*
+   *
+   * Aiemmin pelkkä esittely ja sivun näyttäminen
+   *    
+  // Näyttää tuotteen muokkaussivun
+  public static function tuote_edit(){
+    View::make('Tuote/Tuotetietojenmuutos.html');
+  }
+   */
   
   public function tuote_edit($tuote_id){
     
@@ -110,7 +131,6 @@ class TuoteController extends BaseController{
    public function tuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
-    //$muutettava_tuote = TuoteController::find_tuote($tuote_id);
   
     /*
      * Asetetaan päivämäärä ja timestamp. 
@@ -176,7 +196,7 @@ class TuoteController extends BaseController{
 
   } // end of find_tuote_with_tuote_id[$tuote_id)
  
-     public static function find_tuote_post ($tuote_id){
+  public static function find_tuote_post ($tuote_id){
          
      /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
       * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
@@ -191,38 +211,23 @@ class TuoteController extends BaseController{
     View::make('/Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
 
   } // end of find_tuote_post
- 
+
   /*
-  public function find_tuotteen_nimi($tuotteen_nimi){
-      
-      /*
-       * Hakutulosta pitäisi laajentaa niin, että se listaisi useampia tuotteita.
-       * Myös ne, joiden nimessä annettu sana esiintyy, ei vain niitä, jotka 
-       * täydellisesti täyttävät hakuehdon.
-       */
-    /*
-    $query = DB::connection()->prepare('SELECT tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteen_nimi LIMIT 1');
-    $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
-    $row = $query->fetch();
-    if($row){
-      $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
-        'valmistaja' => $row['valmistaja'],
-        'kuvaus' => $row['kuvaus'],
-        'lukumaara' => $row['lukumaara']
-      ));
-     
-      return $tuote;
-    } // end of if
-    return null;
-  } // end of find_tuotteen_nimi
-  */
-  
+   *   
+   * 
+   * // Aiemmin pelkkä tuotesivun esittely
+   * 
+  public static function tuote_show(){
+    View::make('Tuote/Tuotesivu.html');
+  }
+   */
    public static function tuote_show($tuote_id) {
     
      /* Etsitään näytettävän tuotteen
-      * tiedot
+      * tiedot. 
+      * 
+      * Tätä käytetään esimerkiksi listaussivun 
+      * tai hakutoiminnon jälkeen
       */
      Kint::dump($tuote_id);
      $listattava_tuote ->find_tuote($tuote_id);

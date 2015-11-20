@@ -10,7 +10,7 @@
       echo 'Hip-hei, täällä ollaan!';
       //TuoteController::find_tuotteennimi('Lakua');
       //TuoteController::find_tuote('9789522910325');
-      TuoteController::tuote_edit('9789522641632');
+      TuoteController::tuote_show('9789522641632');
       //TuoteController::find_tuote_with_tuote_id('9789522910325');
 
     }
@@ -27,37 +27,7 @@
       View::make('Paasivu.html');
     }
         
-    // Tuotteeseen liittyvät funktiot 
-    public static function tuote_list(){
-       View::make('Tuote/Tuotteidenlistaus.html');
-    }
-
-    public static function tuote_add(){
-       View::make('Tuote/Lisaatuote.html');
-    }
-   
-    public static function tuote_show(){
-      View::make('Tuote/Tuotesivu.html');
-    }
- 
-    public static function tuote_edit(){
-      View::make('Tuote/Tuotetietojenmuutos.html');
-    }
-    
-    public static function tuote_search(){
-      View::make('Tuote/Tuotteenhakeminen.html');
-    }
-
     public static function kayttajalistaus(){
       View::make('/Kayttaja/Kayttajienlistaus.html');
-    }
-    
-    // Varastoon liittyvät funktiot
-    public static function varasto_list(){
-       View::make('Varasto/Varastonlistaus.html');
-    }
-    
-    public static function varasto_edit(){
-      View::make('Varasto/Varastotilanteenmuutos.html');
     }
   }
