@@ -8,20 +8,22 @@
     HelloWorldController::sandbox();
   });
  
+  // Käyttäjään liittyvät
   $routes->get('/Kayttaja/Kirjaudu', function() {
     KayttajaController::Kirjaudu();
   });
    
+  // Kirjautumisen käsittely
   $routes->post('/Kayttaja/Kirjaudu', function(){
-    // Kirjautumisen käsittely
     KayttajaController::handle_login();
   });
-    
+  
+  // Kirjautumisen jälkeen pääsivun esittely
   $routes->get('/Paasivu', function() {
-    HelloWorldController::paasivu_show();
+    KayttajaController::paasivu_show();
   });
   
-  // Käyttäjään liittyvät
+  // Käyttäjien listaussivun näyttäminen
   $routes->get('/Kayttaja/kayttajalistaus', function() {
     KayttajaController::kayttajalistaus();
   });
@@ -30,14 +32,7 @@
     KayttajaController::kayttaja_edit();
   });
   
-  // Tuotteisiin liittyvät
-      
-  /*
-  $routes->post('/Tuote', function() {
-    Tuote::Save();
-  }); 
-   */
-   
+  // Tuotteisiin liittyvät 
   // Pelin lisäyslomakkeen näyttäminen
   $routes->get('/Tuote/Lisaatuote', function(){
     TuoteController::tuote_lisaa_show();
@@ -47,7 +42,8 @@
   $routes->post('/Tuote/Lisaatuote', function(){
     TuoteController::tuote_create();
   });
-    
+   
+   // tuotteiden listaaminen 
   $routes->get('/Tuote/Tuotteidenlistaus', function() {
     TuoteController::tuote_list();
   });
@@ -67,35 +63,36 @@
   $routes->get('/Tuote/Tuotteenhakeminen', function() {
     TuoteController::tuote_search();
   });
+ 
   $routes->post('/find_tuotteennimi', function(){
     TuoteController::find_tuotteennimi();
   });
-*/ 
-  /*
+
   $routes->post('/find_tuote', function($tuote_id){
     TuoteController::find_tuote_post($tuote_id);
   });
   */
   
-  // Tulostaa tuotteen hakutulokset tuotesivulle 
+  // Tulostaa tuotteen hakutulokset (haettu tuote-ide:llä) tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
     TuoteController::tuote_show($tuote_id);
-    //TuoteController::find_tuote_post($tuote_id);
-    //TuoteController::find_tuote_with_tuote_id($tuote_id);
   });
   
   $routes->post('/Tuote/Tallenna/', function(){
     TuoteController::tallenna();
   });  
   
+  // Näyttää tuotetietojen muutossivun
   $routes->get('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
   });
-   
+  
+  // Ottaa vastaan muutokset
   $routes->post('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit_post($tuote_id);
   });
   
+  // Näyttää tuotetiedot
   $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
