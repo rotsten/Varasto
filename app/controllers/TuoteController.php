@@ -11,26 +11,17 @@
  */
 class TuoteController extends BaseController{
   
-  
+  /*****************************************
+   * 
+   * Tuotteiden listaus
+   * 
+   *****************************************/
+
   public static function index(){
     $Tuotteet = Tuote::all();
     View::make('Tuotteet/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
   }
  
-  // Näyttää tuotteen lisäyssivun
-  public static function tuote_lisaa_show(){
-    View::make('Tuote/Lisaatuote.html');
-  }
-  
-  /*
-   * Tuskin käytetty missään
-  public static function tuote_add(){
-       View::make('Tuote/Lisaatuote.html');
-  }
-   * 
-   */
-   
-
   public static function tuote_list(){
 
     /*
@@ -45,18 +36,47 @@ class TuoteController extends BaseController{
     
   }  // end of tuote_list  
 
- 
-  // Näyttää tuotteen hakusivun
-  public static function tuote_hae_show(){
-    View::make('Tuote/Tuotteenhakeminen.html');
-  }
-
-  /*
- public static function tuote_search(){
-   View::make('Tuote/Tuotteenhakeminen.html');
- }
- */
+  /*****************************************
+   * 
+   * Tuotteen esittelysivu
+   * 
+   *****************************************/
   
+   public static function tuote_show($tuote_id) {
+    
+     /* Etsitään näytettävän tuotteen
+      * tiedot. 
+      * 
+      * Tätä käytetään esimerkiksi listaussivun 
+      * tai hakutoiminnon jälkeen
+      */
+     Kint::dump($tuote_id);
+     $listattava_tuote ->find_tuote($tuote_id);
+     
+     Kint::dump($listattava_tuote);
+     
+     View::make('/Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote));
+                   
+  } // The end of tuote_show
+
+  /*****************************************
+   * 
+   * Tuotteen lisäys
+   * 
+   *****************************************/
+  
+   // Näyttää tuotteen lisäyssivun
+  public static function tuote_lisaa_show(){
+    View::make('Tuote/Lisaatuote.html');
+  }
+  
+  /*
+   * Tuskin käytetty missään
+  public static function tuote_add(){
+       View::make('Tuote/Lisaatuote.html');
+  }
+   */
+ 
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
      // Luodaan annettuja arvoja käyttäen uusi tuote.
@@ -111,6 +131,11 @@ class TuoteController extends BaseController{
      */
   }
   
+  /*****************************************
+   * 
+   * Tuotteen muuttaminen
+   * 
+   *****************************************/
   /*
    *
    * Aiemmin pelkkä esittely ja sivun näyttäminen
@@ -137,10 +162,10 @@ class TuoteController extends BaseController{
     $muutettava_tuote ->find_tuote($tuote_id);
     Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
-      
+    
   }
   
-   public function tuote_edit_post($tuote_id){
+  public function tuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
   
@@ -181,6 +206,22 @@ class TuoteController extends BaseController{
     TuoteController::tuote_list(); 
   }     
   
+  /*****************************************
+   * 
+   * Tuotteen hakeminen
+   * 
+   *****************************************/
+  
+// Näyttää tuotteen hakusivun
+  public static function tuote_hae_show(){
+    View::make('Tuote/Tuotteenhakeminen.html');
+  }
+
+  /*
+ public static function tuote_search(){
+   View::make('Tuote/Tuotteenhakeminen.html');
+ }
+ */ 
   public function tuote_search ($tuote_id, $tuotteen_nimi){
       $tulos=0;
       
@@ -195,10 +236,7 @@ class TuoteController extends BaseController{
       return $tulos;
   }
     
-   public static function find_tuote_with_tuote_id($tuote_id){
-       
-       /* Tätä funktiota käytetään, kun 
-        */
+  public static function find_tuote_with_tuote_id($tuote_id){
     
     $etsittava_tuote = new Tuote();
     $etsittava_tuote->find($tuote_id);  
@@ -229,26 +267,19 @@ class TuoteController extends BaseController{
    * 
    * // Aiemmin pelkkä tuotesivun esittely
    * 
+   * 
   public static function tuote_show(){
     View::make('Tuote/Tuotesivu.html');
   }
-   */
-   public static function tuote_show($tuote_id) {
-    
-     /* Etsitään näytettävän tuotteen
-      * tiedot. 
-      * 
-      * Tätä käytetään esimerkiksi listaussivun 
-      * tai hakutoiminnon jälkeen
-      */
-     Kint::dump($tuote_id);
-     $listattava_tuote ->find_tuote($tuote_id);
-     
-     Kint::dump($listattava_tuote);
-     
-     View::make('/Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote));
-                   
-  } // The end of tuote_show
+    *
+    *
+    */
+   
+  /*****************************************
+   * 
+   * Tuotteen poisto
+   * 
+   *****************************************/
   
   public static function tuote_delete($tuote_id){
     
