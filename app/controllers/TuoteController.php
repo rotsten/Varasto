@@ -148,7 +148,7 @@ class TuoteController extends BaseController{
   }
    */
   
-  public function tuote_edit($tuote_id){
+  public static function tuote_edit($tuote_id){
     
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
@@ -171,7 +171,9 @@ class TuoteController extends BaseController{
       'valmistaja'=> 'Otava',
       'lukumaara' => '0',
       'history_date'=>'2015:11:21 14:05:00'
-    ); 
+    ); Opintovapaa2015
+     * Opintovapaa2015
+     * 
 
     $muuttujat= array();
     $muutettava_tuote = new Tuote ($muuttujat); */
@@ -182,7 +184,7 @@ class TuoteController extends BaseController{
     
   }
   
-  public function tuote_edit_post($tuote_id){
+  public static function tuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
   
