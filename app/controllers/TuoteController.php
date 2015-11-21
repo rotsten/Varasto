@@ -92,6 +92,16 @@ class TuoteController extends BaseController{
     if (empty($params['lukumaara'])){
       $params['lukumaara'] = 0;
     } 
+    
+    $errors = $params['tuote_id']->validate_tuote_id(); 
+    $errors_1 = $params['tuotteen_nimi']->validate_tuotteen_nimi(); 
+    $errors = array_merge($errors, $errors_1);
+    
+    $errors_2 = $params['valmistaja']->validate_valmistaja(); 
+    $errors = array_merge($errors, $errors_2);
+    
+    $errors3 = $params['lukumaara']->validate_lukumaara();
+    $errors = array_merge($errors, $errors_3);
       
     $uusi_tuote = new Tuote(array(
       'tuote_id' => $params['tuote_id'],  

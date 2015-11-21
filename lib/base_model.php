@@ -102,7 +102,6 @@
        
        return $errors_lukumaara[];
     }
-                  
             
     public function errors(){
       // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
@@ -111,6 +110,11 @@
         $errors_valmistaja, $errors_lukumaara);
 
       foreach($this->validators as $validator){
+          $errors_temp = $this->{{% validator %}}();.
+          validate_tuote_id(), 
+     validate_tuotteen_nimi(), 
+     validate_valmistaja(), 
+     validate_lukumaara()
         // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
       }
 
