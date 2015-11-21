@@ -74,9 +74,8 @@ class KayttajaController extends BaseController {
             print '<p class="error">Anna salasana.</p>';
             $okay = FALSE;
     }*/
-    if ($okay) {Opintovapaa2015
+    if ($okay) {
         
-       //$user = Kayttaja::authenticate($annettu_kayttajatunnus, $annettu_salasana);
        $kayttaja = KayttajaController::authenticate($params['kayttajatunnus'], $params['salasana']);
 
       if(!$kayttaja){
