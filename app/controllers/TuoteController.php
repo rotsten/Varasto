@@ -50,25 +50,8 @@ class TuoteController extends BaseController{
       * Tätä käytetään esimerkiksi listaussivun 
       * tai hakutoiminnon jälkeen
       */
-     Kint::dump($tuote_id);
-   
-     //Laitetaan alustusarvot
-     /*
-     $muuttujat= array(
-       'tuote_id' => '1',
-       'tuotteen_nimi' => ' ',
-       'kuvaus'=> ' ', 
-       'valmistaja'=> ' ',
-       'lukumaara' => '0',
-       'history_date'=>'1999:01:01 00:00:00'
-     );
-
-     //Laitetaan alustusarvot
-     $muuttujat= array();
-     $listattava_tuote = new Tuote ($muuttujat);  */      
-     $listattava_tuote = Tuote::find($tuote_id);
      
-     //Kint::dump($listattava_tuote);
+     $listattava_tuote = Tuote::find($tuote_id);
 
      View::make('Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote));
                    
@@ -152,32 +135,9 @@ class TuoteController extends BaseController{
     
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
-     *  Lukumäärätietoa voisi varmaan päivittää myös tässäkin, mutta se vaatisi
-     *  käyttäjäoikeuksien tarkastamista. On selkeämpää, jos koko tuotetietojenmuutos -sivu
-     *  on inventointioikeuksilla estetty. --> Jatkokehityspohde.
-     * 
-     *  Muutoskomento vaatii myös attribuuttien aiempien tietojen
-     *  antamista. Siispä ne pitää hakea
+     *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
-  
-    //Kint::dump($tuote_id);
-    //Laitetaan alustusarvot
-      
-    /*
-    $muuttujat= array(
-      'tuote_id' => '1234567',
-      'tuotteen_nimi' => 'Pirjo Hassinen',
-      'kuvaus'=> 'Hassisen uusin', 
-      'valmistaja'=> 'Otava',
-      'lukumaara' => '0',
-      'history_date'=>'2015:11:21 14:05:00'
-    ); Opintovapaa2015
-     * Opintovapaa2015
-     * 
-
-    $muuttujat= array();
-    $muutettava_tuote = new Tuote ($muuttujat); */
-     
+       
     $muutettava_tuote= Tuote::find($tuote_id);
     //Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
@@ -271,11 +231,10 @@ class TuoteController extends BaseController{
       * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
       */
     
-    Kint::dump($tuote_id);
-    $etsittava_tuote = new Tuote();
+    //Kint::dump($tuote_id);
     
-    $etsittava_tuote->find($tuote_id);  
-    Kint::dump($etsittava_tuote);
+    $etsittava_tuote = Tuote::find($tuote_id);  
+    //Kint::dump($etsittava_tuote);
     
     View::make('/Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
 
