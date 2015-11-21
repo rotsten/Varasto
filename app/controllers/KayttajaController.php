@@ -112,7 +112,7 @@ class KayttajaController extends BaseController {
     Kint::dump($Kayttajat);
     
     // Otettu eka '/' pois Kayttajan edestä.
-    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttaja' => $Kayttajat));
+    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
   } // end of kayttaja_list
     
  
