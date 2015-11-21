@@ -38,7 +38,7 @@
   
   // Näyttää käyttäjätiedot
   $routes->get('/Kayttaja/Kayttajasivu/:kayttajatunnus', function($kayttajatunnus) {
-    TuoteController::kayttaja_show($kayttajatunnus);
+    KayttajaController::kayttaja_show($kayttajatunnus);
   });
   
   // Tuotteisiin liittyvät 
