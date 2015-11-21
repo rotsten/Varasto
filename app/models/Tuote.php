@@ -19,6 +19,24 @@ class Tuote extends BaseModel {
   //konstruktori
   public function __construct ($attributes){
       parent::__construct($attributes);
+      
+      /* Validoidaan annetut syötteet
+       * 
+       * Kuvaus on vapaamuotoinen tieto ja sen antaminen on vapaaehtoista.
+       * Näistä syistä syötettä ei validoida. 
+       * 
+       * Lukumäärä- tieto validoidaan. Tarkastetaan, että syöte on luku. 
+       * On myös ajatus edelleen muuttaa toteutuksen rakenteita siten, että 
+       * lukumäärä olisi vain Varasto-oliossa.
+       * 
+       * History-date tietoa ei validoida, koska on edelleen aikomus saada
+       * tämän tieto automaattisesti tietokantaan.    
+       */
+      $this->validators = array(
+          'validate_tuote_id', 
+          'validate_tuotteen_nimi', 
+          'validate_valmistaja', 
+          'validate_lukumaara');
   }
    
   public static function all(){

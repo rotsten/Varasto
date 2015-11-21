@@ -23,12 +23,14 @@
             <td>{{Kayttaja.kayttooikeudet}}</td>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajasivu/{{Kayttaja.kayttajatunnus}}">Katso tarkemmat käyttäjän tiedot</a></th>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Muokkaa</a></th>
+                        <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Poista käyttäjä</a></th>
             <th><a class="btn btn-default btn-sm" href="#">Poista</a></th>
           </tr>
       {% endfor %}
     </tbody>
   </table>
 <h4> Käyttöoikeus "1" tarkoittaa täysiä käyttöoikeuksia.</H4> 
+<button class="btn btn-default"><A href="{{base_path}}/Pääsivu">Lisää käyttäjä (tulossa!)</A></button>
 <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
 
 {% endblock %}
