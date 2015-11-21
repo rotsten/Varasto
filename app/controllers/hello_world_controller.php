@@ -2,6 +2,7 @@
 
   //require 'app/models/Tuote.php';
   //require 'app/models/Kayttaja.php';
+  require 'base_controller';
   
   class HelloWorldController extends BaseController{
  
