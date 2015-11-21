@@ -90,7 +90,7 @@ class Tuote extends BaseModel {
                           )); 
   }
   
-  public function find($tuote_id){
+  public function static find($tuote_id){
       
     /* 
      * Kutsutaan, kun etsitään tarkkoja tuotetietoja

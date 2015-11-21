@@ -18,9 +18,8 @@
        <input type="text" class="form-control" name="tuote_id" value="{{tuote_id}}">
      <div class="form-group">
         
-        <button class="btn btn-default" type="submit"> <A href ="{{base_path}}/Tuote/Tuotesivu/{{tuote_id}}">Hae!</A></button>
-
-        <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
+       <button class="btn btn-default" type="submit" value=TuoteController::find_tuote_post({{tuote_id}})>Hae tuoteta!</button>
+       <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
      </div>
     <!-- 
      Tutkitaan myöhemmin, miten tekstihaku toimisi.

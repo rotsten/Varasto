@@ -108,10 +108,11 @@ class KayttajaController extends BaseController {
     * Tämä funktio kutsuu, all-funktiota,
     * mikä hakee varastotilanteen tietokannasta
     */
-    $kayttajat = Kayttaja::all();
+    $Kayttajat = Kayttaja::all();
+    Kint::dump($Kayttajat);
     
     // Otettu eka '/' pois Kayttajan edestä.
-    View::make('Kayttaja/Kayttajienlistaus.html', array('kayttajat' => $Kayttaja));
+    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttaja));
   } // end of kayttaja_list
     
  

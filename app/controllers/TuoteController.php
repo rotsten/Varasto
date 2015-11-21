@@ -61,11 +61,11 @@ class TuoteController extends BaseController{
        'valmistaja'=> ' ',
        'lukumaara' => '0',
        'history_date'=>'1999:01:01 00:00:00'
-     );*/
+     );
 
      //Laitetaan alustusarvot
      $muuttujat= array();
-     $listattava_tuote = new Tuote ($muuttujat);        
+     $listattava_tuote = new Tuote ($muuttujat);  */      
      $listattava_tuote ->find($tuote_id);
      
      //Kint::dump($listattava_tuote);
@@ -171,10 +171,10 @@ class TuoteController extends BaseController{
       'valmistaja'=> 'Otava',
       'lukumaara' => '0',
       'history_date'=>'2015:11:21 14:05:00'
-    ); */
+    ); 
 
     $muuttujat= array();
-    $muutettava_tuote = new Tuote ($muuttujat);
+    $muutettava_tuote = new Tuote ($muuttujat); */
      
     $muutettava_tuote ->find($tuote_id);
     //Kint::dump($muutettava_tuote);
