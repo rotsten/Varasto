@@ -54,12 +54,12 @@ class TuoteController extends BaseController{
    
      //Laitetaan alustusarvot
      $muuttujat= array(
-       'tuote_id' => '1234567',
-       'tuotteen_nimi' => 'Pirjo Hassinen',
-       'kuvaus'=> 'Hassisen uusin', 
-       'valmistaja'=> 'Otava',
+       'tuote_id' => '1',
+       'tuotteen_nimi' => ' ',
+       'kuvaus'=> ' ', 
+       'valmistaja'=> ' ',
        'lukumaara' => '0',
-       'history_date'=>'2015:11:21 14:05:00'
+       'history_date'=>'1999:01:01 00:00:00'
      );
 
      $listattava_tuote = new Tuote ($muuttujat);
