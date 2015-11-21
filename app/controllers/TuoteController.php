@@ -65,19 +65,11 @@ class TuoteController extends BaseController{
 
      //Laitetaan alustusarvot
      $muuttujat= array();
-     $listattava_tuote = new Tuote ($muuttujat);
-    
-     /*
-      * Attributes for new Tuote
-      * $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date
-      * On asetettu järjelliset arvot, jotta construktori ei pillastu nollista.
-      */
-             
+     $listattava_tuote = new Tuote ($muuttujat);        
      $listattava_tuote ->find($tuote_id);
      
-     Kint::dump($listattava_tuote);
-     
-     // Otettu eka kenoviiva pois
+     //Kint::dump($listattava_tuote);
+
      View::make('Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote));
                    
   } // The end of tuote_show
