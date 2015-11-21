@@ -276,14 +276,14 @@ class Tuote extends BaseModel {
         
     $errors = array();
       
-    $errors = $this->{validate_tuote_id}();
-    $errors2 = $this->{validate_tuotteen_nimi}();
-    $errors = array_merge($errors, $errors2);
+    $errors = $this->validate_tuote_id();
+    //$errors2 = $this->validate_tuotteen_nimi();
+    $errors = array_merge($errors, $this->validate_tuotteen_nimi());
     
-    $errors3 = $this->{validate_valmistaja}();
+    $errors3 = $this->validate_valmistaja();
     $errors = array_merge($errors, $errors3);
      
-    $errors4 = $this->{validate_lukumaara}();
+    $errors4 = $this->validate_lukumaara();
     $errors = array_merge($errors, $errors4);
   
     return $errors;
