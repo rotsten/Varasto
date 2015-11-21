@@ -45,6 +45,7 @@ class Kayttaja extends BaseModel {
   }  // end of kayttaja_list
   
   // olioon liittyvä julkinen metodi
+  
   public function edit($salasana, $etunimi, $sukunimi, $kayttooikeus){
     // Käyttäjätunnusta ei voi editoida
     $this->salasana = $salasana;
@@ -99,5 +100,33 @@ class Kayttaja extends BaseModel {
     
   } // end of kayttaja_find
   
-} // end of class
+  public function save(){
+    
+  $query = DB::connection()->prepare('INSERT INTO KAYTTAJA (kayttajatunnus,
+            salasana, etunimi, sukunimi, kayttooikeudet)
+            VALUES (:kayttajatunnus, :salasana, :etunimi, :sukunimi, :kayttooikeudet)');
+   
+  $query->execute(array('kayttajatunnus' => $this->kayttajatunnus, 
+                        'new_salasana' => $this->salasana,
+                        'new_etunimi' => $this->etunimi, 
+                        'new_sukunimi' => $this->sukunimi,
+                        'new_kayttooikeudet' => $this->kayttooikeudet
+                        ));      
+  } // ebd of save
+  
+  public function modify () {
+                   
+    $query = DB::connection()->prepare ('UPDATE KAYTTAJA SET salasana =: new_salasana,
+                                                             etunimi =: new_etunimi,
+                                                             sukunimi =: new_sukunimi,
+                                                             kayttooikeudet =: new_kayttooikedet WHERE kayttajatunnus =:kayttajatunnus;');
+    $query->execute(array('kayttajatunnus' => $this->kayttajatunnus, 
+                          'new_salasana' => $this->salasana,
+                          'new_etunimi' => $this->etunimi, 
+                          'new_sukunimi' => $this->sukunimi,
+                          'new_kayttooikeudet' => $this ->kayttooikeudet
+                          )); 
+  } // end of modify
+  
+} // THE END of class KAYTTAJA
 

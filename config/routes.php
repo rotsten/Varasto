@@ -28,8 +28,12 @@
     KayttajaController::kayttajalistaus();
   });
   
-  $routes->get('/Kayttaja/Kayttajatietojenmuutos-testi', function() {
+  $routes->get('/Kayttaja/Kayttajatietojenmuutos', function() {
     KayttajaController::kayttaja_edit();
+  });
+  
+  $routes->post('/Kayttaja/Kayttajatietojenmuutos/:kayttajatunnus', function($kayttajatunnus) {
+    KayttajaController::kayttaja_edit_post($kayttajatunnus);
   });
   
   // Tuotteisiin liittyvät 

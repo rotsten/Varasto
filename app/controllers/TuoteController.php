@@ -165,8 +165,7 @@ class TuoteController extends BaseController{
       $uudet_tiedot['lukumaara'] = 0;
     } 
     
-    //Luodaan uusi tuote, jolla kutsutaan modifya...
-    
+    //Luodaan uusi tuote, jolla kutsutaan modifya...  
     $muuttujat= array(
       'tuote_id' => $uudet_tiedot['tuote_id'],
       'tuotteen_nimi' => $uudet_tiedot['tuotteen_nimi'],

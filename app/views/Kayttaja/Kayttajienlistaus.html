@@ -22,13 +22,16 @@
             <td>{{Kayttaja.etunimi}}</td>
             <td>{{Kayttaja.sukunimi}}</td>
             <td>{{Kayttaja.kayttooikeudet}}</td>
-            <th><a class="btn btn-default btn-sm" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Muokkaa</a></th>
+            <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Muokkaa</a></th>
+       
+            <button type ="submit" class="btn btn-default" value=tuote_post_edit{{muutettava_tuote.tuote_id}}>Tallenna muutokset</button>
+            
             <th><a class="btn btn-default btn-sm" href="#">Poista</a></th>
           </tr>
       {% endfor %}
     </tbody>
   </table>
-
-   <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
+<h4> Käyttöoikeus "1" tarkoittaa täysiä käyttöoikeuksia.</H4> 
+<button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
 
 {% endblock %}

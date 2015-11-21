@@ -1,26 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Muokkaa käyttäjän tietoja</h1>
+  <h1>Muokkaa käyttäjän {{Kayttaja.kayttajatunnus}} tietoja</h1>
 
   <form>
     <div class="form-group">
       <label>Käyttäjä</label>
-      <input type="text" class="form-control" value="Pitäisi myös tulostaa nykyiset käyttäjätiedot näkyviin">
     </div>
      <div class="form-group">
           <label>Salasana</label>
-          <input type="text" class="form-control" value=" ">
+          <input type="text" class="form-control" name="salasana" value={{Kayttaja.salasana}}>
         </div>
         <div class="form-group">
           <label>Etunimi</label>
-          <input type="text" class="form-control" value=" ">
+          <input type="text" class="form-control" name="etunimi" value={{Kayttaja.etunimi}}>
         </div>
         <div class="form-group">
           <label>Sukunimi</label>
-          <textarea class="form-control">  </textarea>
+          <input type="text" class="form-control" name="sukunimi" value={{Kayttaja.sukunimi}}>
         </div>
         <div class="form-group">
-          <label>Käyttöoikeudet</label>
+          <label>Käyttöoikeudet</label> value={{Kayttaja.kayttooikeudet}}
           <select name="Annettavat käyttöoikeidet">
               <option value="default"> Valitse listasta</option>
               <option value="default"> Rajoitetut inventointioikeudet</option>
@@ -28,8 +27,8 @@
           </select> 
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-default"><A href="{{base_path}}/Paasivu">Tallenna</A></button>
-           <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle tallentamatta</A></button>
+          <button type ="submit" class="btn btn-default" value=kayttaja_edit_post{{kayttaja.kayttajatunnus}}>Tallenna muutokset</button>
+          <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle tallentamatta</A></button>
         </div>
   </form>
 {% endblock %}

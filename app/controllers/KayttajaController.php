@@ -109,24 +109,43 @@ class KayttajaController extends BaseController {
     * mikä hakee varastotilanteen tietokannasta
     */
     $Kayttajat = Kayttaja::all();
-    Kint::dump($Kayttajat);
-    
-    // Otettu eka '/' pois Kayttajan edestä.
+    //Kint::dump($Kayttajat);
+      
     View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
   } // end of kayttaja_list
     
  
-  /*   
   public static function kayttaja_edit($kayttajatunnus){
    /*
     * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
     */
-  /*    
+        
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
+    Kint::dump($muutettava_kayttaja);
+    
     View::make('Kayttaja/Kayttajatietojenmuutos.html', $muutettava_kayttaja);
-  */
-  /*
+ 
   } // end of kayttaja_edit
-  
-  */
+     
+  public static function kayttaja_edit_post($kayttajatunnus){
+ 
+    $uudet_kayttajan_tiedot = $_POST; 
+    // Kutsu kayttaja_list();
+    
+    //Luodaan uusi Kayttaja, jolla kutsutaan modifya...
+    
+    $muuttujat= array(
+      'kayttajatunnus' => $kayttajatunnus,
+      'salasan' => $uudet_tiedot['tuotteen_nimi'],
+      'etunimi'=> $uudet_tiedot['etunimi'], 
+      'sukunimi'=> $uudet_tiedot['sukunimi'],
+      'kayttooikeudet' => $uudet_tiedot['kayttooikeudet']
+    );
+
+    $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
+    //$errors = $Tuote->errors();
+    
+    $Kayttajatietojen_muutokse ->modify();
+
+  } // end of kayttaja_edit_post
 } // THE END of class
