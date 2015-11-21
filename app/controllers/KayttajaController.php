@@ -130,7 +130,8 @@ class KayttajaController extends BaseController {
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
     //$errors = $Tuote->errors();
     
-    $Kayttajatietojen_muutokse ->modify();
-
+    $Kayttajatietojen_muutokset->modify();
+    $Kayttajatietojen_muutokset::kayttajalistaus();
+    
   } // end of kayttaja_edit_post
 } // THE END of class
