@@ -63,7 +63,7 @@ class TuoteController extends BaseController{
        'history_date'=>'1999:01:01 00:00:00'
      );*/
 
-         //Laitetaan alustusarvot
+     //Laitetaan alustusarvot
      $muuttujat= array();
      $listattava_tuote = new Tuote ($muuttujat);
     
@@ -170,6 +170,8 @@ class TuoteController extends BaseController{
   
     //Kint::dump($tuote_id);
     //Laitetaan alustusarvot
+      
+    /*
     $muuttujat= array(
       'tuote_id' => '1234567',
       'tuotteen_nimi' => 'Pirjo Hassinen',
@@ -177,8 +179,9 @@ class TuoteController extends BaseController{
       'valmistaja'=> 'Otava',
       'lukumaara' => '0',
       'history_date'=>'2015:11:21 14:05:00'
-    );
+    ); */
 
+    $muuttujat= array();
     $muutettava_tuote = new Tuote ($muuttujat);
      
     $muutettava_tuote ->find($tuote_id);
