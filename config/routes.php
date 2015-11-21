@@ -100,3 +100,8 @@
     VarastoController::varasto_edit($tuote_id);
   });
   
+  // Ottaa vastaan muutokset
+  $routes->post('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
+    VarastoController::varasto_edit_post($tuote_id);
+  });
+  

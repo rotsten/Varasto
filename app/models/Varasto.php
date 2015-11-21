@@ -41,37 +41,7 @@ class Varasto extends BaseModel{
     } // end of foreach
     
     return $varastotilanne;
-  }   
-  
-  public static function index(){
-    $varastotilanne = Varasto::all();
-    View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
-  }
-
-  public static function varasto_list(){
-    /*
-     * Tämä funktio kutsuu, all-funktiota,
-     * mikä hakee varastotilanteen tietokannasta
-     */
-     $varastotilanne = Varasto::all();
-     View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
-    
-  }  // end of varasto_list
-  
-  public static function varasto_edit($tuote_id){
-    
-    //Etsitään ensin tuote, mitä se koskee.
-    $muutettava_varastotieto = TuoteController::find_tuote_with_tuote_id($tuote_id);
-      
-    /*
-     * Tämä funktio kutsuu, all-funktiota,
-     * mikä hakee varastotilanteen tietokannasta
-     */
-      
-     $varastotilanne = Varasto::all();
-     View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
-    
-  }  // end of varasto_list
+  }    
 } // end of class
 
 

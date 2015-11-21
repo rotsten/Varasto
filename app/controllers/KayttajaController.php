@@ -111,7 +111,7 @@ class KayttajaController extends BaseController {
     $kayttajat = Kayttaja::all();
     
     // Otettu eka '/' pois Kayttajan edestä.
-    View::make('/Kayttaja/Kayttajienlistaus.html', array('kayttajat' => $Kayttaja));
+    View::make('Kayttaja/Kayttajienlistaus.html', array('kayttajat' => $Kayttaja));
   } // end of kayttaja_list
     
  
