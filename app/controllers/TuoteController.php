@@ -231,10 +231,10 @@ class TuoteController extends BaseController{
       * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
       */
     
-    //Kint::dump($tuote_id);
+    Kint::dump($tuote_id);
     
     $etsittava_tuote = Tuote::find($tuote_id);  
-    //Kint::dump($etsittava_tuote);
+    Kint::dump($etsittava_tuote);
     
     View::make('/Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
 
