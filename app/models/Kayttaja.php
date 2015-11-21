@@ -46,7 +46,7 @@ class Kayttaja extends BaseModel {
   
   // olioon liittyvä julkinen metodi
   
-  public function edit($salasana, $etunimi, $sukunimi, $kayttooikeus){
+  public static function edit($salasana, $etunimi, $sukunimi, $kayttooikeus){
     // Käyttäjätunnusta ei voi editoida
     $this->salasana = $salasana;
     $this->etunimi = $etunimi;
