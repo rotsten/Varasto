@@ -185,7 +185,7 @@ class Tuote extends BaseModel {
      } 
        
     // tarkistaa, että sisältää vain numeroita
-    if (is_digit($this->tuote_id)) {
+    if (is_numeric($this->tuote_id)) {
       if ($this->tuote_id < 0) {
           $errors_tuote_id[] = 'Tuote-id on aina positiivinen kokonaisluku!'; 
       }
