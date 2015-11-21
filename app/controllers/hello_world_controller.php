@@ -2,8 +2,8 @@
 
   //require 'app/models/Tuote.php';
   //require 'app/models/Kayttaja.php';
-  require 'Varasto/lib/base_controller';
-  require 'Varasto/lib/base_model';
+  //require 'Varasto/lib/base_controller';
+  //require 'Varasto/lib/base_model';
   
   class HelloWorldController extends BaseController{
  
