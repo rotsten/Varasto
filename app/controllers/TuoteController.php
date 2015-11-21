@@ -66,7 +66,7 @@ class TuoteController extends BaseController{
      //Laitetaan alustusarvot
      $muuttujat= array();
      $listattava_tuote = new Tuote ($muuttujat);  */      
-     $listattava_tuote ->find($tuote_id);
+     $listattava_tuote = Tuote::find($tuote_id);
      
      //Kint::dump($listattava_tuote);
 
@@ -178,7 +178,7 @@ class TuoteController extends BaseController{
     $muuttujat= array();
     $muutettava_tuote = new Tuote ($muuttujat); */
      
-    $muutettava_tuote ->find($tuote_id);
+    $muutettava_tuote= Tuote::find($tuote_id);
     //Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
     
