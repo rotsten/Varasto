@@ -33,14 +33,7 @@ class VarastoController {
 
       //Etsitään ensin tuote, mitä se koskee.
       $muutettava_varastotieto = TuoteController::find_tuote_with_tuote_id($tuote_id);
-      
-      /*
-       * Tämä funktio kutsuu, all-funktiota,
-       * mikä hakee varastotilanteen tietokannasta
-       */
 
-      //$varastotilanne = Varasto::all();
-      //View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
       View::make('Varasto/Varastotilanteenmuutos.html', array('Varastotilanne' => $muutettava_varastotilanne));
   
     }  // end of varasto_edit
