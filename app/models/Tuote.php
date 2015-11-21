@@ -177,16 +177,16 @@ class Tuote extends BaseModel {
     */
         
     $errors_tuote_id = array();
-    if($this.tuote_id == '' || $this.tuote_id == null){
+    if($this->tuote_id == '' || $this->tuote_id == null){
        $errors_tuote_id[] = 'Tuote-id on pakollinen tieto!';
     }
-     if(strlen($this.tuote_id) < 5){
+     if(strlen($this->tuote_id) < 5){
        $errors_tuote_id[] = 'Tuote_id:n pitää olla vähintään 5 merkkiä pitkä!';
      } 
        
     // tarkistaa, että sisältää vain numeroita
-    if (is_digit($this.tuote_id)) {
-      if ($this.tuote_id < 0) {
+    if (is_digit($this->tuote_id)) {
+      if ($this->tuote_id < 0) {
           $errors_tuote_id[] = 'Tuote-id on aina positiivinen kokonaisluku!'; 
       }
     } else {
@@ -204,10 +204,10 @@ class Tuote extends BaseModel {
      */
         
     $errors_tuotteen_nimi = array();
-    if($this.tuotteen_nimi == '' || $this.tuotteen_nimi == null){
+    if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
        $errors_tuotteen_nimi[] = 'Jätit tiedon antamatta!';
     }
-    if(strlen($this.tuotteen_nimi) < 3){
+    if(strlen($this->tuotteen_nimi) < 3){
       $errors_tuotteen_nimi[] = 'Tuotteen nimen pitää olla vähintään 3 merkkiä pitkä!';
     }                                   
     return $errors_tuotteen_nimi;
@@ -221,10 +221,10 @@ class Tuote extends BaseModel {
      */
         
      $errors_valmistaja = array();
-     if($this.valmistaja == '' || $this.valmistaja == null){
+     if($this->valmistaja == '' || $this->valmistaja == null){
         $errors_valmistaja[] = 'Jätit tiedon antamatta!';
      }
-     if(strlen($this.valmistaja) < 2){
+     if(strlen($this->valmistaja) < 2){
        $errors_valmistaja[] = 'Tuotteen valmistajan nimen pitää olla vähintään 2 merkkiä pitkä!';
      }                                   
      return $errors_valmistaja;
@@ -239,8 +239,8 @@ class Tuote extends BaseModel {
      $errors_lukumaara = array();
       
      // tarkistaa, että sisältää vain numeroita
-     if (is_digit($this.tuote_id)) {
-       if ($this.tuote_id < 0) {
+     if (is_digit($this->tuote_id)) {
+       if ($this->tuote_id < 0) {
            $errors_lukumaara[] = 'lukumäärä on aina positiivinen kokonaisluku!'; 
        }
      } else {
