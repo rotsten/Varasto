@@ -170,7 +170,7 @@ class Tuote extends BaseModel {
   *    -validate_lukumaara()
   */
 
-  public static function validate_tuote_id(){
+  public function validate_tuote_id(){
         
    /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
     * Merkkijonon pitää olla ainakin 5 merkkiä pitkä.
@@ -196,7 +196,7 @@ class Tuote extends BaseModel {
     return $errors_tuote_id;
   }
               
-  public static function validate_tuotteen_nimi(){
+  public function validate_tuotteen_nimi(){
         
     /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
      * Esimerkiksi merkkijonon pitää olla ainakin 3 merkkiä
@@ -213,7 +213,7 @@ class Tuote extends BaseModel {
     return $errors_tuotteen_nimi;
   }
     
-  public static function validate_valmistaja(){
+  public function validate_valmistaja(){
         
     /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
      * Esimerkiksi merkkijonon pitää olla ainakin 3 merkkiä
@@ -230,7 +230,7 @@ class Tuote extends BaseModel {
      return $errors_valmistaja;
   }
     
-  public static function validate_lukumaara(){
+  public function validate_lukumaara(){
       
     /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
      * Lukumäärän antaminen ei ole välttämätöntä.
@@ -250,7 +250,7 @@ class Tuote extends BaseModel {
      return $errors_lukumaara;
   }
             
-  public static function errors(){
+  public function errors(){
     // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
         
     /* Metodi, joka kutsuu näitä kaikkia validointimetoja ja kokoaa 
