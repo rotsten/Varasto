@@ -1,32 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
+  
   <h1>Muokkaa tuotteen {{muutettava_tuote.tuote_id}} tietoja</h1>
+  
+    <!-- Syötteiden tarkistamisessa löytyneiden virheiden ilmoittamiseen: 
+  {% if errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  -->
 
   <form  method="post">
+    <div class="form-group">
+      <label></label>
+      <label>Tuotteen nimi</label>
+      <input type="hidden" name="tuote_id" value ="{{muutettava_tuote.tuote_id}}">
+      <input type="text" class="form-control" name="tuotteen_nimi" value="{{muutettava_tuote.tuotteen_nimi}}">
+    </div>
+    <div class="form-group">
+       <label>Valmistaja</label>
+       <input type="text" class="form-control" name="valmistaja" value="{{muutettava_tuote.valmistaja}}">
+     </div>
      <div class="form-group">
-          <label></label>
-          <label>Tuotteen nimi</label>
-          <input type="hidden" name="tuote_id" value ="{{muutettava_tuote.tuote_id}}">
-          <input type="text" class="form-control" name="tuotteen_nimi" value="{{muutettava_tuote.tuotteen_nimi}}">
-        </div>
-        <div class="form-group">
-          <label>Valmistaja</label>
-          <input type="text" class="form-control" name="valmistaja" value="{{muutettava_tuote.valmistaja}}">
-        </div>
-        <div class="form-group">
-          <label>Kuvaus</label>
-          <input type="text" class="form-control" name="kuvaus" value="{{muutettava_tuote.kuvaus}}">
-          <!--
+       <label>Kuvaus</label>
+       <input type="text" class="form-control" name="kuvaus" value="{{muutettava_tuote.kuvaus}}">
+      <!--
           <textarea class="form-control">  </textarea>
-          -->
-        </div>
-        <div class="form-group">
-          <label>Lukumäärä</label>
-          <input type="text" class="form-control" name="lukumaara" value="{{muutettava_tuote.lukumaara}}">
-        </div>
-        <div class="form-group">
-          <button type ="submit" class="btn btn-default" value=tuote_post_edit{{muutettava_tuote.tuote_id}}>Tallenna muutokset</button>
-          <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu tallentamatta</A></button>
-        </div>
+      -->
+      </div>
+      <div class="form-group">
+        <label>Lukumäärä</label>
+        <input type="text" class="form-control" name="lukumaara" value="{{muutettava_tuote.lukumaara}}">
+      </div>
+      <div class="form-group">
+         <button type ="submit" class="btn btn-default" value=tuote_post_edit{{muutettava_tuote.tuote_id}}>Tallenna muutokset</button>
+         <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu tallentamatta</A></button>
+      </div>
   </form>
 {% endblock %}

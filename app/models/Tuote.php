@@ -161,17 +161,132 @@ class Tuote extends BaseModel {
     return null;
   } // end of find_tuotteen_nimi
   */
-    public function validate_tuotteen_nimi(){
-    $errors = array();
-    if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
-      $errors[] = 'Nimi ei saa olla tyhjä!';
-    } // end of if
-    
-    if(strlen($this->tuotteen_nimi) < 2){
-      $errors[] = 'Nimen pituuden tulee olla vähintään kaksi merkkiä!';
-    } // end of if
 
-    return $errors;
-  } // The end of validate_tuotteen_nimi 
+    /*
+     * Lisätään annettujen syötteiden validointifunktiot.
+     *    -validate_tuote_id(), 
+     *    -validate_tuotteen_nimi(), 
+     *    -validate_valmistaja(), 
+     *    -validate_lukumaara()
+     */
+
+    public function validate_tuote_id(){
+        
+      /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
+       * Merkkijonon pitää olla ainakin 5 merkkiä pitkä.
+       */
+        
+       $errors_tuote_id = array();
+       if($this.tuote_id == '' || $this.tuote_id == null){
+           $errors_tuote_id[] = 'Tuote-id on pakollinen tieto!';
+       }
+       if(strlen($this.tuote_id) < 5){
+         $errors_tuote_id[] = 'Tuote_id:n pitää olla vähintään 5 merkkiä pitkä!';
+       } 
+       
+       // tarkistaa, että sisältää vain numeroita
+       if (is_digit($this.tuote_id)) {
+           if ($this.tuote_id < 0) {
+             $errors_tuote_id[] = 'Tuote-id on aina positiivinen kokonaisluku!'; 
+           }
+        } else {
+            $errors_tuote_id[] = 'Tuote-id ei saa sisältää muita merkkejä kuin numeroita!';
+        }  
+       
+       return $errors_tuote_id[];
+    }
+              
+    public function validate_tuotteen_nimi(){
+        
+      /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
+       * Esimerkiksi merkkijonon pitää olla ainakin 3 merkkiä
+       * pitkä.
+       */
+        
+       $errors_tuotteen_nimi = array();
+       if($this.tuotteen_nimi == '' || $this.tuotteen_nimi == null){
+           $errors_tuotteen_nimi[] = 'Jätit tiedon antamatta!';
+       }
+       if(strlen($this.tuotteen_nimi) < 3){
+         $errors_tuotteen_nimi[] = 'Tuotteen nimen pitää olla vähintään 3 merkkiä pitkä!';
+       }                                   
+       return $errors_tuotteen_nimi[];
+    }
+    
+    public function validate_valmistaja(){
+        
+      /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
+       * Esimerkiksi merkkijonon pitää olla ainakin 3 merkkiä
+       * pitkä.
+       */
+        
+       $errors_valmistaja = array();
+       if($this.valmistaja == '' || $this.valmistaja == null){
+           $errors_valmistaja[] = 'Jätit tiedon antamatta!';
+       }
+       if(strlen($this.valmistaja) < 2){
+         $errors_valmistaja[] = 'Tuotteen valmistajan nimen pitää olla vähintään 2 merkkiä pitkä!';
+       }                                   
+       return $errors_valmistaja[];
+    }
+    
+    public function validate_lukumaara(){
+        
+      /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
+       * Lukumäärän antaminen ei ole välttämätöntä.
+       */
+        
+       $errors_lukumaara = array();
+      
+       // tarkistaa, että sisältää vain numeroita
+       if (is_digit($this.tuote_id)) {
+           if ($this.tuote_id < 0) {
+             $errors_lukumaara[] = 'lukumäärä on aina positiivinen kokonaisluku!'; 
+           }
+        } else {
+            $errors_lukumaara[] = 'Lukumäärä ei saa sisältää muita merkkejä kuin numeroita!';
+        }  
+       
+       return $errors_lukumaara[];
+    }
+            
+    public function errors(){
+      // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
+        
+        /* Metodi, joka kutsuu näitä kaikkia validointimetoja ja kokoaa 
+         * niiden palauttamat virheilmoitukset yhdeksi taulukoksi. 
+         * 
+         * Validators:
+         * =========== 
+         * -validate_tuote_id(), 
+         * -validate_tuotteen_nimi(), 
+         * -validate_valmistaja(), 
+         * -validate_lukumaara()
+         *
+         * Metodi tulee käyttöön kaikille sovellukseni malleille, joten 
+         * se tulee lopullisessa toteutuksessa sijaitsemaan:
+         * lib --> base_model.php-tiedostossa, 
+         * jossa BaseModel-luokka sijaitsee. 
+         * 
+         * Lopullisessa versiossa metodi errors käy läpi validators-taulukon 
+         * ja kutsuu sen sisältämiä validointimetodeja niiden nimellä.
+         * 
+         * Ensimmäiessä vaiheessa käytetään kovakoodattua versiota.
+         */
+        
+      $errors = array();
+      
+      $errors = $this->{validate_tuote_id}();
+      $errors2 = $this->{validate_tuotteen_nimi}();
+      $errors = array_merge($errors, $errors2);
+      
+      $errors3 = $this->{validate_valmistaja}();
+      $errors = array_merge($errors, $errors3);
+      
+      $errors4 = $this->{validate_lukumaara}();
+      $errors = array_merge($errors, $errors4);
+  
+      return $errors;
+    }
   
 } // THE END of class
