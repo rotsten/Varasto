@@ -193,7 +193,7 @@ class Tuote extends BaseModel {
         $errors_tuote_id[] = 'Tuote-id ei saa sisältää muita merkkejä kuin numeroita!';
     }  
        
-    return $errors_tuote_id[];
+    return $errors_tuote_id;
   }
               
   public static function validate_tuotteen_nimi(){
@@ -210,7 +210,7 @@ class Tuote extends BaseModel {
     if(strlen($this.tuotteen_nimi) < 3){
       $errors_tuotteen_nimi[] = 'Tuotteen nimen pitää olla vähintään 3 merkkiä pitkä!';
     }                                   
-    return $errors_tuotteen_nimi[];
+    return $errors_tuotteen_nimi;
   }
     
   public static function validate_valmistaja(){
@@ -227,7 +227,7 @@ class Tuote extends BaseModel {
      if(strlen($this.valmistaja) < 2){
        $errors_valmistaja[] = 'Tuotteen valmistajan nimen pitää olla vähintään 2 merkkiä pitkä!';
      }                                   
-     return $errors_valmistaja[];
+     return $errors_valmistaja;
   }
     
   public static function validate_lukumaara(){
@@ -247,7 +247,7 @@ class Tuote extends BaseModel {
          $errors_lukumaara[] = 'Lukumäärä ei saa sisältää muita merkkejä kuin numeroita!';
      }  
        
-     return $errors_lukumaara[];
+     return $errors_lukumaara;
   }
             
   public static function errors(){
