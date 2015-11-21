@@ -17,10 +17,6 @@ class KayttajaController extends BaseController {
       View::make('/Kayttaja/Kirjaudu.html');
     }
                      
-    public static function kayttaja_edit(){
-      View::make('/Kayttaja/Kayttajatietojenmuutos.html');
-    }
-    
     public static function paasivu_show(){
       View::make('Paasivu.html');
     }
@@ -98,11 +94,6 @@ class KayttajaController extends BaseController {
     View::make('Kayttaja/Kayttajienlistaus.html');
   }
     
-  public static function kayttaja_edit(){
-    View::make('Kayttaja/Kayttajatietojenmuutos.html');
-  }
-  */
-  
   public static function kayttajalistaus(){
    /*
     * Tämä funktio kutsuu, all-funktiota,
