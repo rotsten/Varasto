@@ -24,7 +24,7 @@
   });
   
   // Käyttäjien listaussivun näyttäminen
-  $routes->get('/Kayttaja/kayttajienlistaus', function() {
+  $routes->get('/Kayttaja/Kayttajienlistaus', function() {
     KayttajaController::kayttajalistaus();
   });
   
