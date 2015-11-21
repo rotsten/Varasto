@@ -87,13 +87,7 @@ class KayttajaController extends BaseController {
       } // the end of function
     } // the end of function
   } // the end of handle_login()
-
       
-/*  
-  public static function kayttaja_list(){
-    View::make('Kayttaja/Kayttajienlistaus.html');
-  }
-    
   public static function kayttajalistaus(){
    /*
     * Tämä funktio kutsuu, all-funktiota,
