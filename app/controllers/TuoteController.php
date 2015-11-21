@@ -53,6 +53,7 @@ class TuoteController extends BaseController{
      Kint::dump($tuote_id);
    
      //Laitetaan alustusarvot
+     /*
      $muuttujat= array(
        'tuote_id' => '1',
        'tuotteen_nimi' => ' ',
@@ -60,8 +61,10 @@ class TuoteController extends BaseController{
        'valmistaja'=> ' ',
        'lukumaara' => '0',
        'history_date'=>'1999:01:01 00:00:00'
-     );
+     );*/
 
+         //Laitetaan alustusarvot
+     $muuttujat= array();
      $listattava_tuote = new Tuote ($muuttujat);
     
      /*
