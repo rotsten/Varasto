@@ -87,7 +87,15 @@ class KayttajaController extends BaseController {
       } // the end of function
     } // the end of function
   } // the end of handle_login()
-      
+  
+  public static function kayttaja_show($kayttajatunnus) {
+        
+     $listattava_kayttaja = Kayttaja::find($kayttajatunnus);
+
+     View::make('Kayttaja/Kayttajasivu.html', array('kayttaja' => $listattava_kayttaja));
+                   
+  } // The end of kayttaja_show
+  
   public static function kayttajalistaus(){
    /*
     * Tämä funktio kutsuu, all-funktiota,

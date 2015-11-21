@@ -36,6 +36,11 @@
     KayttajaController::kayttaja_edit_post($kayttajatunnus);
   });
   
+  // Näyttää käyttäjätiedot
+  $routes->get('/Kayttaja/Kayttajasivu/:kayttajatunnus', function($kayttajatunnus) {
+    TuoteController::kayttaja_show($kayttajatunnus);
+  });
+  
   // Tuotteisiin liittyvät 
   // Pelin lisäyslomakkeen näyttäminen
   $routes->get('/Tuote/Lisaatuote', function(){
