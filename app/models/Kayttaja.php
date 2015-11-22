@@ -19,6 +19,11 @@ class Kayttaja extends BaseModel {
   // konstruktori
   public function __construct ($attributes){
       parent::__construct($attributes);
+      
+        $this->validators = array(
+          'validate_kayttajatunnus', 
+          'validate_salasana',
+          'validate_etunimi');
   }
   
   public static function all(){
@@ -128,5 +133,60 @@ class Kayttaja extends BaseModel {
                           )); 
   } // end of modify
   
+     validate_etunimi
+             
+  public function validate_kayttajatunnus(){
+        
+    /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
+     * Esimerkiksi kayttajatunnuksen pitää olla ainakin 4 merkkiä
+     * pitkä.
+     */
+        
+     $errors_kayttajatunnus = array();
+     if($this->kayttajatunnus == '' || $this->kayttajatunnus == null){
+        $errors_kayttajatunnus[] = 'Jätit tiedon antamatta!';
+     }
+     if(strlen($this->kayttajatunnus) < 4){
+       $errors_kayttajatunnus[] = 'Kayttajatunnuksen pitää olla vähintään 4 merkkiä pitkä!';
+     }                                   
+     return $errors_kayttajatunnus;
+  }
+  
+  public function validate_salasana(){
+        
+    /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
+     * Esimerkiksi salasanan pitää olla ainakin 4 merkkiä
+     * pitkä.
+     */
+        
+     $errors_salasana = array();
+     if($this->salasana == '' || $this->salasana == null){
+        $errors_salasana[] = 'Jätit tiedon antamatta!';
+     }
+     if(strlen($this->salasana) < 4){
+       $errors_salasana[] = 'Salasanan pitää olla vähintään 4 merkkiä pitkä!';
+     }                                   
+     return $errors_salasana;
+  }
+  
+    public function validate_salasana(){
+        
+    /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
+     * Esimerkiksi salasanan pitää olla ainakin 4 merkkiä
+     * pitkä.
+     */
+        
+     $errors_etunimi = array();
+     if($this->etunimi == '' || $this->salasana == null){
+        $errors_etunimi[] = 'Jätit tiedon antamatta!';
+     }
+     /*
+      * Koska 1 merkki voi olla ihmisen nimi, ei oikeastaan voi määrittää
+      * kuinka pitkä nimen kuuluu olla. Mikä vain nollsta poikkeava käy.
+      * Myöhemmin voisi lisätä tänne erikoismerkkien tsekkaamisen. Ne eivät
+      * kuulu nimeen. 
+      */                            
+     return $errors_etunimi;
+  }
 } // THE END of class KAYTTAJA
 
