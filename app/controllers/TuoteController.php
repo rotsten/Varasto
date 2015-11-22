@@ -255,7 +255,7 @@ class TuoteController extends BaseController{
    * 
    *****************************************/
   
-  public static function tuote_delete($tuote_id){
+  public static function poista_tuote($tuote_id){
     
     /*
      * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen
@@ -265,6 +265,8 @@ class TuoteController extends BaseController{
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));
     $poistettava_tuote->destroy();
     // Käyttäjä näkee listauksesta, että tuote on poistunut 
-    Redirect::to('/Tuote', array());
+    
+    TuoteController::tuote_list(); 
+    //Redirect::to('/Tuote', array());
   }
 }

@@ -98,6 +98,11 @@
   $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id) {
     TuoteController::tuote_show($tuote_id);
   });
+  
+  // Tuotteen poistaminen
+  $routes->post('/Tuote/:id/poista', function($tuote_id){
+    TuoteController::poista_tuote($tuote_id);
+  });
    
   // Varastoon liittyvät
   // Varaston listaamiseen liittyvä sivu

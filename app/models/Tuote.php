@@ -162,6 +162,13 @@ class Tuote extends BaseModel {
   } // end of find_tuotteen_nimi
   */
 
+  public function destroy () {
+                   
+    $query = DB::connection()->prepare ('DELETE FROM TUOTE WHERE SET tuote_id =:tuote_id;');
+    $query->execute(array('tuote_id' => $this->tuote_id));
+                       
+  }
+  
  /*
   * Lisätään annettujen syötteiden validointifunktiot.
   *    -validate_tuote_id(), 
