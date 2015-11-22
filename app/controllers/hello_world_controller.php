@@ -6,8 +6,6 @@
   //require 'Varasto/lib/base_model';
   
   class HelloWorldController extends BaseController{
-
-    TuoteController::find_tuote('9789522910325');
     
     // Tastaamista
     public static function sandbox(){
