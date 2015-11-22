@@ -2,17 +2,18 @@
 {% block content %}
 
     
-       <h1>Käyttäjän {{user_logged_in.kayttajatunnus}}, valittavana olevat toiminnot:</h1>
+       <h1>Käyttäjän {{user_logged_in.kayttajatunnus}} valittavana olevat toiminnot:</h1>
        {% if check_user_rights %}
        
        <!-- Palauttaa TRUEn, jos pääkäyttäjä muuten FALSE tai 0 -->
        
         <!-- Kaikille käyttäjille näkyvät toiminnot -->
-             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
-             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button> 
-        <!-- Vain pääkäyttäjälle -->
+            <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button> 
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
+            <br>
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
+            <br>
             <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus (näkyvissä vain pääkäyttäjille)</A></button>
         {% else %}
          <!-- Kaikille käyttäjille näkyvät toiminnot -->
