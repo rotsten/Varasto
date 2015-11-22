@@ -263,10 +263,13 @@ class TuoteController extends BaseController{
      */
       
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));
+    Kint::dump($poistettava_tuote);
+    
     $poistettava_tuote->destroy();
     // Käyttäjä näkee listauksesta, että tuote on poistunut 
     
     TuoteController::tuote_list(); 
+    
     //Redirect::to('/Tuote', array());
   }
 }
