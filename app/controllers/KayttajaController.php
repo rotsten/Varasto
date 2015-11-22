@@ -145,7 +145,7 @@ class KayttajaController extends BaseController {
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
     Kint::dump($muutettava_kayttaja);
     
-    View::make('Kayttaja/Kayttajatietojenmuutos.html', $muutettava_kayttaja);
+    View::make('Kayttaja/Kayttajatietojenmuutos.html', array('muutettava_tuote' => $muutettava_kayttaja));
  
   } // end of kayttaja_edit
      
@@ -158,7 +158,7 @@ class KayttajaController extends BaseController {
     
     $muuttujat= array(
       'kayttajatunnus' => $kayttajatunnus,
-      'salasana' => $uudet_tiedot['tuotteen_nimi'],
+      'salasana' => $uudet_tiedot['salasana'],
       'etunimi'=> $uudet_tiedot['etunimi'], 
       'sukunimi'=> $uudet_tiedot['sukunimi'],
       'kayttooikeudet' => $uudet_tiedot['kayttooikeudet']

@@ -281,7 +281,7 @@ class TuoteController extends BaseController{
     
     // Käyttäjä näkee listauksesta, että tuote on poistunut      
     $Tuotteet = Tuote::all();
-    View::make('Tuote/Poista.html{{poistettava_tuote.tuote_id}}', array('Tuotteet' => $Tuotteet)); 
+    View::make('Tuote/Poista.html{{tuote_id}}', array('Tuotteet' => $Tuotteet)); 
     
     //Redirect::to('/Tuote', array());
     //Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet));   
