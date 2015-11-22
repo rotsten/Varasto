@@ -132,8 +132,6 @@ class Kayttaja extends BaseModel {
                           'new_kayttooikeudet' => $this ->kayttooikeudet
                           )); 
   } // end of modify
-  
-     validate_etunimi
              
   public function validate_kayttajatunnus(){
         
@@ -150,7 +148,7 @@ class Kayttaja extends BaseModel {
        $errors_kayttajatunnus[] = 'Kayttajatunnuksen pitää olla vähintään 4 merkkiä pitkä!';
      }                                   
      return $errors_kayttajatunnus;
-  }
+  } // end of validate_kayttajatunnus
   
   public function validate_salasana(){
         
@@ -167,9 +165,9 @@ class Kayttaja extends BaseModel {
        $errors_salasana[] = 'Salasanan pitää olla vähintään 4 merkkiä pitkä!';
      }                                   
      return $errors_salasana;
-  }
+  } // end of validate_salasana
   
-    public function validate_salasana(){
+    public function validate_etunimi(){
         
     /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
      * Esimerkiksi salasanan pitää olla ainakin 4 merkkiä
@@ -187,6 +185,6 @@ class Kayttaja extends BaseModel {
       * kuulu nimeen. 
       */                            
      return $errors_etunimi;
-  }
+  } // End of validate_etunimi
 } // THE END of class KAYTTAJA
 

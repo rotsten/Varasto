@@ -158,17 +158,21 @@ class KayttajaController extends BaseController {
     
     $muuttujat= array(
       'kayttajatunnus' => $kayttajatunnus,
-      'salasan' => $uudet_tiedot['tuotteen_nimi'],
+      'salasana' => $uudet_tiedot['tuotteen_nimi'],
       'etunimi'=> $uudet_tiedot['etunimi'], 
       'sukunimi'=> $uudet_tiedot['sukunimi'],
       'kayttooikeudet' => $uudet_tiedot['kayttooikeudet']
     );
 
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
-    //$errors = $Tuote->errors();
+    $errors = $Kayttajatietojen_muutokset->errors();
     
-    $Kayttajatietojen_muutokset->modify();
-    $Kayttajatietojen_muutokset::kayttajalistaus();
+    if(count($errors) == 0){
+      $Kayttajatietojen_muutokset->modify();
+      $Kayttajatietojen_muutokset::kayttajalistaus();
+    } else {
+       //View::make('Kayttaja/new.html', array('errors' => $errors, 'attributes' => $attributes
+    }
     
   } // end of kayttaja_edit_post
   
