@@ -85,7 +85,7 @@
   });
   */
   
-  // Tulostaa tuotteen hakutulokset (haettu tuote-ide:llä) tuotesivulle 
+  // Tulostaa tuotteen hakutulokset (haettu tuote-id:llä) tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
    //TuoteController::find_tuote_post($tuote_id);
    TuoteController::tuote_show($tuote_id);
@@ -112,11 +112,17 @@
     TuoteController::poista_tuote($tuote_id);
   });  
  */  
-  // Tuotteen poistaminen
-   $routes->post('/Tuote/Tuotteidenlistaus/', function($tuote_id){
+  // Tuotteen poistaminen kuvaussivulta
+  $routes->post('/Tuote/Tuotesivu/:tuote_id/Poista', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });
-   
+  
+  // Tuotteiden poistaminen listasta 
+  $routes->post('/Tuote/Tuotteidenlistaus/Poista', function($tuote_id) {
+    TuoteController::poista_tuote($tuote_id);
+  });
+  
+  
   // Varastoon liittyvät
   // Varaston listaamiseen liittyvä sivu
   $routes->get('/Varasto/Varastonlistaus', function() {

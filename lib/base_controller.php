@@ -31,16 +31,18 @@
          }  
     } 
     
-    public static function check_user_rights(){
+  public static function check_user_rights(){
 
-        $tarkistettava_kayttaja = get_user_logged_in();
+    $tarkistettava_kayttaja = KayttajaController::get_user_logged_in();
         
-        if($tarkistettava_kayttaja['kayttooikeudet']='T'){
-            Kint::dump($tarkistettava_kayttaja);
-            return TRUE;
-        }
-        // EI ole pääkäyttäjä
-        return FALSE; 
-    } // end of check_user_rights()
-
-  } // End of BaseController
+    if(empty($tarkistettava_kayttaja['kayttooikeudet'])) {
+      // Arvo on tyhjä. EI voi olla pääkäyttäjä
+      Kint::dump($tarkistettava_kayttaja);
+      return FALSE; 
+    } else {  
+      // Pääkäyttäjälle on asetettu käyttöoikeudet.
+      Kint::dump($tarkistettava_kayttaja);
+      return TRUE;
+    } // end of else
+  } // end of check_user_rights()
+} // End of BaseController
