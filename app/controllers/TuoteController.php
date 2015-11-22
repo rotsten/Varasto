@@ -51,7 +51,7 @@ class TuoteController extends BaseController{
       */
      
      $listattava_tuote = Tuote::find($tuote_id);
-     Kint::dump($listattava_tuote);
+     //Kint::dump($listattava_tuote);
 
      View::make('Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote));
                    
@@ -62,13 +62,12 @@ class TuoteController extends BaseController{
    * Tuotteen lisäys
    * 
    *****************************************/
-  
+    
   // Näyttää tuotteen lisäyssivun
   public static function tuote_lisaa_show(){
     View::make('Tuote/Lisaatuote.html');
   }
-  
- 
+   
   public static function tuote_create (){    
      // Voisi lisätä joitain tsekkauksia, että annettu data on ok.
      // Luodaan annettuja arvoja käyttäen uusi tuote.
@@ -270,8 +269,9 @@ class TuoteController extends BaseController{
     
     // Käyttäjä näkee listauksesta, että tuote on poistunut      
     $Tuotteet = Tuote::all();
-    View::make('Tuote/Poista.html', array('Tuotteet' => $Tuotteet));
-     
+    //View::make('Tuote/Poista.html', array('Tuotteet' => $Tuotteet)); 
     //Redirect::to('/Tuote', array());
+    Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet)); 
+    
   }
 }
