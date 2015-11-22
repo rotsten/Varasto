@@ -4,10 +4,6 @@
     
        <h1>Käyttäjän {{user_logged_in.kayttajatunnus}} valittavana olevat toiminnot:</h1>
        {% if check_user_rights %}
-       
-       <!-- Palauttaa TRUEn, jos pääkäyttäjä muuten FALSE tai 0 -->
-       
-        <!-- Kaikille käyttäjille näkyvät toiminnot -->
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button> 
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
