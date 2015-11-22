@@ -188,7 +188,7 @@ class TuoteController extends BaseController{
     
     // tsekataan syötteet
     $errors = $muutettava_tuote->errors();
-    Kint::dump($errors);
+    //Kint::dump($errors);
     
     if(count($errors) == 0){
         
@@ -199,7 +199,7 @@ class TuoteController extends BaseController{
         TuoteController::tuote_list(); 
     } 
     else {
-        Kint::dump($errors);
+        //Kint::dump($errors);
         View::make('Tuotetietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));
     }
   }     
@@ -210,7 +210,7 @@ class TuoteController extends BaseController{
    * 
    *****************************************/
   
-// Näyttää tuotteen hakusivun
+  // Näyttää tuotteen hakusivun
   public static function tuote_hae_show(){
     View::make('Tuote/Tuotteenhakeminen.html');
   }
@@ -274,15 +274,15 @@ class TuoteController extends BaseController{
      */
       
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));
-    Kint::dump($poistettava_tuote);
-    
+        
     $poistettava_tuote->destroy();
+    
+    Kint::dump($poistettava_tuote);
     
     // Käyttäjä näkee listauksesta, että tuote on poistunut      
     $Tuotteet = Tuote::all();
     //View::make('Tuote/Poista.html', array('Tuotteet' => $Tuotteet)); 
     //Redirect::to('/Tuote', array());
-    Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet)); 
-    
+    Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet));   
   }
 }
