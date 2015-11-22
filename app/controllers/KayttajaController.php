@@ -171,7 +171,7 @@ class KayttajaController extends BaseController {
       $Kayttajatietojen_muutokset->modify();
       $Kayttajatietojen_muutokset::kayttajalistaus();
     } else {
-       //View::make('Kayttaja/new.html', array('errors' => $errors, 'attributes' => $attributes
+       View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));
     }
     
   } // end of kayttaja_edit_post

@@ -194,7 +194,7 @@ class TuoteController extends BaseController{
       // Listataan tuotetiedot, jotta muutos näkyy
       TuoteController::tuote_list(); 
     } else {
-        //View::make('Tuote/new.html', array('errors' => $errors, 'attributes' => $attributes
+        View::make('Tuotetietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));
     }
   }     
   
