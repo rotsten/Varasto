@@ -181,13 +181,14 @@ class KayttajaController extends BaseController {
 
     $tarkistettava_kayttaja = KayttajaController::get_user_logged_in();
         
-    if($tarkistettava_kayttaja['kayttooikeudet']){
+    if('t'==$tarkistettava_kayttaja['kayttooikeudet']){
       // Pääkäyttäjälle on asetettu käyttöoikeudet.
       Kint::dump($tarkistettava_kayttaja);
       return TRUE;
-    }
+    } else {
       // EI ole pääkäyttäjä
+      Kint::dump($tarkistettava_kayttaja);
       return FALSE; 
-   } // end of check_user_rights()
-  
+    } // end of check_user_rights()
+  }
 } // THE END of class
