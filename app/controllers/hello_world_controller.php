@@ -14,7 +14,6 @@
       $kayttaja = get_user_logged_in();
       echo $kayttaja;
       
-      
       $Uusi_kirja = new Tuote(array(
         'tuote_id' => 'a',
         'tuotteen_nimi' => '7',
