@@ -106,7 +106,36 @@ class KayttajaController extends BaseController {
       
     View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
   } // end of kayttaja_list
+  
+   public static function kayttaja_create (){    
+
+    $params = $_POST;
+   
+    $uusi_kayttaja = new Kayttaja(array(
+      'kayttajatunnus' => $params['kayttajatunnus'],  
+      'salasana' => $params['salasana'],
+      'etunimi' => $params['etunimi'],
+      'sukunimi' => $params['sukunimi'],
+      'kayttooikeudet' => $params['kayttooikeudet']
+    ));
     
+    $errors = $uusi_kayttaja->errors();
+    
+    if(count($errors) == 0){
+  
+      Kint::dump($uusi_kayttaja);
+      $uusi_kayttaja ->save();
+            
+      $Kayttajat = Kayttaja::all();   
+      View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
+          
+    } else{
+       // Annetuissa arvoissa oli jotain vikaa.     
+        Kint::dump($uusi_kayttaja);
+        View::make('Kayttaja/LisaaKayttaja.html', array('errors' => $errors, 'attiributes' => $attributes));
+    }
+    return;
+  }
  
   public static function kayttaja_edit($kayttajatunnus){
    /*
@@ -181,7 +210,8 @@ class KayttajaController extends BaseController {
 
     $tarkistettava_kayttaja = KayttajaController::get_user_logged_in();
         
-    if('t'===$tarkistettava_kayttaja['kayttooikeudet'] || '1'===$tarkistettava_kayttaja['kayttooikeudet']){
+    if('t'===$tarkistettava_kayttaja['kayttooikeudet'] || 
+       '1'===$tarkistettava_kayttaja['kayttooikeudet']){
       // Pääkäyttäjälle on asetettu käyttöoikeudet.
       Kint::dump($tarkistettava_kayttaja);
       return TRUE;

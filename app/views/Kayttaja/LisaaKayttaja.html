@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<H2>Lisää uusi käyttäjä</H2>
+
+  <!-- Syötteiden tarkistamisessa löytyneiden virheiden ilmoittamiseen: 
+  {% if errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  -->
+  
+  <form method="post">
+    <div class="form-group">
+      <label>Käyttäjätunnus</label>
+      <input type ="text" name ="kayttajatunnus" class="form-control" value="{{kayttajatunnus}}">
+    </div>
+
+    <div class="form-group">
+      <label>Salasana</label>
+      <input type ="PASSWORD" name ="salasana" class="form-control" value="{{salasana}}">
+    </div>
+      
+    <div class="form-group">
+      <label>Etunimi</label>
+      <input type ="text" name ="etunimi" class="form-control" value="{{etunimi}}">
+    </div>
+    
+    <div class="form-group">
+      <label>Sukunimi</label>
+      <input type ="text" name ="sukunimi" class="form-control" value="{{sukunimi}}">
+    </div>
+      
+    <div class="form-group">
+      <label>Käyttöoikeudet</label>
+      <select name="Annettavat käyttöoikeidet">
+          <option value="default"> Valitse listasta</option>
+          <option value="default"> Rajoitetut inventointioikeudet</option>
+          <option value="master_user">Täydet pääkäyttäjän oikeudet</option>
+      </select> 
+    </div>
+
+    <button type ="submit" class="btn btn-default" value=kayttaja_create>Tallenna</button>
+    <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu tallentamatta</A></button>
+  </form>
+
+{% endblock %}
