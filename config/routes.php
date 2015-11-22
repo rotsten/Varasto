@@ -28,17 +28,24 @@
     KayttajaController::kayttajalistaus();
   });
   
-  $routes->get('/Kayttaja/Kayttajatietojenmuutos', function() {
-    KayttajaController::kayttaja_edit();
+  // Näyttää käyttäjätietojen muutossivun
+  $routes->get('/Kayttaja/Kayttajatietojenmuutos/:kayttajatunnus', function($kayttajatunnus) {
+    KayttajaController::kayttaja_edit($kayttajatunnus);
   });
   
+  // Ottaa vastaan kayttajatietojen muutokset
   $routes->post('/Kayttaja/Kayttajatietojenmuutos/:kayttajatunnus', function($kayttajatunnus) {
     KayttajaController::kayttaja_edit_post($kayttajatunnus);
   });
-  
+
   // Näyttää käyttäjätiedot
   $routes->get('/Kayttaja/Kayttajasivu/:kayttajatunnus', function($kayttajatunnus) {
     KayttajaController::kayttaja_show($kayttajatunnus);
+  });
+  
+  // Poistaa käyttäjätiedot
+  $routes->post('/Kayttaja/Kayttajienlistaus/:kayttajatunnus', function($kayttajatunnus){
+    KayttajaController::poista_kayttaja($kayttajatunnus);
   });
   
   // Tuotteisiin liittyvät 

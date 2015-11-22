@@ -142,4 +142,17 @@ class KayttajaController extends BaseController {
     $Kayttajatietojen_muutokset::kayttajalistaus();
     
   } // end of kayttaja_edit_post
+  
+  public static function poista_kayttaja($kayttajatunnus){
+      
+    $poistettava_kayttaja = new Kayttaja(array('kayttajatunnus' => $kayttajatunnus));
+    Kint::dump($poistettava_kayttaja);
+    
+    $poistettava_kayttaja->destroy();
+    
+    // Käyttäjä näkee listauksesta, että kayttajatunnus on poistunut      
+    $Kayttajat = Kayttaja::all();
+    View::make('Kayttaja/Poista.html', array('Kayttajat' => $Kayttajat));
+
+  }  
 } // THE END of class
