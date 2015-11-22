@@ -186,7 +186,7 @@ class TuoteController extends BaseController{
     );
 
     $muutettava_tuote = new Tuote ($muuttujat);
-    //$errors = $Tuote->errors();
+    $errors = $muutettava_tuote->errors();
     
     $muutettava_tuote ->modify();
     
