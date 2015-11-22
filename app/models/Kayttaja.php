@@ -46,12 +46,12 @@ class Kayttaja extends BaseModel {
   
   // olioon liittyvä julkinen metodi
   
-  public static function edit($salasana, $etunimi, $sukunimi, $kayttooikeus){
+  public static function edit($salasana, $etunimi, $sukunimi, $kayttooikeudet){
     // Käyttäjätunnusta ei voi editoida
     $this->salasana = $salasana;
     $this->etunimi = $etunimi;
     $this->sukunimi = $sukunimi;
-    $this->kayttooikeus = $kayttooikeus;
+    $this->kayttooikeudet = $kayttooikeudet;
   }     
   
   public static function find ($kayttajatunnus){
@@ -66,7 +66,7 @@ class Kayttaja extends BaseModel {
         'salasana' => $row['salasana'],
         'etunimi' => $row['etunimi'],
         'sukunimi' => $row['sukunimi'],
-        'kayttooikeus' => $row['kayttooikeus']
+        'kayttooikeudet' => $row['kayttooikeudet']
       ));
       
       return $Found_Kayttaja;
