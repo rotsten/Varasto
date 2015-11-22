@@ -26,7 +26,7 @@
     public static function check_logged_in($kayttajatunnus){
       // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
         
-        if(!isset($_SESSION['kayttaja'])){
+        if(!isset($_SESSION['kayttajatunnus'])){
             Redirect::to('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen')); 
          }  
     } 

@@ -30,7 +30,6 @@ class TuoteController extends BaseController{
      * Näyttää tuotteen listaussivun. 
      */
     
-    //$Tuotteet[] = new Tuote();
     $Tuotteet = Tuote::all();
     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
        
@@ -92,16 +91,6 @@ class TuoteController extends BaseController{
     if (empty($params['lukumaara'])){
       $params['lukumaara'] = 0;
     } 
-    
-    $errors = $params['tuote_id']->validate_tuote_id(); 
-    $errors_1 = $params['tuotteen_nimi']->validate_tuotteen_nimi(); 
-    $errors = array_merge($errors, $errors_1);
-    
-    $errors_2 = $params['valmistaja']->validate_valmistaja(); 
-    $errors = array_merge($errors, $errors_2);
-    
-    $errors3 = $params['lukumaara']->validate_lukumaara();
-    $errors = array_merge($errors, $errors_3);
       
     $uusi_tuote = new Tuote(array(
       'tuote_id' => $params['tuote_id'],  
@@ -112,17 +101,27 @@ class TuoteController extends BaseController{
       'history_date' => $params['history_date']
     ));
     
-    Kint::dump($uusi_tuote);
-         
-    $uusi_tuote ->save();
-     
-    /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
-     * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
-     * kerralla väärin.
-     */
+    $errors = $uusi_tuote->errors();
     
-    Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);
-     
+    if(count($errors) == 0){
+  
+      Kint::dump($uusi_tuote);
+      $uusi_tuote ->save();
+      
+      /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
+       * Sieltä voi mennä korjaamaan, mikäli jokin tieto meni ensimmäisellä 
+       * kerralla väärin.
+       */
+      
+      Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);
+      //Redirect::to('/game/' . $game->id, array('message' => 'Peli on lisätty kirjastoosi!'));
+          
+    } else{
+       // Annetuissa arvoissa oli jotain vikaa.     
+        Kint::dump($uusi_tuote);
+        View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $attributes));
+    }
+    
     return;
   }
   
