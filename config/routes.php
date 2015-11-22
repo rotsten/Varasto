@@ -111,15 +111,14 @@
   $routes->post('/Tuote/:tuote_id/Poista', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });  
- */  
-  
+ */   
   // Tuotteen poistaminen kuvaussivulta
   $routes->post('/Tuote/:tuote_id/Poista', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });
   
   // Tuotteen poistaminen kuvaussivulta
-  $routes->post('/Tuote/Tuotesivu/Poista', function($tuote_id){
+  $routes->post('/Tuote/Tuotesivu/:tuote_id', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });
   
