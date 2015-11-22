@@ -35,7 +35,7 @@
 
         $tarkistettava_kayttaja = get_user_logged_in();
         
-        if($tarkistettava_kayttaja['kayttooikeudet']){
+        if($tarkistettava_kayttaja['kayttooikeudet']='T'){
             Kint::dump($tarkistettava_kayttaja);
             return TRUE;
         }

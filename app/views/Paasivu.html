@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-     <!-- 
-    {% if user_logged_in %}
-    -->
+
     
        <h1>Käyttäjän {{user_logged_in.kayttajatunnus}}, valittavana olevat toiminnot:</h1>
        {% if check_user_rights %}
@@ -21,16 +19,8 @@
              <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
              <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>    
         {% endif %}
-    <!-- 
-    {% else %}
-         Redirect::to('/Kayttaja/Kirjaudu.html');     
-    {% endif %}
           
     
-      <h4>Jos käyttäjä on sisäänkirjautunut, tutkitaan hänen käyttöoikeutensa, ja niiden mukaan näytetään käytettävissä olevat toiminnot.</h4>
-      <h5>Tässä oikotie toimintoihin, niin kauan, kun kirjautuminen ei toimi. </h5>
-    
-      -->  
        <!-- Vain pääkäyttäjälle -->
        <!-- 
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
