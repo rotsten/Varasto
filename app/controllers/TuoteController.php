@@ -183,14 +183,19 @@ class TuoteController extends BaseController{
       'lukumaara' => $uudet_tiedot['lukumaara'],
       'history_date'=> $uudet_tiedot['history_date']
     );
-
+    // Listataan tuotetiedot, jotta muutos näkyy
+    TuoteController::tuote_list(); 
     $muutettava_tuote = new Tuote ($muuttujat);
     $errors = $muutettava_tuote->errors();
     
-    $muutettava_tuote ->modify();
-    
-    // Listataan tuotetiedot, jotta muutos näkyy
-    TuoteController::tuote_list(); 
+    if(count($errors) == 0){
+      $muutettava_tuote ->modify();    
+      
+      // Listataan tuotetiedot, jotta muutos näkyy
+      TuoteController::tuote_list(); 
+    } else {
+        //View::make('Tuote/new.html', array('errors' => $errors, 'attributes' => $attributes
+    }
   }     
   
   /*****************************************

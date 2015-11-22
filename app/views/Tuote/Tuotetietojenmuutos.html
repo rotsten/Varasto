@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+{% import "base_model" as forms %}
   
   <h2>Muokkaa tuotteen {{muutettava_tuote.tuote_id}} tietoja</h2>
   
-    <!-- Syötteiden tarkistamisessa löytyneiden virheiden ilmoittamiseen: 
+    <!-- Syötteiden tarkistamisessa löytyneiden virheiden ilmoittamiseen: --> 
   {% if errors %}
     <div class="alert alert-danger">
       <ul>
@@ -13,7 +14,7 @@
       </ul>
     </div>
   {% endif %}
-  -->
+ 
 
   <form  method="post">
     <div class="form-group">
