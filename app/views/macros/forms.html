@@ -1,5 +1,11 @@
-{% macro destroy_button() %}
+{% macro destroy_tuote_button() %}
   <form method="post" action="{{base_path}}/Tuote/{{tuote_id}}/Poista" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">Poista tuote!</button>
+  </form>
+{% endmacro %}
+
+{% macro destroy_kayttaja_button() %}
+  <form method="post" action="{{base_path}}/Kayttaja/{{kayttajatunnus}}/Poista" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Poista käyttäjä!</button>
   </form>
 {% endmacro %}

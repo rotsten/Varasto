@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% import "macros/forms.html" as forms %}
 
   <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
   <table class="table table-striped table-bordered">
@@ -23,8 +24,7 @@
             <td>{{Kayttaja.kayttooikeudet}}</td>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajasivu/{{Kayttaja.kayttajatunnus}}">Katso tarkemmat käyttäjän tiedot</a></th>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Muokkaa</a></th>
-                        <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Poista käyttäjä</a></th>
-            <th><a class="btn btn-default btn-sm" href="#">Poista</a></th>
+            <th>{{forms.destroy_kayttaja_button()}}</th>
           </tr>
       {% endfor %}
     </tbody>

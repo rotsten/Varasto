@@ -32,7 +32,7 @@
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
             
             <!-- Poistaminen vaatii jonkun oman sivun + {{Tuote.tuote_id}}:n välityksen-->
-            <th>{{forms.destroy_button()}}</th>
+            <th>{{forms.destroy_tuote_button()}}</th>
           </tr>
       {% endfor %}
     </tbody>    
