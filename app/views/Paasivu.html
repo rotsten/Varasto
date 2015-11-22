@@ -4,7 +4,7 @@
     {% if user_logged_in %}
     -->
     
-       <h1>Käyttäjän {{base_controller::user_logged_in.kayttajatunnus}}, valittavana olevat toiminnot:</h1>
+       <h1>Käyttäjän {{user_logged_in.kayttajatunnus}}, valittavana olevat toiminnot:</h1>
        {% if check_user_rights %}
        
        <!-- Palauttaa TRUEn, jos pääkäyttäjä muuten FALSE tai 0 -->
