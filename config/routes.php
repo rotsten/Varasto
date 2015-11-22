@@ -86,11 +86,11 @@
   */
   
   // Tulostaa tuotteen hakutulokset (haettu tuote-ide:llä) tuotesivulle 
-  $routes->post('/Tuote/Tuotteenhakeminen/:tuote_id', function($tuote_id){
+  $routes->post('/Tuote/Tuotteenhakeminen', function($tuote_id){
    //TuoteController::find_tuote_post($tuote_id);
    TuoteController::tuote_show($tuote_id);
   });
-  
+
   // Näyttää tuotetietojen muutossivun
   $routes->get('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
