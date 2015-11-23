@@ -106,9 +106,8 @@
     TuoteController::tuote_show($tuote_id);
   });
   
-  // Tuotteen poistaminen kuvaussivulta
-  // Ei voi olla kahta 
-  $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id){
+  // Tuotteen poistaminen 
+  $routes->get('/Tuote/Poistatuote/:tuote_id', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });
  
