@@ -142,8 +142,8 @@ class KayttajaController extends BaseController {
     * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
     */
         
-    //$muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
-    Kint::dump($muutettava_kayttaja);
+    $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
+    //Kint::dump($muutettava_kayttaja);
     
     View::make('Kayttaja/Kayttajatietojenmuutos.html', array('muutettava_kayttaja' => $muutettava_kayttaja));
  
