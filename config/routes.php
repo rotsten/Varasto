@@ -107,11 +107,12 @@
   });
   
   // Tuotteen poistaminen
-  /*
+  
   $routes->get('/Tuote/Poistatuote/:tuote_id', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });
   
+  /*
   // Tuotteiden poistaminen listasta 
   $routes->get('/Tuote/Tuotteidenlistaus/:tuote_id', function($tuote_id) {
     TuoteController::poista_tuote($tuote_id);
