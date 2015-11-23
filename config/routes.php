@@ -107,29 +107,26 @@
   });
   
   // Tuotteen poistaminen kuvaussivulta
-  $routes->post('/Tuote/Poista/:tuote_id', function($tuote_id){
-    TuoteController::poista_tuote($tuote_id);
-  });
-
-  $routes->post('/Tuote/:tuote_id/Poista', function($tuote_id){
-    TuoteController::poista_tuote($tuote_id);
-  });
- 
-  
-   // Tuotteiden poistaminen listasta 
-  $routes->post('/Tuote/Tuotteidenlistaus/Poista/:tuote_id', function($tuote_id) {
-    TuoteController::poista_tuote($tuote_id);
-  });
-  
- /* 
-  // Tuotteen poistaminen kuvaussivulta
   $routes->post('/Tuote/Tuotesivu/:tuote_id', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });
-*/
-
-
+ 
+  // Tuotteiden poistaminen listasta 
+  $routes->post('/Tuote/Tuotteidenlistaus/:tuote_id', function($tuote_id) {
+    TuoteController::poista_tuote($tuote_id);
+  });
   
+  $routes->post('/Tuote/Poista/:tuote_id', function($tuote_id){
+    TuoteController::poista_tuote($tuote_id);
+  });
+  
+/*
+  $routes->post('/Tuote/:tuote_id/Poista', function($tuote_id){
+    TuoteController::poista_tuote($tuote_id);
+  });
+  */ 
+
+   
   // Varastoon liittyvät
   // Varaston listaamiseen liittyvä sivu
   $routes->get('/Varasto/Varastonlistaus', function() {
