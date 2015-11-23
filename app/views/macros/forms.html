@@ -1,6 +1,9 @@
 {% macro destroy_tuote_button() %}
-  <form method="post" action="{{tuote_id}}/Poista" style="display: inline-block;">
-    <button type="submit" class="btn btn-danger">Poista tuote!</button>
+ <form method="post" action="" style="display: inline-block;">
+    {{forms.destroy_button("#{base_path}/Tuote/Poistatuote/#{tuote_id}")}}
+     <!--
+     <button type="submit" class="btn btn-danger">Poista tuote!</button>
+     -->
   </form>
 {% endmacro %}
 
