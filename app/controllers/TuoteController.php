@@ -119,7 +119,7 @@ class TuoteController extends BaseController{
     } else{
        // Annetuissa arvoissa oli jotain vikaa.     
         Kint::dump($uusi_tuote);
-        View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $attributes));
+        View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $params));
     }
     
     return;
@@ -281,9 +281,10 @@ class TuoteController extends BaseController{
     
     // Käyttäjä näkee listauksesta, että tuote on poistunut      
     $Tuotteet = Tuote::all();
-    View::make('Tuote/Poistatuote.html{{tuote_id}}', array('Tuotteet' => $Tuotteet)); 
+
+    Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
     
-    //Redirect::to('/Tuote', array());
-    //Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet));   
+//Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet));   
+    //View::make('Tuote/Poistatuote.html{{tuote_id}}', array('Tuotteet' => $Tuotteet)); 
   }
 }
