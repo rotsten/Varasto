@@ -160,16 +160,17 @@ class KayttajaController extends BaseController {
     
     $muuttujat= array(
       'kayttajatunnus' => $kayttajatunnus,
-      'salasana' => $uudet_tiedot['salasana'],
-      'etunimi'=> $uudet_tiedot['etunimi'], 
-      'sukunimi'=> $uudet_tiedot['sukunimi'],
-      'kayttooikeudet' => $uudet_tiedot['kayttooikeudet']
+      'salasana' => $uudet_kayttajan_tiedot['salasana'],
+      'etunimi' => $uudet_kayttajan_tiedot['etunimi'], 
+      'sukunimi' => $uudet_kayttajan_tiedot['sukunimi'],
+      'kayttooikeudet' =>$uudet_kayttajan_tiedot['kayttooikeudet']
     );
 
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
     $errors = $Kayttajatietojen_muutokset->errors();
     
     if(count($errors) == 0){
+      Kint::dump($Kayttajatietojen_muutokset);
       $Kayttajatietojen_muutokset->modify();
       $Kayttajatietojen_muutokset::kayttajalistaus();
     } else {
