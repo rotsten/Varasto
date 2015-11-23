@@ -111,6 +111,8 @@ class KayttajaController extends BaseController {
 
     $params = $_POST;
    
+    Kint::dump($params);
+    
     $uusi_kayttaja = new Kayttaja(array(
       'kayttajatunnus' => $params['kayttajatunnus'],  
       'salasana' => $params['salasana'],
