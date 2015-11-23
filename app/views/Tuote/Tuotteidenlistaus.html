@@ -31,9 +31,7 @@
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotesivu/{{Tuote.tuote_id}}">Katso tarkemmat tuotetiedot</a></th>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
-             <!--
-             <th>{{forms.destroy_listattu_tuote_button(tuote.tuote_id)}}</th>
-             -->
+            <th>{{forms.destroy_listattu_tuote_button(tuote.tuote_id)}}</th>
           </tr>
       {% endfor %}
     </tbody>    

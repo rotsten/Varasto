@@ -108,7 +108,7 @@
   
   // Tuotteen poistaminen kuvaussivulta
   // Ei voi olla kahta 
-  $routes->post('/Tuote/Tuotesivu/:tuote_id', function($tuote_id){
+  $routes->get('/Tuote/Tuotesivu/:tuote_id', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });
  
@@ -121,11 +121,7 @@
     TuoteController::poista_tuote($tuote_id);
   });
   
-/*
-  $routes->post('/Tuote/:tuote_id/Poista', function($tuote_id){
-    TuoteController::poista_tuote($tuote_id);
-  });
-  */ 
+
 
   // Varastoon liittyvät
   // Varaston listaamiseen liittyvä sivu

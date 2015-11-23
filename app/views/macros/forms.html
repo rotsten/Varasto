@@ -5,7 +5,7 @@
 {% endmacro %}
 
 {% macro destroy_listattu_tuote_button() %}
-  <form method="post" action="/Tuotteidenlistaus/{{tuote_id}}" style="display: inline-block;">
+  <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">Poista tuote!</button>
   </form>
 {% endmacro %}
