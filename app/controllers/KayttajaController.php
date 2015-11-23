@@ -142,7 +142,7 @@ class KayttajaController extends BaseController {
     * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
     */
         
-    $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
+    //$muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
     Kint::dump($muutettava_kayttaja);
     
     View::make('Kayttaja/Kayttajatietojenmuutos.html', array('muutettava_kayttaja' => $muutettava_kayttaja));
@@ -163,7 +163,7 @@ class KayttajaController extends BaseController {
       'salasana' => $uudet_kayttajan_tiedot['salasana'],
       'etunimi' => $uudet_kayttajan_tiedot['etunimi'], 
       'sukunimi' => $uudet_kayttajan_tiedot['sukunimi'],
-      'kayttooikeudet' =>$uudet_kayttajan_tiedot['kayttooikeudet']
+      'kayttooikeudet' => $uudet_kayttajan_tiedot['kayttooikeudet']
     );
 
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);

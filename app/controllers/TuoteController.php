@@ -255,7 +255,7 @@ class TuoteController extends BaseController{
     $etsittava_tuote = Tuote::find($tuote_id);  
     Kint::dump($etsittava_tuote);
     
-    View::make('Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
+    View::make('Tuote/Tuotesivu.html{{tuote_id}}', array('tuote' => $etsittava_tuote));
 
   } // end of find_tuote_post
 
