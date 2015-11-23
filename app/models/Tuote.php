@@ -14,7 +14,7 @@
 
 class Tuote extends BaseModel {
   // attribuutit
-  public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date;
+  public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $history_date;
   
   //konstruktori
   public function __construct ($attributes){
@@ -35,10 +35,11 @@ class Tuote extends BaseModel {
       $this->validators = array(
           'validate_tuote_id', 
           'validate_tuotteen_nimi', 
-          'validate_valmistaja', 
-          'validate_lukumaara');
+          'validate_valmistaja');
   }
-   
+  
+  // Removed: 'validate_lukumaara'
+  
   public static function all(){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
@@ -58,8 +59,7 @@ class Tuote extends BaseModel {
           'tuote_id' => $row['tuote_id'],
           'tuotteen_nimi' => $row['tuotteen_nimi'], 
           'valmistaja' => $row['valmistaja'],
-          'kuvaus' => $row['kuvaus'],
-          'lukumaara' => $row['lukumaara'], 
+          'kuvaus' => $row['kuvaus'], 
           'history_date' => $row['history_date']
        ));
     } // end of foreach
@@ -69,15 +69,14 @@ class Tuote extends BaseModel {
   public function save(){
     
     $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
-            tuotteen_nimi, kuvaus, valmistaja, lukumaara, history_date)
-            VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, :lukumaara, 
+            tuotteen_nimi, kuvaus, valmistaja, history_date)
+            VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, 
             :history_date)');
    
      $query->execute(array('tuote_id' => $this->tuote_id, 
                            'tuotteen_nimi' => $this->tuotteen_nimi, 
                            'kuvaus' => $this->kuvaus,
                            'valmistaja' => $this->valmistaja, 
-                           'lukumaara' => $this->lukumaara,
                            'history_date' => $this->history_date
                            ));      
   }
@@ -88,7 +87,6 @@ class Tuote extends BaseModel {
      * UPDATE TUOTE SET tuotteen_nimi = 'uusi nimi', 
      *                  kuvaus = 'uusi kuvaus', 
      *                  valmistaja = 'uusi valmistaja', 
-     *                  lukumaara = 5, 
      *                  history_date = '2015-11-18 17:05:00' WHERE tuote_id = '345345';
      */
     
@@ -97,13 +95,11 @@ class Tuote extends BaseModel {
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = :new_tuotteen_nimi,
                                                           valmistaja = :new_valmistaja,
                                                           kuvaus = :new_kuvaus,
-                                                          lukumaara = :new_lukumaara,
                                                           history_date = :new_history_date WHERE tuote_id =:tuote_id;');
     $query->execute(array('tuote_id' => $this->tuote_id, 
                           'new_tuotteen_nimi' => $this->tuotteen_nimi, 
                           'new_kuvaus' => $this-> kuvaus,
                           'new_valmistaja' => $this ->valmistaja, 
-                          'new_lukumaara' => $this ->lukumaara,
                           'new_history_date' => $this->history_date
                           )); 
   }
@@ -123,8 +119,7 @@ class Tuote extends BaseModel {
         'tuote_id' => $row['tuote_id'],
         'tuotteen_nimi' => $row['tuotteen_nimi'],
         'kuvaus' => $row['kuvaus'],  
-        'valmistaja' => $row['valmistaja'],
-        'lukumaara' =>$row['lukumaara']
+        'valmistaja' => $row['valmistaja']
       ));
     
       //Kint::dump($tuote);
