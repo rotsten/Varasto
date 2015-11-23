@@ -2,7 +2,7 @@
 {% block content %}
   <h1>Muokkaa käyttäjän {{muutettava_kayttaja.kayttajatunnus}} tietoja</h1>
 
-  <form>
+  <form  method="post">
     <div class="form-group">
       <label>Käyttäjä</label>
     </div>
@@ -12,7 +12,7 @@
      </div>
      <div class="form-group">
         <label>Etunimi</label>
-        <input type="text" class="form-control" name="etunimi" value={{Kmuutettava_kayttaja.etunimi}}>
+        <input type="text" class="form-control" name="etunimi" value={{muutettava_kayttaja.etunimi}}>
      </div>
      <div class="form-group">
         <label>Sukunimi</label>
