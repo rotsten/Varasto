@@ -279,12 +279,12 @@ class TuoteController extends BaseController{
     
     Kint::dump($poistettava_tuote);
     
-    // Käyttäjä näkee listauksesta, että tuote on poistunut      
+    // Käyttäjä näkee kaikkien tuotteiden listauksesta, että tuote on poistunut      
     $Tuotteet = Tuote::all();
 
     Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
     
-//Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet));   
+    //Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet));   
     //View::make('Tuote/Poistatuote.html{{tuote_id}}', array('Tuotteet' => $Tuotteet)); 
   }
 }
