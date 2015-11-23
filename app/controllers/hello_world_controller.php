@@ -20,8 +20,7 @@
         'tuote_id' => 'a',
         'tuotteen_nimi' => '7',
         'valmistaja' => '?',
-        'kuvaus' => '',
-        'lukumaara' => 'enpä tiiä'
+        'kuvaus' => ''
       ));
       $errors = $Uusi_kirja->errors();
 

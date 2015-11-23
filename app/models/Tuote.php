@@ -231,27 +231,7 @@ class Tuote extends BaseModel {
      }                                   
      return $errors_valmistaja;
   }
-    
-  public function validate_lukumaara(){
-      
-    /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
-     * Lukumäärän antaminen ei ole välttämätöntä.
-     */
-        
-     $errors_lukumaara = array();
-      
-     // tarkistaa, että sisältää vain numeroita
-     if (is_numeric($this->tuote_id)) {
-       if ($this->tuote_id < 0) {
-           $errors_lukumaara[] = 'lukumäärä on aina positiivinen kokonaisluku!'; 
-       }
-     } else {
-         $errors_lukumaara[] = 'Lukumäärä ei saa sisältää muita merkkejä kuin numeroita!';
-     }  
-       
-     return $errors_lukumaara;
-  }
-            
+              
   public function errors(){
     // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
         
@@ -263,8 +243,7 @@ class Tuote extends BaseModel {
      * -validate_tuote_id(), 
      * -validate_tuotteen_nimi(), 
      * -validate_valmistaja(), 
-     * -validate_lukumaara()
-     *
+     * 
      * Metodi tulee käyttöön kaikille sovellukseni malleille, joten 
      * se tulee lopullisessa toteutuksessa sijaitsemaan:
      * lib --> base_model.php-tiedostossa, 
@@ -281,8 +260,7 @@ class Tuote extends BaseModel {
     $errors = $this->validate_tuote_id();
     $errors = array_merge($errors, $this->validate_tuotteen_nimi());
     $errors = array_merge($errors, $this->validate_valmistaja());   
-    $errors = array_merge($errors, $this->validate_lukumaara());
-  
+    
     return $errors;
   }
 } // THE END of class

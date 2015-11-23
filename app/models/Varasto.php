@@ -15,7 +15,7 @@ class Varasto extends BaseModel{
     //put your code here
     
    // attribuutit
-  public $tuote_id, $kayttajatunnus, $lukumaara;
+  public $tuote_id, $lukumaara, $kayttajatunnus;
   
   // konstruktori
   public function __construct ($attributes){
@@ -36,12 +36,34 @@ class Varasto extends BaseModel{
 
       $varastotilanne[] = new Varasto(array(
         'tuote_id' => $row['tuote_id'],
+        'lukumaara' => $row['lukumaara'],  
         'history_kuka_inventoi' => $row['history_kuka_inventoi']
       ));
+             
     } // end of foreach
     
     return $varastotilanne;
-  }    
+  }
+  
+  public function validate_lukumaara(){
+      
+    /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
+     * Lukumäärän antaminen ei ole välttämätöntä.
+     */
+        
+     $errors_lukumaara = array();
+      
+     // tarkistaa, että sisältää vain numeroita
+     if (is_numeric($this->tuote_id)) {
+       if ($this->tuote_id < 0) {
+           $errors_lukumaara[] = 'lukumäärä on aina positiivinen kokonaisluku!'; 
+       }
+     } else {
+         $errors_lukumaara[] = 'Lukumäärä ei saa sisältää muita merkkejä kuin numeroita!';
+     }  
+       
+     return $errors_lukumaara;
+  }
 } // end of class
 
 

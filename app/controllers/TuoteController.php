@@ -165,14 +165,6 @@ class TuoteController extends BaseController{
         $t=time();
         $uudet_tiedot['history_date'] = (date("Y-m-d",$t));
     }
-
-    /* 
-     * Mikäli lukumäärää ei ole annettu, asetetaan arvoksi 
-     * nolla FFFF:n sijasta.
-     */
-    if (empty($uudet_tiedot['lukumaara'])){
-      $uudet_tiedot['lukumaara'] = 0;
-    } 
     
     //Luodaan uusi tuote, jolla kutsutaan modifya...  
     $muuttujat= array(
@@ -180,7 +172,6 @@ class TuoteController extends BaseController{
       'tuotteen_nimi' => $uudet_tiedot['tuotteen_nimi'],
       'kuvaus'=> $uudet_tiedot['kuvaus'], 
       'valmistaja'=> $uudet_tiedot['valmistaja'],
-      'lukumaara' => $uudet_tiedot['lukumaara'],
       'history_date'=> $uudet_tiedot['history_date']
     );
     
