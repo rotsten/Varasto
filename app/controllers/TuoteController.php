@@ -241,8 +241,16 @@ class TuoteController extends BaseController{
       * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
       */
     
-    
-    $tuote_id = $_POST; 
+      /*
+       *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
+       *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
+       *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
+       *  sijoitusta.
+       */
+      
+    $input_params = $_POST;   
+    $tuote_id = input_params(array('tuote_id'));
+           
     Kint::dump($tuote_id);
     
     $etsittava_tuote = Tuote::find($tuote_id);  
