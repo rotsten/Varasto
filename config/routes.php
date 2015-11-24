@@ -75,7 +75,7 @@
   });
   
   // Tulostaa tuotteen hakutulokset (haettu tuote-id:llä) tuotesivulle 
-  $routes->get('/Tuote/Tuotteenhakeminen:tuote_id', function($tuote_id){
+  $routes->post('/Tuote/Tuotteenhakeminen:tuote_id', function($tuote_id){
    TuoteController::find_tuote_post($tuote_id);
    //TuoteController::tuote_show($tuote_id);
   });
