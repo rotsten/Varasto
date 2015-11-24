@@ -12,7 +12,7 @@
       echo 'Hip-hei, täällä ollaan!';
       
       //TuoteController::find_tuote_with_tuote_id('9518752761');
-      TuoteController::find_tuote_post('9518752761');
+      TuoteController::find_tuote_post('9789523001084');
       //TuoteController::tuote_show('9518752761');
       
       //$kayttaja = get_user_logged_in();
