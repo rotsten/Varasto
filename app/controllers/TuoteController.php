@@ -246,7 +246,7 @@ class TuoteController extends BaseController{
     $etsittava_tuote = Tuote::find($tuote_id);  
     Kint::dump($etsittava_tuote);
     
-    View::make('Tuote/Tuotesivu.html{{tuote_id}}', array('tuote' => $etsittava_tuote));
+    Redirect::to('/Tuote/Tuotesivu.html{{$tuote_id}}', array('tuote' => $etsittava_tuote));
 
   } // end of find_tuote_post
 
@@ -274,8 +274,6 @@ class TuoteController extends BaseController{
     $Tuotteet = Tuote::all();
 
     Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
-    
-    //Redirect::to('/Tuote/Poista', array('Tuotteet' => $Tuotteet));   
-    //View::make('Tuote/Poistatuote.html{{tuote_id}}', array('Tuotteet' => $Tuotteet)); 
+ 
   }
 }
