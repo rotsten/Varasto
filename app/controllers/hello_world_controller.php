@@ -20,16 +20,24 @@
       //$kayttaja = get_user_logged_in();
       //echo $kayttaja;
       
-      
-      $Uusi_kirja = new Tuote(array(
-        'tuote_id' => 'a',
-        'tuotteen_nimi' => '7',
-        'valmistaja' => '?',
-        'kuvaus' => ''
+      $Uusi_kayttaja = new Kayttaja(array(
+        'kayttajatunnus' => 'a',
+        'salasana' => '7',
+        'etunimi' => '?',
+        'sukunimi' => ''
       ));
-      $errors = $Uusi_kirja->errors();
+      $errors = $Uusi_kayttaja->errors();
 
       Kint::dump($errors);
+      
+      //$Uusi_kirja = new Tuote(array(
+      //  'tuote_id' => 'a',
+      //  'tuotteen_nimi' => '7',
+      //  'valmistaja' => '?',
+      //  'kuvaus' => ''
+      //));
+      //$errors = $Uusi_kirja->errors();
+      //Kint::dump($errors);
             
       //TuoteController::find_tuotteennimi('Lakua');
       //TuoteController::tuote_show('9789522641632');
