@@ -235,16 +235,18 @@ class TuoteController extends BaseController{
 
   } // end of find_tuote_with_tuote_id[$tuote_id)
  
-  public static function find_tuote_post ($tuote_id){
+  public static function find_tuote_post (){
          
      /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
       * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
       */
     
-    //Kint::dump($tuote_id);
+    
+    $tuote_id = $_POST; 
+    Kint::dump($tuote_id);
     
     $etsittava_tuote = Tuote::find($tuote_id);  
-    //Kint::dump($etsittava_tuote);
+    Kint::dump($etsittava_tuote);
     
     if (empty($etsittava_tuote)) {
         // Ei löytynyt
