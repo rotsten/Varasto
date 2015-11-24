@@ -6,10 +6,10 @@
   <form method="post"> 
      <div class="form-group">
        <label>Anna etsittävän tuotteen tuote-ID</label>
-       <input type="text" class="form-control" name="tuote_id" value="{{Tuote.tuote_id}}">
+       <input type="text" class="form-control" name="tuote_id" value="{{tuote_id}}">
        
      <div class="form-group">
-       <button type="submit" class="btn btn-default" value=TuoteController::find_tuote_post{{Tuote.tuote_id}}>Hae tuotetta!</button>
+       <button type="submit" class="btn btn-default" value=TuoteController::find_tuote_post{{tuote_id}}>Hae tuotetta!</button>
        <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle </A></button>
      </div>
     <!-- 
