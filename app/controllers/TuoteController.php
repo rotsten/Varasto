@@ -119,6 +119,7 @@ class TuoteController extends BaseController{
     } else{
        // Annetuissa arvoissa oli jotain vikaa.     
         Kint::dump($uusi_tuote);
+        Kint::dump($errors);
         View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $params));
     }
     

@@ -20,6 +20,12 @@ class KayttajaController extends BaseController {
     public static function paasivu_show(){
       View::make('Paasivu.html');
     }
+    
+  /*****************************************
+   * 
+   * Käyttäjän kirjautuminen 
+   * 
+   *****************************************/
          
     public function authenticate ($kayttajatunnus, $salasana) {
  
@@ -87,6 +93,12 @@ class KayttajaController extends BaseController {
       } // the end of function
     } // the end of function
   } // the end of handle_login()
+
+  /*****************************************
+   * 
+   * Käyttäjätietojen esittely & listaaminen 
+   * 
+   *****************************************/
   
   public static function kayttaja_show($kayttajatunnus) {
         
@@ -106,6 +118,17 @@ class KayttajaController extends BaseController {
       
     View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
   } // end of kayttaja_list
+
+  /*****************************************
+   * 
+   * Käyttäjän lisääminen
+   * 
+   *****************************************/
+    
+  // Näyttää käyttäjän lisäyssivun
+  public static function kayttaja_lisaa_show(){
+    View::make('Kayttaja/LisaaKayttaja.html');
+  }
   
    public static function kayttaja_create (){    
 
@@ -139,6 +162,12 @@ class KayttajaController extends BaseController {
     return;
   }
  
+  /*****************************************
+   * 
+   * Käyttäjätietojen muutos
+   * 
+   *****************************************/
+  
   public static function kayttaja_edit($kayttajatunnus){
    /*
     * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
@@ -177,9 +206,14 @@ class KayttajaController extends BaseController {
       $Kayttajatietojen_muutokset::kayttajalistaus();
     } else {
        View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));
-    }
-    
+    }   
   } // end of kayttaja_edit_post
+  
+  /*****************************************
+   * 
+   * Käyttäjän poistaminen
+   * 
+   *****************************************/
   
   public static function poista_kayttaja($kayttajatunnus){
       
@@ -193,6 +227,12 @@ class KayttajaController extends BaseController {
     View::make('Kayttaja/Poista.html', array('Kayttajat' => $Kayttajat));
 
   }
+  
+  /*****************************************
+   * 
+   * Tarkastetaan kirjautuneen käyttäjän tietoja
+   * 
+   *****************************************/
   
   public static function get_user_logged_in(){
     /* palauttaa sovellukseemme kirjautuneen käyttäjän oliona, 
