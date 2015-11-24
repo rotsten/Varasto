@@ -26,6 +26,7 @@
             <td>{{Kayttaja.kayttooikeudet}}</td>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajasivu/{{Kayttaja.kayttajatunnus}}">Katso tarkemmat käyttäjän tiedot</a></th>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Muokkaa</a></th>
+            <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
             <th>{{forms.destroy_kayttaja_button(Kayttaja.kayttajatunnus)}}</th>
           </tr>
       {% endfor %}

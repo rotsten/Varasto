@@ -225,10 +225,10 @@ class KayttajaController extends BaseController {
     
     // Käyttäjä näkee listauksesta, että kayttajatunnus on poistunut      
     $Kayttajat = Kayttaja::all();
-    View::make('Kayttaja/Poista.html', array('Kayttajat' => $Kayttajat));
+    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
 
   }
-  
+   
   /*****************************************
    * 
    * Tarkastetaan kirjautuneen käyttäjän tietoja

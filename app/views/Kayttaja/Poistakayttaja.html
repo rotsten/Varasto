@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<H2>Kayttaja {{kayttaja.kayttajatunnus}} poistettu </H2>
+
+    <form action="handle_form.php">
+      
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Kayttajatunnus</th>
+            <th>Etunimi</th>
+            <th>Sukunimi</th>
+            <th>Käyttöoikeudet</th>
+          </tr>
+        </thead>
+
+        <tbody>
+           <tr>
+             <td>{{kayttaja.kayttajatunnus}}</td> 
+             <td>{{kayttaja.etunimi}}</td>  
+             <td>{{kayttaja.sukunimi}}</td>
+             <td>{{kayttaja.kayttooikeudet}}</td>
+          </tr>
+         </tbody>    
+      </table>
+    </form>    
+
+    <button class="btn btn-default"><A href="{{base_path}}/Paasivu"> Pääsivulle</A></button>
+
+{% endblock %}

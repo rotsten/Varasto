@@ -58,6 +58,11 @@
     KayttajaController::poista_kayttaja($kayttajatunnus);
   });
   
+  // Kayttajan poistaminen  
+  $routes->get('/Kayttaja/Poistakayttaja/:kayttajatunnus', function($kayttajatunnus){
+    KayttajaController::poista_kayttaja($kayttajatunnus);
+  });
+  
   // Tuotteisiin liittyvät 
   // Tuotteen lisäyslomakkeen näyttäminen
   $routes->get('/Tuote/Lisaatuote', function(){
