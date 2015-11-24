@@ -11,7 +11,7 @@
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
       
-      TuoteController::poista_tuote('9518752761');
+      //TuoteController::poista_tuote('9518752761');
       
       //$kayttaja = get_user_logged_in();
       //echo $kayttaja;
