@@ -186,5 +186,28 @@ class Kayttaja extends BaseModel {
       */                            
      return $errors_etunimi;
   } // End of validate_etunimi
+  
+  public function errors(){
+    // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
+        
+    /* Metodi, joka kutsuu näitä kaikkia validointimetoja ja kokoaa 
+     * niiden palauttamat virheilmoitukset yhdeksi taulukoksi. 
+     * 
+     * Validators:
+     * =========== 
+     * -validate_kayttajatunnus(), 
+     * -validate_salasana(), 
+     * -validate_etunimi(), 
+     * 
+     */
+        
+    $errors = array();
+      
+    $errors = $this->validate_kayttajatunnus();
+    $errors = array_merge($errors, $this->validate_salasana());
+    $errors = array_merge($errors, $this->validate_etunimi());   
+    
+    return $errors;
+  }
 } // THE END of class KAYTTAJA
 
