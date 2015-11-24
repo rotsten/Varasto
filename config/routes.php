@@ -77,7 +77,6 @@
   // Tulostaa tuotteen hakutulokset (haettu tuote-id:llä) tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function(){
    TuoteController::find_tuote_post();
-   //TuoteController::tuote_show($tuote_id);
   });
      
    /*
