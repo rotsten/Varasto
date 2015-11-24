@@ -30,11 +30,11 @@
   
   // Uuden käyttäjän lisääminen
   $routes->post('/Kayttaja/LisaaKayttaja', function(){
-    TuoteController::kayttaja_create();
+    KayttajaController::kayttaja_create();
   });
   
   // Käyttäjien listaussivun näyttäminen
-  $routes->get('/Kayttaja/Kayttajienlistaus', function() {
+  $routes->get('/Kayttaja/Kayttajienlistaus', function(){
     KayttajaController::kayttajalistaus();
   });
   
