@@ -15,7 +15,7 @@ class Varasto extends BaseModel{
     //put your code here
     
    // attribuutit
-  public $tuote_id, $lukumaara, $kayttajatunnus;
+  public $tuote_id, $lukumaara, $history_kuka_inventoi;
   
   // konstruktori
   public function __construct ($attributes){

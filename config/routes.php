@@ -23,6 +23,11 @@
     KayttajaController::paasivu_show();
   });
   
+  // Uuden käyttäjän lisääminen
+  $routes->post('/Kayttaja/LisaaKayttaja', function(){
+    TuoteController::kayttaja_create();
+  });
+  
   // Käyttäjien listaussivun näyttäminen
   $routes->get('/Kayttaja/Kayttajienlistaus', function() {
     KayttajaController::kayttajalistaus();
