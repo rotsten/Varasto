@@ -4,13 +4,19 @@
     <H1> Aloitussivu</H1>
     <H3> Oy Varastopojat Ab</H3>
         
+    <!--
     <img src="{{base_path}}/Views/Varasto-kansi.jpg" width="700" height="300" alt="Varasto-kansi"/>
+    
+    $directory always returns the current active theme path
+    -->
+    
+    <img src="<?php print $directory; ?>/Varasto-kansi.jpg" alt="Varasto-kansi"/>
 
     <H4> Latest mod. 11/2015</H4>
    
   
     <H4>(Onnistuneen <A href="{{base_path}}/Kayttaja/Kirjaudu">kirjautumisen</a> jälkeen voi siirtyä toimintoihin pääsivulle.</H4> 
-    <!--
+   
     <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Väliaikainen oikotie pääsivulle, kunnes kirjautuminen taas toimii </a></button>
     -->
     
