@@ -22,6 +22,11 @@
   $routes->get('/Paasivu', function() {
     KayttajaController::paasivu_show();
   });
+
+  // Tuotteen lisäyslomakkeen näyttäminen
+  $routes->get('/Kayttaja/LisaaKayttaja', function(){
+    TuoteController::kayttaja_lisaa_show()
+  });
   
   // Uuden käyttäjän lisääminen
   $routes->post('/Kayttaja/LisaaKayttaja', function(){
@@ -54,7 +59,7 @@
   });
   
   // Tuotteisiin liittyvät 
-  // Pelin lisäyslomakkeen näyttäminen
+  // Tuotteen lisäyslomakkeen näyttäminen
   $routes->get('/Tuote/Lisaatuote', function(){
     TuoteController::tuote_lisaa_show();
   });

@@ -105,7 +105,7 @@ class TuoteController extends BaseController{
     
     if(count($errors) == 0){
   
-      Kint::dump($uusi_tuote);
+      //Kint::dump($uusi_tuote);
       $uusi_tuote ->save();
       
       /* Ohjataan käyttäjä lisäyksen jälkeen tuotteen esittelysivulle. 
@@ -114,12 +114,11 @@ class TuoteController extends BaseController{
        */
       
       Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);
-      //Redirect::to('/game/' . $game->id, array('message' => 'Peli on lisätty kirjastoosi!'));
           
     } else{
        // Annetuissa arvoissa oli jotain vikaa.     
-        Kint::dump($uusi_tuote);
-        Kint::dump($errors);
+        //Kint::dump($uusi_tuote);
+        //Kint::dump($errors);
         View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $params));
     }
     
