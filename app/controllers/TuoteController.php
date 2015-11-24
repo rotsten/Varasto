@@ -249,7 +249,7 @@ class TuoteController extends BaseController{
        */
       
     $input_params = $_POST;   
-    $tuote_id = $input_params('tuote_id');
+    $tuote_id = $input_params['tuote_id'];
            
     Kint::dump($tuote_id);
     
