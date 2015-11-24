@@ -113,10 +113,10 @@ class Kayttaja extends BaseModel {
             VALUES (:kayttajatunnus, :salasana, :etunimi, :sukunimi, :kayttooikeudet)');
    
   $query->execute(array('kayttajatunnus' => $this->kayttajatunnus, 
-                        'new_salasana' => $this->salasana,
-                        'new_etunimi' => $this->etunimi, 
-                        'new_sukunimi' => $this->sukunimi,
-                        'new_kayttooikeudet' => $this->kayttooikeudet
+                        'salasana' => $this->salasana,
+                        'etunimi' => $this->etunimi, 
+                        'sukunimi' => $this->sukunimi,
+                        'kayttooikeudet' => $this->kayttooikeudet
                         ));      
   } // end of save
   
