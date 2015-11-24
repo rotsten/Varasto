@@ -25,7 +25,7 @@
 
   // Tuotteen lisäyslomakkeen näyttäminen
   $routes->get('/Kayttaja/LisaaKayttaja', function(){
-    TuoteController::kayttaja_lisaa_show()
+    TuoteController::kayttaja_lisaa_show();
   });
   
   // Uuden käyttäjän lisääminen
