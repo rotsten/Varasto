@@ -117,7 +117,7 @@ class Kayttaja extends BaseModel {
                         'new_sukunimi' => $this->sukunimi,
                         'new_kayttooikeudet' => $this->kayttooikeudet
                         ));      
-  } // ebd of save
+  } // end of save
   
   public function modify () {
                    

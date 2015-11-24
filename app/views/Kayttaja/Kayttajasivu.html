@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<H2>Kayttajan {kayttaja.kayttajatunnus}} esittelysivu</H2>
+<H2>Kayttajan {{kayttaja.kayttajatunnus}} esittelysivu</H2>
 
     <form action="handle_form.php">
       
@@ -22,7 +22,7 @@
              <td>{{kayttaja.kayttajatunnus}}</td> <!--Jostain syystä tämä ei tulostu, eikä siis myös välity Muokkaa-sivulle -->
              <td>{{kayttaja.etunimi}}</td>  
              <td>{{kayttaja.sukunimi}}</td>
-             <td>{{kayttaja.käyttooikeudet}}</td>
+             <td>{{kayttaja.kayttooikeudet}}</td>
               <th><a class="btn btn-default btn-sm" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{kayttaja.kayttajatunnus}}">Muokkaa</a></th>
              <th><a class="btn btn-default btn-sm" href="{{base_path}}/Paasivu">Poista</a></th> 
           </tr>

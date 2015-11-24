@@ -45,6 +45,26 @@ class Varasto extends BaseModel{
     return $varastotilanne;
   }
   
+  public static function find($tuote_id){
+      
+    //Kint::dump($tuote_id);
+    
+    $query = DB::connection()->prepare('SELECT * FROM VARASTO WHERE tuote_id = :tuote_id LIMIT 1');
+    $query->execute(array('tuote_id' => $tuote_id));
+    $row = $query->fetch();
+    if($row){
+      $tuote = new Tuote(array(
+        'tuote_id' => $row['tuote_id'],
+        'lukumaara' => $row['lukumaara'],
+        'history_kuka_inventoi' => $row['history_kuka_inventoi'] 
+      ));
+    
+      //Kint::dump($tuote);
+      return $tuote;
+            
+     } // end of if
+  } // end of find_tuote (tuote_id)
+  
   public function validate_lukumaara(){
       
     /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.

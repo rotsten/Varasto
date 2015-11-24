@@ -29,6 +29,15 @@ class VarastoController {
 
   }  // end of varasto_list
   
+  public static function find_with_tuote_id($tuote_id){
+    
+    $etsittava_varaston_tuote = Varasto::find($tuote_id);  
+    Kint::dump($etsittava_varaston_tuote);
+    
+    return $etsittava_varaston_tuote;
+
+  } // end of find_with_tuote_id[$tuote_id)
+  
   public static function varasto_edit($tuote_id){
 
     //Etsitään ensin tuote, mitä se koskee.

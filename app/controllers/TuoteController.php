@@ -207,10 +207,10 @@ class TuoteController extends BaseController{
   }
 
   /*
- public static function tuote_search(){
-   View::make('Tuote/Tuotteenhakeminen.html');
- }
- */ 
+  public static function tuote_search(){
+    View::make('Tuote/Tuotteenhakeminen.html');
+  }
+  */ 
   public function tuote_search ($tuote_id, $tuotteen_nimi){
       $tulos=0;
       
