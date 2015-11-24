@@ -74,6 +74,12 @@
     TuoteController::tuote_hae_show();
   });
   
+  // Tulostaa tuotteen hakutulokset (haettu tuote-id:llä) tuotesivulle 
+  $routes->get('/Tuote/Tuotteenhakeminen:tuote_id', function($tuote_id){
+   //TuoteController::find_tuote_post($tuote_id);
+   TuoteController::tuote_show($tuote_id);
+  });
+     
    /*
     * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
     * taan tuote_search() -funktiota.
@@ -89,13 +95,6 @@
     TuoteController::find_tuotteennimi();
   });
   */
-  
-  // Tulostaa tuotteen hakutulokset (haettu tuote-id:llä) tuotesivulle 
-  $routes->get('/Tuote/Tuotteenhakeminen:tuote_id', function($tuote_id){
-   //TuoteController::find_tuote_post($tuote_id);
-   TuoteController::tuote_show($tuote_id);
-  });
-
   // Näyttää tuotetietojen muutossivun
   $routes->get('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
