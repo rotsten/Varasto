@@ -168,8 +168,7 @@ class Tuote extends BaseModel {
   * Lisätään annettujen syötteiden validointifunktiot.
   *    -validate_tuote_id(), 
   *    -validate_tuotteen_nimi(), 
-  *    -validate_valmistaja(), 
-  *    -validate_lukumaara()
+  *    -validate_valmistaja()
   */
 
   public function validate_tuote_id(){
@@ -207,7 +206,7 @@ class Tuote extends BaseModel {
         
     $errors_tuotteen_nimi = array();
     if($this->tuotteen_nimi == '' || $this->tuotteen_nimi == null){
-       $errors_tuotteen_nimi[] = 'Jätit tiedon antamatta!';
+       $errors_tuotteen_nimi[] = 'Jätit tuotteen nimen antamatta!';
     }
     if(strlen($this->tuotteen_nimi) < 3){
       $errors_tuotteen_nimi[] = 'Tuotteen nimen pitää olla vähintään 3 merkkiä pitkä!';
@@ -224,14 +223,14 @@ class Tuote extends BaseModel {
         
      $errors_valmistaja = array();
      if($this->valmistaja == '' || $this->valmistaja == null){
-        $errors_valmistaja[] = 'Jätit tiedon antamatta!';
+        $errors_valmistaja[] = 'Jätit valmistajan antamatta!';
      }
      if(strlen($this->valmistaja) < 2){
        $errors_valmistaja[] = 'Tuotteen valmistajan nimen pitää olla vähintään 2 merkkiä pitkä!';
      }                                   
      return $errors_valmistaja;
   }
-              
+                
   public function errors(){
     // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
         
@@ -242,7 +241,7 @@ class Tuote extends BaseModel {
      * =========== 
      * -validate_tuote_id(), 
      * -validate_tuotteen_nimi(), 
-     * -validate_valmistaja(), 
+     * -validate_valmistaja()
      * 
      * Metodi tulee käyttöön kaikille sovellukseni malleille, joten 
      * se tulee lopullisessa toteutuksessa sijaitsemaan:
@@ -259,8 +258,8 @@ class Tuote extends BaseModel {
       
     $errors = $this->validate_tuote_id();
     $errors = array_merge($errors, $this->validate_tuotteen_nimi());
-    $errors = array_merge($errors, $this->validate_valmistaja());   
-    
+    $errors = array_merge($errors, $this->validate_valmistaja());  
+   
     return $errors;
   }
 } // THE END of class

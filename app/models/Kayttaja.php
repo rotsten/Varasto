@@ -23,7 +23,8 @@ class Kayttaja extends BaseModel {
         $this->validators = array(
           'validate_kayttajatunnus', 
           'validate_salasana',
-          'validate_etunimi');
+          'validate_etunimi',
+          'validate_kayttooikeudet');
   }
   
   public static function all(){
@@ -142,7 +143,7 @@ class Kayttaja extends BaseModel {
         
      $errors_kayttajatunnus = array();
      if($this->kayttajatunnus == '' || $this->kayttajatunnus == null){
-        $errors_kayttajatunnus[] = 'Jätit tiedon antamatta!';
+        $errors_kayttajatunnus[] = 'Jätit käyttäjätunnuksen antamatta!';
      }
      if(strlen($this->kayttajatunnus) < 4){
        $errors_kayttajatunnus[] = 'Kayttajatunnuksen pitää olla vähintään 4 merkkiä pitkä!';
@@ -159,7 +160,7 @@ class Kayttaja extends BaseModel {
         
      $errors_salasana = array();
      if($this->salasana == '' || $this->salasana == null){
-        $errors_salasana[] = 'Jätit tiedon antamatta!';
+        $errors_salasana[] = 'Jätit salasanan antamatta!';
      }
      if(strlen($this->salasana) < 4){
        $errors_salasana[] = 'Salasanan pitää olla vähintään 4 merkkiä pitkä!';
@@ -176,7 +177,7 @@ class Kayttaja extends BaseModel {
         
      $errors_etunimi = array();
      if($this->etunimi == '' || $this->salasana == null){
-        $errors_etunimi[] = 'Jätit tiedon antamatta!';
+        $errors_etunimi[] = 'Jätit etunimen antamatta!';
      }
      /*
       * Koska 1 merkki voi olla ihmisen nimi, ei oikeastaan voi määrittää
@@ -186,6 +187,20 @@ class Kayttaja extends BaseModel {
       */                            
      return $errors_etunimi;
   } // End of validate_etunimi
+  
+  public function validate_kayttooikeudet(){
+        
+    /* Tarkistaa, onko annettu käyttöoikeus -tieto on "t" tai "f". 
+     * OIkeastaan tämä on jo varmistettu tarjoamalla alasvetovalikko.
+     */
+        
+    $errors_kayttooikeudet = array();
+    if($this->kayttooikeudet != 't' && $this->kayttooikeudet != 'f'){
+       $errors__kayttooikeudet[] = 'Virheellinen käyttöoikeustieto annettu!';
+    }
+                                 
+    return $errors_kayttooikeudet;
+  }
   
   public function errors(){
     // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
@@ -198,7 +213,7 @@ class Kayttaja extends BaseModel {
      * -validate_kayttajatunnus(), 
      * -validate_salasana(), 
      * -validate_etunimi(), 
-     * 
+     * -validate_kayttooikeudet();
      */
         
     $errors = array();
@@ -206,6 +221,7 @@ class Kayttaja extends BaseModel {
     $errors = $this->validate_kayttajatunnus();
     $errors = array_merge($errors, $this->validate_salasana());
     $errors = array_merge($errors, $this->validate_etunimi());   
+    $errors = array_merge($errors, $this->validate_kayttooikeudet());
     
     return $errors;
   }
