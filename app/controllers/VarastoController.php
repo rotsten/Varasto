@@ -11,7 +11,7 @@
  *
  * @author rotsten
  */
-class VarastoController {
+class VarastoController extends BaseController{
        
     public static function index(){
     $varastotilanne = Varasto::all();

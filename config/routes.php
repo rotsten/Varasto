@@ -138,8 +138,13 @@
   // Varastoon liittyvät
   // Varaston listaamiseen liittyvä sivu
   $routes->get('/Varasto/Varastonlistaus', function() {
+    VarastotilanneController::varastotilanne_list();
+  });
+  /*
+  $routes->get('/Varasto/Varastonlistaus', function() {
     VarastoController::varasto_list();
   });
+   */
   
   // Varaston muuttamiseen liittyvä sivu
   $routes->get('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {

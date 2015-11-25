@@ -62,8 +62,15 @@ class KayttajaController extends BaseController {
     
     // Success-flag setting
     $okay = TRUE;
+    
+    $tsekkaa_kayttaja = new Kayttaja($params['kayttajatunnus'], 
+                                     $params['salasana']);
+    
+     $errors = $tsekkaa_kayttaja::validate_kayttajatunnus;
+     $errors = array_merge($errors, $this->$errors = $tsekkaa_kayttaja::validate_salasana);
    
-    // Tsekkaa antoiko käyttäjä käyttäjätunnuksen:
+   // Tsekkaa antoiko käyttäjä käyttäjätunnuksen:
+   /* 
     if (empty($params['kayttajatunnus'])){
        print '<p class="error">Anna käyttäjätunnus.</p>';
        $okay = FALSE;
@@ -74,14 +81,15 @@ class KayttajaController extends BaseController {
        print '<p class="error">Anna salasana.</p>';
        $okay = FALSE;
     }
-    
+    */
     /*
     if (empty($submit['salasana'])) {
             print '<p class="error">Anna salasana.</p>';
             $okay = FALSE;
     }*/
-    if ($okay) {
-        
+       
+    if(count($errors) == 0){
+         
        $kayttaja = KayttajaController::authenticate($params['kayttajatunnus'], $params['salasana']);
 
       if(!$kayttaja){
