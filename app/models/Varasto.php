@@ -34,10 +34,8 @@ class Varasto extends BaseModel{
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
 
-      // Kysymyksessä ei ole enää Varasto-olio, vaan Varastotilanne -olio
       $varastotilanne[] = new Varastotilanne(array(
         'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
         'lukumaara' => $row['lukumaara'],  
         'history_kuka_inventoi' => $row['history_kuka_inventoi']
       ));
