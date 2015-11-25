@@ -17,11 +17,11 @@ class Varastotilanne extends Varasto{
   public $tuotteen_nimi;
   
   // konstruktori
-  public function __construct ($varaston_tiedot, $tuotteen_nimi){
+  public function __construct ($varaston_tiedot){
       
       parent::__construct($varaston_tiedot, $tuotteen_nimi);
       $this->tuote_id = $varaston_tiedot['tuote_id'];
-      $this->tuotteen_nimi = $tuotteen_nimi;
+      $this->tuotteen_nimi = $varaston_tiedot['tuotteen_nimi'];
       $this->lukumaara = $varaston_tiedot['lukumaara'];
       $this->history_kuka_inventoi = $varaston_tiedot['history_kuka_inventoi'];
   }
