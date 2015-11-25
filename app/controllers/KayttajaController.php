@@ -27,7 +27,7 @@ class KayttajaController extends BaseController {
    * 
    *****************************************/
          
-    public function authenticate ($kayttajatunnus, $salasana) {
+  public function authenticate ($kayttajatunnus, $salasana) {
  
     $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus = :kayttajatunnus AND salasana = :salasana LIMIT 1');
     $query->execute(array('kayttajatunnus' => $kayttajatunnus, 'salasana' => $salasana));
@@ -47,7 +47,7 @@ class KayttajaController extends BaseController {
     } // end of if-else
   } // end of authenticate
 
-     public static function check_login_params($params){
+  public static function check_login_params($params){
            
      Kint::dump($params);            
      $errors  = array();
@@ -118,6 +118,12 @@ class KayttajaController extends BaseController {
           Redirect::to('/Paasivu', array('message' => 'Tervetuloa takaisin ' . $kayttaja->etunimi . '!'));
       } // the end of function
     } // the end of function
+    else {
+        // Jotain viellä käyttäjätunnuksen ja salasanan antamisessa:
+        Redirect::to('/{{base_path}}/Kayttaja/Kirjaudu', array('errors' => $errors));
+        
+    } 
+   
   } // the end of handle_login()
 
   /*****************************************
