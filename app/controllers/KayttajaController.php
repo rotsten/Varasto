@@ -120,10 +120,8 @@ class KayttajaController extends BaseController {
     } // the end of function
     else {
         // Jotain viellä käyttäjätunnuksen ja salasanan antamisessa:
-        Redirect::to('/{{base_path}}/Kayttaja/Kirjaudu', array('errors' => $errors));
-        
-    } 
-   
+        Redirect::to('/Kayttaja/Kirjaudu', array('errors' => $errors));
+    } // end of if
   } // the end of handle_login()
 
   /*****************************************
