@@ -50,7 +50,9 @@ class KayttajaController extends BaseController {
      public static function check_login_params($params){
            
      Kint::dump($params);            
-    
+     $errors  = array();
+     $errors2 = array();
+     
      if ($params['kayttajatunnus'] == '' || $params['kayttajatunnus'] == null){
         $errors[] = 'Jätit käyttäjätunnuksen antamatta!';
      }
