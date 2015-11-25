@@ -36,8 +36,6 @@ class Varastotilanne extends Varasto{
       FROM Varasto 
       INNER JOIN Tuote ON Varasto.tuote_id = Varasto.tuote_id;');
 
-    // $query = DB::connection()->prepare('SELECT * FROM VARASTO;');
-    // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
