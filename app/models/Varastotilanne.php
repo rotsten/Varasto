@@ -19,7 +19,7 @@ class Varastotilanne extends Varasto{
   // konstruktori
   public function __construct ($varaston_tiedot){
       
-      parent::__construct($varaston_tiedot, $tuotteen_nimi);
+      parent::__construct($varaston_tiedot);
       $this->tuote_id = $varaston_tiedot['tuote_id'];
       $this->tuotteen_nimi = $varaston_tiedot['tuotteen_nimi'];
       $this->lukumaara = $varaston_tiedot['lukumaara'];
