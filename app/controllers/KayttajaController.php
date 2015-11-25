@@ -47,6 +47,24 @@ class KayttajaController extends BaseController {
     } // end of if-else
   } // end of authenticate
 
+     public static function check_login_params($params){
+           
+     Kint::dump($params);            
+    
+     if ($params['kayttajatunnus'] == '' || $params['kayttajatunnus'] == null){
+        $errors[] = 'Jätit käyttäjätunnuksen antamatta!';
+     }
+ 
+     if($params['salasana'] == '' || $params['salasana'] == null){
+        $errors2[] = 'Jätit salasanan antamatta!';
+     }
+     
+     $errors = array_merge($errors, $errors2);
+    
+     // Palautetaan mahdolliset virheilmoitukset
+     return $errors;
+   }  
+
   public static function handle_login (){
 
    /* 
@@ -61,13 +79,10 @@ class KayttajaController extends BaseController {
     //$annettu_salasana      =$_POST['salasana'];
     
     // Success-flag setting
-    $okay = TRUE;
     
-    $tsekkaa_kayttaja = new Kayttaja($params['kayttajatunnus'], 
-                                     $params['salasana']);
     
-     $errors = $tsekkaa_kayttaja::validate_kayttajatunnus;
-     $errors = array_merge($errors, $this->$errors = $tsekkaa_kayttaja::validate_salasana);
+    $errors = KayttajaController::check_login_params($params);
+ 
    
    // Tsekkaa antoiko käyttäjä käyttäjätunnuksen:
    /* 
@@ -138,22 +153,6 @@ class KayttajaController extends BaseController {
     View::make('Kayttaja/LisaaKayttaja.html');
   }
  
-   public static function check_login_params($params){
-           
-     Kint::dump($params);
-    
-     $uusi_kayttaja = new Kayttaja(array(
-       'kayttajatunnus' => $params['kayttajatunnus'],  
-       'salasana' => $params['salasana'],
-     ));
-    
-     $errors = $uusi_kayttaja->validate_kayttajatunnuserrors();
-     $errors = array_merge($errors, $uusi_kayttaja->validate_salasana());
-     
-     // Palautetaan mahdolliset virheilmoitukset
-     return $errors;
-   }  
-
    public static function kayttaja_create (){    
 
     $params = $_POST;

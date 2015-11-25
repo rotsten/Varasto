@@ -20,6 +20,7 @@ class Kayttaja extends BaseModel {
   public function __construct ($attributes){
       parent::__construct($attributes);
       
+      // tsekataan datojen oikeellisuus
         $this->validators = array(
           'validate_kayttajatunnus', 
           'validate_salasana',
