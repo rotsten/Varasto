@@ -69,13 +69,16 @@ class VarastoController {
     $uudet_tiedot['kayttajatunnus'] = base_controller::get_user_logged_in();
     Kint::dump($uudet_tiedot);
 
+    // Tuotteen nimi ei voi muuttua. Välittyy kuitenkin POSTin kautta
+    
     $muuttujat = array(
-      'tuote_id' => $uudet_tiedot['tuote_id'], 
-      'kayttajatunnus' => $kayttajatunnus, 
-      'lukumaara' => $uudet_tiedot['lukumaara']
+      'tuote_id' => $uudet_tiedot['tuote_id'],
+      'tuotteen_nimi' => $uudet_tiedot['tuotteen_nimi'],
+      'lukumaara' => $uudet_tiedot['lukumaara'],
+      'history_kuka_inventoi' => $uudet_tiedot['kayttajatunnus'] 
     );
 
-    $varastotilanne = new Varasto($muuttujat);
+    $varastotilanne = new Varastotilanne ($muuttujat);
     //$errors = $Varasto->errors();
 
     $varastotilanne ->modify();
