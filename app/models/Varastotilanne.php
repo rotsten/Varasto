@@ -26,4 +26,37 @@ class Varastotilanne extends Varasto{
       $this->history_kuka_inventoi = $varaston_tiedot['history_kuka_inventoi'];
   }
   
+    public static function all(){
+    // Alustetaan kysely tietokantayhteydellämme
+     
+    $query = DB::connection()->prepare('SELECT Varasto.tuote_id, 
+                                               Tuote.tuotteen_nimi, 
+                                               Varasto.lukumaara, 
+                                               Varasto.history_kuka_inventoi
+      FROM Varasto 
+      INNER JOIN Tuote ON Varasto.tuote_id = Varasto.tuote_id;');
+
+    // $query = DB::connection()->prepare('SELECT * FROM VARASTO;');
+    // Suoritetaan kysely
+    $query->execute();
+    // Haetaan kyselyn tuottamat rivit
+    $rows = $query->fetchAll();
+    $varastotilanne = array();
+
+    // Käydään kyselyn tuottamat rivit läpi
+    foreach($rows as $row){
+
+      // Kysymyksessä ei ole enää Varasto-olio, vaan Varastotilanne -olio
+      $varastotilanne[] = new Varastotilanne(array(
+        'tuote_id' => $row['tuote_id'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'],
+        'lukumaara' => $row['lukumaara'],  
+        'history_kuka_inventoi' => $row['history_kuka_inventoi']
+      ));
+             
+    } // end of foreach
+    
+    return $varastotilanne;
+  }
+   
 }

@@ -19,7 +19,7 @@ class VarastotilanneController extends BaseController{
      * mikä hakee varastotilanteen tietokannasta
      */
        
-    $varastotilanne = Varasto::all();
+    $varastotilanne = Varastotilanne::all();
     View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
 
   }  // end of varasto_list

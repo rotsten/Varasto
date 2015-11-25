@@ -51,7 +51,7 @@ class TuoteController extends BaseController{
       */
      
      $listattava_tuote = Tuote::find($tuote_id);
-     Kint::dump($listattava_tuote);
+     //Kint::dump($listattava_tuote);
 
      View::make('Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote));
                    
@@ -229,7 +229,7 @@ class TuoteController extends BaseController{
     
     //$etsittava_tuote = new Tuote();
     $etsittava_tuote = Tuote::find($tuote_id);  
-    Kint::dump($etsittava_tuote);
+    //Kint::dump($etsittava_tuote);
     
     return $etsittava_tuote;
 
@@ -281,12 +281,9 @@ class TuoteController extends BaseController{
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
      */
       
-    $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));
-        
+    $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));        
     $poistettava_tuote->destroy();
-    
-    Kint::dump($poistettava_tuote);
-    
+       
     // Käyttäjä näkee kaikkien tuotteiden listauksesta, että tuote on poistunut      
     $Tuotteet = Tuote::all();
 

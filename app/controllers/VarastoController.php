@@ -25,6 +25,7 @@ class VarastoController extends BaseController{
      */
        
     $varastotilanne = Varasto::all();
+    Kint::dump($varastotilanne);
     View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
 
   }  // end of varasto_list
@@ -32,7 +33,7 @@ class VarastoController extends BaseController{
   public static function find_with_tuote_id($tuote_id){
     
     $etsittava_varaston_tuote = Varasto::find($tuote_id);  
-    Kint::dump($etsittava_varaston_tuote);
+    //Kint::dump($etsittava_varaston_tuote);
     
     return $etsittava_varaston_tuote;
 
