@@ -137,22 +137,29 @@ class KayttajaController extends BaseController {
   public static function kayttaja_lisaa_show(){
     View::make('Kayttaja/LisaaKayttaja.html');
   }
-  
+ 
+   public static function check_login_params($params){
+           
+     Kint::dump($params);
+    
+     $uusi_kayttaja = new Kayttaja(array(
+       'kayttajatunnus' => $params['kayttajatunnus'],  
+       'salasana' => $params['salasana'],
+     ));
+    
+     $errors = $uusi_kayttaja->validate_kayttajatunnuserrors();
+     $errors = array_merge($errors, $uusi_kayttaja->validate_salasana());
+     
+     // Palautetaan mahdolliset virheilmoitukset
+     return $errors;
+   }  
+
    public static function kayttaja_create (){    
 
     $params = $_POST;
-   
-    Kint::dump($params);
     
-    $uusi_kayttaja = new Kayttaja(array(
-      'kayttajatunnus' => $params['kayttajatunnus'],  
-      'salasana' => $params['salasana'],
-      'etunimi' => $params['etunimi'],
-      'sukunimi' => $params['sukunimi'],
-      'kayttooikeudet' => $params['kayttooikeudet']
-    ));
-    
-    $errors = $uusi_kayttaja->errors();
+    // tsekataan käyttäjätunnuksen ja salasanan antaminen
+    $errors = check_login_params($params);
     
     if(count($errors) == 0){
   
