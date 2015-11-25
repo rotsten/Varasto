@@ -21,7 +21,7 @@ class VarastoController extends BaseController{
   public static function varasto_list(){
     /*
      * Tämä funktio kutsuu, all-funktiota,
-     * mikä hakee varastotilanteen tietokannasta
+     * mikä hakee varastotilanteen tietokannasta VARASTO-taulusta
      */
        
     $varastotilanne = Varasto::all();
