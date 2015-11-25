@@ -74,7 +74,6 @@ class VarastoController extends BaseController{
     
     $muuttujat = array(
       'tuote_id' => $uudet_tiedot['tuote_id'],
-      'tuotteen_nimi' => $uudet_tiedot['tuotteen_nimi'],
       'lukumaara' => $uudet_tiedot['lukumaara'],
       'history_kuka_inventoi' => $uudet_tiedot['kayttajatunnus'] 
     );
