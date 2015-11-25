@@ -81,7 +81,8 @@ class KayttajaController extends BaseController {
     // Success-flag setting
     
     
-    $errors = KayttajaController::check_login_params($params);
+     $errors = array();
+     $errors = KayttajaController::check_login_params($params);
  
    
    // Tsekkaa antoiko käyttäjä käyttäjätunnuksen:
