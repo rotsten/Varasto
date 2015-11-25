@@ -16,5 +16,11 @@
 {% macro destroy_listattu_tuote_button() %}
   <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">Poista tuote!</button>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+   <script>
+      $( document ).ready(function() {
+        $( "p" ).text( "The DOM is now loaded and can be manipulated." );
+      });
+      </script>
   </form>
 {% endmacro %}
