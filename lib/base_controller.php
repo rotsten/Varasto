@@ -31,6 +31,9 @@
 
         return $kayttaja;
       }
+      else {
+        Redirect::to('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen'));   
+      } 
 
       // Käyttäjä ei ole kirjautunut sisään
       return null;

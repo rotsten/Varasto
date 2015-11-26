@@ -17,11 +17,12 @@
       
       echo BaseController::get_user_logged_in();
       
-      echo $varastotilanne = Varastotilanne::all();
+      //echo $varastotilanne = Varastotilanne::all();
             
       //$kayttaja = get_user_logged_in();
       //echo $kayttaja;
       
+      /*
       $Uusi_kayttaja = new Kayttaja(array(
         'kayttajatunnus' => 'a',
         'salasana' => '7',
@@ -31,7 +32,7 @@
       $errors = $Uusi_kayttaja->errors();
 
       Kint::dump($errors);
-      
+      */
       //$Uusi_kirja = new Tuote(array(
       //  'tuote_id' => 'a',
       //  'tuotteen_nimi' => '7',
