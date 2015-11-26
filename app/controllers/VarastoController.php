@@ -44,7 +44,7 @@ class VarastoController extends BaseController{
     //Etsitään ensin tuote, mitä se koskee.
     $muutettava_varastotieto = VarastoController::find_with_tuote_id($tuote_id);
 
-    View::make('Varasto/Varastotilanteenmuutos.html', array('Varastotilanne' => $muutettava_varastotieto));
+    View::make('Varasto/Varastonmuutos.html', array('Varastotilanne' => $muutettava_varastotieto));
   
   }  // end of varasto_edit
   
