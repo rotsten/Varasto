@@ -32,7 +32,7 @@
         return $kayttaja;
       }
       else {
-        View::make('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen'));   
+        //View::make('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen'));   
       } 
 
       // Käyttäjä ei ole kirjautunut sisään
