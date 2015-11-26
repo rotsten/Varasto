@@ -23,11 +23,11 @@
       if(isset($_SESSION['Kayttaja'])){
         $kayttajatunnus = $_SESSION['Kayttaja'];
         
-        Kint::dump($kayttajatunnus);
+        //Kint::dump($kayttajatunnus);
         
         // Pyydetään Kayttaja-mallilta käyttäjä session mukaisella id:llä
         $kayttaja = Kayttaja::find($kayttajatunnus);
-        Kint::dump($kayttaja);
+        //Kint::dump($kayttaja);
 
         return $kayttaja;
       }
@@ -54,11 +54,11 @@
         
     if(empty($tarkistettava_kayttaja['kayttooikeudet'])) {
       // Arvo on tyhjä. EI voi olla pääkäyttäjä
-      Kint::dump($tarkistettava_kayttaja);
+      //Kint::dump($tarkistettava_kayttaja);
       return FALSE; 
     } else {  
       // Pääkäyttäjälle on asetettu käyttöoikeudet.
-      Kint::dump($tarkistettava_kayttaja);
+      //Kint::dump($tarkistettava_kayttaja);
       return TRUE;
     } // end of else
   } // end of check_user_rights()
