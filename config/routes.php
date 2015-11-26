@@ -18,12 +18,33 @@
     KayttajaController::handle_login();
   });
   
+  function check_logged_in(){
+    BaseController::check_logged_in();
+  }
+
+  $routes->get('/Tuote', 'check_logged_in', function(){
+    TuoteController::index();
+  });
+
+  $routes->get('/Tuote/Lisaatuote', 'check_logged_in', function(){
+    TuoteController::tuote_create();
+  });
+
+  $routes->get('/Tuote/:tuote_id', 'check_logged_in', function($tuote_id){
+    TuoteController::tuote_show($tuote_id);
+  });
+
   // Kirjautumisen jälkeen pääsivun esittely
   $routes->get('/Paasivu', function() {
     KayttajaController::paasivu_show();
   });
+  
+  // Uloskirjautumisen käsittely
+  $routes->post('/logout', function(){
+    KayttajaController::logout();
+  });
 
-  // Tuotteen lisäyslomakkeen näyttäminen
+  // Käyttäjän lisäyslomakkeen näyttäminen
   $routes->get('/Kayttaja/LisaaKayttaja', function(){
     KayttajaController::kayttaja_lisaa_show();
   });

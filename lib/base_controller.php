@@ -2,6 +2,18 @@
 
   class BaseController{
 
+    public static function index(){
+       self::check_logged_in();
+    }
+    
+    public static function show($kayttajatunnus){
+      self::check_logged_in();
+    }
+
+    public static function edit($kayttajatunnus){
+      self::check_logged_in();
+    }
+        
     public static function get_user_logged_in(){
       /* palauttaa sovellukseemme kirjautuneen käyttäjän oliona, 
        * jotta voimme käyttää tietoa kirjautuneesta käyttäjästä 
@@ -26,7 +38,8 @@
     public static function check_logged_in($kayttajatunnus){
       // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
         
-        if(!isset($_SESSION['kayttajatunnus'])){
+        // Sessioon on tallennettu kirjautuneen käyttäjän käyttäjätunnus
+        if(!isset($_SESSION['Kayttaja'])){
             Redirect::to('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen')); 
          }  
     } 

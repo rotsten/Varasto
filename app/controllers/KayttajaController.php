@@ -77,49 +77,27 @@ class KayttajaController extends BaseController {
     */
       
     $params = $_POST;
-    //$annettu_kayttajatunnus=$_POST['kayttajatunnus'];
-    //$annettu_salasana      =$_POST['salasana'];
+    $errors = array();
     
-    // Success-flag setting
-    
-    
-     $errors = array();
-     $errors = KayttajaController::check_login_params($params);
- 
-   
-   // Tsekkaa antoiko käyttäjä käyttäjätunnuksen:
-   /* 
-    if (empty($params['kayttajatunnus'])){
-       print '<p class="error">Anna käyttäjätunnus.</p>';
-       $okay = FALSE;
-    }
-    
-    // Tsekkaa antoiko käyttäjä salasanan:   
-    if (empty($params['salasana'])){
-       print '<p class="error">Anna salasana.</p>';
-       $okay = FALSE;
-    }
-    */
-    /*
-    if (empty($submit['salasana'])) {
-            print '<p class="error">Anna salasana.</p>';
-            $okay = FALSE;
-    }*/
+    // Tarkistetaan, että käyttäjätunnus ja salasana ovat annettu
+    $errors = KayttajaController::check_login_params($params);
        
     if(count($errors) == 0){
-         
+       
+       // Tarkistetaan löytyykö annettu käyttäjätunnus + salasana -pari
        $kayttaja = KayttajaController::authenticate($params['kayttajatunnus'], $params['salasana']);
 
       if(!$kayttaja){
           View::make('/Kayttaja/Kirjaudu.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['kayttajatunnus']));
       } else{
-          $_SESSION['kayttajatunnus'] = $kayttaja->kayttajatunnus;
+          // Sessioon annetaan käyttäjän käyttäjätunnus
+          $_SESSION['Kayttaja'] = $kayttaja->kayttajatunnus;
 
           Redirect::to('/Paasivu', array('message' => 'Tervetuloa takaisin ' . $kayttaja->etunimi . '!'));
       } // the end of function
     } // the end of function
     else {
-        // Jotain viellä käyttäjätunnuksen ja salasanan antamisessa:
+        // Jotain virheitä käyttäjätunnuksen ja salasanan antamisessa:
         Redirect::to('/Kayttaja/Kirjaudu', array('errors' => $errors));
     } // end of if
   } // the end of handle_login()
@@ -291,4 +269,15 @@ class KayttajaController extends BaseController {
       return TRUE;
     } // end of else
   } // end of check_user_rights()
+ 
+  /*****************************************
+   * 
+   * Kirjaudutaan ulos
+   * 
+   *****************************************/
+
+  public static function logout(){
+    $_SESSION['Kayttaja'] = null;
+    Redirect::to('/Kirjaudu', array('message' => 'Olet kirjautunut ulos!'));
+  }
 } // THE END of class
