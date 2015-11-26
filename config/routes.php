@@ -88,6 +88,16 @@
     TuoteController::tuote_list();
   });
   
+  // Tulostaa tuotteen hakusivun
+  $routes->get('/Tuote/Tuotteenhakeminen', function() {
+    TuoteController::tuote_hae_show();
+  });
+  
+  // Tulostaa tuotteen hakutulokset (haettu tuote-id:llä) tuotesivulle 
+  $routes->post('/Tuote/Tuotteenhakeminen', function(){
+   TuoteController::find_tuote_post();
+  });
+  
   $routes->get('/Tuote', 'check_logged_in', function(){
     TuoteController::index();
   });
@@ -100,16 +110,7 @@
     TuoteController::tuote_show($tuote_id);
   });
   
-  // Tulostaa tuotteen hakusivun
-  $routes->get('/Tuote/Tuotteenhakeminen', function() {
-    TuoteController::tuote_hae_show();
-  });
   
-  // Tulostaa tuotteen hakutulokset (haettu tuote-id:llä) tuotesivulle 
-  $routes->post('/Tuote/Tuotteenhakeminen', function(){
-   TuoteController::find_tuote_post();
-  });
-     
    /*
     * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
     * taan tuote_search() -funktiota.
