@@ -39,7 +39,7 @@
       return null;
     } // end of get_user_logged_in()
 
-    public static function check_logged_in($kayttajatunnus){
+    public static function check_logged_in(){
       // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
         
         // Sessioon on tallennettu kirjautuneen käyttäjän käyttäjätunnus

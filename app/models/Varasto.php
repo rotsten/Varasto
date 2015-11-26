@@ -14,7 +14,7 @@
 class Varasto extends BaseModel{
     
    // attribuutit
-  public $tuote_id, $lukumaara, $history_kuka_inventoi;
+  public $tuotteet, $lukumaara, $history_kuka_inventoi;
   
   // konstruktori
   public function __construct ($attributes){
@@ -35,7 +35,8 @@ class Varasto extends BaseModel{
     foreach($rows as $row){
 
       $varastotilanne[] = new Varastotilanne(array(
-        'tuote_id' => $row['tuote_id'],
+        'varasto_id' => $row['varasto_id'],
+        'tuote' => $row['tuotteet'],
         'lukumaara' => $row['lukumaara'],  
         'history_kuka_inventoi' => $row['history_kuka_inventoi']
       ));
