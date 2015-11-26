@@ -20,7 +20,7 @@
        * näkymissä ja kontrollereissa. 
        */
 
-      if(isset($_SESSION['kayttaja'])){
+      if(isset($_SESSION['Kayttaja'])){
         $kayttajatunnus = $_SESSION['Kayttaja'];
         
         Kint::dump($kayttajatunnus);
