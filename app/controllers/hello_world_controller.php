@@ -15,7 +15,7 @@
       //TuoteController::find_tuote_post('9789523001084');
       //
       
-      echo get_user_logged_in();
+      echo BaseController::get_user_logged_in();
       
       echo $varastotilanne = Varastotilanne::all();
             
