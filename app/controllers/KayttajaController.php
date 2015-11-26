@@ -11,7 +11,7 @@
  *
  * @author rotsten
  */
-class KayttajaController extends BaseController {
+class KayttajaController extends base_controller {
     
     public static function Kirjaudu(){
       View::make('/Kayttaja/Kirjaudu.html');
