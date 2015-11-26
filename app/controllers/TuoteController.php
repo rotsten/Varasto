@@ -18,7 +18,7 @@ class TuoteController extends BaseController{
    *****************************************/
     
   public static function index(){
-     Kint::dump($_SESSION['kayttaja'])
+     Kint::dump($_SESSION['Kayttaja']);
      View::make('Aloitussivu.html');
   }
  
