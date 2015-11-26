@@ -49,7 +49,7 @@ class KayttajaController extends BaseController {
 
   public static function check_login_params($params){
            
-     Kint::dump($params);            
+     //Kint::dump($params);            
      $errors  = array();
      $errors2 = array();
      
@@ -88,7 +88,8 @@ class KayttajaController extends BaseController {
        $kayttaja = KayttajaController::authenticate($params['kayttajatunnus'], $params['salasana']);
 
       if(!$kayttaja){
-          View::make('/Kayttaja/Kirjaudu.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['kayttajatunnus']));
+          $errors []= 'Väärä käyttäjätunnus tai salasana!'; 
+          View::make('/Kayttaja/Kirjaudu.html', array('errors' => $errors, 'attributes' => $params));
       } else{
           // Sessioon annetaan käyttäjän käyttäjätunnus
           $_SESSION['Kayttaja'] = $kayttaja->kayttajatunnus;
