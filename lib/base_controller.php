@@ -27,6 +27,7 @@
         
         // Pyydetään Kayttaja-mallilta käyttäjä session mukaisella id:llä
         $kayttaja = Kayttaja::find($kayttajatunnus);
+        Kint::dump($kayttaja);
 
         return $kayttaja;
       }
