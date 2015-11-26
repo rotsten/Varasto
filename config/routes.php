@@ -22,18 +22,6 @@
     BaseController::check_logged_in();
   }
 
-  $routes->get('/Tuote', 'check_logged_in', function(){
-    TuoteController::index();
-  });
-
-  $routes->get('/Tuote/Lisaatuote', 'check_logged_in', function(){
-    TuoteController::tuote_create();
-  });
-
-  $routes->get('/Tuote/:tuote_id', 'check_logged_in', function($tuote_id){
-    TuoteController::tuote_show($tuote_id);
-  });
-
   // Kirjautumisen jälkeen pääsivun esittely
   $routes->get('/Paasivu', function() {
     KayttajaController::paasivu_show();
@@ -98,6 +86,18 @@
    // tuotteiden listaaminen 
   $routes->get('/Tuote/Tuotteidenlistaus', function() {
     TuoteController::tuote_list();
+  });
+  
+  $routes->get('/Tuote', 'check_logged_in', function(){
+    TuoteController::index();
+  });
+
+  $routes->get('/Tuote/Lisaatuote', 'check_logged_in', function(){
+    TuoteController::tuote_create();
+  });
+
+  $routes->get('/Tuote/:tuote_id', 'check_logged_in', function($tuote_id){
+    TuoteController::tuote_show($tuote_id);
   });
   
   // Tulostaa tuotteen hakusivun
