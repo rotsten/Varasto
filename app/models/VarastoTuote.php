@@ -49,7 +49,8 @@ class VarastoTuote extends BaseModel{
     $query = DB::connection()->prepare('SELECT * FROM VARASTO_TUOTE WHERE varasto_id =: varasto_id;');
     
     // Suoritetaan kysely
-    $query->execute(array('varasto_id' => $varasto_id));
+    //$query->execute(array('varasto_id' => $varasto_id));
+    $query->execute;
     
     // Haetaan kyselyn tuottamat rivit
     $varaston_tuote_idt = $query->fetchAll();
