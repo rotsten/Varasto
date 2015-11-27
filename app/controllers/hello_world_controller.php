@@ -13,9 +13,8 @@
       
       //TuoteController::find_tuote_with_tuote_id('9518752761');
       //TuoteController::find_tuote_post('9789523001084');
-      //
       
-      echo BaseController::get_user_logged_in();
+      VarastoTuoteController::varastotilanne_show('001');
       
       //echo $varastotilanne = Varastotilanne::all();
             
