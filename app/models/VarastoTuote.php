@@ -46,11 +46,11 @@ class VarastoTuote extends BaseModel{
   public static function all_in_varasto($varasto_id){
       
     //Tulostaa kaikki tuotteet, jotka ovat tietyssä varastossa      
-    $query = DB::connection()->prepare('SELECT * FROM VARASTO_TUOTE WHERE varasto_id =: varasto_id;');
+    $query = DB::connection()->prepare('SELECT * FROM VARASTO_TUOTE WHERE varasto_id = :varasto_id;');
     
     // Suoritetaan kysely
-    //$query->execute(array('varasto_id' => $varasto_id));
-    $query->execute;
+    $query->execute(array('varasto_id' => $varasto_id));
+    //$query->execute;
     
     // Haetaan kyselyn tuottamat rivit
     $varaston_tuote_idt = $query->fetchAll();
