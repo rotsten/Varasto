@@ -13,7 +13,7 @@
  */
 class VarastoController extends BaseController{
        
-    public static function index(){
+  public static function index(){
     $varastotilanne = Varasto::all();
     View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
   }
@@ -72,7 +72,19 @@ class VarastoController extends BaseController{
      */
        
     $varastot = Varasto::all();
-    Kint::dump($varastot);
+    //Kint::dump($varastot);
+    View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
+
+  }  // end of varasto_list
+  
+    public static function varasto_list(){
+    /*
+     * Tämä funktio kutsuu, all-funktiota,
+     * mikä hakee varastotilanteen tietokannasta VARASTO-taulusta
+     */
+       
+    $varastot = Varasto::all();
+    //Kint::dump($varastot);
     View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
 
   }  // end of varasto_list

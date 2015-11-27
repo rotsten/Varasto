@@ -40,6 +40,12 @@ class VarastoTuoteController extends BaseController{
     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $varaston_tuotteet));
        
   }  // end of tuote_list  
+  
+  
+// Näyttää varastotilanteen listaus
+  public static function varastotilanne_show(){
+    View::make('Varasto/Varastotilannelistaus.html');
+  }
 
   public static function varasto_tuotetiedot_list($varasto_id){
 
