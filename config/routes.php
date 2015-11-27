@@ -166,12 +166,12 @@
   $routes->get('/Varasto/Varastonlistaus', function() {
     VarastoController::varasto_list();
   });
-  
+
   // Varaston muuttamiseen liittyvä sivu (tsekkaa reitti)
   $routes->get('/Varasto/Varastonmuutos', function() {
     VarastoController::varasto_list();
   });
-  
+   
   // Näyttää yksittäisen varaston tiedot
   $routes->get('/Varasto/Varastosivu/:varasto_id', function($varasto_id){
     VarastoController::varasto_show($varasto_id);

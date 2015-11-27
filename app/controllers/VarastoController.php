@@ -65,18 +65,6 @@ class VarastoController extends BaseController{
    * 
    *****************************************/
   
-  public static function varasto_list(){
-    /*
-     * Tämä funktio kutsuu, all-funktiota,
-     * mikä hakee varastotilanteen tietokannasta VARASTO-taulusta
-     */
-       
-    $varastot = Varasto::all();
-    //Kint::dump($varastot);
-    View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
-
-  }  // end of varasto_list
-  
     public static function varasto_list(){
     /*
      * Tämä funktio kutsuu, all-funktiota,
