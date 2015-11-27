@@ -79,7 +79,7 @@ class VarastoTuote extends BaseModel{
                                         WHERE varasto_id =:varasto_id;');
     //ORDER BY TUOTE.tuotteen_nimi
     // Suoritetaan kysely
-    $query->execute();
+    $query->execute(array(':varasto_id' => $varasto_id));
     // Haetaan kyselyn tuottamat rivit
     $varaston_tuotetiedot = $query->fetchAll();
 
