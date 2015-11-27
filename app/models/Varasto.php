@@ -101,7 +101,7 @@ class Varasto extends BaseModel{
        $errors_varaston_nimi[] = 'Jätit varaston nimen antamatta!';
     }
     if(strlen($this->nimi) < 3){
-      $$errors_varaston_nimi[] = 'Varaston nimen pitää olla vähintään 3 merkkiä pitkä!';
+      $errors_varaston_nimi[] = 'Varaston nimen pitää olla vähintään 3 merkkiä pitkä!';
     }                                   
     return $errors_varaston_nimi;
   }
