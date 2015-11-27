@@ -6,23 +6,24 @@
    <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Tuote-ID</th>
-        <th>Lukumäärä</th>
-        <th>Inventoinut</th>
+        <th>Varasto-ID</th>
+        <th>Varaston nimi</th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <!-- Listataan Varaston tuotteet (+ tuotenimet) tähän eli haetaan. 
-           Tämä vaatii koontitaulun luomista tietokantaan ja sen sisällön 
-           listaamista
+      <!-- Ensimmäisellä sivulla (TÄMÄ SIVU) listataan kaikki varastot ja painikkeesta 
+           voi valita, minkä varaston tarkemmat tuotetiedot haluaa 
+           nähdä.
+      
+           Seuraavassa taulussa (varastotilannelistaus) ovat siis tuotetiedot ja lukumäärät 
       -->
       {% for Varasto in Varasto %}
           <tr>
-            <td><a href="#">{{Varasto.tuote_id}}</a></td>
-            <td>{{Varasto.lukumaara}}</td>
-            <td>{{Varasto.history_kuka_inventoi}}</td>
+            <td><a href="#">{{Varasto.varsto_id}}</a></td>
+            <td>{{Varasto.nimi}}</td>
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilannelistaus/{{Varasto.varasto_id}}">Näytä kaikki varaston tuotteet</a></th>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilanteenmuutos/{{Varasto.tuote_id}}"> Muokkaa</a></th>
           </tr>
       {% endfor %}

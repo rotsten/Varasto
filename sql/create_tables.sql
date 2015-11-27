@@ -18,11 +18,13 @@
  );
 
 CREATE TABLE VARASTO (
-	tuote_id                  varchar(13), 
-        lukumaara                 INTEGER DEFAULT(0),
-	history_kuka_inventoi	  varchar(8), 
-        FOREIGN KEY (tuote_id) REFERENCES TUOTE (tuote_id) ON DELETE CASCADE,
-        FOREIGN KEY (history_kuka_inventoi) REFERENCES KAYTTAJA (kayttajatunnus) ON DELETE NO ACTION
+        varasto_id     INTEGER PRIMARY KEY, 
+        name varchar(50) NOT NULL);
+
+CREATE TABLE VARASTO_TUOTE (
+        varasto_id     INTEGER,
+        tuote_id       VARCHAR(13),
+        lukumaara      INTEGER DEFAULT(0),
+        FOREIGN KEY (varasto_id) REFERENCES VARASTO (varasto_id),
+        FOREIGN KEY (tuote_id) REFERENCES TUOTE (tuote_id) ON DELETE CASCADE
 );
-
-

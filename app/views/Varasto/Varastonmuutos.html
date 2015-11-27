@@ -3,19 +3,21 @@
 
      <form  method="post">
      <div class="form-group">
-          <label>Tuote-id </label>
-          <input type="text" class="form-control" value="{{Varasto.tuote_id}}">
+          <label>Varasto-id </label>
+          <input type="text" class="form-control" value="{{Varasto.varasto_id}}">
         </div>
         <div class="form-group">
-          <label>Lukumäärä</label>
-          <input type="text" class="form-control" value="{{Varasto.lukumaara}}">
+          <label>Varaston nimi</label>
+          <input type="text" class="form-control" value="{{Varasto.nimi}}">
         </div>
         <div class="form-group">
-          <button type ="submit" class="btn btn-default" value=tuote_post_edit{{Varasto.tuote_id}}>Tallenna muutokset</button>
+          <label>Varaston osoite</label>
+          <input type="text" class="form-control" value="{{Varasto.osoite}}">
+        </div>
+        <div class="form-group">
+          <button type ="submit" class="btn btn-default" value=varasto_post_edit{{Varasto.varasto_id}}>Tallenna muutokset</button>
           <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle tallentamatta</A></button>
         </div>
     </form>
-    
-<h4> Huom, varastokirjanpidossa voi tuotteen määräksi merkitä 0, mutta täältä käsin ei voi poistaa tuotetta valikoimista,</h4>
         
 {% endblock %}

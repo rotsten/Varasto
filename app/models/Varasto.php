@@ -1,9 +1,10 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Tämä oli on eri varastojen hallinnointiin. 
+ * Tuotteita voi olla säilytettynä 1-n:ään varastoon ja 
+ * jokaisessa varastossa voi olla (tietysti) monia eri 1-n 
+ * tuotearikkeileita (ja niitä voi olla kappalemääräisesti 0-n).
  */
 
 /**
@@ -14,7 +15,10 @@
 class Varasto extends BaseModel{
     
    // attribuutit
-  public $tuotteet, $lukumaara, $history_kuka_inventoi;
+  public $varasto_id, $nimi, $osoite;
+  
+  // Myöhemmin voidaan lisätä lisää attribuutteja, kuten vaikka osoite
+  // Tai jokin kenttä kuvaukselle tai kommenteille.
   
   // konstruktori
   public function __construct ($attributes){
@@ -34,11 +38,10 @@ class Varasto extends BaseModel{
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
 
-      $varastotilanne[] = new Varastotilanne(array(
+      $varastotilanne[] = new Varasto(array(
         'varasto_id' => $row['varasto_id'],
-        'tuote' => $row['tuotteet'],
-        'lukumaara' => $row['lukumaara'],  
-        'history_kuka_inventoi' => $row['history_kuka_inventoi']
+        'nimi' => $row['nimi'],
+        'osoite' => $row['osoite']
       ));
              
     } // end of foreach
@@ -46,44 +49,61 @@ class Varasto extends BaseModel{
     return $varastotilanne;
   }
   
-  public static function find($tuote_id){
+  public static function getNimiById ($varastoid) {
+  
+    $query = DB::connection()->prepare('SELECT nimi FROM VARASTO WHERE varasto_id = :varasto_id LIMIT 1');
+    $query->execute(array('varasto_id' => $varasto_id));
+    $varastonnimi = $query->fetch();
+    
+    return varastonnimi;          
+  }
+  
+  public static function find($varasto_id){
       
     //Kint::dump($tuote_id);
     
-    $query = DB::connection()->prepare('SELECT * FROM VARASTO WHERE tuote_id = :tuote_id LIMIT 1');
-    $query->execute(array('tuote_id' => $tuote_id));
+    $query = DB::connection()->prepare('SELECT * FROM VARASTO WHERE varasto_id = :varasto_id LIMIT 1');
+    $query->execute(array('varasto_id' => $varasto_id));
     $row = $query->fetch();
     if($row){
-      $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
-        'lukumaara' => $row['lukumaara'],
-        'history_kuka_inventoi' => $row['history_kuka_inventoi'] 
+      $varasto = new Varasto(array(
+        'varasto_id' => $row['varasto_id'],
+        'nimi' => $row['nimi'],
+        'osoite' => $row['osoite']
       ));
     
       //Kint::dump($tuote);
-      return $tuote;
+      return $varasto;
             
      } // end of if
   } // end of find_tuote (tuote_id)
   
-  public function validate_lukumaara(){
-      
-    /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
-     * Lukumäärän antaminen ei ole välttämätöntä.
+  public function modify () {
+                
+    $query = DB::connection()->prepare ('UPDATE VARASTO SET varasto_id = :new_varasto_id,
+                                                            nimi = :new_nimi 
+                                                            osoite =:new_osoite WHERE varasto_id =:varasto_id;');
+    $query->execute(array('varasto_id' => $this->varsto_id, 
+                          'new_nimi' => $this->nimi,
+                          'new_osoite' => $this->osoite
+                          )); 
+  }
+  
+  public function validate_varaston_nimi(){
+        
+    /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
+     * Esimerkiksi merkkijonon pitää olla ainakin 3 merkkiä
+     * pitkä.
      */
         
-     $errors_lukumaara = array();
-      
-     // tarkistaa, että sisältää vain numeroita
-     if (is_numeric($this->tuote_id)) {
-       if ($this->tuote_id < 0) {
-           $errors_lukumaara[] = 'lukumäärä on aina positiivinen kokonaisluku!'; 
-       }
-     } else {
-         $errors_lukumaara[] = 'Lukumäärä ei saa sisältää muita merkkejä kuin numeroita!';
-     }  
-       
-     return $errors_lukumaara;
+    $errors_varaston_nimi = array();
+    if($this->nimi == '' || $this->nimi == null){
+       $errors_varaston_nimi[] = 'Jätit varaston nimen antamatta!';
+    }
+    if(strlen($this->nimi) < 3){
+      $$errors_varaston_nimi[] = 'Varaston nimen pitää olla vähintään 3 merkkiä pitkä!';
+    }                                   
+    return $errors_varaston_nimi;
   }
 } // end of class
 

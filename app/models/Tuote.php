@@ -46,7 +46,7 @@ class Tuote extends BaseModel {
      * palauttaa ne Tuotteet -nimisessä taulukossa
      */
 
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE');
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit

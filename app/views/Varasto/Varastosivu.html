@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+
+<H2>Varaston tietojen listaussivu</H2>
+
+    <form action="handle_form.php">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Varaston id</th>
+            <th>Varaston nimi</th>
+            <th>Osoite</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+           <tr>
+             <td>{{varasto.varasto_id}}</td> 
+             <td>{{varasto.nimi}}</td>  
+             <td>{{varasto.osoite}}</td>  
+             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastonmuutos/{{varasto.varasto_id}}">Muokkaa</a></th>
+             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Poistavarasto/{{varasto.varasto_id}}">Poista tuote</a></th>
+          </tr>
+         </tbody>    
+      </table>
+    </form>    
+
+    <button class="btn btn-default"><A href="{{base_path}}/Paasivu"> Pääsivulle</A></button>
+
+{% endblock %}

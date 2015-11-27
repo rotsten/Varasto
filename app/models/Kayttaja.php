@@ -29,13 +29,18 @@ class Kayttaja extends BaseModel {
   }
   
   public static function all(){
-    // Alustetaan kysely tietokantayhteydellämme
-    $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA');
+    /* 
+     * Alustetaan kysely tietokantayhteydellämme
+     * Listataan kaikki KAYTTAJA-tauluun lisätyt
+     * käyttäjät käyttäjätunnuksen mukaan laskevasti
+     * aakkosjärjestykseen. 
+     */
+    $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA ORDER BY KAYTTAJATUNNUS');
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
-    $Kayttajat = array();
+    $kayttajat = array();
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){

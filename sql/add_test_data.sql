@@ -96,3 +96,12 @@ VALUES ('9512009110', '12', 'Kylli');
 
 INSERT INTO VARASTO (Tuote_ID, Lukumaara, History_kuka_inventoi)
 VALUES ('2057030102660', '13', 'Kylli');
+
+INSERT INTO VARASTO (varasto_id, nimi)
+VALUES ('001', 'Ilvesvuoren teollisuusalue, halli 1');
+
+INSERT INTO VARASTO (varasto_id, nimi)
+VALUES ('002', 'Ilvesvuoren teollisuusalue, halli 2');
+
+INSERT INTO VARASTO (varasto_id, nimi)
+VALUES ('003', 'Ilvesvuoren teollisuusalue, halli 3');

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<H2>Varaston {{varastonnimi}} esittelysivu</H2>
+
 <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
    
    <table class="table table-striped table-bordered">
@@ -8,23 +10,29 @@
       <tr>
         <th>Tuote-ID</th>
         <th>Tuotteen nimi</th>
-        <th>Lukumäärä</th>
-        <th>Inventoinut</th>
+        <th>Valmistajan nimi</th>
+        <th>Kuvaus</th>
+        <th>Lukumäärä tässä varastossa</th>
         <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <!-- Listataan Varaston tuotteet (+ tuotenimet) tähän eli haetaan. 
-           Tämä vaatii koontitaulun luomista tietokantaan ja sen sisällön 
-           listaamista
+      <!-- Ensimmäisellä sivulla (Varastolistaus) listataan kaikki varastot ja 
+           painikkeesta voi valita, minkä varaston tarkemmat tuotetiedot haluaa 
+           nähdä.
+      
+           Seuraavassa taulussa (eli tässä varastotilannelistauksessa) ovat 
+           siis yksittäisen varaston tuotetiedot ja lukumäärät. 
       -->
       {% for Varastotilanne in varastotilanne %}
           <tr>
-            <td><a href="#">{{varastotilanne.tuote_id}}</a></td>
-            <td>{{varastotilanne.tuotteen_nimi}}</a></td>
-            <td>{{varastotilanne.lukumaara}}</td>
-            <td>{{varastotilanne.history_kuka_inventoi}}</td>
+            <td><a href="#">{{Varaston_tuotteet.tuote_id}}</a></td>
+            <td>{{Varaston_tuotteet.tuotteen_nimi}}</a></td>
+            <td>{{Varaston_tuotteet.valmistaja}}</a></td>
+            <td>{{Varaston_tuotteet.kuvaus}}</a></td>
+            <td>{{Varaston_tuotteet.lukumaara}}</td>
+            <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotesivu/{{Tuote.tuote_id}}">Katso tarkemmat tuotetiedot</a></th>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilanteenmuutos/{{Varasto.tuote_id}}"> Muokkaa</a></th>
           </tr>
       {% endfor %}

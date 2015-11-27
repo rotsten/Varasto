@@ -110,7 +110,6 @@
     TuoteController::tuote_show($tuote_id);
   });
   
-  
    /*
     * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
     * taan tuote_search() -funktiota.
@@ -158,21 +157,39 @@
   */
 
   // Varastoon liittyvät
+  // varaston lisäyslomakkeen näyttäminen
+  $routes->get('/Varasto/LisaaVarasto', function(){
+    VarastoController::varasto_lisaa_show();
+  });
+  
   // Varaston listaamiseen liittyvä sivu
   $routes->get('/Varasto/Varastonlistaus', function() {
     VarastoController::varasto_list();
   });
   
-  $routes->get('/Varasto/Varastotilannelistaus', function() {
-    VarastotilanneController::varastotilanne_list();
+  // Varaston muuttamiseen liittyvä sivu (tsekkaa reitti)
+  $routes->get('/Varasto/Varastonmuutos', function() {
+    VarastoController::varasto_list();
   });
   
-  // Varaston muuttamiseen liittyvä sivu
+  // Näyttää yksittäisen varaston tiedot
+  $routes->get('/Varasto/Varastosivu/:varasto_id', function($varasto_id){
+    VarastoController::varasto_show($varasto_id);
+  });
+  
+  // Tänne tulee yhdistettyjen taulujen listaus
+  $routes->get('/Varasto/Varastotilannelistaus', function() {
+    VarastoController::varastotilanne_list();
+  });
+  
+  // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu
+  // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
   $routes->get('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
     VarastoController::varasto_edit($tuote_id);
   });
   
-  // Ottaa vastaan muutokset
+  // Ottaa vastaan muutokset (lukumäärän muutokset)
+ // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
   $routes->post('/Varasto/Varastotilanteenmuutos/:tuote_id', function($tuote_id) {
     VarastoController::varasto_edit_post($tuote_id);
   });

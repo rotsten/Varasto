@@ -18,6 +18,53 @@ class VarastoController extends BaseController{
     View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
   }
 
+  /*****************************************
+   * 
+   * Varaston lisäys
+   * 
+   *****************************************/
+    
+  // Näyttää varaston lisäyssivun
+  public static function varasto_lisaa_show(){
+    View::make('Varasto/LisaaVarasto.html');
+  }
+   
+  public static function varasto_create (){    
+
+     
+    // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
+    $params = $_POST;
+        
+    $uusi_varasto = new VarastoTuote(array(
+      'varasto_id' => $params['varasto_id'], 
+      'nimi' => $params['nimi']
+    ));
+    
+    $errors = $uusi_varasto->errors();
+    
+    if(count($errors) == 0){
+  
+      //Kint::dump($uusi_varasto);
+      $uusi_varasto ->save();
+      
+      /* Ohjataan käyttäjä lisäyksen jälkeen varaston esittelysivulle. 
+       */
+      
+      Redirect::to('/Varasto/Varastosivu/' . $params['varasto_id'], $uusi_varasto);
+          
+    } else{
+        View::make('Varasto/LisaaVarasto.html', array('errors' => $errors, 'attiributes' => $params));
+    }
+    
+    return;
+  }
+  
+  /*****************************************
+   * 
+   * Varaston listaaminen
+   * 
+   *****************************************/
+  
   public static function varasto_list(){
     /*
      * Tämä funktio kutsuu, all-funktiota,
@@ -30,62 +77,72 @@ class VarastoController extends BaseController{
 
   }  // end of varasto_list
   
-  public static function find_with_tuote_id($tuote_id){
-    
-    $etsittava_varaston_tuote = Varasto::find($tuote_id);  
-    //Kint::dump($etsittava_varaston_tuote);
-    
-    return $etsittava_varaston_tuote;
-
-  } // end of find_with_tuote_id[$tuote_id)
+  /*****************************************
+   * 
+   * Varaston etsiminen
+   * 
+   *****************************************/
   
-  public static function varasto_edit($tuote_id){
+  public static function find_with_varasto_id($varasto_id){
+    
+    $etsittava_varasto = Varasto::find($varasto_id);  
+    
+    return $etsittava_varasto;
+
+  } // end of find_with_varasto_id[$varasto_id)
+  
+  /*****************************************
+   * 
+   * Varaston muuttaminen
+   * 
+   *****************************************/
+  
+  public static function varasto_edit($varasto_id){
 
     //Etsitään ensin tuote, mitä se koskee.
-    $muutettava_varastotieto = VarastoController::find_with_tuote_id($tuote_id);
+    $muutettava_varastotieto = VarastoController::find_with_varasto_id($varasto_id);
 
-    View::make('Varasto/Varastonmuutos.html', array('Varastotilanne' => $muutettava_varastotieto));
+    View::make('Varasto/Varastonmuutos.html', array('Varasto' => $muutettava_varastotieto));
   
   }  // end of varasto_edit
   
-  public static function varasto_edit_post($tuote_id){
+  public static function varasto_edit_post($varasto_id){
      
     $uudet_tiedot = $_POST; 
-       
-     /*
-      * Asetetaan päivämäärä ja timestamp. 
-      * Olisi järkevää, jos tämä tulisi aina automaattisesti.
-      */
-       
-      /* 
-       * Mikäli lukumäärää ei ole annettu, asetetaan arvoksi 
-       * nolla FFFF:n sijasta.
-       */
-  
-    if (empty($uudet_tiedot['lukumaara'])){
-      $uudet_tiedot['lukumaara'] = 0;
-    } 
-        
-    // Käyttäjän nimi saadaan automaattisesti
-    $uudet_tiedot['kayttajatunnus'] = base_controller::get_user_logged_in();
-    Kint::dump($uudet_tiedot);
 
-    // Tuotteen nimi ei voi muuttua. Välittyy kuitenkin POSTin kautta
+    //$uudet_tiedot['kayttajatunnus'] = base_controller::get_user_logged_in();
     
     $muuttujat = array(
-      'tuote_id' => $uudet_tiedot['tuote_id'],
-      'lukumaara' => $uudet_tiedot['lukumaara'],
-      'history_kuka_inventoi' => $uudet_tiedot['kayttajatunnus'] 
+      'varasto_id' => $uudet_tiedot['varasto_id'],
+      'nimi' => $uudet_tiedot['nimi']
     );
 
-    $varastotilanne = new Varastotilanne ($muuttujat);
+    $muuttunut_varasto = new Varasto($muuttujat);
     //$errors = $Varasto->errors();
 
-    $varastotilanne ->modify();
+    $muuttunut_varasto ->modify();
 
     // Listataan varastotiedot, jotta muutos näkyy
-    $varastotilanne = Varasto::all();
-    View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
+    $muuttunut_varasto = Varasto::all();
+    View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $muuttunut_varasto));
     
   }  // end of varasto_edit_post
+  
+  /*****************************************
+   * 
+   * Varaston poisto
+   * 
+   *****************************************/
+  
+  public static function poista_varasto($varasto_id){
+          
+    $poistettava_varasto = new Varasto(array('varasto_id' => $varasto_id));        
+    $poistettava_varasto->destroy();
+       
+    // Käyttäjä näkee kaikkien varastojen listauksesta, että varasto on poistunut      
+    $Varastot = Varasto::all();
+
+    Redirect::to('/Varasto/Varastojenlistaus', array('Varastot' => $Varastot));
+ 
+  }
 } // The end
