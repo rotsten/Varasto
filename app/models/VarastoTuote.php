@@ -73,12 +73,12 @@ class VarastoTuote extends BaseModel{
      */  
     Kint::dump($varasto_id);
     
-    $query = DB::connection()->prepare('SELECT * FROM VARASTO_TUOTE 
-                                        LEFT JOIN TUOTE
-                                        ON VARASTO_TUOTE.tuote_id = TUOTE.tuote_id
-                                        WHERE varasto_id =:varasto_id
-                                        ORDER BY TUOTE.tuotteen_nimi;');
-        // Suoritetaan kysely
+    $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
+                                        RIGHT JOIN tuote
+                                        ON varasto_tuote.tuote_id = tuote.tuote_id
+                                        WHERE varasto_id =:varasto_id;');
+    //ORDER BY TUOTE.tuotteen_nimi
+    // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $varaston_tuotetiedot = $query->fetchAll();
