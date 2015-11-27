@@ -178,8 +178,8 @@
   });
   
   // Tänne tulee yhdistettyjen taulujen listaus
-  $routes->get('/Varasto/Varastotilannelistaus', function() {
-    VarastoController::varastotilanne_list();
+  $routes->get('/Varasto/Varastotilannelistaus', function($varasto_id) {
+    VarastoController::varasto_tuotetiedot_list($varasto_id);
   });
   
   // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu

@@ -136,7 +136,7 @@ class Kayttaja extends BaseModel {
                           'new_salasana' => $this->salasana,
                           'new_etunimi' => $this->etunimi, 
                           'new_sukunimi' => $this->sukunimi,
-                          'new_kayttooikeudet' => $this ->kayttooikeudet
+                          'new_kayttooikeudet' => $this->kayttooikeudet
                           )); 
   } // end of modify
              
@@ -197,11 +197,15 @@ class Kayttaja extends BaseModel {
   public function validate_kayttooikeudet(){
         
     /* Tarkistaa, onko annettu käyttöoikeus -tieto on "t" tai "f". 
-     * OIkeastaan tämä on jo varmistettu tarjoamalla alasvetovalikko.
+     * Listauksessa arvona on 1 tai 0... 
      */
         
     $errors_kayttooikeudet = array();
-    if($this->kayttooikeudet != 't' && $this->kayttooikeudet != 'f'){
+    if($this->kayttooikeudet != 't') {
+       $errors__kayttooikeudet[] = 'Virheellinen käyttöoikeustieto annettu!';
+    }
+    
+    if ($this->kayttooikeudet != 'f'){
        $errors__kayttooikeudet[] = 'Virheellinen käyttöoikeustieto annettu!';
     }
                                  
