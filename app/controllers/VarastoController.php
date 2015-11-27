@@ -72,7 +72,7 @@ class VarastoController extends BaseController{
      */
        
     $varastot = Varasto::all();
-    Kint::dump($varasto);
+    Kint::dump($varastot);
     View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
 
   }  // end of varasto_list
