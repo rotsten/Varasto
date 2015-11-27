@@ -59,14 +59,14 @@ class VarastoTuoteController extends BaseController{
      * Näyttää varston tuotteiden listaussivun. 
      */
    
-    Kint::dump($varasto_id);
+    //Kint::dump($varasto_id);
     
     // Etsi annetussa varastossa talletettujen tuotteiden tiedot
     $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
-    Kint::dump($varaston_tuotteet);
+    //Kint::dump($varaston_tuotteet);
     
     $varaston_nimi = Varasto::getNimiById($varasto_id);
-    Kint::dump($varaston_nimi);
+    //Kint::dump($varaston_nimi);
 
     View::make('Varasto/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi));
        
