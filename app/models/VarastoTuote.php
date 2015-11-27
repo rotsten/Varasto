@@ -76,7 +76,7 @@ class VarastoTuote extends BaseModel{
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
                                         RIGHT JOIN tuote
                                         ON varasto_tuote.tuote_id = tuote.tuote_id
-                                        WHERE varasto_id =:varasto_id;');
+                                        WHERE varasto_id :varasto_id;');
     //ORDER BY TUOTE.tuotteen_nimi
     // Suoritetaan kysely
     $query->execute(array(':varasto_id' => $varasto_id));
