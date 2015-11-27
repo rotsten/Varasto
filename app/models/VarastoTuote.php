@@ -71,11 +71,12 @@ class VarastoTuote extends BaseModel{
     /* Tulostaa kaikki tuotteet ja niiden tuotetiedot, 
      * jotka ovat tietyssä varastossa.
      */  
-      
+    Kint::dump($varasto_id);
+    
     $query = DB::connection()->prepare('SELECT * FROM VARASTO_TUOTE 
                                         LEFT JOIN TUOTE
                                         ON VARASTO_TUOTE.tuote_id = TUOTE.tuote_id
-                                        WHERE varasto_id = :varasto_id
+                                        WHERE varasto_id =:varasto_id
                                         ORDER BY TUOTE.tuotteen_nimi;');
         // Suoritetaan kysely
     $query->execute();
