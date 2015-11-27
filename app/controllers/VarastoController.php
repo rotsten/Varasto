@@ -59,6 +59,18 @@ class VarastoController extends BaseController{
     return;
   }
   
+   /*****************************************
+   * 
+   * Tietyn varaston tietojen esittäminen
+   * 
+   *****************************************/
+   public static function varasto_show($varasto_id){
+       
+       $etsittava_varasto =  VarastoController::find_with_varasto_id($varasto_id);
+       
+       View::make('Varasto/Varastosivu.html', array('varasto' => $etsittava_varasto));
+   }
+  
   /*****************************************
    * 
    * Varaston listaaminen
