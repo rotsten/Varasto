@@ -19,9 +19,9 @@
       
            Seuraavassa taulussa (varastotilannelistaus) ovat siis tuotetiedot ja lukumäärät 
       -->
-      {% for Varasto in Varasto %}
+      {% for varastot in varastot %}
           <tr>
-            <td><a href="#">{{Varasto.varsto_id}}</a></td>
+            <td><a href="#">{{Varasto.varasto_id}}</a></td>
             <td>{{Varasto.nimi}}</td>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilannelistaus/{{Varasto.varasto_id}}">Näytä kaikki varaston tuotteet</a></th>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilanteenmuutos/{{Varasto.tuote_id}}"> Muokkaa</a></th>

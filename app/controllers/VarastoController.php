@@ -71,9 +71,9 @@ class VarastoController extends BaseController{
      * mikä hakee varastotilanteen tietokannasta VARASTO-taulusta
      */
        
-    $varasto = Varasto::all();
+    $varastot = Varasto::all();
     Kint::dump($varasto);
-    View::make('Varasto/Varastonlistaus.html', array('varasto' => $varasto));
+    View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
 
   }  // end of varasto_list
   
