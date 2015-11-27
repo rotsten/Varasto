@@ -65,7 +65,7 @@ class VarastoTuoteController extends BaseController{
     $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
     Kint::dump($varaston_tuotteet);
     
-    $varaston_nimi = Varasto::getNimiById($varastoid);
+    $varaston_nimi = Varasto::getNimiById($varasto_id);
 
     View::make('Varasto/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi));
        
