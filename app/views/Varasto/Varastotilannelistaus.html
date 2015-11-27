@@ -25,15 +25,15 @@
            Seuraavassa taulussa (eli tässä varastotilannelistauksessa) ovat 
            siis yksittäisen varaston tuotetiedot ja lukumäärät. 
       -->
-      {% for Varastotilanne in varastotilanne %}
+      {% for Tuote in Varaston_tuotteet %}
           <tr>
             <td><a href="#">{{Varaston_tuotteet.tuote_id}}</a></td>
             <td>{{Varaston_tuotteet.tuotteen_nimi}}</a></td>
             <td>{{Varaston_tuotteet.valmistaja}}</a></td>
             <td>{{Varaston_tuotteet.kuvaus}}</a></td>
             <td>{{Varaston_tuotteet.lukumaara}}</td>
-            <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotesivu/{{Tuote.tuote_id}}">Katso tarkemmat tuotetiedot</a></th>
-            <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilanteenmuutos/{{Varasto.tuote_id}}"> Muokkaa</a></th>
+            <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotesivu/{{Varaston_tuotteet.tuote_id}}">Katso tarkemmat tuotetiedot</a></th>
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilanteenmuutos/{{Varaston_tuotteet.tuote_id}}"> Muokkaa</a></th>
           </tr>
       {% endfor %}
     </tbody>
