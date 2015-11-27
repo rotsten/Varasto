@@ -179,7 +179,7 @@
   
   // Tänne tulee yhdistettyjen taulujen listaus
   $routes->get('/Varasto/Varastotilannelistaus/:varasto_id', function($varasto_id){
-    VarastoController::varastotilanne_show($varasto_id);
+    VarastoTuoteController::varastotilanne_show($varasto_id);
   });
   
   $routes->get('/Varasto/Varastotilannelistaus', function($varasto_id) {

@@ -43,11 +43,14 @@ class VarastoTuoteController extends BaseController{
   
   
 // Näyttää varastotilanteen listaus
+  /*
+   * 
   public static function varastotilanne_show(){
     View::make('Varasto/Varastotilannelistaus.html');
-  }
+  } 
+   */
 
-  public static function varasto_tuotetiedot_list($varasto_id){
+  public static function varastotilanne_show($varasto_id){
 
     /*
      * Tämä funktio kutsuu xx -fuktiota, joka 
