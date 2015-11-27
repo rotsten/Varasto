@@ -52,10 +52,11 @@ class Varasto extends BaseModel{
   public static function getNimiById ($varasto_id) {
   
     $query = DB::connection()->prepare('SELECT nimi FROM VARASTO WHERE varasto_id =: varasto_id LIMIT 1');
-    $query->execute(array('varasto_id' => $varasto_id));
+    //$query->execute(array('varasto_id' => $varasto_id));
+    $query->execute();
     $varastonnimi = $query->fetch();
     
-    return varastonnimi;          
+    return $varastonnimi;          
   }
   
   public static function find($varasto_id){
