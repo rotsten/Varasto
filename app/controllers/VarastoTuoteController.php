@@ -177,42 +177,31 @@ class VarastoTuoteController extends BaseController{
   }
    */
   
-  public static function tuote_edit($tuote_id){
+  public static function varastotuote_edit($tuote_id){
     
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
        
-    $muutettava_tuote= Tuote::find($tuote_id);
+    $muutettava_tuote= Varasto_Tuote::find($tuote_id);
     //Kint::dump($muutettava_tuote);
-    View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
+    View::make('VarastoTuote/Lukumaaratietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
     
   }
   
-  public static function tuote_edit_post($tuote_id){
+  public static function varastotuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
   
-    /*
-     * Asetetaan päivämäärä ja timestamp. 
-     * Olisi järkevää, jos tämä tulisi aina automaattisesti.
-     */
-    if (empty($uudet_tiedot['history_date'])){
-        $t=time();
-        $uudet_tiedot['history_date'] = (date("Y-m-d",$t));
-    }
-    
     //Luodaan uusi tuote, jolla kutsutaan modifya...  
     $muuttujat= array(
+      'varasto_id' => $uudet_tiedot['varasto_id'],
       'tuote_id' => $uudet_tiedot['tuote_id'],
-      'tuotteen_nimi' => $uudet_tiedot['tuotteen_nimi'],
-      'kuvaus'=> $uudet_tiedot['kuvaus'], 
-      'valmistaja'=> $uudet_tiedot['valmistaja'],
-      'history_date'=> $uudet_tiedot['history_date']
+      'lukumaara'=> $uudet_tiedot['lukumaara']
     );
     
-    $muutettava_tuote = new Tuote ($muuttujat);
+    $muutettava_tuote = new VarastoTuote($muuttujat);
     
     // tsekataan syötteet
     $errors = $muutettava_tuote->errors();
@@ -224,13 +213,15 @@ class VarastoTuoteController extends BaseController{
         $muutettava_tuote ->modify();    
       
         // Listataan tuotetiedot, jotta muutos näkyy
-        TuoteController::tuote_list(); 
+        $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
+        $varaston_nimi = Varasto::getNimiById($varasto_id);
+        View::make('Varasto/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
     } 
     else {
-        //Kint::dump($errors);
-        View::make('Tuotetietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));
-    }
-  }     
+       //Kint::dump($errors);
+       View::make('VarastoTuote/Lukumaaratietojenmuutos.html', array('errors' => $errors, 'Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi));     
+    }  // end of if
+  } // end of tuote_edit_post()    
   
   /*****************************************
    * 
