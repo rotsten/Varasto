@@ -181,24 +181,25 @@
     VarastoController::varasto_show($varasto_id);
   });
   
+  // Koontitauluun Varasto-Tuote liittyvät
   // Tänne tulee yhdistettyjen taulujen listaus
-  $routes->get('/Varasto/Varastotilannelistaus/:varasto_id', function($varasto_id){
+  $routes->get('/VarastoTuote/Varastotilannelistaus/:varasto_id', function($varasto_id){
     VarastoTuoteController::varastotilanne_show($varasto_id);
   });
   
-  $routes->get('/Varasto/Varastotilannelistaus', function($varasto_id) {
+  $routes->get('/VarastoTuote/Varastotilannelistaus', function($varasto_id) {
     VarastoTuoteController::varasto_tuotetiedot_list($varasto_id);
   });
   
   // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
-  $routes->get('/Varasto/Varastotilanteenmuutos/:varasto_id', function($tuote_id) {
+  $routes->get('/VarastoTuote/Varastotilanteenmuutos/:varasto_id', function($tuote_id) {
     VarastoTuoteController::varastotuote_edit($tuote_id);
   });
   
   // Ottaa vastaan muutokset (lukumäärän muutokset)
  // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
-  $routes->post('/Varasto/Varastotilanteenmuutos/:varasto_id', function($tuote_id) {
+  $routes->post('/VarastoTuote/Varastotilanteenmuutos/:varasto_id', function($tuote_id) {
     VarastoTuoteController::varastotuote_edit_post($tuote_id);
   });
   
