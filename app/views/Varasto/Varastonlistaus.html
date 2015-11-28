@@ -10,6 +10,7 @@
         <th>Varaston nimi</th>
         <th></th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
 
@@ -26,7 +27,7 @@
             <td>{{Varasto.nimi}}</td>
              <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Varasto/Varastosivu/{{Varasto.varasto_id}}">Katso tarkemmat varaston tiedot</a></th>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilannelistaus/{{Varasto.varasto_id}}">Näytä kaikki varaston tuotteet</a></th>
-            <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilanteenmuutos/{{Varasto.tuote_id}}"> Muokkaa</a></th>
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastotilanteenmuutos/{{Varasto.tuote_id}}"> Muuta lukumäärää</a></th>
           </tr>
       {% endfor %}
     </tbody>
