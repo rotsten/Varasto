@@ -59,9 +59,7 @@ class Varasto extends BaseModel{
   }
   
   public static function find($varasto_id){
-      
-    //Kint::dump($tuote_id);
-    
+     
     $query = DB::connection()->prepare('SELECT * FROM VARASTO WHERE varasto_id = :varasto_id LIMIT 1');
     $query->execute(array('varasto_id' => $varasto_id));
     $row = $query->fetch();
