@@ -192,13 +192,13 @@
   
   // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
-  $routes->get('/Varasto/Varastotilanteenmuutos/:varasto_id', function($varasto_id) {
-    VarastoController::varasto_edit($varasto_id);
+  $routes->get('/Varasto/Varastotilanteenmuutos/:varasto_id', function($tuote_id) {
+    VarastoTuoteController::varastotuote_edit($tuote_id);
   });
   
   // Ottaa vastaan muutokset (lukumäärän muutokset)
  // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
-  $routes->post('/Varasto/Varastotilanteenmuutos/:varasto_id', function($varasto_id) {
-    VarastoController::varasto_edit_post($varasto_id);
+  $routes->post('/Varasto/Varastotilanteenmuutos/:varasto_id', function($tuote_id) {
+    VarastoTuoteController::varastotuote_edit_post($tuote_id);
   });
   

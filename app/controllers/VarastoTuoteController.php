@@ -184,7 +184,7 @@ class VarastoTuoteController extends BaseController{
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
        
-    $muutettava_tuote= Varasto_Tuote::find($tuote_id);
+    $muutettava_tuote= Varasto_Tuote::all_in_certain_varasto_join_tuote($tuote_id);
     //Kint::dump($muutettava_tuote);
     View::make('VarastoTuote/Lukumaaratietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
     
@@ -215,7 +215,7 @@ class VarastoTuoteController extends BaseController{
         // Listataan tuotetiedot, jotta muutos näkyy
         $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
         $varaston_nimi = Varasto::getNimiById($varasto_id);
-        View::make('Varasto/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
+        View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
     } 
     else {
        //Kint::dump($errors);
@@ -239,20 +239,7 @@ class VarastoTuoteController extends BaseController{
     View::make('Tuote/Tuotteenhakeminen.html');
   }
   */ 
-  public function tuote_search ($tuote_id, $tuotteen_nimi){
-      $tulos=0;
-      
-      if ($tuote_id != 0) {
-        $tulos -> $this->find($tuote_id);
-        // Tänne pitää tallentaan haun tuloksena saadun olion datat    
-      }
-      else {
-        $tulos -> $this->find_tuotteen_nimi($tuotteen_nimi);
-        // Tänne pitää tallentaan haun tuloksena saadun olion datat
-      }
-      return $tulos;
-  }
-    
+  
   public static function find_tuote_with_tuote_id($tuote_id){
     
     //$etsittava_tuote = new Tuote();
@@ -287,11 +274,11 @@ class VarastoTuoteController extends BaseController{
     if (empty($etsittava_tuote)) {
         // Ei löytynyt
         $errors='Etsittävää tuotetta ei löytynyt $tuote_id';
-        View::make('Tuote/Tuotesivu.html', array('errors' => $errors, 'tuote' => $etsittava_tuote));
+        View::make('VarastoTuote/VarastoTuotesivu.html', array('errors' => $errors, 'tuote' => $etsittava_tuote));
     }
     
     //Redirect::to('/Tuote/Tuotesivu.html{{$tuote_id}}', array('tuote' => $etsittava_tuote));
-    View::make('Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
+    View::make('VarastoTuote/VarastoTuotesivu.html', array('tuote' => $etsittava_tuote));
     
   } // end of find_tuote_post
 

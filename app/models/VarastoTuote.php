@@ -87,6 +87,26 @@ class VarastoTuote extends BaseModel{
     return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)
   
+  public static function all_in_certain_varasto_join_tuote($tuote_id){
+      
+    /* Tulostaa tuotteen tuotetiedot + lukumäärä niistä, 
+     * jotka ovat tietyssä varastossa.
+     */  
+    //Kint::dump($varasto_id);
+    
+    $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
+                                        LEFT JOIN tuote
+                                        ON varasto_tuote.tuote_id = tuote.tuote_id
+                                        WHERE tuote_id =:tuote_id;');
+
+    // Suoritetaan kysely
+    $query->execute(array('tuote_id' => $tuote_id));
+    // Haetaan kyselyn tuottamat rivit
+    $varaston_tuotetiedot = $query->fetchAll();
+
+    return $varaston_tuotetiedot;
+  } // all_in_varasto($varasto_id)
+  
   public function validate_lukumaara(){
       
     /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
