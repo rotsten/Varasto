@@ -66,7 +66,7 @@ class VarastoController extends BaseController{
    *****************************************/
    public static function varasto_show($varasto_id){
        
-       $etsittava_varasto =  VarastoController::find_with_varasto_id($varasto_id);
+       $etsittava_varasto = VarastoController::find_with_varasto_id($varasto_id);
        //Kint::dump($etsittava_varasto);
        
        View::make('Varasto/Varastosivu.html', array('varasto' => $etsittava_varasto));
@@ -112,8 +112,10 @@ class VarastoController extends BaseController{
   
   public static function varasto_edit($varasto_id){
 
+    Kint::dump($varasto_id);
     //Etsitään ensin tuote, mitä se koskee.
     $muutettava_varastotieto = VarastoController::find_with_varasto_id($varasto_id);
+    Kint::dump($muutettava_varastotieto);
 
     View::make('Varasto/Varastonmuutos.html', array('Varasto' => $muutettava_varastotieto));
   
