@@ -37,7 +37,7 @@ class VarastoTuoteController extends BaseController{
       ));
     }
     
-    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $varaston_tuotteet));
+    View::make('VarastoTuote/Tuotteidenlistaus.html', array('Tuotteet' => $varaston_tuotteet));
        
   }  // end of tuote_list  
   
@@ -68,7 +68,7 @@ class VarastoTuoteController extends BaseController{
     $varaston_nimi = Varasto::getNimiById($varasto_id);
     //Kint::dump($varaston_nimi);
 
-    View::make('Varasto/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi));
+    View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi));
        
   }  // end of tuote_list
   
