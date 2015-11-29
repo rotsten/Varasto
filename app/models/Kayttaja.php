@@ -196,7 +196,7 @@ class Kayttaja extends BaseModel {
   
   public function validate_kayttooikeudet(){
         
-    /* Tarkistaa, onko annettu käyttöoikeus -tieto on "t" tai "f". 
+    /* Tarkistaa, onko annettu käyttöoikeus -tieto on "t", "T", "f" tai "F". 
      * Listauksessa arvona on 1 tai 0... 
      */
         

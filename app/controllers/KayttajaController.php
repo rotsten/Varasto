@@ -151,7 +151,9 @@ class KayttajaController extends BaseController {
     //self::check_logged_in();
     
     // tsekataan käyttäjätunnuksen ja salasanan antaminen
-    $errors = KayttajaController::check_login_params($params);
+    //$errors = KayttajaController::check_login_params($params);
+    
+    $errors = $uusi_kayttaja->errors();
     
     if(count($errors) == 0){
   
@@ -208,14 +210,15 @@ class KayttajaController extends BaseController {
 
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
     $errors = $Kayttajatietojen_muutokset->errors();
+    Kint::dump($errors);
     
     if(count($errors) == 0){
-      //Kint::dump($Kayttajatietojen_muutokset);
+      Kint::dump($Kayttajatietojen_muutokset);
       $Kayttajatietojen_muutokset->modify();
       
       $Kayttajatietojen_muutokset::kayttajalistaus();
     } else {
-       View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));
+       View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $Kayttajatietojen_muutokset));
     }   
   } // end of kayttaja_edit_post
   

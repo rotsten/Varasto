@@ -19,9 +19,6 @@
       
       $Uusi_kayttaja = new Kayttaja(array(
         'kayttajatunnus' => 'a',
-        'salasana' => '7',
-        'etunimi' => '?',
-        'sukunimi' => '',
         'kayttooikeudet' => '1'
       ));
       $errors = $Uusi_kayttaja->errors();
