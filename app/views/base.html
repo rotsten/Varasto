@@ -40,9 +40,9 @@
           </ul>
             
           {% if user_logged_in %}
-            <form class="navbar-form navbar-right" method="post" action="{{base_path}}/Kayttaja/Logout">    
+            <form class="navbar-form navbar-right" method="post">    
               <button><a href="{{base_path}}/Paasivu">Pääsivu</a></button>
-              <button><a href="{{base_path}}/Kayttaja/Logout">">Kirjaudu ulos</a></button>
+              <button><a href="{{base_path}}/Kayttaja/Logout">"Kirjaudu ulos</a></button>
             </form>
           {% else %}
             <ul class="nav navbar-nav navbar-right">

@@ -27,11 +27,11 @@
     KayttajaController::paasivu_show();
   });
   
-  // Uloskirjautumisen käsittely
-  $routes->post('/Kayttaja/Logout', function() {
-     BaseController::logout();
+  // Uloskirjautumisen käsittely          
+   $routes->post('/Kayttaja/Logout', function() {
+    BaseController::logout();
   });
-
+  
   // Käyttäjän lisäyslomakkeen näyttäminen
   $routes->get('/Kayttaja/LisaaKayttaja', function(){
     KayttajaController::kayttaja_lisaa_show();
