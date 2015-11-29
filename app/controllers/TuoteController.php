@@ -70,6 +70,7 @@ class TuoteController extends BaseController{
   // Näyttää tuotteen lisäyssivun
   public static function tuote_lisaa_show(){
     //self::check_logged_in();
+
     View::make('Tuote/Lisaatuote.html');
   }
    
@@ -187,8 +188,8 @@ class TuoteController extends BaseController{
       TuoteController::tuote_list(); 
     } 
     else {
-        //Kint::dump($errors);
-        View::make('Tuotetietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));
+      //Kint::dump($errors);
+      View::make('Tuotetietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));
     }
   }     
   

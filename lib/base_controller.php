@@ -22,7 +22,7 @@
       else {
           
         // Käyttäjä ei ole kirjautunut sisään
-        View::make('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen'));   
+        // View::make('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen'));   
       } 
       return null;
     } // end of get_user_logged_in()
