@@ -187,13 +187,13 @@
   
   // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
-  $routes->get('/VarastoTuote/Varastotilanteenmuutos/:varasto_id', function($tuote_id) {
+  $routes->get('/VarastoTuote/Lukumaaratiedonmuuttaminen/:varasto_id', function($tuote_id) {
     VarastoTuoteController::varastotuote_edit($tuote_id);
   });
   
   // Ottaa vastaan muutokset (lukumäärän muutokset)
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
-  $routes->post('/VarastoTuote/Varastotilanteenmuutos/:varasto_id', function($tuote_id) {
+  $routes->post('/VarastoTuote/Lukumaaratiedonmuuttaminen/:varasto_id', function($tuote_id) {
     VarastoTuoteController::varastotuote_edit_post($tuote_id);
   });
   

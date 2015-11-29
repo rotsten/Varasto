@@ -131,7 +131,7 @@ class Kayttaja extends BaseModel {
     $query = DB::connection()->prepare ('UPDATE KAYTTAJA SET salasana = :new_salasana,
                                                              etunimi = :new_etunimi,
                                                              sukunimi = :new_sukunimi,
-                                                             kayttooikeudet = :new_kayttooikedet WHERE kayttajatunnus =:kayttajatunnus;');
+                                                             kayttooikeudet = :new_kayttooikeudet WHERE kayttajatunnus =:kayttajatunnus;');
     $query->execute(array('kayttajatunnus' => $this->kayttajatunnus, 
                           'new_salasana' => $this->salasana,
                           'new_etunimi' => $this->etunimi, 
