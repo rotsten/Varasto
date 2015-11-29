@@ -112,7 +112,7 @@ class KayttajaController extends BaseController {
   
   public static function kayttaja_show($kayttajatunnus) {
      
-     self::check_logged_in(); 
+     //self::check_logged_in(); 
      $listattava_kayttaja = Kayttaja::find($kayttajatunnus);
 
      View::make('Kayttaja/Kayttajasivu.html', array('kayttaja' => $listattava_kayttaja));                   
@@ -125,7 +125,7 @@ class KayttajaController extends BaseController {
     * mikä hakee varastotilanteen tietokannasta
     */
     
-    self::check_logged_in();
+    //self::check_logged_in();
     $Kayttajat = Kayttaja::all();
     //Kint::dump($Kayttajat);
       
@@ -148,7 +148,7 @@ class KayttajaController extends BaseController {
   public static function kayttaja_create (){    
 
     $params = $_POST;
-    self::check_logged_in();
+    //self::check_logged_in();
     
     // tsekataan käyttäjätunnuksen ja salasanan antaminen
     $errors = check_login_params($params);

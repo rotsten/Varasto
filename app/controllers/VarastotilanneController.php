@@ -23,5 +23,5 @@ class VarastotilanneController extends BaseController{
     $varastotilanne = Varastotilanne::all();
     View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
 
-  }  // end of varasto_list
+  }  //end of varasto_list
 }

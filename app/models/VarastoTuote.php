@@ -126,5 +126,5 @@ class VarastoTuote extends BaseModel{
      }  
        
      return $errors_lukumaara;
-  }
+  } // validate_lukumaara()
 } // end of class

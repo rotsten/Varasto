@@ -161,7 +161,6 @@ class VarastoTuoteController extends BaseController{
   }
    
   public static function varastotuote_edit($tuote_id){
-    
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
@@ -194,13 +193,13 @@ class VarastoTuoteController extends BaseController{
     
     if(count($errors) == 0){
         
-        // Ei virheitä syötteissä
-        $muutettava_tuote ->modify();    
+      // Ei virheitä syötteissä
+      $muutettava_tuote ->modify();    
       
-        // Listataan tuotetiedot, jotta muutos näkyy
-        $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
-        $varaston_nimi = Varasto::getNimiById($varasto_id);
-        View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
+      // Listataan tuotetiedot, jotta muutos näkyy
+      $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
+      $varaston_nimi = Varasto::getNimiById($varasto_id);
+      View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
     } 
     else {
        //Kint::dump($errors);
@@ -253,9 +252,9 @@ class VarastoTuoteController extends BaseController{
     //Kint::dump($etsittava_tuote);
     
     if (empty($etsittava_tuote)) {
-        // Ei löytynyt
-        $errors='Etsittävää tuotetta ei löytynyt $tuote_id';
-        View::make('VarastoTuote/VarastoTuotesivu.html', array('errors' => $errors, 'tuote' => $etsittava_tuote));
+      // Ei löytynyt
+      $errors='Etsittävää tuotetta ei löytynyt $tuote_id';
+      View::make('VarastoTuote/VarastoTuotesivu.html', array('errors' => $errors, 'tuote' => $etsittava_tuote));
     }
     
     //Redirect::to('/Tuote/Tuotesivu.html{{$tuote_id}}', array('tuote' => $etsittava_tuote));

@@ -125,8 +125,7 @@ class TuoteController extends BaseController{
         //Kint::dump($errors);
         
         View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $params));
-    }
-    
+    } 
     return;
   }
   
@@ -136,8 +135,7 @@ class TuoteController extends BaseController{
    * 
    *****************************************/
   
-  public static function tuote_edit($tuote_id){
-    
+  public static function tuote_edit($tuote_id){    
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
@@ -209,17 +207,17 @@ class TuoteController extends BaseController{
 
   public function tuote_search ($tuote_id, $tuotteen_nimi){
 
-      $tulos=0;
+    $tulos=0;
       
-      if ($tuote_id != 0) {
-        $tulos -> $this->find($tuote_id);
-        // Tänne pitää tallentaan haun tuloksena saadun olion datat    
-      }
-      else {
-        $tulos -> $this->find_tuotteen_nimi($tuotteen_nimi);
-        // Tänne pitää tallentaan haun tuloksena saadun olion datat
-      }
-      return $tulos;
+    if ($tuote_id != 0) {
+      $tulos -> $this->find($tuote_id);
+      // Tänne pitää tallentaan haun tuloksena saadun olion datat    
+    }
+    else {
+      $tulos -> $this->find_tuotteen_nimi($tuotteen_nimi);
+      // Tänne pitää tallentaan haun tuloksena saadun olion datat
+    }
+    return $tulos;
   }
     
   public static function find_tuote_with_tuote_id($tuote_id){
@@ -263,7 +261,6 @@ class TuoteController extends BaseController{
     View::make('Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
     
   } // end of find_tuote_post
-
    
   /*****************************************
    * 
