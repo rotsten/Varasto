@@ -60,7 +60,7 @@
   public static function logout(){
     $_SESSION['Kayttaja'] = null;
     
-    Kint::dump($_SESSION);
+    //Kint::dump($_SESSION);
     View::make('/Kayttaja/Logout.html');
     //Redirect::to('Kayttaja/Logout', array('message' => 'Olet kirjautunut ulos!'));
   }  
