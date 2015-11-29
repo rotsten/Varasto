@@ -43,15 +43,6 @@ class VarastoTuoteController extends BaseController{
        
   }  // end of tuote_list  
   
-  
-// Näyttää varastotilanteen listaus
-  /*
-   * 
-  public static function varastotilanne_show(){
-    View::make('Varasto/Varastotilannelistaus.html');
-  } 
-   */
-
   public static function varastotilanne_show($varasto_id){
 
     /*
@@ -107,7 +98,7 @@ class VarastoTuoteController extends BaseController{
   // Näyttää tuotteen lisäyssivun
   public static function tuote_lisaa_show(){
     
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     View::make('Tuote/Lisaatuote.html');
   }
    
@@ -117,7 +108,7 @@ class VarastoTuoteController extends BaseController{
      
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     
     /*
      * Asetetaan päivämäärä ja timestamp. 
@@ -176,7 +167,7 @@ class VarastoTuoteController extends BaseController{
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
     
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     $muutettava_tuote= Varasto_Tuote::all_in_certain_varasto_join_tuote($tuote_id);
     //Kint::dump($muutettava_tuote);
     View::make('VarastoTuote/Lukumaaratietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
@@ -186,7 +177,7 @@ class VarastoTuoteController extends BaseController{
   public static function varastotuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
   
     //Luodaan uusi tuote, jolla kutsutaan modifya...  
     $muuttujat= array(
@@ -254,7 +245,7 @@ class VarastoTuoteController extends BaseController{
       
     $input_params = $_POST;   
     $tuote_id = $input_params['tuote_id'];
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     
     //Kint::dump($tuote_id);
     
@@ -285,7 +276,7 @@ class VarastoTuoteController extends BaseController{
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
      */
     
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));        
     $poistettava_tuote->destroy();
        
