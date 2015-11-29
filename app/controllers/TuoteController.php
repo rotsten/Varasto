@@ -179,11 +179,11 @@ class TuoteController extends BaseController{
     
     if(count($errors) == 0){
         
-        // Ei virheitä syötteissä
-        $muutettava_tuote ->modify();    
+      // Ei virheitä syötteissä
+      $muutettava_tuote ->modify();    
       
-        // Listataan tuotetiedot, jotta muutos näkyy
-        TuoteController::tuote_list(); 
+      // Listataan tuotetiedot, jotta muutos näkyy
+      TuoteController::tuote_list(); 
     } 
     else {
         //Kint::dump($errors);
