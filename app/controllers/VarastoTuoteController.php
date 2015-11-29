@@ -217,7 +217,7 @@ class VarastoTuoteController extends BaseController{
   // Näyttää tuotteen hakusivun
   public static function tuote_hae_show(){
     
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     View::make('Tuote/Tuotteenhakeminen.html');
   }
  

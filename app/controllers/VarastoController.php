@@ -38,7 +38,7 @@ class VarastoController extends BaseController{
      
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
         
     $uusi_varasto = new VarastoTuote(array(
       'varasto_id' => $params['varasto_id'], 

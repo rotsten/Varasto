@@ -4,11 +4,12 @@
  * Koontitaulua VARASTO_TUOTE halllinnoiva olio. 
  */
 
-/**
+/*
  * Description of VARASTO_TUOTE
  *
  * @author rotsten
  */
+
 class VarastoTuote extends BaseModel{
     
    // attribuutit
@@ -78,7 +79,7 @@ class VarastoTuote extends BaseModel{
                                         RIGHT JOIN tuote
                                         ON varasto_tuote.tuote_id = tuote.tuote_id
                                         WHERE varasto_id =:varasto_id;');
-    //ORDER BY TUOTE.tuotteen_nimi
+    // ORDER BY TUOTE.tuotteen_nimi
     // Suoritetaan kysely
     $query->execute(array('varasto_id' => $varasto_id));
     // Haetaan kyselyn tuottamat rivit
