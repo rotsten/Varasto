@@ -1,18 +1,6 @@
 <?php
 
   class BaseController{
-
-    public static function index(){
-       self::check_logged_in();
-    }
-    
-    public static function show($kayttajatunnus){
-      self::check_logged_in();
-    }
-
-    public static function edit($kayttajatunnus){
-      self::check_logged_in();
-    }
         
     public static function get_user_logged_in(){
       /* palauttaa sovellukseemme kirjautuneen käyttäjän oliona, 
@@ -32,10 +20,10 @@
         return $kayttaja;
       }
       else {
-        //View::make('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen'));   
+          
+        // Käyttäjä ei ole kirjautunut sisään
+        View::make('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen'));   
       } 
-
-      // Käyttäjä ei ole kirjautunut sisään
       return null;
     } // end of get_user_logged_in()
 
@@ -62,4 +50,15 @@
       return TRUE;
     } // end of else
   } // end of check_user_rights()
+  
+ /*****************************************
+  * 
+  * Kirjaudutaan ulos
+  * 
+  *****************************************/
+
+  public static function logout(){
+    $_SESSION['Kayttaja'] = null;
+    Redirect::to('/Kirjaudu', array('message' => 'Olet kirjautunut ulos!'));
+  }  
 } // End of BaseController

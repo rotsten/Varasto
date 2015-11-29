@@ -18,7 +18,8 @@ class VarastotilanneController extends BaseController{
      * Tämä funktio kutsuu, all-funktiota,
      * mikä hakee varastotilanteen tietokannasta
      */
-       
+    
+    self::check_logged_in(); 
     $varastotilanne = Varastotilanne::all();
     View::make('Varasto/Varastonlistaus.html', array('varastotilanne' => $varastotilanne));
 

@@ -26,6 +26,8 @@ class VarastoTuoteController extends BaseController{
      * Näyttää varston tuotteiden listaussivun. 
      */
    
+    self::check_logged_in(); 
+    
     // Etsi annetussa varastossa talletettujen tuotteiden id:t 
     $varaston_tuotteet =VarastoTuote::all_in_varasto($varasto_id);
     
@@ -59,6 +61,7 @@ class VarastoTuoteController extends BaseController{
      * Näyttää varston tuotteiden listaussivun. 
      */
    
+    self::check_logged_in(); 
     //Kint::dump($varasto_id);
     
     // Etsi annetussa varastossa talletettujen tuotteiden tiedot
@@ -86,7 +89,8 @@ class VarastoTuoteController extends BaseController{
       * Tätä käytetään esimerkiksi listaussivun 
       * tai hakutoiminnon jälkeen
       */
-     
+    
+     self::check_logged_in(); 
      $listattava_tuote = Tuote::find($tuote_id);
      //Kint::dump($listattava_tuote);
 
@@ -102,6 +106,8 @@ class VarastoTuoteController extends BaseController{
     
   // Näyttää tuotteen lisäyssivun
   public static function tuote_lisaa_show(){
+    
+    self::check_logged_in(); 
     View::make('Tuote/Lisaatuote.html');
   }
    
@@ -111,6 +117,7 @@ class VarastoTuoteController extends BaseController{
      
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
+    self::check_logged_in(); 
     
     /*
      * Asetetaan päivämäärä ja timestamp. 
@@ -183,7 +190,8 @@ class VarastoTuoteController extends BaseController{
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
-       
+    
+    self::check_logged_in(); 
     $muutettava_tuote= Varasto_Tuote::all_in_certain_varasto_join_tuote($tuote_id);
     //Kint::dump($muutettava_tuote);
     View::make('VarastoTuote/Lukumaaratietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
@@ -193,6 +201,7 @@ class VarastoTuoteController extends BaseController{
   public static function varastotuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
+    self::check_logged_in(); 
   
     //Luodaan uusi tuote, jolla kutsutaan modifya...  
     $muuttujat= array(
@@ -231,6 +240,8 @@ class VarastoTuoteController extends BaseController{
   
   // Näyttää tuotteen hakusivun
   public static function tuote_hae_show(){
+    
+    self::check_logged_in(); 
     View::make('Tuote/Tuotteenhakeminen.html');
   }
 
@@ -265,7 +276,8 @@ class VarastoTuoteController extends BaseController{
       
     $input_params = $_POST;   
     $tuote_id = $input_params['tuote_id'];
-           
+    self::check_logged_in(); 
+    
     //Kint::dump($tuote_id);
     
     $etsittava_tuote = Tuote::find($tuote_id);  
@@ -295,7 +307,8 @@ class VarastoTuoteController extends BaseController{
      * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
      */
-      
+    
+    self::check_logged_in(); 
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));        
     $poistettava_tuote->destroy();
        
@@ -303,7 +316,6 @@ class VarastoTuoteController extends BaseController{
     $Tuotteet = Tuote::all();
 
     Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
- 
   }
 }
 

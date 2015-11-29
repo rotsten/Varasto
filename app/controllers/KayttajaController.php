@@ -18,6 +18,7 @@ class KayttajaController extends BaseController {
     }
                      
     public static function paasivu_show(){
+      self::check_logged_in();
       View::make('Paasivu.html');
     }
     
@@ -110,7 +111,8 @@ class KayttajaController extends BaseController {
    *****************************************/
   
   public static function kayttaja_show($kayttajatunnus) {
-        
+     
+     self::check_logged_in(); 
      $listattava_kayttaja = Kayttaja::find($kayttajatunnus);
 
      View::make('Kayttaja/Kayttajasivu.html', array('kayttaja' => $listattava_kayttaja));
@@ -122,6 +124,7 @@ class KayttajaController extends BaseController {
     * Tämä funktio kutsuu, all-funktiota,
     * mikä hakee varastotilanteen tietokannasta
     */
+    self::check_logged_in();
     $Kayttajat = Kayttaja::all();
     //Kint::dump($Kayttajat);
       
@@ -136,12 +139,15 @@ class KayttajaController extends BaseController {
     
   // Näyttää käyttäjän lisäyssivun
   public static function kayttaja_lisaa_show(){
+    
+    self::check_logged_in();
     View::make('Kayttaja/LisaaKayttaja.html');
   }
  
    public static function kayttaja_create (){    
 
     $params = $_POST;
+    self::check_logged_in();
     
     // tsekataan käyttäjätunnuksen ja salasanan antaminen
     $errors = check_login_params($params);
@@ -173,7 +179,7 @@ class KayttajaController extends BaseController {
    /*
     * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
     */
-        
+    self::check_logged_in();    
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
     //Kint::dump($muutettava_kayttaja);
     
@@ -184,7 +190,9 @@ class KayttajaController extends BaseController {
   public static function kayttaja_edit_post($kayttajatunnus){
  
     $uudet_kayttajan_tiedot = $_POST; 
-    Kint::dump($uudet_kayttajan_tiedot);
+    self::check_logged_in();
+    
+    //Kint::dump($uudet_kayttajan_tiedot);
     
     // Kutsu kayttaja_list();
     
@@ -217,7 +225,8 @@ class KayttajaController extends BaseController {
    *****************************************/
   
   public static function poista_kayttaja($kayttajatunnus){
-      
+    
+    self::check_logged_in();  
     $poistettava_kayttaja = new Kayttaja(array('kayttajatunnus' => $kayttajatunnus));
     Kint::dump($poistettava_kayttaja);
     
@@ -229,56 +238,4 @@ class KayttajaController extends BaseController {
 
   }
    
-  /*****************************************
-   * 
-   * Tarkastetaan kirjautuneen käyttäjän tietoja
-   * 
-   *****************************************/
-  
-  public static function get_user_logged_in(){
-    /* palauttaa sovellukseemme kirjautuneen käyttäjän oliona, 
-     * jotta voimme käyttää tietoa kirjautuneesta käyttäjästä 
-     * näkymissä ja kontrollereissa. 
-     */
-
-    if(isset($_SESSION['kayttaja'])){
-      $kayttajatunnus = $_SESSION['Kayttaja'];
-        
-      Kint::dump($kayttajatunnus);
-        
-      // Pyydetään Kayttaja-mallilta käyttäjä session mukaisella id:llä
-      $kayttaja = Kayttaja::find($kayttajatunnus);
-
-      return $kayttaja;
-    }
-
-    // Käyttäjä ei ole kirjautunut sisään
-    return null;
-  } // end of get_user_logged_in()
-  
-  public static function check_user_rights(){
-
-    $tarkistettava_kayttaja = KayttajaController::get_user_logged_in();
-        
-    if(empty($tarkistettava_kayttaja['kayttooikeudet'])) {
-      // Arvo on tyhjä. EI voi olla pääkäyttäjä
-      Kint::dump($tarkistettava_kayttaja);
-      return FALSE; 
-    } else {  
-      // Pääkäyttäjälle on asetettu käyttöoikeudet.
-      Kint::dump($tarkistettava_kayttaja);
-      return TRUE;
-    } // end of else
-  } // end of check_user_rights()
- 
-  /*****************************************
-   * 
-   * Kirjaudutaan ulos
-   * 
-   *****************************************/
-
-  public static function logout(){
-    $_SESSION['Kayttaja'] = null;
-    Redirect::to('/Kirjaudu', array('message' => 'Olet kirjautunut ulos!'));
-  }
 } // THE END of class
