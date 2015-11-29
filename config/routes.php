@@ -28,8 +28,8 @@
   });
   
   // Uloskirjautumisen käsittely
-  $routes->post('/Kayttaja/Logout', function(){
-    BaseController::logout();
+  $routes->post('/Kayttaja/Logout', function() {
+     BaseController::logout();
   });
 
   // Käyttäjän lisäyslomakkeen näyttäminen

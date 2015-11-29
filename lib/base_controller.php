@@ -59,6 +59,6 @@
 
   public static function logout(){
     $_SESSION['Kayttaja'] = null;
-    Redirect::to('/Kirjaudu', array('message' => 'Olet kirjautunut ulos!'));
+    Redirect::to('Kayttaja/Logout', array('message' => 'Olet kirjautunut ulos!'));
   }  
 } // End of BaseController
