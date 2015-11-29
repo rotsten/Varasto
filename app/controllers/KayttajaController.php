@@ -151,7 +151,7 @@ class KayttajaController extends BaseController {
     //self::check_logged_in();
     
     // tsekataan käyttäjätunnuksen ja salasanan antaminen
-    $errors = check_login_params($params);
+    $errors = KayttajaController::check_login_params($params);
     
     if(count($errors) == 0){
   
@@ -194,7 +194,7 @@ class KayttajaController extends BaseController {
     $uudet_kayttajan_tiedot = $_POST; 
     // self::check_logged_in();
     
-    // Kint::dump($uudet_kayttajan_tiedot);    
+    Kint::dump($uudet_kayttajan_tiedot);    
     // Kutsu kayttaja_list();
     // Luodaan uusi Kayttaja, jolla kutsutaan modifya...
     
@@ -210,8 +210,9 @@ class KayttajaController extends BaseController {
     $errors = $Kayttajatietojen_muutokset->errors();
     
     if(count($errors) == 0){
-      Kint::dump($Kayttajatietojen_muutokset);
+      //Kint::dump($Kayttajatietojen_muutokset);
       $Kayttajatietojen_muutokset->modify();
+      
       $Kayttajatietojen_muutokset::kayttajalistaus();
     } else {
        View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $attributes));

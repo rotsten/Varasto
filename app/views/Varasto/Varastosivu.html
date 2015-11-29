@@ -2,13 +2,13 @@
 {% block content %}
 {% import "macros/forms.html" as forms %}
 
-<H2>Varaston tietojen listaussivu</H2>
+<H2>Varaston id:{{varasto.varasto_id}} tiedot</H2>
 
     <form action="handle_form.php">
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>Varaston id</th>
+            <th>Varasto-ID</th>
             <th>Varaston nimi</th>
             <th>Katuosoite</th>
             <th></th>
@@ -22,7 +22,7 @@
              <td>{{varasto.nimi}}</td>  
              <td>{{varasto.osoite}}</td>  
              <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastonmuutos/{{varasto.varasto_id}}">Muokkaa</a></th>
-             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Poistavarasto/{{varasto.varasto_id}}">Poista tuote</a></th>
+             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Poistavarasto/{{varasto.varasto_id}}">Poista varasto (Toiminto tulossa myöhemmin)</a></th>
           </tr>
          </tbody>    
       </table>
