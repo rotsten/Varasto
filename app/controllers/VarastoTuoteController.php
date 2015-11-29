@@ -26,7 +26,7 @@ class VarastoTuoteController extends BaseController{
      * Näyttää varston tuotteiden listaussivun. 
      */
    
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     
     // Etsi annetussa varastossa talletettujen tuotteiden id:t 
     $varaston_tuotteet =VarastoTuote::all_in_varasto($varasto_id);
@@ -61,7 +61,7 @@ class VarastoTuoteController extends BaseController{
      * Näyttää varston tuotteiden listaussivun. 
      */
    
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     //Kint::dump($varasto_id);
     
     // Etsi annetussa varastossa talletettujen tuotteiden tiedot
@@ -90,7 +90,7 @@ class VarastoTuoteController extends BaseController{
       * tai hakutoiminnon jälkeen
       */
     
-     self::check_logged_in(); 
+     //self::check_logged_in(); 
      $listattava_tuote = Tuote::find($tuote_id);
      //Kint::dump($listattava_tuote);
 
@@ -168,22 +168,7 @@ class VarastoTuoteController extends BaseController{
     
     return;
   }
-  
-  /*****************************************
-   * 
-   * Tuotteen muuttaminen
-   * 
-   *****************************************/
-  /*
-   *
-   * Aiemmin pelkkä esittely ja sivun näyttäminen
-   *    
-  // Näyttää tuotteen muokkaussivun
-  public static function tuote_edit(){
-    View::make('Tuote/Tuotetietojenmuutos.html');
-  }
-   */
-  
+   
   public static function varastotuote_edit($tuote_id){
     
     /*
@@ -244,13 +229,7 @@ class VarastoTuoteController extends BaseController{
     self::check_logged_in(); 
     View::make('Tuote/Tuotteenhakeminen.html');
   }
-
-  /*
-  public static function tuote_search(){
-    View::make('Tuote/Tuotteenhakeminen.html');
-  }
-  */ 
-  
+ 
   public static function find_tuote_with_tuote_id($tuote_id){
     
     //$etsittava_tuote = new Tuote();
@@ -263,16 +242,15 @@ class VarastoTuoteController extends BaseController{
  
   public static function find_tuote_post (){
          
-     /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
-      * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
-      */
+    /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
+     * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
+     */
     
-      /*
-       *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
-       *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
-       *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
-       *  sijoitusta.
-       */
+    /*  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
+     *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
+     *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
+     *  sijoitusta.
+     */
       
     $input_params = $_POST;   
     $tuote_id = $input_params['tuote_id'];
@@ -293,7 +271,6 @@ class VarastoTuoteController extends BaseController{
     View::make('VarastoTuote/VarastoTuotesivu.html', array('tuote' => $etsittava_tuote));
     
   } // end of find_tuote_post
-
    
   /*****************************************
    * 

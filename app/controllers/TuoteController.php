@@ -9,6 +9,7 @@
  *
  * @author rotsten
  */
+
 class TuoteController extends BaseController{
   
   /*****************************************
@@ -30,7 +31,7 @@ class TuoteController extends BaseController{
      * Näyttää tuotteen listaussivun. 
      */
 
-    self::check_logged_in();
+    //self::check_logged_in();
  
     $Tuotteet = Tuote::all();
     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
@@ -52,7 +53,7 @@ class TuoteController extends BaseController{
       * tai hakutoiminnon jälkeen
       */
      
-     self::check_logged_in();
+     //self::check_logged_in();
      $listattava_tuote = Tuote::find($tuote_id);
      //Kint::dump($listattava_tuote);
 
@@ -68,7 +69,7 @@ class TuoteController extends BaseController{
     
   // Näyttää tuotteen lisäyssivun
   public static function tuote_lisaa_show(){
-    self::check_logged_in();
+    //self::check_logged_in();
     View::make('Tuote/Lisaatuote.html');
   }
    
@@ -76,7 +77,7 @@ class TuoteController extends BaseController{
      
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
-    self::check_logged_in();
+    //self::check_logged_in();
     
     /*
      * Asetetaan päivämäärä ja timestamp. 
@@ -119,9 +120,10 @@ class TuoteController extends BaseController{
       Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);
           
     } else{
-       // Annetuissa arvoissa oli jotain vikaa.     
+        // Annetuissa arvoissa oli jotain vikaa.     
         //Kint::dump($uusi_tuote);
         //Kint::dump($errors);
+        
         View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $params));
     }
     
@@ -142,6 +144,7 @@ class TuoteController extends BaseController{
      */
     
     self::check_logged_in();
+    
     $muutettava_tuote= Tuote::find($tuote_id);
     //Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
@@ -205,6 +208,7 @@ class TuoteController extends BaseController{
   }
 
   public function tuote_search ($tuote_id, $tuotteen_nimi){
+
       $tulos=0;
       
       if ($tuote_id != 0) {
