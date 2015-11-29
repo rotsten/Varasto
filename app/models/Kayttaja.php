@@ -201,11 +201,11 @@ class Kayttaja extends BaseModel {
      */
         
     $errors_kayttooikeudet = array();
-    if('t' !=  $this->kayttooikeudet || 'T' != $this->kayttooikeudet) {
+    if(t !=  $this->kayttooikeudet || T != $this->kayttooikeudet) {
        $errors__kayttooikeudet[] = 'Virheellinen käyttöoikeustieto annettu!';
     }
     
-    if ('f' != $this->kayttooikeudet || 'F' != $this->kayttooikeudet){
+    if (f != $this->kayttooikeudet || F != $this->kayttooikeudet){
        $errors__kayttooikeudet[] = 'Virheellinen käyttöoikeustieto annettu!';
     }
                                  
@@ -230,8 +230,8 @@ class Kayttaja extends BaseModel {
       
     $errors = $this->validate_kayttajatunnus();
     $errors = array_merge($errors, $this->validate_salasana());
-    $errors = array_merge($errors, $this->validate_etunimi());   
     $errors = array_merge($errors, $this->validate_kayttooikeudet());
+    $errors = array_merge($errors, $this->validate_etunimi()); 
     
     return $errors;
   }

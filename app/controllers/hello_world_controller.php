@@ -11,12 +11,9 @@
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
       
-      
       //VarastoTuoteController::varastotilanne_show('001');
-      
       //echo $varastotilanne = Varastotilanne::all();
-      
-      
+            
       $Uusi_kayttaja = new Kayttaja(array(
         'kayttajatunnus' => 'a',
         'kayttooikeudet' => '1'
