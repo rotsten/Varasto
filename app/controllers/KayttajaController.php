@@ -18,7 +18,7 @@ class KayttajaController extends BaseController {
     }
                      
     public static function paasivu_show(){
-      self::check_logged_in();
+      //self::check_logged_in();
       View::make('Paasivu.html');
     }
     
@@ -99,8 +99,8 @@ class KayttajaController extends BaseController {
       } // the end of function
     } // the end of function
     else {
-        // Jotain virheitä käyttäjätunnuksen ja salasanan antamisessa:
-        Redirect::to('/Kayttaja/Kirjaudu', array('errors' => $errors));
+       // Jotain virheitä käyttäjätunnuksen ja salasanan antamisessa:
+       Redirect::to('/Kayttaja/Kirjaudu', array('errors' => $errors));
     } // end of if
   } // the end of handle_login()
 
@@ -115,15 +115,16 @@ class KayttajaController extends BaseController {
      self::check_logged_in(); 
      $listattava_kayttaja = Kayttaja::find($kayttajatunnus);
 
-     View::make('Kayttaja/Kayttajasivu.html', array('kayttaja' => $listattava_kayttaja));
-                   
+     View::make('Kayttaja/Kayttajasivu.html', array('kayttaja' => $listattava_kayttaja));                   
   } // The end of kayttaja_show
   
   public static function kayttajalistaus(){
+   
    /*
     * Tämä funktio kutsuu, all-funktiota,
     * mikä hakee varastotilanteen tietokannasta
     */
+    
     self::check_logged_in();
     $Kayttajat = Kayttaja::all();
     //Kint::dump($Kayttajat);
@@ -144,7 +145,7 @@ class KayttajaController extends BaseController {
     View::make('Kayttaja/LisaaKayttaja.html');
   }
  
-   public static function kayttaja_create (){    
+  public static function kayttaja_create (){    
 
     $params = $_POST;
     self::check_logged_in();
@@ -161,7 +162,7 @@ class KayttajaController extends BaseController {
       View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
           
     } else{
-       // Annetuissa arvoissa oli jotain vikaa.     
+        // Annetuissa arvoissa oli jotain vikaa.     
         Kint::dump($uusi_kayttaja);
         Kint::dump($errors);
         View::make('Kayttaja/LisaaKayttaja.html', array('errors' => $errors, 'attiributes' => $params));
@@ -176,9 +177,10 @@ class KayttajaController extends BaseController {
    *****************************************/
   
   public static function kayttaja_edit($kayttajatunnus){
-   /*
-    * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
-    */
+    /*
+     * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
+     */
+      
     self::check_logged_in();    
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
     //Kint::dump($muutettava_kayttaja);
@@ -192,11 +194,9 @@ class KayttajaController extends BaseController {
     $uudet_kayttajan_tiedot = $_POST; 
     self::check_logged_in();
     
-    //Kint::dump($uudet_kayttajan_tiedot);
-    
+    // Kint::dump($uudet_kayttajan_tiedot);    
     // Kutsu kayttaja_list();
-    
-    //Luodaan uusi Kayttaja, jolla kutsutaan modifya...
+    // Luodaan uusi Kayttaja, jolla kutsutaan modifya...
     
     $muuttujat= array(
       'kayttajatunnus' => $kayttajatunnus,
@@ -235,7 +235,5 @@ class KayttajaController extends BaseController {
     // Käyttäjä näkee listauksesta, että kayttajatunnus on poistunut      
     $Kayttajat = Kayttaja::all();
     View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
-
   }
-   
 } // THE END of class

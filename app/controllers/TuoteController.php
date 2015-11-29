@@ -18,10 +18,8 @@ class TuoteController extends BaseController{
    *****************************************/
     
   public static function index(){
-     self::check_logged_in();
      View::make('Aloitussivu.html');
-  }
-  
+  }  
 
   public static function tuote_list(){
 
