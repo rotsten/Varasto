@@ -204,11 +204,6 @@ class TuoteController extends BaseController{
     View::make('Tuote/Tuotteenhakeminen.html');
   }
 
-  /*
-  public static function tuote_search(){
-    View::make('Tuote/Tuotteenhakeminen.html');
-  }
-  */ 
   public function tuote_search ($tuote_id, $tuotteen_nimi){
       $tulos=0;
       
@@ -287,6 +282,5 @@ class TuoteController extends BaseController{
     $Tuotteet = Tuote::all();
 
     Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
- 
   }
 }
