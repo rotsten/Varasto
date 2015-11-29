@@ -29,7 +29,7 @@
   
   // Uloskirjautumisen käsittely
   $routes->post('/logout', function(){
-    KayttajaController::logout();
+    BaseController::logout();
   });
 
   // Käyttäjän lisäyslomakkeen näyttäminen
