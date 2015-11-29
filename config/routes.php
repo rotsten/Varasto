@@ -28,7 +28,7 @@
   });
   
   // Uloskirjautumisen käsittely          
-   $routes->post('/Kayttaja/Logout', function() {
+   $routes->get('/Kayttaja/Logout', function() {
     BaseController::logout();
   });
   
