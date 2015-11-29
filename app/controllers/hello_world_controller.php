@@ -11,38 +11,23 @@
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
       
-      //TuoteController::find_tuote_with_tuote_id('9518752761');
-      //TuoteController::find_tuote_post('9789523001084');
       
-      VarastoTuoteController::varastotilanne_show('001');
+      //VarastoTuoteController::varastotilanne_show('001');
       
       //echo $varastotilanne = Varastotilanne::all();
-            
-      //$kayttaja = get_user_logged_in();
-      //echo $kayttaja;
       
-      /*
+      
       $Uusi_kayttaja = new Kayttaja(array(
         'kayttajatunnus' => 'a',
         'salasana' => '7',
         'etunimi' => '?',
-        'sukunimi' => ''
+        'sukunimi' => '',
+        'kayttooikeudet' => '1'
       ));
       $errors = $Uusi_kayttaja->errors();
 
       Kint::dump($errors);
-      */
-      //$Uusi_kirja = new Tuote(array(
-      //  'tuote_id' => 'a',
-      //  'tuotteen_nimi' => '7',
-      //  'valmistaja' => '?',
-      //  'kuvaus' => ''
-      //));
-      //$errors = $Uusi_kirja->errors();
-      //Kint::dump($errors);
-            
-      //TuoteController::find_tuotteennimi('Lakua');
-      //TuoteController::tuote_show('9789522641632');
+
       //base_controller::check_user_rights();
     }
   }

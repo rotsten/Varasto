@@ -183,7 +183,7 @@ class KayttajaController extends BaseController {
       
     //self::check_logged_in();    
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
-    //Kint::dump($muutettava_kayttaja);
+    Kint::dump($muutettava_kayttaja);
     
     View::make('Kayttaja/Kayttajatietojenmuutos.html', array('muutettava_kayttaja' => $muutettava_kayttaja));
  

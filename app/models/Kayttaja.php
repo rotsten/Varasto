@@ -201,11 +201,11 @@ class Kayttaja extends BaseModel {
      */
         
     $errors_kayttooikeudet = array();
-    if($this->kayttooikeudet != 't') {
+    if('t' !=  $this->kayttooikeudet || 'T' != $this->kayttooikeudet) {
        $errors__kayttooikeudet[] = 'Virheellinen käyttöoikeustieto annettu!';
     }
     
-    if ($this->kayttooikeudet != 'f'){
+    if ('f' != $this->kayttooikeudet || 'F' != $this->kayttooikeudet){
        $errors__kayttooikeudet[] = 'Virheellinen käyttöoikeustieto annettu!';
     }
                                  
