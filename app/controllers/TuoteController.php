@@ -143,7 +143,7 @@ class TuoteController extends BaseController{
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
     
-    self::check_logged_in();
+    //self::check_logged_in();
     
     $muutettava_tuote= Tuote::find($tuote_id);
     //Kint::dump($muutettava_tuote);
@@ -154,7 +154,7 @@ class TuoteController extends BaseController{
   public static function tuote_edit_post($tuote_id){
     
     $uudet_tiedot = $_POST; 
-    self::check_logged_in();
+    //self::check_logged_in();
   
     /*
      * Asetetaan päivämäärä ja timestamp. 
@@ -203,7 +203,7 @@ class TuoteController extends BaseController{
   // Näyttää tuotteen hakusivun
   public static function tuote_hae_show(){
     
-    self::check_logged_in();
+    //self::check_logged_in();
     View::make('Tuote/Tuotteenhakeminen.html');
   }
 
@@ -248,7 +248,7 @@ class TuoteController extends BaseController{
     $input_params = $_POST;   
     $tuote_id = $input_params['tuote_id'];
     
-    self::check_logged_in();
+    //self::check_logged_in();
     
     $etsittava_tuote = Tuote::find($tuote_id);  
     //Kint::dump($etsittava_tuote);
@@ -273,7 +273,8 @@ class TuoteController extends BaseController{
   
   public static function poista_tuote($tuote_id){
     
-    self::check_logged_in();
+    //self::check_logged_in();
+      
     /*
      * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).

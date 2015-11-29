@@ -15,7 +15,7 @@ class VarastoController extends BaseController{
        
   public static function index(){
       
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     $varastotilanne = Varasto::all();
     View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
   }
@@ -29,7 +29,7 @@ class VarastoController extends BaseController{
   // Näyttää varaston lisäyssivun
   public static function varasto_lisaa_show(){
    
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     View::make('Varasto/LisaaVarasto.html');
   }
    
@@ -71,7 +71,7 @@ class VarastoController extends BaseController{
    *****************************************/
    public static function varasto_show($varasto_id){
        
-       self::check_logged_in(); 
+       //self::check_logged_in(); 
        $etsittava_varasto = VarastoController::find_with_varasto_id($varasto_id);
        //Kint::dump($etsittava_varasto);
        
@@ -90,7 +90,7 @@ class VarastoController extends BaseController{
      * mikä hakee varastotilanteen tietokannasta VARASTO-taulusta
      */
         
-    self::check_logged_in();    
+    //self::check_logged_in();    
     $varastot = Varasto::all();
     //Kint::dump($varastot);
     View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
@@ -120,7 +120,7 @@ class VarastoController extends BaseController{
   public static function varasto_edit($varasto_id){
 
     Kint::dump($varasto_id);
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
     
     //Etsitään ensin tuote, mitä se koskee.
     $muutettava_varastotieto = VarastoController::find_with_varasto_id($varasto_id);
@@ -133,7 +133,7 @@ class VarastoController extends BaseController{
   public static function varasto_edit_post($varasto_id){
      
     $uudet_tiedot = $_POST; 
-    self::check_logged_in(); 
+    //self::check_logged_in(); 
 
     //$uudet_tiedot['kayttajatunnus'] = base_controller::get_user_logged_in();
     
@@ -162,7 +162,7 @@ class VarastoController extends BaseController{
   
   public static function poista_varasto($varasto_id){
     
-    self::check_logged_in();   
+    //self::check_logged_in();   
     $poistettava_varasto = new Varasto(array('varasto_id' => $varasto_id));        
     $poistettava_varasto->destroy();
        

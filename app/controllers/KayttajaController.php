@@ -141,7 +141,7 @@ class KayttajaController extends BaseController {
   // Näyttää käyttäjän lisäyssivun
   public static function kayttaja_lisaa_show(){
     
-    self::check_logged_in();
+    //self::check_logged_in();
     View::make('Kayttaja/LisaaKayttaja.html');
   }
  
@@ -181,7 +181,7 @@ class KayttajaController extends BaseController {
      * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
      */
       
-    self::check_logged_in();    
+    //self::check_logged_in();    
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
     //Kint::dump($muutettava_kayttaja);
     
@@ -192,7 +192,7 @@ class KayttajaController extends BaseController {
   public static function kayttaja_edit_post($kayttajatunnus){
  
     $uudet_kayttajan_tiedot = $_POST; 
-    self::check_logged_in();
+    // self::check_logged_in();
     
     // Kint::dump($uudet_kayttajan_tiedot);    
     // Kutsu kayttaja_list();
@@ -226,7 +226,7 @@ class KayttajaController extends BaseController {
   
   public static function poista_kayttaja($kayttajatunnus){
     
-    self::check_logged_in();  
+    //self::check_logged_in();  
     $poistettava_kayttaja = new Kayttaja(array('kayttajatunnus' => $kayttajatunnus));
     Kint::dump($poistettava_kayttaja);
     
