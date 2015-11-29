@@ -134,8 +134,6 @@ class VarastoController extends BaseController{
      
     $uudet_tiedot = $_POST; 
     //self::check_logged_in(); 
-
-    //$uudet_tiedot['kayttajatunnus'] = base_controller::get_user_logged_in();
     
     $muuttujat = array(
       'varasto_id' => $uudet_tiedot['varasto_id'],

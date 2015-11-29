@@ -4,18 +4,22 @@
      <form  method="post">
      <div class="form-group">
           <label>Varasto-ID</label>
-          <input type="hidden" class="form-control" value="{{Varasto.varasto_id}}">
+          <input type="hidden" class="form-control" value="{{muutettava_tuote.varasto_id}}">
         </div>
         <div class="form-group">
           <label>Tuote-ID</label>
-          <input type="hidden" class="form-control" value="{{Varasto.nimi}}">
+          <input type="hidden" class="form-control" value="{{muutettava_tuote_id}}">
+        </div>
+        <div class="form-group">
+          <label>Tuotteen nimi</label>
+          <input type="hidden" class="form-control" value="{{muutettava_tuote.tuotteen_nimi}}">
         </div>
         <div class="form-group">
           <label>Lukumaara</label>
-          <input type="text" class="form-control" value="{{Varasto.osoite}}">
+          <input type="text" class="form-control" value="{{muutettava_tuote.lukumaara}}">
         </div>
         <div class="form-group">
-          <button type ="submit" class="btn btn-default" value=varasto_post_edit{{Varasto.varasto_id}}>Tallenna muutokset</button>
+          <button type ="submit" class="btn btn-default" value=varastotuote_edit_post{{muutettava_tuote.lukumaara}}>Tallenna muutokset</button>
           <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle tallentamatta</A></button>
         </div>
     </form>
