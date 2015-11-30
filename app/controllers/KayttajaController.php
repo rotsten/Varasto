@@ -159,9 +159,8 @@ class KayttajaController extends BaseController {
     //self::check_logged_in();
     
     // tsekataan käyttäjätunnuksen ja salasanan antaminen
-    //$errors = KayttajaController::check_login_params($params);
     
-    //$errors = $uusi_kayttaja->errors();
+    $errors = KayttajaController::check_login_params($params);
     
     if(count($errors) == 0){
   
