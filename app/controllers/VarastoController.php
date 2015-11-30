@@ -133,6 +133,7 @@ class VarastoController extends BaseController{
     
     //self::check_logged_in();  
     $uudet_tiedot = $_POST; 
+    Kint::dump($uudet_tiedot);
     
     $muuttujat = array(
       'varasto_id' => $uudet_tiedot['varasto_id'],
@@ -142,9 +143,9 @@ class VarastoController extends BaseController{
 
     $muuttunut_varasto = new Varasto($muuttujat);
     $errors = $Varasto->errors();
+    Kint::dump($errors);
 
-    if(count($errors) == 0){
-        
+    if(count($errors) == 0){     
       // Ei virheitä syötteissä
       $muuttunut_varasto ->modify();
       // Listataan varastotiedot, jotta muutos näkyy

@@ -14,11 +14,11 @@
       //VarastoTuoteController::varastotilanne_show('001');
       //echo $varastotilanne = Varastotilanne::all();
             
-      $Uusi_kayttaja = new Kayttaja(array(
-        'kayttajatunnus' => 'a',
-        'kayttooikeudet' => 'x'
-      ));
-      $errors = $Uusi_kayttaja->errors();
+      //$Uusi_kayttaja = new Kayttaja(array(
+      //  'kayttajatunnus' => 'a',
+      //  'kayttooikeudet' => 'x'
+      //));
+      //$errors = $Uusi_kayttaja->errors();
 
       Kint::dump($errors);
 
