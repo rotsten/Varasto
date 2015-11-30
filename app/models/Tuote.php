@@ -193,7 +193,12 @@ class Tuote extends BaseModel {
     } else {
         $errors_tuote_id[] = 'Tuote-id ei saa sisältää muita merkkejä kuin numeroita!';
     }  
-       
+  
+    // Tarkistaa ettei ID ole jo käytössä
+    if (NULL !=($etsittava_tuote = Tuote::find($tuote_id))) {
+        $errors_tuote_id[] = 'Tuote-id on jo varattu!';
+    }
+    
     return $errors_tuote_id;
   }
               

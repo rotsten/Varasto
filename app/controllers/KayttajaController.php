@@ -208,6 +208,8 @@ class KayttajaController extends BaseController {
       'kayttooikeudet' => $uudet_kayttajan_tiedot['kayttooikeudet']
     );
 
+    Kint::dump($uudet_kayttajan_tiedot['kayttooikeudet']);
+    
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
     $errors = $Kayttajatietojen_muutokset->errors();
     Kint::dump($errors);
