@@ -1,27 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
     
-       <h1>Käyttäjän {{user_logged_in.kayttajatunnus}} valittavana olevat toiminnot:</h1>
+       <H1>Käyttäjän {{user_logged_in.kayttajatunnus}} valittavana olevat toiminnot:</H1>
        {% if check_user_rights %}
-            <h1>Pääkäyttäjän toiminnot: </h1>
+       <H2>Pääkäyttäjän toiminnot: </H2>
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button> 
-            <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
             <br>
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
-            <button class="btn btn-default"><A href="{{base_path}}/Varasto/Lisaavarasto">Lisää uusi varasto (näkyvissä vain pääkäyttäjille)</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Varasto/Lisaavarasto">Lisää uusi varasto</A></button>
             <br>
-            <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus (näkyvissä vain pääkäyttäjille)</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/LisaaKayttaja">Lisää käyttäjä</A></button>
         {% else %}
-             <h1>Varastotyöntekijän toiminnot: </h1>
+             <H2>Varastotyöntekijän toiminnot: </H2>
              
              <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>  
              <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
-        {% endif %}
-        <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote (näkyvissä vain pääkäyttäjille)</A></button>
-        <br>
-        <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Näytä varastot</A></button>
-        <br>
-        <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus (näkyvissä vain pääkäyttäjille)</A></button> 
-        <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/LisaaKayttaja">Lisää käyttäjä (näkyvissä vain pääkäyttäjille)</A></button>
+             <br>
+             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Näytä varastot</A></button>
+             <br>
+             <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Omattiedot">Omat käyttäjätiedot</A></button>
+        {% endif %}     
 {% endblock %}
