@@ -67,6 +67,7 @@ class KayttajaController extends BaseController {
         ($params['kayttooikeudet'] != 'F' && $params['kayttooikeudet'] != 'f'))
      {
         $errors3[] = 'Virheellinen käyttöoikeustieto annettu!';
+        Kint::dump($params['kayttooikeudet']);
      }
      
      if($params['kayttooikeudet'] == '' || $params['kayttooikeudet'] == null){
