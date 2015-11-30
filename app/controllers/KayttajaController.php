@@ -163,9 +163,18 @@ class KayttajaController extends BaseController {
     $params = $_POST;
     //self::check_logged_in();
     
-    // tsekataan käyttäjätunnuksen ja salasanan antaminen  
-    $errors = KayttajaController::check_login_params($params);
+    $uusi_kayttaja = new Kayttaja(array(
+      'kayttajatunnus' => $params['kayttajatunnus'],  
+      'salasana' => $params['salasana'],
+      'etunimi' => $params['etunimi'],
+      'sukunimi' => $params['sukunimi'],
+      'kayttooikeudet' => $params['kayttooikeudet']
+    ));
     
+    // tsekataan käyttäjätunnuksen ja salasanan antaminen  
+    //$errors = KayttajaController::check_login_params($params);
+    $errors = $uusi_kayttaja->errors();
+     
     if(count($errors) == 0){
   
       $uusi_kayttaja ->save();
