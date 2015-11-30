@@ -18,7 +18,7 @@ class KayttajaController extends BaseController {
     }
                      
     public static function paasivu_show(){
-      //self::check_logged_in();
+      self::check_logged_in();
       View::make('Paasivu.html');
     }
     
@@ -112,7 +112,7 @@ class KayttajaController extends BaseController {
   
   public static function kayttaja_show($kayttajatunnus) {
      
-     //self::check_logged_in(); 
+     self::check_logged_in(); 
      $listattava_kayttaja = Kayttaja::find($kayttajatunnus);
 
      View::make('Kayttaja/Kayttajasivu.html', array('kayttaja' => $listattava_kayttaja));                   
@@ -125,7 +125,7 @@ class KayttajaController extends BaseController {
     * mikä hakee varastotilanteen tietokannasta
     */
     
-    //self::check_logged_in();
+    self::check_logged_in();
     $Kayttajat = Kayttaja::all();
     //Kint::dump($Kayttajat);
       
@@ -141,14 +141,14 @@ class KayttajaController extends BaseController {
   // Näyttää käyttäjän lisäyssivun
   public static function kayttaja_lisaa_show(){
     
-    //self::check_logged_in();
+    self::check_logged_in();
     View::make('Kayttaja/LisaaKayttaja.html');
   }
  
   public static function kayttaja_create (){    
 
+    self::check_logged_in();
     $params = $_POST;
-    //self::check_logged_in();
     
     $uusi_kayttaja = new Kayttaja(array(
       'kayttajatunnus' => $params['kayttajatunnus'],  
@@ -188,7 +188,7 @@ class KayttajaController extends BaseController {
      * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
      */
       
-    //self::check_logged_in();    
+    self::check_logged_in();    
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
     Kint::dump($muutettava_kayttaja);
     
@@ -198,9 +198,9 @@ class KayttajaController extends BaseController {
      
   public static function kayttaja_edit_post($kayttajatunnus){
  
+    self::check_logged_in();
     $uudet_kayttajan_tiedot = $_POST; 
-    // self::check_logged_in();
-    
+
     Kint::dump($uudet_kayttajan_tiedot);    
     // Kutsu kayttaja_list();
     // Luodaan uusi Kayttaja, jolla kutsutaan modifya...

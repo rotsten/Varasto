@@ -15,7 +15,7 @@ class VarastoController extends BaseController{
        
   public static function index(){
       
-    //self::check_logged_in(); 
+    self::check_logged_in(); 
     $varastotilanne = Varasto::all();
     View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
   }
@@ -29,17 +29,17 @@ class VarastoController extends BaseController{
   // Näyttää varaston lisäyssivun
   public static function varasto_lisaa_show(){
    
-    //self::check_logged_in(); 
+    self::check_logged_in(); 
     View::make('Varasto/LisaaVarasto.html');
   }
    
   public static function varasto_create (){    
 
-     
+    self::check_logged_in(); 
+    
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
-    //self::check_logged_in(); 
-        
+     
     $uusi_varasto = new VarastoTuote(array(
       'varasto_id' => $params['varasto_id'], 
       'nimi' => $params['nimi']
@@ -71,7 +71,7 @@ class VarastoController extends BaseController{
    *****************************************/
    public static function varasto_show($varasto_id){
        
-      //self::check_logged_in(); 
+      self::check_logged_in(); 
       $etsittava_varasto = VarastoController::find_with_varasto_id($varasto_id);
       //Kint::dump($etsittava_varasto);
        
@@ -90,7 +90,7 @@ class VarastoController extends BaseController{
      * mikä hakee varastotilanteen tietokannasta VARASTO-taulusta
      */
         
-    //self::check_logged_in();    
+    self::check_logged_in();    
     $varastot = Varasto::all();
     //Kint::dump($varastot);
     View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
@@ -119,9 +119,9 @@ class VarastoController extends BaseController{
   
   public static function varasto_edit($varasto_id){
 
+    self::check_logged_in();
     Kint::dump($varasto_id);
-    //self::check_logged_in(); 
-    
+     
     //Etsitään ensin tuote, mitä se koskee.
     $muutettava_varastotieto = VarastoController::find_with_varasto_id($varasto_id);
     Kint::dump($muutettava_varastotieto);

@@ -77,6 +77,7 @@ class TuoteController extends BaseController{
   public static function tuote_create (){    
     
     self::check_logged_in();
+    
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
         
@@ -151,9 +152,9 @@ class TuoteController extends BaseController{
   }
   
   public static function tuote_edit_post($tuote_id){
-    
+
+    self::check_logged_in();  
     $uudet_tiedot = $_POST; 
-    //self::check_logged_in();
   
     /*
      * Asetetaan päivämäärä ja timestamp. 
