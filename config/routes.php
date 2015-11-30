@@ -157,11 +157,11 @@
   });
 
   // Varaston muuttamiseen liittyvä sivu (tsekkaa reitti)
-  $routes->get('/Varasto/Varastonmuutos/:tuote_id', function($varasto_id) {
+  $routes->get('/Varasto/Varastonmuutos/:varasto_id', function($varasto_id) {
     VarastoController::varasto_edit($varasto_id);
   });
   
-  $routes->post('/Varasto/Varastonmuutos:tuote_id', function($varasto_id) {
+  $routes->post('/Varasto/Varastonmuutos:varasto_id', function($varasto_id) {
     VarastoController::varasto_edit_post($varasto_id);
   });
    

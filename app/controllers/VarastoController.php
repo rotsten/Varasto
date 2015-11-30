@@ -106,7 +106,6 @@ class VarastoController extends BaseController{
   public static function find_with_varasto_id($varasto_id){
     
     $etsittava_varasto = Varasto::find($varasto_id);  
-    
     return $etsittava_varasto;
 
   } // end of find_with_varasto_id[$varasto_id)
