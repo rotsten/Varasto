@@ -40,14 +40,11 @@
 
     $tarkistettava_kayttaja = KayttajaController::get_user_logged_in();
         
-    if(empty($tarkistettava_kayttaja['kayttooikeudet'])) {
-      // Arvo on tyhjä. EI voi olla pääkäyttäjä
-      //Kint::dump($tarkistettava_kayttaja);
-      return FALSE; 
-    } else {  
-      // Pääkäyttäjälle on asetettu käyttöoikeudet.
-      //Kint::dump($tarkistettava_kayttaja);
-      return TRUE;
+    if(true == ($tarkistettava_kayttaja['kayttooikeudet'])) {
+      return TRUE; 
+    } 
+    else {  
+      return FALSE;
     } // end of else
   } // end of check_user_rights()
   
