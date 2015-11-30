@@ -53,7 +53,6 @@ class KayttajaController extends BaseController {
      //Kint::dump($params);            
      $errors  = array();
      $errors2 = array();
-     $errors3 = array();
      
      if ($params['kayttajatunnus'] == '' || $params['kayttajatunnus'] == null){
         $errors[] = 'Jätit käyttäjätunnuksen antamatta!';
@@ -62,20 +61,8 @@ class KayttajaController extends BaseController {
      if($params['salasana'] == '' || $params['salasana'] == null){
         $errors2[] = 'Jätit salasanan antamatta!';
      }
-     
-     if($params['kayttooikeudet'] != 't' && $params['kayttooikeudet'] != 'T' &&
-        $params['kayttooikeudet'] != 'F' && $params['kayttooikeudet'] != 'f')
-     {
-        $errors3[] = 'Virheellinen käyttöoikeustieto annettu!';
-        Kint::dump($params['kayttooikeudet']);
-     }
-     
-     if($params['kayttooikeudet'] == '' || $params['kayttooikeudet'] == null){
-        $params['kayttooikeudet'] ='f';
-     }
-     
+        
      $errors = array_merge($errors, $errors2);
-     $errors = array_merge($errors, $errors3);
     
      // Palautetaan mahdolliset virheilmoitukset
      return $errors;
