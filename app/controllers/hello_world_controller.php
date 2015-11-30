@@ -20,7 +20,7 @@
       //));
       //$errors = $Uusi_kayttaja->errors();
 
-      Kint::dump($errors);
+      //Kint::dump($errors);
 
       //base_controller::check_user_rights();
     }
