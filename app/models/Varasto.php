@@ -81,7 +81,7 @@ class Varasto extends BaseModel{
     $query = DB::connection()->prepare ('UPDATE VARASTO SET varasto_id = :new_varasto_id,
                                                             nimi = :new_nimi, 
                                                             osoite =:new_osoite WHERE varasto_id =:varasto_id;');
-    $query->execute(array('varasto_id' => $this->varsto_id, 
+    $query->execute(array('varasto_id' => $this->varasto_id, 
                           'new_nimi' => $this->nimi,
                           'new_osoite' => $this->osoite
                           )); 
