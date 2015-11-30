@@ -131,7 +131,7 @@ class VarastoController extends BaseController{
   
   public static function varasto_edit_post($varasto_id){
     
-    self::check_logged_in();  
+    //self::check_logged_in();  
     $uudet_tiedot = $_POST; 
     
     $muuttujat = array(
@@ -141,14 +141,19 @@ class VarastoController extends BaseController{
     );
 
     $muuttunut_varasto = new Varasto($muuttujat);
-    //$errors = $Varasto->errors();
+    $errors = $Varasto->errors();
 
-    $muuttunut_varasto ->modify();
-
-    // Listataan varastotiedot, jotta muutos näkyy
-    $muuttunut_varasto = Varasto::all();
-    View::make('Varasto/Varastonlistaus.html', array('varastot' => $muuttunut_varasto));
-    
+    if(count($errors) == 0){
+        
+      // Ei virheitä syötteissä
+      $muuttunut_varasto ->modify();
+      // Listataan varastotiedot, jotta muutos näkyy
+      $muuttunut_varasto = Varasto::all();
+      View::make('Varasto/Varastonlistaus.html', array('varastot' => $muuttunut_varasto));
+    } else {
+        Kint::dump($errors);
+        View::make('Varastonmuutos.html', array('errors' => $errors, 'varastot' => $muuttunut_varasto));
+    }
   }  // end of varasto_edit_post
   
   /*****************************************
