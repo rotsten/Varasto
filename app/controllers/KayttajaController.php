@@ -214,13 +214,9 @@ class KayttajaController extends BaseController {
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
     $errors = $Kayttajatietojen_muutokset->errors();
     
-    Kint::dump($errors);
-    Kint::dump($uudet_kayttajan_tiedot['kayttooikeudet']);
-    
     if(count($errors) == 0){
-      //Kint::dump($Kayttajatietojen_muutokset);
-      $Kayttajatietojen_muutokset->modify();
-      
+
+      $Kayttajatietojen_muutokset->modify();      
       KayttajaController::kayttajalistaus();
     } 
     else {
@@ -236,7 +232,7 @@ class KayttajaController extends BaseController {
   
   public static function poista_kayttaja($kayttajatunnus){
     
-    //self::check_logged_in();  
+    self::check_logged_in();  
       
     $poistettava_kayttaja = new Kayttaja(array('kayttajatunnus' => $kayttajatunnus));
     Kint::dump($poistettava_kayttaja);

@@ -66,7 +66,7 @@ class Kayttaja extends BaseModel {
     $this->kayttooikeudet = $kayttooikeudet;
   }     
   
-  public static function find ($kayttajatunnus){
+  public static function find($kayttajatunnus){
     $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus =:kayttajatunnus LIMIT 1');
     $query->execute(array('kayttajatunnus' => $kayttajatunnus));
     $row = $query->fetch();
@@ -139,6 +139,12 @@ class Kayttaja extends BaseModel {
                           'new_kayttooikeudet' => $this->kayttooikeudet
                           )); 
   } // end of modify
+  
+  public function destroy () {
+                   
+    $query = DB::connection()->prepare ('DELETE FROM KAYTTAJA WHERE kayttajatunnus =:kayttajatunnus');
+    $query->execute(array('kayttajatunnus' => $this->kayttajatunnus));                  
+  }
              
   public function validate_kayttajatunnus(){
         
