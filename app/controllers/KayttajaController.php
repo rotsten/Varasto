@@ -237,7 +237,7 @@ class KayttajaController extends BaseController {
   
   public static function poista_kayttaja($kayttajatunnus){
     
-    self::check_logged_in();  
+    //self::check_logged_in();  
     $poistettava_kayttaja = new Kayttaja(array('kayttajatunnus' => $kayttajatunnus));
     Kint::dump($poistettava_kayttaja);
     

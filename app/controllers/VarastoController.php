@@ -119,11 +119,10 @@ class VarastoController extends BaseController{
   public static function varasto_edit($varasto_id){
 
     self::check_logged_in();
-    Kint::dump($varasto_id);
-     
+        
     //Etsitään ensin tuote, mitä se koskee.
     $muutettava_varastotieto = VarastoController::find_with_varasto_id($varasto_id);
-    Kint::dump($muutettava_varastotieto);
+    //Kint::dump($muutettava_varastotieto);
 
     View::make('Varasto/Varastonmuutos.html', array('Varasto' => $muutettava_varastotieto));
   
@@ -133,7 +132,7 @@ class VarastoController extends BaseController{
     
     self::check_logged_in();  
     $uudet_tiedot = $_POST; 
-    Kint::dump($uudet_tiedot);
+    //Kint::dump($uudet_tiedot);
     
     //Luodaan uusi Varasto, jolla kutsutaan modifya. 
     $muuttujat = array(
@@ -142,11 +141,10 @@ class VarastoController extends BaseController{
       'osoite' => $uudet_tiedot['osoite']
     );
 
-    $muuttunut_varasto = new Varasto($muuttujat);
+    $muuttunut_varasto = new Varasto($muuttujat);   
     
     $errors = $muuttunut_varasto->errors();
-    
-    Kint::dump($errors);
+    // Kint::dump($errors);
 
     if(count($errors) == 0){     
       // Ei virheitä syötteissä

@@ -147,8 +147,7 @@ class TuoteController extends BaseController{
     
     $muutettava_tuote= Tuote::find($tuote_id);
     //Kint::dump($muutettava_tuote);
-    View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
-    
+    View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));    
   }
   
   public static function tuote_edit_post($tuote_id){

@@ -63,12 +63,13 @@
   });
   
   // Poistaa käyttäjätiedot
-  $routes->post('/Kayttaja/Kayttajienlistaus/:kayttajatunnus', function($kayttajatunnus){
+  // Kayttajan poistaminen  
+  $routes->get('/Kayttaja/Poistakayttaja/:kayttajatunnus', function($kayttajatunnus){
     KayttajaController::poista_kayttaja($kayttajatunnus);
   });
   
-  // Kayttajan poistaminen  
-  $routes->get('/Kayttaja/Poistakayttaja/:kayttajatunnus', function($kayttajatunnus){
+  // Yksi poista-toiminto riittää...
+  $routes->post('/Kayttaja/Kayttajienlistaus/:kayttajatunnus', function($kayttajatunnus){
     KayttajaController::poista_kayttaja($kayttajatunnus);
   });
   

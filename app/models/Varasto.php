@@ -28,7 +28,7 @@ class Varasto extends BaseModel{
   public static function all(){
     // Alustetaan kysely tietokantayhteydellämme
      
-    $query = DB::connection()->prepare('SELECT * FROM VARASTO;');
+    $query = DB::connection()->prepare('SELECT * FROM VARASTO ORDER BY NIMI;');
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
