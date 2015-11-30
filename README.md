@@ -16,14 +16,13 @@ käytössä pari: testing testing.
 - Tuotteiden listaaminen toimii. 
 - Näytä tarkemmat tuotetiedot toimii
 - Tuotetietojen muuttaminen toimii 
+- Tuotteen poistaminen 
+- Tuotteen hakeminen
 - Käyttäjien listaaminen toimii
-- Varaston listaaminen toimii, mutta ei ole vielä kovin mielekästä katsottavaa. 
+- Varaston listaaminen toimii 
 
 Toimimatonta: 
-- validointi -näiden tulostusten lisääminen lomakkeelle aiheuttaa virheitä (ratkaisua etsitään)
-- Käyttäjätietojen muutos (ei saa inputtia alasvetovalikosta)
-- Tuotteen poistaminen (metodi toimii, parametrien välittämisessä on nyt jotain ongelmaa)
-- Tuotteen hakeminen ei toimi (edelleen metodit toimivat kyllä)
+- Käyttäjätietojen muutos 
 
 Tulossa:
 - Lisää käyttäjä, poista käyttäjä

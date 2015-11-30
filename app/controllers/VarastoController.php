@@ -160,7 +160,7 @@ class VarastoController extends BaseController{
   
   public static function poista_varasto($varasto_id){
     
-    //self::check_logged_in();   
+    self::check_logged_in();   
     $poistettava_varasto = new Varasto(array('varasto_id' => $varasto_id));        
     $poistettava_varasto->destroy();
        
