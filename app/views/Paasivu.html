@@ -4,23 +4,35 @@
        <H1>Käyttäjän {{user_logged_in.kayttajatunnus}} valittavana olevat toiminnot:</H1>
        {% if check_user_rights %}
        <H2>Pääkäyttäjän toiminnot: </H2>
+       <br>
+       <H4>Tuotetietojen käsittely </H4>
+       
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button> 
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
             <br>
+        <H4>Varastotietojen käsittely</H4>
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Lisaavarasto">Lisää uusi varasto</A></button>
             <br>
+        <H4>Käyttäjiätietojen käsittely</H4>
             <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajienlistaus">Käyttäjien listaus</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/LisaaKayttaja">Lisää käyttäjä</A></button>
         {% else %}
              <H2>Varastotyöntekijän toiminnot: </H2>
+             <br>
+             
+             <H4>Tuotetietojen käsittely </H4> 
              
              <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button>  
              <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
              <br>
+             
+             <H4>Varastotietojen käsittely</H4>
              <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Näytä varastot</A></button>
              <br>
+             
+             <H4>Käyttäjiätietojen käsittely</H4>
              <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Omattiedot">Omat käyttäjätiedot</A></button>
         {% endif %}     
 {% endblock %}
