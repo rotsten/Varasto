@@ -21,7 +21,7 @@ class TuoteController extends BaseController{
   public static function index(){
      View::make('Aloitussivu.html');
   }  
-
+  
   public static function tuote_list(){
 
     /*
@@ -233,16 +233,16 @@ class TuoteController extends BaseController{
  
   public static function find_tuote_post (){
          
-     /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
-      * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
-      */
-    
-      /*
-       *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
-       *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
-       *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
-       *  sijoitusta.
-       */
+   /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
+    * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
+    */
+
+   /*
+    *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
+    *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
+    *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
+    *  sijoitusta.
+    */
     
     self::check_logged_in();
     $input_params = $_POST;   
