@@ -82,24 +82,15 @@ class Tuote extends BaseModel {
   }
   
   public function modify () {
-                 
-    /*
-     * UPDATE TUOTE SET tuotteen_nimi = 'uusi nimi', 
-     *                  kuvaus = 'uusi kuvaus', 
-     *                  valmistaja = 'uusi valmistaja', 
-     *                  history_date = '2015-11-18 17:05:00' WHERE tuote_id = '345345';
-     */
-    
-    // public $tuote_id, $tuotteen_nimi, $valmistaja, $kuvaus, $lukumaara, $history_date;
-    
+                    
     $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = :new_tuotteen_nimi,
                                                           valmistaja = :new_valmistaja,
                                                           kuvaus = :new_kuvaus,
                                                           history_date = :new_history_date WHERE tuote_id =:tuote_id;');
     $query->execute(array('tuote_id' => $this->tuote_id, 
                           'new_tuotteen_nimi' => $this->tuotteen_nimi, 
-                          'new_kuvaus' => $this-> kuvaus,
-                          'new_valmistaja' => $this ->valmistaja, 
+                          'new_kuvaus' => $this->kuvaus,
+                          'new_valmistaja' => $this->valmistaja, 
                           'new_history_date' => $this->history_date
                           )); 
   }

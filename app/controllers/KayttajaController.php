@@ -126,10 +126,11 @@ class KayttajaController extends BaseController {
     */
     
     self::check_logged_in();
+    
     $Kayttajat = Kayttaja::all();
-    //Kint::dump($Kayttajat);
       
     View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
+    
   } // end of kayttaja_list
 
   /*****************************************
@@ -201,8 +202,7 @@ class KayttajaController extends BaseController {
     self::check_logged_in();
     $uudet_kayttajan_tiedot = $_POST; 
 
-    Kint::dump($uudet_kayttajan_tiedot);    
-    // Kutsu kayttaja_list();
+    // Kint::dump($uudet_kayttajan_tiedot);    
     // Luodaan uusi Kayttaja, jolla kutsutaan modifya...
     
     $muuttujat= array(
@@ -213,14 +213,15 @@ class KayttajaController extends BaseController {
       'kayttooikeudet' => $uudet_kayttajan_tiedot['kayttooikeudet']
     );
 
-    Kint::dump($uudet_kayttajan_tiedot['kayttooikeudet']);
+    //Kint::dump($uudet_kayttajan_tiedot['kayttooikeudet']);
     
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
+    
     $errors = $Kayttajatietojen_muutokset->errors();
-    Kint::dump($errors);
+    //Kint::dump($errors);
     
     if(count($errors) == 0){
-      Kint::dump($Kayttajatietojen_muutokset);
+      //Kint::dump($Kayttajatietojen_muutokset);
       $Kayttajatietojen_muutokset->modify();
       
       $KayttajaController::kayttajalistaus();
