@@ -103,6 +103,14 @@ class Varasto extends BaseModel{
     }                                   
     return $errors_varaston_nimi;
   }
+  
+  public function errors(){
+       
+    $errors = array();
+    $errors = $this->validate_varaston_nimi(); 
+   
+    return $errors;
+  }
 } // end of class
 
 

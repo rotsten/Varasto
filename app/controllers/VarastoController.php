@@ -143,7 +143,9 @@ class VarastoController extends BaseController{
     );
 
     $muuttunut_varasto = new Varasto($muuttujat);
+    
     $errors = $muuttunut_varasto->errors();
+    
     Kint::dump($errors);
 
     if(count($errors) == 0){     

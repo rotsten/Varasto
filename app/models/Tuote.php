@@ -247,16 +247,6 @@ class Tuote extends BaseModel {
      * -validate_tuote_id(), 
      * -validate_tuotteen_nimi(), 
      * -validate_valmistaja()
-     * 
-     * Metodi tulee käyttöön kaikille sovellukseni malleille, joten 
-     * se tulee lopullisessa toteutuksessa sijaitsemaan:
-     * lib --> base_model.php-tiedostossa, 
-     * jossa BaseModel-luokka sijaitsee. 
-     * 
-     * Lopullisessa versiossa metodi errors käy läpi validators-taulukon 
-     * ja kutsuu sen sisältämiä validointimetodeja niiden nimellä.
-     * 
-     * Ensimmäiessä vaiheessa käytetään kovakoodattua versiota.
      */
         
     $errors = array();
