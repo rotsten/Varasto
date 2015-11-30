@@ -191,7 +191,6 @@ class KayttajaController extends BaseController {
       
     self::check_logged_in();    
     $muutettava_kayttaja = Kayttaja::find($kayttajatunnus);
-    Kint::dump($muutettava_kayttaja);
     
     View::make('Kayttaja/Kayttajatietojenmuutos.html', array('muutettava_kayttaja' => $muutettava_kayttaja));
  
@@ -201,8 +200,7 @@ class KayttajaController extends BaseController {
  
     self::check_logged_in();
     $uudet_kayttajan_tiedot = $_POST; 
-
-    // Kint::dump($uudet_kayttajan_tiedot);    
+ 
     // Luodaan uusi Kayttaja, jolla kutsutaan modifya...
     
     $muuttujat= array(
@@ -212,21 +210,21 @@ class KayttajaController extends BaseController {
       'sukunimi' => $uudet_kayttajan_tiedot['sukunimi'],
       'kayttooikeudet' => $uudet_kayttajan_tiedot['kayttooikeudet']
     );
-
-    //Kint::dump($uudet_kayttajan_tiedot['kayttooikeudet']);
-    
+ 
     $Kayttajatietojen_muutokset = new Kayttaja ($muuttujat);
-    
     $errors = $Kayttajatietojen_muutokset->errors();
-    //Kint::dump($errors);
+    
+    Kint::dump($errors);
+    Kint::dump($uudet_kayttajan_tiedot['kayttooikeudet']);
     
     if(count($errors) == 0){
       //Kint::dump($Kayttajatietojen_muutokset);
       $Kayttajatietojen_muutokset->modify();
       
-      $KayttajaController::kayttajalistaus();
-    } else {
-       View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $Kayttajatietojen_muutokset));
+      KayttajaController::kayttajalistaus();
+    } 
+    else {
+      View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $Kayttajatietojen_muutokset));
     }   
   } // end of kayttaja_edit_post
   

@@ -32,7 +32,7 @@
         
         // Sessioon on tallennettu kirjautuneen käyttäjän käyttäjätunnus
         if(!isset($_SESSION['Kayttaja'])){
-            Redirect::to('/Kayttaja/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen')); 
+            Redirect::to('/Kayttaja/Kirjaudu', array('message' => 'Vaatii kirjautumisen')); 
          }  
     } 
     
