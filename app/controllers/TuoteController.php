@@ -31,7 +31,7 @@ class TuoteController extends BaseController{
      * Näyttää tuotteen listaussivun. 
      */
 
-    //self::check_logged_in();
+    self::check_logged_in();
  
     $Tuotteet = Tuote::all();
     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
@@ -53,7 +53,7 @@ class TuoteController extends BaseController{
       * tai hakutoiminnon jälkeen
       */
      
-     //self::check_logged_in();
+     self::check_logged_in();
      $listattava_tuote = Tuote::find($tuote_id);
      //Kint::dump($listattava_tuote);
 
@@ -69,17 +69,17 @@ class TuoteController extends BaseController{
     
   // Näyttää tuotteen lisäyssivun
   public static function tuote_lisaa_show(){
-    //self::check_logged_in();
+    self::check_logged_in();
 
     View::make('Tuote/Lisaatuote.html');
   }
    
   public static function tuote_create (){    
-     
+    
+    self::check_logged_in();
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
-    //self::check_logged_in();
-    
+        
     /*
      * Asetetaan päivämäärä ja timestamp. 
      * Olisi järkevää, jos tämä tulisi aina automaattisesti.
@@ -142,7 +142,7 @@ class TuoteController extends BaseController{
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
     
-    //self::check_logged_in();
+    self::check_logged_in();
     
     $muutettava_tuote= Tuote::find($tuote_id);
     //Kint::dump($muutettava_tuote);
@@ -202,7 +202,7 @@ class TuoteController extends BaseController{
   // Näyttää tuotteen hakusivun
   public static function tuote_hae_show(){
     
-    //self::check_logged_in();
+    self::check_logged_in();
     View::make('Tuote/Tuotteenhakeminen.html');
   }
 
@@ -243,12 +243,11 @@ class TuoteController extends BaseController{
        *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
        *  sijoitusta.
        */
-      
+    
+    self::check_logged_in();
     $input_params = $_POST;   
     $tuote_id = $input_params['tuote_id'];
-    
-    //self::check_logged_in();
-    
+       
     $etsittava_tuote = Tuote::find($tuote_id);  
     //Kint::dump($etsittava_tuote);
     
@@ -271,7 +270,7 @@ class TuoteController extends BaseController{
   
   public static function poista_tuote($tuote_id){
     
-    //self::check_logged_in();
+    self::check_logged_in();
       
     /*
      * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen

@@ -131,9 +131,9 @@ class VarastoController extends BaseController{
   }  // end of varasto_edit
   
   public static function varasto_edit_post($varasto_id){
-     
+    
+    self::check_logged_in();  
     $uudet_tiedot = $_POST; 
-    //self::check_logged_in(); 
     
     $muuttujat = array(
       'varasto_id' => $uudet_tiedot['varasto_id'],
