@@ -163,13 +163,11 @@ class KayttajaController extends BaseController {
     $params = $_POST;
     //self::check_logged_in();
     
-    // tsekataan käyttäjätunnuksen ja salasanan antaminen
-    
+    // tsekataan käyttäjätunnuksen ja salasanan antaminen  
     $errors = KayttajaController::check_login_params($params);
     
     if(count($errors) == 0){
   
-      Kint::dump($uusi_kayttaja);
       $uusi_kayttaja ->save();
             
       $Kayttajat = Kayttaja::all();   
