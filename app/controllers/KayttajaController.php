@@ -241,6 +241,6 @@ class KayttajaController extends BaseController {
     
     // Käyttäjä näkee listauksesta, että kayttajatunnus on poistunut      
     $Kayttajat = Kayttaja::all();
-    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
+    Redirect::to('/Kayttaja/Kayttajienlistaus', array('Kayttajat' => $Kayttajat));
   }
 } // THE END of class

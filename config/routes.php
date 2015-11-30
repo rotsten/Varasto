@@ -148,9 +148,14 @@
   
   // Varastoon liittyvät
   // varaston lisäyslomakkeen näyttäminen
-  $routes->get('/Varasto/LisaaVarasto', function(){
+  $routes->get('/Varasto/Lisaavarasto', function(){
     VarastoController::varasto_lisaa_show();
   });
+  
+  // uuden varaston lisääminen
+  $routes->post('/Varasto/Lisaavarasto', function(){
+    VarastoController::varasto_create();
+  }); 
   
   // Varaston listaamiseen liittyvä sivu
   $routes->get('/Varasto/Varastonlistaus', function() {
@@ -170,6 +175,8 @@
   $routes->get('/Varasto/Varastosivu/:varasto_id', function($varasto_id){
     VarastoController::varasto_show($varasto_id);
   });
+  
+  // Uuden varaston lisääminen 
   
   // Varaston poistaminen  
   $routes->get('/Varasto/Poistavarasto/:varasto_id', function($varasto_id){

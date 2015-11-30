@@ -154,13 +154,6 @@ class Tuote extends BaseModel {
     $query->execute(array('tuote_id' => $this->tuote_id));                  
   }
   
- /*
-  * Lisätään annettujen syötteiden validointifunktiot.
-  *    -validate_tuote_id(), 
-  *    -validate_tuotteen_nimi(), 
-  *    -validate_valmistaja()
-  */
-
   public function validate_tuote_id(){
         
    /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.

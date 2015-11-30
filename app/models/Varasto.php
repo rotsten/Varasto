@@ -76,6 +76,17 @@ class Varasto extends BaseModel{
      } // end of if
   } // end of find_tuote (tuote_id)
   
+  public function save () {
+      
+    $query = DB::connection()->prepare('INSERT INTO VARASTO (varasto_id, nimi, osoite)
+            VALUES (:nimi, :osoite)');
+   
+     $query->execute(array('varasto_id' => $this->varasto_id, 
+                           'nimi' => $this->nimi, 
+                           'osoite' => $this->osoite
+                           ));      
+  }
+  
   public function modify () {
                 
     $query = DB::connection()->prepare ('UPDATE VARASTO SET nimi = :new_nimi, 

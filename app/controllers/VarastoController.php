@@ -30,7 +30,7 @@ class VarastoController extends BaseController{
   public static function varasto_lisaa_show(){
    
     self::check_logged_in(); 
-    View::make('Varasto/LisaaVarasto.html');
+    View::make('Varasto/Lisaavarasto.html');
   }
    
   public static function varasto_create (){    
@@ -42,14 +42,15 @@ class VarastoController extends BaseController{
      
     $uusi_varasto = new VarastoTuote(array(
       'varasto_id' => $params['varasto_id'], 
-      'nimi' => $params['nimi']
+      'nimi' => $params['nimi'],
+      'osoite' => $params['osoite']
     ));
     
     $errors = $uusi_varasto->errors();
     
     if(count($errors) == 0){
   
-      //Kint::dump($uusi_varasto);
+      Kint::dump($uusi_varasto);
       $uusi_varasto ->save();
       
       /* Ohjataan käyttäjä lisäyksen jälkeen varaston esittelysivulle. 

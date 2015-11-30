@@ -119,14 +119,11 @@ class TuoteController extends BaseController{
        * kerralla väärin.
        */
       
-      Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);
-          
-    } else{
-        // Annetuissa arvoissa oli jotain vikaa.     
-        //Kint::dump($uusi_tuote);
-        //Kint::dump($errors);
-        
-        View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $params));
+      Redirect::to('/Tuote/Tuotesivu/' . $params['tuote_id'], $uusi_tuote);      
+    } 
+    else {
+      // Annetuissa arvoissa oli jotain vikaa.            
+      View::make('Tuote/Lisaatuote.html', array('errors' => $errors, 'attiributes' => $params));
     } 
     return;
   }
