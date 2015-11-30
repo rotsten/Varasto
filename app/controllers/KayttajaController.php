@@ -223,7 +223,7 @@ class KayttajaController extends BaseController {
       Kint::dump($Kayttajatietojen_muutokset);
       $Kayttajatietojen_muutokset->modify();
       
-      $Kayttajatietojen_muutokset::kayttajalistaus();
+      $KayttajaController::kayttajalistaus();
     } else {
        View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $Kayttajatietojen_muutokset));
     }   
