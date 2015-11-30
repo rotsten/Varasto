@@ -148,11 +148,11 @@ class VarastoController extends BaseController{
       // Ei virheitä syötteissä
       $muuttunut_varasto ->modify();
       // Listataan varastotiedot, jotta muutos näkyy
-      $muuttunut_varasto = Varasto::all();
-      View::make('Varasto/Varastonlistaus.html', array('Varasto' => $muuttunut_varasto));
+      $varastot = Varasto::all();
+      View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
     } else {
         Kint::dump($errors);
-        View::make('Varastonmuutos.html', array('errors' => $errors, 'varastot' => $muuttunut_varasto));
+        View::make('Varastonmuutos.html', array('errors' => $errors, 'Varasto' => $muuttunut_varasto));
     }
   }  // end of varasto_edit_post
   
