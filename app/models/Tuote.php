@@ -160,8 +160,7 @@ class Tuote extends BaseModel {
   public function destroy () {
                    
     $query = DB::connection()->prepare ('DELETE FROM TUOTE WHERE tuote_id =:tuote_id');
-    $query->execute(array('tuote_id' => $this->tuote_id));
-                       
+    $query->execute(array('tuote_id' => $this->tuote_id));                  
   }
   
  /*
