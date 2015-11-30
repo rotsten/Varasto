@@ -69,6 +69,10 @@ class KayttajaController extends BaseController {
         $errors3[] = 'Virheellinen käyttöoikeustieto annettu!';
      }
      
+     if($params['kayttooikeudet'] == '' || $params['kayttooikeudet'] == null){
+        $params['kayttooikeudet'] ='f';
+     }
+     
      $errors = array_merge($errors, $errors2);
      $errors = array_merge($errors, $errors3);
     
