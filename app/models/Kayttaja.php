@@ -201,19 +201,19 @@ class Kayttaja extends BaseModel {
      */
         
     $errors_kayttooikeudet = array();
+    if($this->kayttooikeudet == '' || $this->kayttooikeudet == null){
+        $this->kayttooikeudet =false;
+    }
+    
     if($this->kayttooikeudet != true && 
-       $this->kayttooikeudet != 't' && 
-       $this->kayttooikeudet != 'T' &&
-       $this->kayttooikeudet != false &&
-       $this->kayttooikeudet != 'F' && $this->kayttooikeudet != 'f')
+       //$this->kayttooikeudet != 't' && 
+       //$this->kayttooikeudet != 'T' &&
+       $this->kayttooikeudet != false)
+       //&& $this->kayttooikeudet != 'F' && $this->kayttooikeudet != 'f')
     {
        $errors__kayttooikeudet[] = 'Virheellinen käyttöoikeustieto annettu!';
     }
-
-    if($this->kayttooikeudet == '' || $this->kayttooikeudet == null){
-        $this->kayttooikeudet ='f';
-    }
-                                 
+                                
     return $errors_kayttooikeudet;
   }
   
