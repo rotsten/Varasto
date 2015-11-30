@@ -152,8 +152,12 @@ class Kayttaja extends BaseModel {
         $errors_kayttajatunnus[] = 'Jätit käyttäjätunnuksen antamatta!';
      }
      if(strlen($this->kayttajatunnus) < 4){
-       $errors_kayttajatunnus[] = 'Kayttajatunnuksen pitää olla vähintään 4 merkkiä pitkä!';
-     }                                   
+       $errors_kayttajatunnus[] = 'Kayttajatunnuksen pitää olla vähintään 4 merkkiä pitkä';
+     } 
+     
+     if(strlen($this->kayttajatunnus) > 8){
+       $errors_kayttajatunnus[] = 'Kayttajatunnus ei saa olla yli 8 merkkiä pitkä';
+     } 
      return $errors_kayttajatunnus;
   } // end of validate_kayttajatunnus
   
