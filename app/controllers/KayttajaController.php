@@ -172,7 +172,6 @@ class KayttajaController extends BaseController {
           
     } else{
         // Annetuissa arvoissa oli jotain vikaa.     
-        Kint::dump($uusi_kayttaja);
         Kint::dump($errors);
         View::make('Kayttaja/LisaaKayttaja.html', array('errors' => $errors, 'attiributes' => $params));
     }
