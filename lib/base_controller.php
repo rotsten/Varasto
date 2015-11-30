@@ -40,7 +40,7 @@
 
     $tarkistettava_kayttaja = KayttajaController::get_user_logged_in();
         
-    if(true == ($tarkistettava_kayttaja['kayttooikeudet'])) {
+    if('true' == ($tarkistettava_kayttaja['kayttooikeudet'])) {
       return TRUE; 
     } 
     else {  

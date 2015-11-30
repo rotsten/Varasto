@@ -2,6 +2,7 @@
 {% block content %}
     
        <H1>Käyttäjän {{user_logged_in.kayttajatunnus}} valittavana olevat toiminnot:</H1>
+       
        {% if check_user_rights %}
        <H2>Pääkäyttäjän toiminnot: </H2>
        <br>
@@ -32,7 +33,7 @@
              <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Näytä varastot</A></button>
              <br>
              
-             <H4>Käyttäjiätietojen käsittely</H4>
+             <H4>Käyttäjätietojen käsittely</H4>
              <button class="btn btn-default"><A href="{{base_path}}/Kayttaja/Kayttajasivu/{{user_logged_in.kayttajatunnus}}">Omat käyttäjätiedot</A></button>
-        {% endif %}     
+        {% end if%}     
 {% endblock %}

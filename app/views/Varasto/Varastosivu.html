@@ -11,8 +11,10 @@
             <th>Varasto-ID</th>
             <th>Varaston nimi</th>
             <th>Katuosoite</th>
-            <th></th>
-            <th></th>
+            {% if check_user_rights %}
+              <th></th>
+              <th></th>
+            {% end if %}
           </tr>
         </thead>
 

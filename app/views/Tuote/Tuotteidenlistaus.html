@@ -17,7 +17,7 @@
         {% if check_user_rights %}
           <th></th>
           <th></th>
-        {% endif %}
+        {% end if %}
       </tr>
     </thead>
 
@@ -32,7 +32,7 @@
             {% if check_user_rights %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
-            {% endif %}
+            {% end if %}
           </tr>
       {% endfor %}
     </tbody>    
