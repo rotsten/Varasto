@@ -131,10 +131,11 @@ class VarastoController extends BaseController{
   
   public static function varasto_edit_post($varasto_id){
     
-    //self::check_logged_in();  
+    self::check_logged_in();  
     $uudet_tiedot = $_POST; 
     Kint::dump($uudet_tiedot);
     
+    //Luodaan uusi Varasto, jolla kutsutaan modifya. 
     $muuttujat = array(
       'varasto_id' => $uudet_tiedot['varasto_id'],
       'nimi' => $uudet_tiedot['nimi'],
@@ -142,7 +143,7 @@ class VarastoController extends BaseController{
     );
 
     $muuttunut_varasto = new Varasto($muuttujat);
-    $errors = $Varasto->errors();
+    $errors = $muuttunut_varasto->errors();
     Kint::dump($errors);
 
     if(count($errors) == 0){     
