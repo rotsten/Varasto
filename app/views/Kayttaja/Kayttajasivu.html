@@ -19,17 +19,20 @@
 
         <tbody>
            <tr>
-             <td>{{kayttaja.kayttajatunnus}}</td> <!--Jostain syystä tämä ei tulostu, eikä siis myös välity Muokkaa-sivulle -->
+             <td>{{kayttaja.kayttajatunnus}}</td> 
              <td>{{kayttaja.etunimi}}</td>  
              <td>{{kayttaja.sukunimi}}</td>
              <td>{{kayttaja.kayttooikeudet}}</td>
-              <th><a class="btn btn-default btn-sm" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{kayttaja.kayttajatunnus}}">Muokkaa</a></th>
+             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{kayttaja.kayttajatunnus}}">Muokkaa</a></th>
              <th><a class="btn btn-default btn-sm" href="{{base_path}}/Paasivu">Poista</a></th> 
           </tr>
          </tbody>    
       </table>
     </form>    
 
+    <br><br>
+    <H4>Numero 1 = pääkäyttäjä, 0 = varastotyöntekijän käyttöoikeudet</H4>
+    <br>
     <button class="btn btn-default"><A href="{{base_path}}/Paasivu"> Pääsivulle</A></button>
 
 {% endblock %}

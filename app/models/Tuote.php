@@ -81,10 +81,10 @@ class Tuote extends BaseModel {
   
   public function modify () {
                     
-    $query = DB::connection()->prepare ('UPDATE TUOTE SET tuotteen_nimi = :new_tuotteen_nimi,
-                                                          valmistaja = :new_valmistaja,
-                                                          kuvaus = :new_kuvaus,
-                                                          history_date = :new_history_date WHERE tuote_id =:tuote_id;');
+    $query = DB::connection()->prepare('UPDATE TUOTE SET tuotteen_nimi = :new_tuotteen_nimi,
+                                                         valmistaja = :new_valmistaja,
+                                                         kuvaus = :new_kuvaus,
+                                                         history_date = :new_history_date WHERE tuote_id =:tuote_id;');
     $query->execute(array('tuote_id' => $this->tuote_id, 
                           'new_tuotteen_nimi' => $this->tuotteen_nimi, 
                           'new_kuvaus' => $this->kuvaus,
