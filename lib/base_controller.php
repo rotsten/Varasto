@@ -38,9 +38,10 @@
     
   public static function check_user_rights(){
 
+    // hakee sisään kirjautuneen tiedot. Palauttaa Kayttaja -olion.
     $tarkistettava_kayttaja = BaseController::get_user_logged_in();
         
-    if('true' == ($tarkistettava_kayttaja['kayttooikeudet'])) {
+    if('true' == ($tarkistettava_kayttaja->this.kayttooikeudet)) {
       return TRUE; 
     } 
     else {  
