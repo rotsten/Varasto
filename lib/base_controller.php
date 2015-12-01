@@ -36,7 +36,7 @@
          }  
     } 
    
-    public static function get_check_logged_in(){
+    public static function check_user_rights(){
       return KayttajaController::kayttooikeudet_check();
     }
  /*****************************************
