@@ -42,7 +42,8 @@
     $tarkistettava_kayttaja = self::get_user_logged_in();
     
     // true or false
-    return KayttajaController::get_kayttooikeudet($tarkistettava_kayttaja);
+    return $tarkistettava_kayttaja['kayttajatunnus'];
+    //return KayttajaController::get_kayttooikeudet($tarkistettava_kayttaja);
         
   } // end of check_user_rights()
   
