@@ -143,7 +143,6 @@ class TuoteController extends BaseController{
     self::check_logged_in();
     
     $muutettava_tuote= Tuote::find($tuote_id);
-    //Kint::dump($muutettava_tuote);
     View::make('Tuote/Tuotetietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));    
   }
   

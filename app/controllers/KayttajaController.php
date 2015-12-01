@@ -22,9 +22,21 @@ class KayttajaController extends BaseController {
       View::make('Paasivu.html');
     }
     
-    public static function get_kayttooikeudet($kayttaja){
-      return $kayttaja->this.kayttooikeudet;
-    }
+    public static function kayttooikeudet_check(){
+
+    // hakee sisään kirjautuneen tiedot. Palauttaa Kayttaja -olion.
+    $tarkistettava_kayttaja = self::get_user_logged_in();
+    $kayttooikeudet = $tarkistettava_kayttaja->this.kayttooikeudet;
+    Kint::dump($kayttooikeudet);
+    
+      if ( $kayttooikeudet == true ) {
+        // Kyseessä on pääkäyttäjä
+        return true;
+      }
+        else {
+          return false;  
+      } // end of if
+    } // end of kayttooikeudet_check()
     
   /*****************************************
    * 

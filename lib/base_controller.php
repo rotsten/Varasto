@@ -35,18 +35,10 @@
             Redirect::to('/Kayttaja/Kirjaudu', array('message' => 'Vaatii kirjautumisen')); 
          }  
     } 
-    
-  public static function check_user_rights(){
-
-    // hakee sisään kirjautuneen tiedot. Palauttaa Kayttaja -olion.
-    $tarkistettava_kayttaja = self::get_user_logged_in();
-    
-    // true or false
-    return $tarkistettava_kayttaja['kayttajatunnus'];
-    //return KayttajaController::get_kayttooikeudet($tarkistettava_kayttaja);
-        
-  } // end of check_user_rights()
-  
+   
+    public static function get_check_logged_in(){
+      return KayttajaController::kayttooikeudet_check();
+    }
  /*****************************************
   * 
   * Kirjaudutaan ulos
