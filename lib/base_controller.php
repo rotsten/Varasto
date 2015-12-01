@@ -41,7 +41,7 @@
       // Palautetaan kirjautuneen käyttäjän käyttäjätunnus  
       $kirjautunut_kayttaja = self::get_user_logged_in();
       
-      return $oikeudet = $kirjautunut_kayttaja['kayttooikeudet'];
+      return $oikeudet = $kirjautunut_kayttaja->this['kayttooikeudet'];
       //return KayttajaController::kayttooikeudet_check($kayttaja);
     }
  /*****************************************
