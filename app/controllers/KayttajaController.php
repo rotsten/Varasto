@@ -22,6 +22,10 @@ class KayttajaController extends BaseController {
       View::make('Paasivu.html');
     }
     
+    public static function get_kayttooikeudet($kayttaja){
+      return $kayttaja->this.kayttooikeudet;
+    }
+    
   /*****************************************
    * 
    * Käyttäjän kirjautuminen 

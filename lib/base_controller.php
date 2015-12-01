@@ -40,13 +40,10 @@
 
     // hakee sisään kirjautuneen tiedot. Palauttaa Kayttaja -olion.
     $tarkistettava_kayttaja = BaseController::get_user_logged_in();
+    
+    // true or false
+    return KayttajaController::get_kayttooikeudet($tarkistettava_kayttaja);
         
-    if('true' == ($tarkistettava_kayttaja->this.kayttooikeudet)) {
-      return TRUE; 
-    } 
-    else {  
-      return FALSE;
-    } // end of else
   } // end of check_user_rights()
   
  /*****************************************
