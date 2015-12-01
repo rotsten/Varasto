@@ -38,8 +38,9 @@
       
       // Palautetaan kirjautuneen käyttäjän käyttäjätunnus  
       $kayttajan_tiedot = Kayttaja::find($_SESSION['Kayttaja']);
-            
-      if ( $kayttajan_tiedot['kayttooikeudet'] == 'true' ) {
+        
+      if ( $kayttajan_tiedot->this['kayttooikeudet'] == 'true' ) {
+      //if ( $kayttajan_tiedot['kayttooikeudet'] == 'true' ) {
         // Kyseessä on pääkäyttäjä
         return true;
       }
