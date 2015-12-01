@@ -37,7 +37,9 @@
     } 
    
     public static function check_user_rights(){
-      return KayttajaController::kayttooikeudet_check();
+       
+      $kayttaja = self::get_user_logged_in();  
+      return KayttajaController::kayttooikeudet_check($kayttaja);
     }
  /*****************************************
   * 
