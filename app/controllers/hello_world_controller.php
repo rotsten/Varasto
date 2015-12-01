@@ -11,7 +11,7 @@
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
       
-      $paluuarvo = BaseController::check_user_rights();
+      $paluuarvo = self::check_user_rights();
       echo $paluuarvo;
       
       echo user_logged_in.kayttajatunnus;
