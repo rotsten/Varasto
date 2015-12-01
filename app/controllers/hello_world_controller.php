@@ -11,6 +11,11 @@
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
       
+      $paluuarvo = check_user_rights();
+      echo $paluuarvo;
+      
+      echo user_logged_in.kayttajatunnus;
+      
       //VarastoTuoteController::varastotilanne_show('001');
       //echo $varastotilanne = Varastotilanne::all();
             
