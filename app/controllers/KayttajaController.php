@@ -26,7 +26,7 @@ class KayttajaController extends BaseController {
 
     // hakee sisään kirjautuneen tiedot. Palauttaa Kayttaja -olion.
     $tarkistettava_kayttaja = self::get_user_logged_in();
-    $kayttooikeudet = $tarkistettava_kayttaja->this.kayttooikeudet;
+    $kayttooikeudet = $tarkistettava_kayttaja['kayttooikeudet'];
     Kint::dump($kayttooikeudet);
     
       if ( $kayttooikeudet == true ) {
