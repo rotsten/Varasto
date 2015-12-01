@@ -25,7 +25,7 @@ class KayttajaController extends BaseController {
     public static function kayttooikeudet_check($kayttaja){
 
     Kint::dump($kayttaja);
-    $kayttajan_tiedot = Kayttaja::kayttaja_find($kayttaja);
+    $kayttajan_tiedot = Kayttaja::find($kayttaja);
     
     Kint::dump($kayttajan_tiedot['kayttooikeudet']);
     

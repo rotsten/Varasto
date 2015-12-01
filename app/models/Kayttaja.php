@@ -97,12 +97,10 @@ class Kayttaja extends BaseModel {
     }// end of if
   } // Find(kayttajatunnus)
   
-   public static function kayttaja_find ($kayttajatunnus){
   /*
-   * Pitää ensin etsiä halutun käyttäjän tiedot tietokannasta.
-   */
+   public static function kayttaja_find ($kayttajatunnus){
       
-    $query = DB::connection()->prepare ('SELECT * KAYTTAJA WHERE kayttajatunnus = $kayttajatunnus');
+    $query = DB::connection()->prepare ('SELECT * KAYTTAJA WHERE kayttajatunnus = :kayttajatunnus LIMIT 1');
     $query->execute(array('kayttajatunnus' => $kayttajatunnus));
     $row = $query->fetch();
 
@@ -118,6 +116,7 @@ class Kayttaja extends BaseModel {
     return $kayttaja;
     
   } // end of kayttaja_find
+  */
   
   public function save(){
     
