@@ -24,10 +24,10 @@ class KayttajaController extends BaseController {
     
     public static function kayttooikeudet_check($kayttaja){
 
-    $kayttooikeudet = $kayttaja['kayttooikeudet'];
-    Kint::dump($kayttooikeudet);
+    $kayttajan_tiedot = Kayttaja::kayttaja_find($kayttaja);
+    Kint::dump($kayttajan_tiedot['kayttooikeudet']);
     
-      if ( $kayttooikeudet == 'true' ) {
+      if ( $kayttajan_tiedot['kayttooikeudet'] == 'true' ) {
         // Kyseessä on pääkäyttäjä
         return true;
       }

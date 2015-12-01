@@ -18,27 +18,25 @@ class Tuote extends BaseModel {
   
   //konstruktori
   public function __construct ($attributes){
-      parent::__construct($attributes);
+    parent::__construct($attributes);
       
-      /* Validoidaan annetut syötteet
-       * 
-       * Kuvaus on vapaamuotoinen tieto ja sen antaminen on vapaaehtoista.
-       * Näistä syistä syötettä ei validoida. 
-       * 
-       * Lukumäärä- tieto validoidaan. Tarkastetaan, että syöte on luku. 
-       * On myös ajatus edelleen muuttaa toteutuksen rakenteita siten, että 
-       * lukumäärä olisi vain Varasto-oliossa.
-       * 
-       * History-date tietoa ei validoida, koska on edelleen aikomus saada
-       * tämän tieto automaattisesti tietokantaan.    
-       */
-      $this->validators = array(
-          'validate_tuote_id', 
-          'validate_tuotteen_nimi', 
-          'validate_valmistaja');
+    /* Validoidaan annetut syötteet
+     * 
+     * Kuvaus on vapaamuotoinen tieto ja sen antaminen on vapaaehtoista.
+     * Näistä syistä syötettä ei validoida. 
+     * 
+     * Lukumäärä- tieto validoidaan. Tarkastetaan, että syöte on luku. 
+     * On myös ajatus edelleen muuttaa toteutuksen rakenteita siten, että 
+     * lukumäärä olisi vain Varasto-oliossa.
+     * 
+     * History-date tietoa ei validoida, koska on edelleen aikomus saada
+     * tämän tieto automaattisesti tietokantaan.    
+     */
+    $this->validators = array(
+      'validate_tuote_id', 
+      'validate_tuotteen_nimi', 
+      'validate_valmistaja');
   }
-  
-  // Removed: 'validate_lukumaara'
   
   public static function all(){
     /*
@@ -100,7 +98,6 @@ class Tuote extends BaseModel {
     /* 
      * Kutsutaan, kun etsitään tarkkoja tuotetietoja
      */
-    //Kint::dump($tuote_id);
     
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     $query->execute(array('tuote_id' => $tuote_id));
@@ -113,10 +110,9 @@ class Tuote extends BaseModel {
         'valmistaja' => $row['valmistaja']
       ));
     
-      //Kint::dump($tuote);
       return $tuote;
             
-     } // end of if
+    } // end of if
   } // end of find_tuote (tuote_id)
   
   /*

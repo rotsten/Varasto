@@ -37,7 +37,8 @@
     } 
    
     public static function check_user_rights(){
-       
+      
+      // Palautetaan kirjautuneen käyttäjän käyttäjätunnus  
       $kayttaja = self::get_user_logged_in();  
       return KayttajaController::kayttooikeudet_check($kayttaja);
     }
