@@ -10,9 +10,7 @@
 
       if(isset($_SESSION['Kayttaja'])){
         $kayttajatunnus = $_SESSION['Kayttaja'];
-        
-        //Kint::dump($kayttajatunnus);
-        
+              
         // Pyydetään Kayttaja-mallilta käyttäjä session mukaisella id:llä
         $kayttaja = Kayttaja::find($kayttajatunnus);
         //Kint::dump($kayttaja);
@@ -39,10 +37,16 @@
     public static function check_user_rights(){
       
       // Palautetaan kirjautuneen käyttäjän käyttäjätunnus  
-      $kirjautunut_kayttaja = self::get_user_logged_in();
-      
-      return $oikeudet = $kirjautunut_kayttaja->this['kayttooikeudet'];
-      //return KayttajaController::kayttooikeudet_check($kayttaja);
+      $kayttajan_tiedot = Kayttaja::find($_SESSION['Kayttaja']);
+            
+      if ( $kayttajan_tiedot['kayttooikeudet'] == 'true' ) {
+        // Kyseessä on pääkäyttäjä
+        return true;
+      }
+        else {
+          return false;  
+      } // end of if
+       //return KayttajaController::kayttooikeudet_check($kayttaja);
     }
  /*****************************************
   * 
