@@ -222,10 +222,8 @@ class TuoteController extends BaseController{
   }
     
   public static function find_tuote_with_tuote_id($tuote_id){
-    
-    //$etsittava_tuote = new Tuote();
+   
     $etsittava_tuote = Tuote::find($tuote_id);  
-    //Kint::dump($etsittava_tuote);
     
     return $etsittava_tuote;
 
@@ -233,45 +231,27 @@ class TuoteController extends BaseController{
  
   public static function find_tuote_post_tuote_id ($tuote_id){
 
-   /*
-    *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
-    *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
-    *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
-    *  sijoitusta.
-    */
-    
     self::check_logged_in();
     //$input_params = $_POST;   
     //$tuote_id = $input_params['tuote_id'];
        
     $etsittava_tuote = Tuote::find($tuote_id);  
-    //Kint::dump($etsittava_tuote);
-    
+        
     if (empty($etsittava_tuote)) {
         // Ei löytynyt
         $errors='Etsittävää tuotetta ei löytynyt $tuote_id';
         View::make('Tuote/Tuotesivu.html', array('errors' => $errors, 'tuote' => $etsittava_tuote));
     }
     
-    //Redirect::to('/Tuote/Tuotesivu.html{{$tuote_id}}', array('tuote' => $etsittava_tuote));
     View::make('Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
     
   } // end of find_tuote_post
   
  public static function find_tuote_post_tuotteennimi ($nimi){
          
-   /*
-    *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
-    *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
-    *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
-    *  sijoitusta.
-    */
-    
     self::check_logged_in();
-    //$input_params = $_POST;   
-    //$nimi = $input_params['tuotteen_nimi'];
-    Kint::dump($nimi);
-       
+
+    Kint::dump($nimi);   
     $tulokset = Tuote::find_tuotteen_nimi($nimi);  
     Kint::dump($tulokset);
     

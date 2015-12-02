@@ -145,12 +145,6 @@ class Tuote extends BaseModel {
 
   public function find_tuotteen_nimi($tuotteen_nimi){
       
-      /*
-       * Hakutulosta pitäisi laajentaa niin, että se listaisi useampia tuotteita.
-       * Myös ne, joiden nimessä annettu sana esiintyy, ei vain niitä, jotka 
-       * täydellisesti täyttävät hakuehdon.
-       */
-    
     $tuotteen_nimi = "%$tuotteen_nimi%";
     Kint::dump($tuotteen_nimi);
     
