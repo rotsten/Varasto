@@ -70,7 +70,6 @@ class Tuote extends BaseModel {
     $pages = ceil($tuote_count/$page_size);
         
     $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
-    //$query = DB::connection()->prepare('SELECT * FROM TUOTE');
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
@@ -131,6 +130,7 @@ class Tuote extends BaseModel {
     
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
+    
     if($row){
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
@@ -143,7 +143,6 @@ class Tuote extends BaseModel {
             
     } // end of if
   } // end of find_tuote (tuote_id)
-  
 
   public function find_tuotteen_nimi($tuotteen_nimi){
       
@@ -153,20 +152,26 @@ class Tuote extends BaseModel {
        * täydellisesti täyttävät hakuehdon.
        */
     
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuotteen_nimi LIKE :tuotteen_nimi');
-    $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
-    $row = $query->fetchAll();
-    if($row){
-      $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
-        'valmistaja' => $row['valmistaja'],
-        'kuvaus' => $row['kuvaus'],
-        'lukumaara' => $row['lukumaara']
-      ));
-     
-      return $tuotteet;
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE (tuotteen_nimi) LIKE :tuotteen_nimi');
+    $query->execute(array('%tuotteen_nimi%' => $tuotteen_nimi));
+    $rows = $query->fetchAll();
+    
+    if ($rows){
+      foreach($rows as $row){
+        $tuotteet[] = new Tuote (array(
+          'tuote_id' => $row['tuote_id'],
+          'tuotteen_nimi' => $row['tuotteen_nimi'],
+          'valmistaja' => $row['valmistaja'],
+          'kuvaus' => $row['kuvaus'],
+          'lukumaara' => $row['lukumaara']
+        )); 
+      } // end of for
+      Kint::dump($tuotteet);
+      
+      return $tuotteet[];
     } // end of if
+    
+    // Jos ei löytynyt
     return null;
   } // end of find_tuotteen_nimi
   

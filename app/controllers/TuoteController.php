@@ -277,7 +277,7 @@ class TuoteController extends BaseController{
     
     if (empty($tulokset)) {
         // Ei löytynyt
-        $errors='Etsittävää tuotetta ei löytynyt $tuote_id';
+        $errors='Tuotetta $tuotteen_nimi ei löytynyt.';
         View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
     }
 
