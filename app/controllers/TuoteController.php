@@ -208,18 +208,19 @@ class TuoteController extends BaseController{
     Kint::dump($params);
     
     if (empty($params['tuote_id'])) {
-    }
+    
        // Tuote_id:tä ei ole annettu.
-       $empty =1;
-   else { 
-     Kint::dump($params['tuote_id']);
-     TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
-     // Mikäli löytyy, ohjataan tuotesivulle    
+       $empty++;
+    }
+    else { 
+      Kint::dump($params['tuote_id']);
+      TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
+      // Mikäli löytyy, ohjataan tuotesivulle    
     }
     
     if (empty($params['tuotteen_nimi'])){
-        $empty=2;
-        // Tuotteen nimeä ei ole annettu
+      $empty++;
+      // Tuotteen nimeä ei ole annettu
     }
     else {
       Kint::dump($params['tuotteen_nimi']);
