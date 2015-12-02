@@ -266,7 +266,7 @@ class TuoteController extends BaseController{
          
     self::check_logged_in();
 
-    Kint::dump($tuotteen_niminimi);   
+    Kint::dump($tuotteen_nimi);   
     $tulokset = Tuote::find_tuotteen_nimi($tuotteen_nimi);  
     Kint::dump($tulokset);
     
