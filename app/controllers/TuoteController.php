@@ -271,6 +271,7 @@ class TuoteController extends BaseController{
     self::check_logged_in();
     $input_params = $_POST;   
     $nimi = $input_params['tuotteen_nimi'];
+    Kint::dump($nimi);
        
     $tulokset = Tuote::find_tuotteen_nimi($nimi);  
     Kint::dump($tulokset);
@@ -278,6 +279,8 @@ class TuoteController extends BaseController{
     if(empty ($tulokset)) {
       // Ei löytynyt
       $errors= 'Tuotetta $tuotteen_nimi ei löytynyt.';
+      Kint::dump($errors);
+      
       View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
     }
 
