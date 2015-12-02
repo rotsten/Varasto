@@ -211,7 +211,7 @@ class TuoteController extends BaseController{
       $tulos = TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
       // Mikäli löytyy, ohjataan tuotesivulle    
     }
-    if  ($params['tuotteen:nimi']!= 0){
+    if  ($params['tuotteen_nimi']!= 0){
       $tulokset = TuoteController::find_tuote_post_tuotteennimi($params['tuotteen:nimi']);
       // Mikäli löytyy, ohjataan tuotteiden listaussivulle 
     }
