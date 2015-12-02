@@ -152,8 +152,8 @@ class Tuote extends BaseModel {
        * täydellisesti täyttävät hakuehdon.
        */
     
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE (tuotteen_nimi) LIKE :tuotteen_nimi');
-    $query->execute(array('%tuotteen_nimi%' => $tuotteen_nimi));
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE (tuotteen_nimi) LIKE :%tuotteen_nimi%');
+    $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
     $rows = $query->fetchAll();
     
     if ($rows){
