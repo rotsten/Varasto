@@ -98,13 +98,7 @@
   $routes->post('/Tuote/Tuotteenhakeminen', function(){
    TuoteController::tuote_search();
   });
-  
-  // Tulostaa tuotteen hakutulokset (haettu nimellä) tuotteidenlistaukseen
-  $routes->post('/Tuote/Tuotteenhakeminen', function(){
-   TuoteController::find_tuote_post_tuotteennimi();
-  });
-  
-  
+   
   $routes->get('/Tuote', 'check_logged_in', function(){
     TuoteController::index();
   });
