@@ -43,8 +43,10 @@ class Tuote extends BaseModel {
     $query = DB::connection()->prepare('SELECT COUNT(tuote_id) FROM TUOTE');
     // Suoritetaan kysely
     $query->execute();
-    // Haetaan kyselyn tuottamat rivit
-    $count = $query->fetchAll();
+    // Haetaan kyselyn tuottamat rivit, taulukkomuodossa
+    $tulos = $query->fetchAll();
+    
+    $count = $tulos[0];
     Kint::dump($count);
     
     // Paluttaa, kuinka monta riviä taulussa oli dataa
