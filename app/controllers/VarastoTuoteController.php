@@ -66,18 +66,7 @@ class VarastoTuoteController extends BaseController{
        
   }  // end of tuote_list
     
-  public static function varastotuote_edit($tuote_id){
-    /*
-     *  Tuote-id on hakuavain. Sitä ei voi editoida.
-     *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
-     */
-    
-    //self::check_logged_in(); 
-    $muutettava_tuote= Varasto_Tuote::all_in_certain_varasto_join_tuote($tuote_id);
-    //Kint::dump($muutettava_tuote);
-    View::make('VarastoTuote/Lukumaaratietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
-    
-  }
+
   /*****************************************
    * 
    * Tuotteiden lisäys varastoon
@@ -129,20 +118,32 @@ class VarastoTuoteController extends BaseController{
    * Tuotteiden lukumäärän muutos
    * 
    *****************************************/
+
+  public static function varastotuote_edit($tuote_id){
+    /*
+     *  Tuote-id on hakuavain. Sitä ei voi editoida.
+     *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
+     */
+    
+    //self::check_logged_in(); 
+    $muutettava_tuote= Varasto_Tuote::all_in_certain_varasto_join_tuote($tuote_id);
+    //Kint::dump($muutettava_tuote);
+    View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote));
+    
+  }
   
-  public static function varastotuote_edit_post($lukumaara){
+  public static function varastotuote_edit_post(){
     
     $uudet_tiedot = $_POST; 
     Kint::dump($uudet_tiedot);
-    Kint::dump($lukumaara);
-    
+
     //self::check_logged_in(); 
   
     //Luodaan uusi tuote, jolla kutsutaan modifya...  
     $muuttujat= array(
       'varasto_id' => $uudet_tiedot['varasto_id'],
       'tuote_id' => $uudet_tiedot['tuote_id'],
-      'lukumaara'=> $lukumaara
+      'lukumaara'=> $uudet_tiedot['lukumaara']
     );
     
     $muutettava_tuote = new VarastoTuote($muuttujat);
