@@ -186,7 +186,6 @@
   $routes->get('/Tuote/Lisaatuote', 'check_logged_in', function(){
     TuoteController::tuote_create();
   });
-
   
   // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun, joka tarvitsee hakuavaimeiksi varasto_id:n + tuote_id:n.
