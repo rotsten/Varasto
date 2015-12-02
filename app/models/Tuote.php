@@ -46,9 +46,9 @@ class Tuote extends BaseModel {
     // Haetaan kyselyn tuottamat rivit, taulukkomuodossa
     $tulos = $query->fetchAll();
     
-    //$count = $query->fetchColumn(0); 
+    $count = $query->fetchColumn(0); 
     
-    $count = $tulos[0];
+    //$count = $tulos[0];
     Kint::dump($count);
     
     // Paluttaa, kuinka monta riviä taulussa oli dataa
@@ -75,7 +75,7 @@ class Tuote extends BaseModel {
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
-    $tuotteet = (array('limit' => $page_size, 'offset' => $page_size * ($page - 1)));
+    $tuotteet = (array('limit' => $page_size, 'offset' => $page_size * $page));
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
