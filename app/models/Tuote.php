@@ -44,11 +44,11 @@ class Tuote extends BaseModel {
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit, taulukkomuodossa
-    //$tulos = $query->fetchAll();
+    $tulos = $query->fetchAll();
     
-    $count = $query->fetchColumn(0); 
+    //$count = $query->fetchColumn(0); 
     
-    //$count = $tulos[0];
+    $count = $tulos[0];
     Kint::dump($count);
     
     // Paluttaa, kuinka monta riviä taulussa oli dataa
@@ -69,7 +69,8 @@ class Tuote extends BaseModel {
     // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
     $pages = ceil($tuote_count/$page_size);
         
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
+    //$query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE');
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
@@ -86,6 +87,8 @@ class Tuote extends BaseModel {
           'history_date' => $row['history_date']
        ));
     } // end of foreach
+   
+    $tuotteet = ksort($tuotteet);
     return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
   } // end of function all
   
