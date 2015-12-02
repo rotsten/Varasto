@@ -207,10 +207,12 @@ class TuoteController extends BaseController{
     $params = $_POST;   
     Kint::dump($params);
     
+    $empty_parameters_counter=0;
+    
     if (empty($params['tuote_id'])) {
     
        // Tuote_id:tä ei ole annettu.
-       $empty++;
+       $empty_parameters_counter++;
     }
     else { 
       Kint::dump($params['tuote_id']);
@@ -219,7 +221,7 @@ class TuoteController extends BaseController{
     }
     
     if (empty($params['tuotteen_nimi'])){
-      $empty++;
+      $empty_parameters_counter++;
       // Tuotteen nimeä ei ole annettu
     }
     else {
@@ -228,7 +230,7 @@ class TuoteController extends BaseController{
       // Mikäli löytyy, ohjataan tuotteiden listaussivulle 
     }
     
-    if ($empty==2) {
+    if ($empty_parameters_counter==2) {
       $errors = 'Et antanut hakuehtoja';
       View::make('Tuote/Tuotteenhakeminen.html', array('errors' => $errors));
     }
