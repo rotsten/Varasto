@@ -203,14 +203,21 @@ class TuoteController extends BaseController{
   }
 
   public function tuote_search ($tuote_id, $tuotteen_nimi){
-     
-    if ($tuote_id != 0) {
-      $tulos -> $this->find($tuote_id);
-      // Tänne pitää tallentaan haun tuloksena saadun olion datat    
+
+    self::check_logged_in();
+    $params = $_POST;   
+    
+    if ($params['tuote_id']!= 0) {
+      $tulos = TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
+      // Mikäli löytyy, ohjataan tuotesivulle    
+    }
+    if  ($params['tuotteen:nimi']!= 0){
+      $tulokset = TuoteController::find_tuote_post_tuotteennimi($params['tuotteen:nimi']);
+      // Mikäli löytyy, ohjataan tuotteiden listaussivulle 
     }
     else {
-      $tulos -> $this->find_tuotteen_nimi($tuotteen_nimi);
-      // Tänne pitää tallentaan haun tuloksena saatujen olioiden datat
+      $errors='Et antanut hakuehtoja';
+      View::make('Tuote/Tuotteenhakeminen.html', array('errors' => $errors));
     }
   }
     
@@ -224,11 +231,7 @@ class TuoteController extends BaseController{
 
   } // end of find_tuote_with_tuote_id[$tuote_id)
  
-  public static function find_tuote_post_tuote_id (){
-         
-   /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
-    * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
-    */
+  public static function find_tuote_post_tuote_id ($tuote_id){
 
    /*
     *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
@@ -238,8 +241,8 @@ class TuoteController extends BaseController{
     */
     
     self::check_logged_in();
-    $input_params = $_POST;   
-    $tuote_id = $input_params['tuote_id'];
+    //$input_params = $_POST;   
+    //$tuote_id = $input_params['tuote_id'];
        
     $etsittava_tuote = Tuote::find($tuote_id);  
     //Kint::dump($etsittava_tuote);
@@ -255,12 +258,8 @@ class TuoteController extends BaseController{
     
   } // end of find_tuote_post
   
- public static function find_tuote_post_tuotteennimi (){
+ public static function find_tuote_post_tuotteennimi ($nimi){
          
-   /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
-    * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
-    */
-
    /*
     *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
     *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
@@ -269,8 +268,8 @@ class TuoteController extends BaseController{
     */
     
     self::check_logged_in();
-    $input_params = $_POST;   
-    $nimi = $input_params['tuotteen_nimi'];
+    //$input_params = $_POST;   
+    //$nimi = $input_params['tuotteen_nimi'];
     Kint::dump($nimi);
        
     $tulokset = Tuote::find_tuotteen_nimi($nimi);  

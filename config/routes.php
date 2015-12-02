@@ -99,6 +99,7 @@
    TuoteController::find_tuote_post_tuote_id();
   });
   
+  // Tulostaa tuotteen hakutulokset (haettu nimellä) tuotteidenlistaukseen
   $routes->post('/Tuote/Tuotteenhakeminen', function(){
    TuoteController::find_tuote_post_tuotteennimi();
   });
