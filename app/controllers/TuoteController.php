@@ -208,11 +208,11 @@ class TuoteController extends BaseController{
     Kint::dump($params);
     
     if ($params['tuote_id']!= 0) {
-      $tulos = TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
+      TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
       // Mikäli löytyy, ohjataan tuotesivulle    
     }
     if  ($params['tuotteen_nimi']!= 0){
-      $tulokset = TuoteController::find_tuote_post_tuotteennimi($params['tuotteen:nimi']);
+      TuoteController::find_tuote_post_tuotteennimi($params['tuotteen_nimi']);
       // Mikäli löytyy, ohjataan tuotteiden listaussivulle 
     }
     else {
