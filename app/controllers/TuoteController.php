@@ -208,11 +208,13 @@ class TuoteController extends BaseController{
     Kint::dump($params);
     
     if ($params['tuote_id']!= 0) {
+      Kint::dump($params['tuote_id']);
       TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
       // Mikäli löytyy, ohjataan tuotesivulle    
     }
     
     if ($params['tuotteen_nimi']!= 0){
+      Kint::dump($params['tuotteen_nimi']);
       TuoteController::find_tuote_post_tuotteennimi($params['tuotteen_nimi']);
       // Mikäli löytyy, ohjataan tuotteiden listaussivulle 
     }
@@ -253,7 +255,7 @@ class TuoteController extends BaseController{
          
     self::check_logged_in();
 
-    Kint::dump($nimi);   
+    Kint::dump($tuotteen_niminimi);   
     $tulokset = Tuote::find_tuotteen_nimi($tuotteen_nimi);  
     Kint::dump($tulokset);
     
