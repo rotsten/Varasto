@@ -211,10 +211,12 @@ class TuoteController extends BaseController{
       TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
       // Mikäli löytyy, ohjataan tuotesivulle    
     }
-    if  ($params['tuotteen_nimi']!= 0){
+    
+    if ($params['tuotteen_nimi']!= 0){
       TuoteController::find_tuote_post_tuotteennimi($params['tuotteen_nimi']);
       // Mikäli löytyy, ohjataan tuotteiden listaussivulle 
     }
+    
     else {
       $errors = 'Et antanut hakuehtoja';
       View::make('Tuote/Tuotteenhakeminen.html', array('errors' => $errors));
@@ -247,12 +249,12 @@ class TuoteController extends BaseController{
     
   } // end of find_tuote_post
   
- public static function find_tuote_post_tuotteennimi ($nimi){
+ public static function find_tuote_post_tuotteennimi ($tuotteen_nimi){
          
     self::check_logged_in();
 
     Kint::dump($nimi);   
-    $tulokset = Tuote::find_tuotteen_nimi($nimi);  
+    $tulokset = Tuote::find_tuotteen_nimi($tuotteen_nimi);  
     Kint::dump($tulokset);
     
     if(empty ($tulokset)) {
