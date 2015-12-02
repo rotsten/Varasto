@@ -202,7 +202,7 @@ class TuoteController extends BaseController{
     View::make('Tuote/Tuotteenhakeminen.html');
   }
 
-  public function tuote_search ($tuote_id, $tuotteen_nimi){
+  public function tuote_search (){
 
     self::check_logged_in();
     $params = $_POST;   

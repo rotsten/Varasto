@@ -96,7 +96,7 @@
   
   // Tulostaa tuotteen hakutulokset (haettu tuote-id:llä) tuotesivulle 
   $routes->post('/Tuote/Tuotteenhakeminen', function(){
-   TuoteController::find_tuote_post_tuote_id();
+   TuoteController::tuote_search();
   });
   
   // Tulostaa tuotteen hakutulokset (haettu nimellä) tuotteidenlistaukseen
