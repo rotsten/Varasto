@@ -69,13 +69,13 @@ class Tuote extends BaseModel {
     // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
     $pages = ceil($tuote_count/$page_size);
         
-    //$query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE');
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
+    //$query = DB::connection()->prepare('SELECT * FROM TUOTE');
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
-    $tuotteet = (array('limit' => $page_size, 'offset' => $page_size * $page));
+    $tuotteet = (array('limit' => $page_size, 'offset' => $page_size * ($page-1)));
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
@@ -88,7 +88,7 @@ class Tuote extends BaseModel {
        ));
     } // end of foreach
    
-    $tuotteet = ksort($tuotteet);
+    //$tuotteet = ksort($tuotteet);
     return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
   } // end of function all
   
