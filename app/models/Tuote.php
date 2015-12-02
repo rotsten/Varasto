@@ -158,8 +158,7 @@ class Tuote extends BaseModel {
           'tuote_id' => $row['tuote_id'],
           'tuotteen_nimi' => $row['tuotteen_nimi'],
           'valmistaja' => $row['valmistaja'],
-          'kuvaus' => $row['kuvaus'],
-          'lukumaara' => $row['lukumaara']
+          'kuvaus' => $row['kuvaus']
         )); 
       } // end of for
       Kint::dump($tuotteet);
