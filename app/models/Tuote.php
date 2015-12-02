@@ -47,6 +47,7 @@ class Tuote extends BaseModel {
     $tuote_count = Tuote::count();
     $page_size = 10;
     $page = 1;
+    $pages = ceil($tuote_count/$page_size);
         
     $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
     // Suoritetaan kysely
@@ -77,7 +78,7 @@ class Tuote extends BaseModel {
     $count = $query->fetchAll();
     Kint::dump($count);
     
-    return count;
+    return $count;
   }
   
   public function save(){
