@@ -168,7 +168,7 @@ class Tuote extends BaseModel {
       } // end of for
       Kint::dump($tuotteet);
       
-      return $tuotteet[];
+      return $tuotteet;
     } // end of if
     
     // Jos ei löytynyt

@@ -275,10 +275,10 @@ class TuoteController extends BaseController{
     $tulokset = Tuote::find_tuotteen_nimi($nimi);  
     Kint::dump($tulokset);
     
-    if (empty($tulokset)) {
-        // Ei löytynyt
-        $errors='Tuotetta $tuotteen_nimi ei löytynyt.';
-        View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
+    if(empty ($tulokset)) {
+      // Ei löytynyt
+      $errors= 'Tuotetta $tuotteen_nimi ei löytynyt.';
+      View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
     }
 
     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));
