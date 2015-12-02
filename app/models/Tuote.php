@@ -146,8 +146,7 @@ class Tuote extends BaseModel {
   public function find_tuotteen_nimi($tuotteen_nimi){
       
     $tuotteen_nimi = "%$tuotteen_nimi%";
-    Kint::dump($tuotteen_nimi);
-    
+        
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE (tuotteen_nimi) LIKE :tuotteen_nimi');
     $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
     $rows = $query->fetchAll();
@@ -161,8 +160,7 @@ class Tuote extends BaseModel {
           'kuvaus' => $row['kuvaus']
         )); 
       } // end of for
-      Kint::dump($tuotteet);
-      
+          
       return $tuotteet;
     } // end of if
     
