@@ -173,7 +173,6 @@ class TuoteController extends BaseController{
     
     // tsekataan syötteet
     $errors = $muutettava_tuote->errors();
-    //Kint::dump($errors);
     
     if(count($errors) == 0){
         
@@ -206,6 +205,7 @@ class TuoteController extends BaseController{
 
     self::check_logged_in();
     $params = $_POST;   
+    Kint::dump($params);
     
     if ($params['tuote_id']!= 0) {
       $tulos = TuoteController::find_tuote_post_tuote_id ($params['tuote_id']);
@@ -216,7 +216,7 @@ class TuoteController extends BaseController{
       // Mikäli löytyy, ohjataan tuotteiden listaussivulle 
     }
     else {
-      $errors='Et antanut hakuehtoja';
+      $errors = 'Et antanut hakuehtoja';
       View::make('Tuote/Tuotteenhakeminen.html', array('errors' => $errors));
     }
   }

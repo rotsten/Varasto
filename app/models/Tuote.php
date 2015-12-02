@@ -44,8 +44,7 @@ class Tuote extends BaseModel {
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit, taulukkomuodossa
-    $tulos = $query->fetchAll();
-    
+    //$tulos = $query->fetchAll();
     $count = $query->fetchColumn(0); 
     
     //$count = $tulos[0];
