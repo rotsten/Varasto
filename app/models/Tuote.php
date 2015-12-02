@@ -38,15 +38,31 @@ class Tuote extends BaseModel {
       'validate_valmistaja');
   }
   
+  public function count (){
+      
+    $query = DB::connection()->prepare('SELECT COUNT(tuote_id) FROM TUOTE');
+    // Suoritetaan kysely
+    $query->execute();
+    // Haetaan kyselyn tuottamat rivit
+    $count = $query->fetchAll();
+    Kint::dump($count);
+    
+    // Paluttaa, kuinka monta riviä taulussa oli dataa
+    return $count;
+  }
+  
   public static function all(){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
      * palauttaa ne Tuotteet -nimisessä taulukossa
      */
     
+    // Paluttaa, montako riviä taulussa on dataa (esim. 24)
     $tuote_count = Tuote::count();
     $page_size = 10;
     $page = 1;
+    
+    // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
     $pages = ceil($tuote_count/$page_size);
         
     $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
@@ -68,18 +84,6 @@ class Tuote extends BaseModel {
     } // end of foreach
     return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
   } // end of function all
-  
-  public function count (){
-      
-    $query = DB::connection()->prepare('SELECT COUNT(tuote_id) FROM TUOTE');
-    // Suoritetaan kysely
-    $query->execute();
-    // Haetaan kyselyn tuottamat rivit
-    $count = $query->fetchAll();
-    Kint::dump($count);
-    
-    return $count;
-  }
   
   public function save(){
     
