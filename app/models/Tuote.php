@@ -129,15 +129,6 @@ class Tuote extends BaseModel {
     
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
     
-    /*
-    $options = array('tuote_id' => $options['tuote_id']);
-    
-    if(isset($options['search'])){
-      $query_string .= ' AND tuotteen_nimi LIKE :like';
-      $options['like'] = '%' . $options['search'] . '%';
-    }
-    */
-    
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
     if($row){
@@ -153,9 +144,7 @@ class Tuote extends BaseModel {
     } // end of if
   } // end of find_tuote (tuote_id)
   
-  /*
-   * Ei toistaiseksi käytössä
-   *
+
   public function find_tuotteen_nimi($tuotteen_nimi){
       
       /*
@@ -163,10 +152,10 @@ class Tuote extends BaseModel {
        * Myös ne, joiden nimessä annettu sana esiintyy, ei vain niitä, jotka 
        * täydellisesti täyttävät hakuehdon.
        */
-    /*
-    $query = DB::connection()->prepare('SELECT tuote_id, tuotteen_nimi, valmistaja, tuotekuvaus, lukumaara FROM TUOTE WHERE tuotteen_nimi = $tuotteen_nimi LIMIT 1');
+    
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuotteen_nimi LIKE :tuotteen_nimi');
     $query->execute(array('tuotteen_nimi' => $tuotteen_nimi));
-    $row = $query->fetch();
+    $row = $query->fetchAll();
     if($row){
       $tuote = new Tuote(array(
         'tuote_id' => $row['tuote_id'],
@@ -176,11 +165,11 @@ class Tuote extends BaseModel {
         'lukumaara' => $row['lukumaara']
       ));
      
-      return $tuote;
+      return $tuotteet;
     } // end of if
     return null;
   } // end of find_tuotteen_nimi
-  */
+  
 
   public function destroy () {
                    

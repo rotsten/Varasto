@@ -99,6 +99,11 @@
    TuoteController::find_tuote_post();
   });
   
+  $routes->post('/Tuote/Tuotteenhakeminen', function(){
+   TuoteController::find_tuote_post();
+  });
+  
+  
   $routes->get('/Tuote', 'check_logged_in', function(){
     TuoteController::index();
   });

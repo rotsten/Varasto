@@ -203,18 +203,15 @@ class TuoteController extends BaseController{
   }
 
   public function tuote_search ($tuote_id, $tuotteen_nimi){
-
-    $tulos=0;
-      
+     
     if ($tuote_id != 0) {
       $tulos -> $this->find($tuote_id);
       // Tänne pitää tallentaan haun tuloksena saadun olion datat    
     }
     else {
       $tulos -> $this->find_tuotteen_nimi($tuotteen_nimi);
-      // Tänne pitää tallentaan haun tuloksena saadun olion datat
+      // Tänne pitää tallentaan haun tuloksena saatujen olioiden datat
     }
-    return $tulos;
   }
     
   public static function find_tuote_with_tuote_id($tuote_id){
@@ -227,7 +224,7 @@ class TuoteController extends BaseController{
 
   } // end of find_tuote_with_tuote_id[$tuote_id)
  
-  public static function find_tuote_post (){
+  public static function find_tuote_post_tuote_id (){
          
    /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
     * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
@@ -255,6 +252,36 @@ class TuoteController extends BaseController{
     
     //Redirect::to('/Tuote/Tuotesivu.html{{$tuote_id}}', array('tuote' => $etsittava_tuote));
     View::make('Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
+    
+  } // end of find_tuote_post
+  
+ public static function find_tuote_post_tuotteennimi (){
+         
+   /* Tätä funktiota käytetään tuotteen hakutoiminnossa.
+    * Funktion päätteeksi palautetaan tulos suoraan Tuotesivulle
+    */
+
+   /*
+    *  POST on aina taulukkotyyppinen, tosin nyt se kantaa vain yhtä arvoa.
+    *  Parametrina saatavaa tuote_id:tä käytetään jatkossa mm.
+    *  merkkijono-tyyppisenä muuttujana, siksi ei voida käyttää suoraa
+    *  sijoitusta.
+    */
+    
+    self::check_logged_in();
+    $input_params = $_POST;   
+    $nimi = $input_params['tuotteen_nimi'];
+       
+    $tulokset = Tuote::find_tuotteen_nimi($nimi);  
+    Kint::dump($tulokset);
+    
+    if (empty($tulokset)) {
+        // Ei löytynyt
+        $errors='Etsittävää tuotetta ei löytynyt $tuote_id';
+        View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
+    }
+
+    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));
     
   } // end of find_tuote_post
    
