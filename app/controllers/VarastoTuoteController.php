@@ -94,7 +94,9 @@ class VarastoTuoteController extends BaseController{
         'lukumaara' => $row['lukumaara']
       ));
     }
-    View::make('/Varasto/Lisaauusituotevarastotuote.html' array('Tuotteet' => $varaston_tuotteet));     
+    // Ei antaisi välittää tässä taulukkoa.
+    
+    //View::make('/Varasto/Lisaauusituotevarastotuote.html' array('Tuotteet' => $varaston_tuotteet));     
   }
   
     public static function varastotuote_lisaa_post (){
