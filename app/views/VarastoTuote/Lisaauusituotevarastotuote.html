@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<H2>Lisää uusi tuote varastoon</H2>
+<H2>Lisää uusi tuote {{Varasto.varasto_id}} varastoitavaksi</H2>
 
   {% if errors %}
     <div class="alert alert-danger">
@@ -15,6 +15,19 @@
   
   
   <form method="post">
+      
+    <div class="form-group">
+      <input type="hidden" name="varasto_id" value="{{Varasto.varasto_id}}">
+      <label>Lisättävän tuotteen tuote-ID</label>
+      
+      <select class="form-control" name="tuotteen_nimi">
+        {% for Tuote in Tuotteet %}
+          <option value="{{tuotteen_nimi}}">{{tuotteen_nimi}}</option>
+        {% endfor %}
+      </select> 
+    
+    </div>
+ <!--   
     <div class="form-group">
       <label>Tuote-ID </label>
       <input type ="text" name ="tuote_id" class="form-control" value="{{tuote_id}}">
@@ -34,13 +47,13 @@
       <label>Tuotekuvaus</label>
       <input type ="text" name ="kuvaus" class="form-control" value="{{kuvaus}}">
     </div>
-    
+   --> 
     <div class="form-group">
       <label>Lukumäärä</label>
       <input type ="text" name ="lukumaara" class="form-control" value="{{lukumaara}}">
     </div>
 
-    <button type ="submit" class="btn btn-default" value=tuote_create>Päivitä lukumäärätieto</button>
+    <button type ="submit" class="btn btn-default" value=tuote_create {{Varasto.varasto_id}}>Päivitä lukumäärätieto</button>
     <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu tallentamatta</A></button>
   </form>
 

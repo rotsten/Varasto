@@ -78,10 +78,62 @@ class VarastoTuoteController extends BaseController{
     View::make('VarastoTuote/Lukumaaratietojenmuutos.html', array('muutettava_tuote' => $muutettava_tuote));
     
   }
+  /*****************************************
+   * 
+   * Tuotteiden lisäys varastoon
+   * 
+   ******************************************/
+  public static function varastotuote_lisaa_show (){
+      
+    $varaston_tuotteet =VarastoTuote::all_in_varasto($varasto_id);
+    
+    foreach($rows as $row){
+      $varaston_tuotteet[] = new Varasto_tuote(array(
+        'varasto_id' => $row['varasto_id'],
+        'tuote_id' => $row['tuote_id'],
+        'lukumaara' => $row['lukumaara']
+      ));
+    }
+    View::make('/Varasto/Lisaauusituotevarastotuote.html' array('Tuotteet' => $varaston_tuotteet));     
+  }
+  
+    public static function varastotuote_lisaa_post (){
+    
+    /*
+     *  - Otetaan POST:n sisältö
+     *  - validointi
+     * 
+     *  - luodaan uusi tuote
+     *  - Kutsutaan Savea.
+     *  - Lopulta palautetaan listaussivulle.
+     *     
+    $varaston_tuotteet =VarastoTuote::all_in_varasto($varasto_id);
+    
+    foreach($rows as $row){
+      $varaston_tuotteet[] = new Varasto_tuote(array(
+        'varasto_id' => $row['varasto_id'],
+        'tuote_id' => $row['tuote_id'],
+        'lukumaara' => $row['lukumaara']
+      ));
+    }
+    View::make('/Varasto/Lisaauusituotevarastotuote.html' array('Tuotteet' => $varaston_tuotteet));     
+  */
+    
+    }
+  
+  
+  /*****************************************
+   * 
+   * Tuotteiden lukumäärän muutos
+   * 
+   *****************************************/
   
   public static function varastotuote_edit_post($lukumaara){
     
     $uudet_tiedot = $_POST; 
+    Kint::dump($uudet_tiedot);
+    Kint::dump($lukumaara);
+    
     //self::check_logged_in(); 
   
     //Luodaan uusi tuote, jolla kutsutaan modifya...  

@@ -111,21 +111,6 @@
     TuoteController::tuote_show($tuote_id);
   });
   
-   /*
-    * Kun haetaan joko Tuote-id:llä tai tuotenimellä, kutsu
-    * taan tuote_search() -funktiota.
-    * 
-    * Tällä hetkellä tekstihaku on edelleen kehittelyvaiheessa.
-    */
-/*
-  $routes->get('/Tuote/Tuotteenhakeminen', function() {
-    TuoteController::tuote_search();
-  });
- 
-  $routes->post('/find_tuotteennimi', function(){
-    TuoteController::find_tuotteennimi();
-  });
-  */
   // Näyttää tuotetietojen muutossivun
   $routes->get('/Tuote/Tuotetietojenmuutos/:tuote_id', function($tuote_id) {
     TuoteController::tuote_edit($tuote_id);
@@ -192,6 +177,16 @@
   $routes->get('/VarastoTuote/Varastotilannelistaus', function($varasto_id) {
     VarastoTuoteController::varasto_tuotetiedot_list($varasto_id);
   });
+  
+  // Lisätään uusi tuote-lukumäärä -tietopari varasto-tuote -tauluun
+  $routes->get('/VarastoTuote/Lisaauusituotevarastotuote', function($varasto_id) {
+    VarastoTuoteController::varastotuote_lisaa_show($varasto_id);
+  });
+
+  $routes->get('/Tuote/Lisaatuote', 'check_logged_in', function(){
+    TuoteController::tuote_create();
+  });
+
   
   // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun, joka tarvitsee hakuavaimeiksi varasto_id:n + tuote_id:n.
