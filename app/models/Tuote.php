@@ -43,13 +43,17 @@ class Tuote extends BaseModel {
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
      * palauttaa ne Tuotteet -nimisessä taulukossa
      */
-
+    
+    $tuote_count = Tuote::count();
+    $page_size = 10;
+    $page = 1;
+        
     $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
-    $tuotteet = array();
+    $tuotteet = (array('limit' => $page_size, 'offset' => $page_size * ($page - 1)));
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
@@ -63,6 +67,18 @@ class Tuote extends BaseModel {
     } // end of foreach
     return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
   } // end of function all
+  
+  public function count (){
+      
+    $query = DB::connection()->prepare('SELECT COUNT(tuote_id) FROM TUOTE');
+    // Suoritetaan kysely
+    $query->execute();
+    // Haetaan kyselyn tuottamat rivit
+    $count = $query->fetchAll();
+    Kint::dump($count);
+    
+    return count;
+  }
   
   public function save(){
     
@@ -100,6 +116,16 @@ class Tuote extends BaseModel {
      */
     
     $query = DB::connection()->prepare('SELECT * FROM TUOTE WHERE tuote_id = :tuote_id LIMIT 1');
+    
+    /*
+    $options = array('tuote_id' => $options['tuote_id']);
+    
+    if(isset($options['search'])){
+      $query_string .= ' AND tuotteen_nimi LIKE :like';
+      $options['like'] = '%' . $options['search'] . '%';
+    }
+    */
+    
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
     if($row){

@@ -17,8 +17,7 @@
 
         return $kayttaja;
       }
-      else {
-          
+      else {       
         // Käyttäjä ei ole kirjautunut sisään
         // View::make('/Kirjaudu.html', array('message' => 'Vaatii kirjautumisen'));   
       } 
@@ -28,26 +27,23 @@
     public static function check_logged_in(){
       // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
         
-        // Sessioon on tallennettu kirjautuneen käyttäjän käyttäjätunnus
-        if(!isset($_SESSION['Kayttaja'])){
-            Redirect::to('/Kayttaja/Kirjaudu', array('message' => 'Vaatii kirjautumisen')); 
-         }  
+      // Sessioon on tallennettu kirjautuneen käyttäjän käyttäjätunnus
+      if(!isset($_SESSION['Kayttaja'])){
+        Redirect::to('/Kayttaja/Kirjaudu', array('message' => 'Vaatii kirjautumisen')); 
+      }  
     } 
    
     public static function check_user_rights(){
-      
-      // Palautetaan kirjautuneen käyttäjän käyttäjätunnus  
-      $kayttajan_tiedot = Kayttaja::find($_SESSION['Kayttaja']);
-        
-      if ( $kayttajan_tiedot->this['kayttooikeudet'] == 'true' ) {
+       
+      //$kayttajan_tiedot = Kayttaja::find($_SESSION['Kayttaja']);        
       //if ( $kayttajan_tiedot['kayttooikeudet'] == 'true' ) {
         // Kyseessä on pääkäyttäjä
-        return true;
-      }
-        else {
-          return false;  
-      } // end of if
-       //return KayttajaController::kayttooikeudet_check($kayttaja);
+        //return true;
+      //}
+        //else {
+          //return false;  
+      //} // end of if
+      //return KayttajaController::kayttooikeudet_check($kayttaja);
     }
  /*****************************************
   * 
