@@ -37,6 +37,22 @@ class TuoteController extends BaseController{
     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
        
   }  // end of tuote_list  
+  
+  public static function tuote_list_all(){
+
+    /*
+     * Tämä funktio kutsuu, all-funktiota,
+     * mikä hakee kaikki tuotteet tietokannasta
+     * 
+     * Palauttaa Tuotteet -taulukon. 
+     * Kutsutaan VarastoTuoteControllerista 
+     */
+
+    self::check_logged_in();
+
+    return $Tuotteet = Tuote::all();
+       
+  }  // end of tuote_list 
 
   /*****************************************
    * 
@@ -88,14 +104,6 @@ class TuoteController extends BaseController{
     if (empty($params['history_date'])){
         $t=time();
         $params['history_date'] = (date("Y-m-d",$t));
-    }
-
-    /* 
-     * Mikäli lukumäärää ei ole annettu, asetetaan arvoksi 
-     * nolla FFFF:n sijasta.
-     */
-    if (empty($params['lukumaara'])){
-      $params['lukumaara'] = 0;
     } 
       
     $uusi_tuote = new Tuote(array(
@@ -103,7 +111,6 @@ class TuoteController extends BaseController{
       'tuotteen_nimi' => $params['tuotteen_nimi'],
       'valmistaja' => $params['valmistaja'],
       'kuvaus' => $params['kuvaus'],
-      'lukumaara' => $params['lukumaara'],
       'history_date' => $params['history_date']
     ));
     

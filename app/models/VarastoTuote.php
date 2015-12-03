@@ -18,6 +18,9 @@ class VarastoTuote extends BaseModel{
   // konstruktori
   public function __construct ($attributes){
       parent::__construct($attributes);
+      
+      $this->validators = array(
+      'validate_lukumaara');
   }
   
   public static function all(){
@@ -107,6 +110,19 @@ class VarastoTuote extends BaseModel{
 
     return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)
+
+  public function save(){
+    
+    $query = DB::connection()->prepare('INSERT INTO Varasto_Tuote (varasto_id, 
+                                        tuote_id, lukumaara)
+                                        VALUES (:varasto_id, :tuote_id, 
+                                        :lukumaara)');
+   
+    $query->execute(array('varasto_id' => $this->varasto_id,
+                          'tuote_id' => $this->tuote_id, 
+                          'lukumaara' => $this->lukumaara 
+                          ));      
+  }
   
   public function validate_lukumaara(){
       
@@ -127,4 +143,21 @@ class VarastoTuote extends BaseModel{
        
      return $errors_lukumaara;
   } // validate_lukumaara()
+  
+  public function errors(){
+    // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
+        
+    /* Metodi, joka kutsuu näitä kaikkia validointimetoja ja kokoaa 
+     * niiden palauttamat virheilmoitukset yhdeksi taulukoksi. 
+     * 
+     * Validators:
+     * =========== 
+     * -validate_lukumaara
+     */
+        
+    $errors = array();      
+    $errors = $this->validate_lukumaara(); 
+   
+    return $errors;
+  }
 } // end of class

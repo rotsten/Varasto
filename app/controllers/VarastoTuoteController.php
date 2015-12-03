@@ -52,7 +52,7 @@ class VarastoTuoteController extends BaseController{
      * Näyttää varston tuotteiden listaussivun. 
      */
    
-    //self::check_logged_in(); 
+    self::check_logged_in(); 
     //Kint::dump($varasto_id);
     
     // Etsi annetussa varastossa talletettujen tuotteiden tiedot
@@ -72,23 +72,20 @@ class VarastoTuoteController extends BaseController{
    * Tuotteiden lisäys varastoon
    * 
    ******************************************/
-  public static function varastotuote_lisaa_show (){
-      
-    $varaston_tuotteet =VarastoTuote::all_in_varasto($varasto_id);
+  public static function varastotuote_lisaa_show ($varasto_id){
+
+    self::check_logged_in();
     
-    foreach($rows as $row){
-      $varaston_tuotteet[] = new Varasto_tuote(array(
-        'varasto_id' => $row['varasto_id'],
-        'tuote_id' => $row['tuote_id'],
-        'lukumaara' => $row['lukumaara']
-      ));
-    }
-    // Ei antaisi välittää tässä taulukkoa.
+    $Tuotteet = TuoteController::tuote_list_all();
+    View::make('VarastoTuote/Lisaauusituotevarastotuote.html', array('Tuotteet' => $Tuotteet, 'varasto_id' => $varasto_id));
     
-    //View::make('/Varasto/Lisaauusituotevarastotuote.html' array('Tuotteet' => $varaston_tuotteet));     
   }
   
-    public static function varastotuote_lisaa_post (){
+  public static function varastotuote_lisaa_post (){
+         
+    self::check_logged_in();
+    
+    $params = $_POST;
     
     /*
      *  - Otetaan POST:n sisältö
@@ -97,21 +94,29 @@ class VarastoTuoteController extends BaseController{
      *  - luodaan uusi tuote
      *  - Kutsutaan Savea.
      *  - Lopulta palautetaan listaussivulle.
-     *     
-    $varaston_tuotteet =VarastoTuote::all_in_varasto($varasto_id);
+     */
     
-    foreach($rows as $row){
-      $varaston_tuotteet[] = new Varasto_tuote(array(
-        'varasto_id' => $row['varasto_id'],
-        'tuote_id' => $row['tuote_id'],
-        'lukumaara' => $row['lukumaara']
-      ));
-    }
-    View::make('/Varasto/Lisaauusituotevarastotuote.html' array('Tuotteet' => $varaston_tuotteet));     
-  */
+    $uusi_varastotuote = new VarastoTuote(array(
+      'varasto_id' => $params['varasto_id'],
+      'tuote_id' => $params['tuote_id'], 
+      'lukumaara' => $params['lukumaara']
+    ));
     
-    }
+    $errors = $uusi_varastotuote->errors();
+    
+    if(count($errors) == 0){
   
+      //Kint::dump($uusi_tuote);
+      $uusi_varastotuote ->save();
+          
+      Redirect::to('/VarastoTuote/VarastoTuotesivu/' . $params['varasto_id'] . $params['tuote_id'], $uusi_varastotuote);
+    }  
+
+    else {
+      
+      View::make('/Varasto/Lisaauusituotevarastotuote.html',array('errors' => $errors));        
+    } // end of if
+  } // end of varastotuote_lisaa_post  
   
   /*****************************************
    * 

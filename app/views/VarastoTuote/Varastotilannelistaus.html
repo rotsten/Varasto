@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+  {% if errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
 <H2>Yksittäisen varaston {{Varasto.varasto_id}} kaikkien tuotteiden listaus/inventointi</H2>
 
 <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
@@ -42,7 +52,7 @@
     </tbody>
   </table>
 
-  <button class="btn btn-default" value=VarastoTuoteController::varastotuote_lisaa_show{{Varasto.varasto_id}}>Lisää uusi tuote varastoon -tulossa</A></button>
+  <button class="btn btn-default" value=VarastoTuoteController::varastotuote_lisaa_show{{VarastoTuote.varasto_id}}>Lisää uusi tuote varastoon -tulossa</A></button>
   <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
 
 {% endblock %}
