@@ -21,7 +21,7 @@ class KayttajaController extends BaseController {
       self::check_logged_in();
       $paakayttaja= self::check_user_rights();
       
-      View::make('Paasivu.html', $paakayttaja);
+      View::make('Paasivu.html', array('oikeudet' => $paakayttaja));
     }
     
     public static function kayttooikeudet_check($kayttaja){
