@@ -54,7 +54,7 @@ class Tuote extends BaseModel {
     return $count;
   }
   
-  public static function all($page){
+  public static function all($page, $page_size){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
      * palauttaa ne Tuotteet -nimisessä taulukossa

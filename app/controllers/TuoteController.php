@@ -54,7 +54,7 @@ class TuoteController extends BaseController{
       $prevpage = $page-1;
     }
         
-    $Tuotteet = Tuote::all($page);
+    $Tuotteet = Tuote::all($page, $page_size);
     $paakayttaja= self::check_user_rights();
     
     View::make('Tuote/Tuotteidenlistaus.html', array('oikeudet' => $paakayttaja, 
