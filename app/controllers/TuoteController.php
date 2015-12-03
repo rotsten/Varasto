@@ -217,8 +217,11 @@ class TuoteController extends BaseController{
       // Ei virheitä syötteissä
       $muutettava_tuote ->modify();    
       
-      // Listataan tuotetiedot, jotta muutos näkyy
-      TuoteController::tuote_list(); 
+      /* 
+       * Listataan tuotetiedot, jotta muutos näkyy
+       * siirrytään sivulle ilmen sivuttamista.
+       */
+      TuoteController::tuote_list_all(); 
     } 
     else {
       //Kint::dump($errors);
