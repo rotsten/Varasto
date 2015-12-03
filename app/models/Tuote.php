@@ -83,6 +83,35 @@ class Tuote extends BaseModel {
     return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
   } // end of function all
   
+  public static function all(){
+    /*
+     * Tämä funktio hakee kaikki tuotteet tietokannasta ja
+     * palauttaa ne Tuotteet -nimisessä taulukossa
+     */
+          
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
+    // Suoritetaan kysely
+    $query->execute();
+    // Haetaan kyselyn tuottamat rivit
+    $rows = $query->fetchAll();
+    
+    $tuotteet = array();
+
+    // Käydään kyselyn tuottamat rivit läpi
+    foreach($rows as $row){
+      $tuotteet[] = new Tuote (array(
+          'tuote_id' => $row['tuote_id'],
+          'tuotteen_nimi' => $row['tuotteen_nimi'], 
+          'valmistaja' => $row['valmistaja'],
+          'kuvaus' => $row['kuvaus'], 
+          'history_date' => $row['history_date']
+       ));
+    } // end of foreach
+   
+    //$tuotteet = ksort($tuotteet);
+    return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
+  } // end of function all
+  
   public function save(){
     
     $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
