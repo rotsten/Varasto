@@ -54,7 +54,7 @@ class Tuote extends BaseModel {
     return $count;
   }
   
-  public static function all($page, $page_size){
+  public static function all_with_paging($page, $page_size){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
      * palauttaa ne Tuotteet -nimisessä taulukossa
@@ -221,7 +221,7 @@ class Tuote extends BaseModel {
     }  
   
     // Tarkistaa ettei ID ole jo käytössä
-    if (NULL !=($etsittava_tuote = Tuote::find($tuote_id))) {
+    if (NULL !=($etsittava_tuote = Tuote::find($this->tuote_id))) {
         $errors_tuote_id[] = 'Tuote-id on jo varattu!';
     }
     
