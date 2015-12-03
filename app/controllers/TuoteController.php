@@ -221,7 +221,7 @@ class TuoteController extends BaseController{
     } 
     else {
       //Kint::dump($errors);
-      View::make('Tuotetietojenmuutos.html', array('errors' => $errors, 'attributes' => $muuttujat));
+      View::make('Tuotetietojenmuutos.html', array('errors' => $errors, 'muutettava_tuote' => $muuttujat));
     }
   }     
   
