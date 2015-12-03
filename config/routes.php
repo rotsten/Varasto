@@ -184,7 +184,7 @@
   });
   
   // Lisätään uusi tuote-lukumäärä -tietopari varasto-tuote -tauluun
-  $routes->get('/VarastoTuote/Lisaauusituotevarastotuote', 'check_logged_in', function($varasto_id) {
+  $routes->get('/VarastoTuote/Lisaauusituotevarastotuote/:varasto_id', 'check_logged_in', function($varasto_id) {
     VarastoTuoteController::varastotuote_lisaa_show($varasto_id);
   });
 
