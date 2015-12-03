@@ -145,8 +145,9 @@ class TuoteController extends BaseController{
     ));
     
     $errors = $uusi_tuote->errors();
+    $errors = array_merge($errors, $this->validate_tuote_id_unique());
     
-    if(count($errors) == 0){
+    if(count($errors) == 0) {
   
       //Kint::dump($uusi_tuote);
       $uusi_tuote ->save();

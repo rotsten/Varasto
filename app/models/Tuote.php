@@ -219,15 +219,24 @@ class Tuote extends BaseModel {
     } else {
         $errors_tuote_id[] = 'Tuote-id ei saa sisältää muita merkkejä kuin numeroita!';
     }  
-  
-    // Tarkistaa ettei ID ole jo käytössä
-    if (NULL !=($etsittava_tuote = Tuote::find($this->tuote_id))) {
-        $errors_tuote_id[] = 'Tuote-id on jo varattu!';
-    }
     
     return $errors_tuote_id;
   }
-              
+  
+  public function validate_tuote_id_unique() {
+          
+    // Tarkistaa ettei ID ole jo käytössä
+    if (NULL !=($etsittava_tuote = Tuote::find($this->tuote_id))) {
+        /* 
+         * Tämä funktio on ainoastaa LISÄYS-komentoa varten. 
+         * Muissa tapauksissa tähän koodihaaraan
+         * ei tarvitse päätyä. Näistä syistä tämä on erillään muista validointi-
+         * funtioista.
+         */ 
+        return $errors_tuote_id[] = 'Tuote-id on jo varattu!';
+    } // end of if
+  } // end of validate_tuote_id_unique() 
+  
   public function validate_tuotteen_nimi(){
         
     /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
