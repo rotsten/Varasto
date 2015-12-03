@@ -11,10 +11,10 @@
     public static function sandbox(){
       echo 'Hip-hei, täällä ollaan!';
       
-      $paluuarvo = self::check_user_rights();
-      echo $paluuarvo;
+      //$paluuarvo = self::check_user_rights();
+      //echo $paluuarvo;
       
-      TuoteController::find_tuote_post_tuotteennimi('Aku');
+      //TuoteController::find_tuote_post_tuotteennimi('Aku');
       
       //echo user_logged_in.kayttajatunnus;
       

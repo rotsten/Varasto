@@ -34,7 +34,9 @@ class TuoteController extends BaseController{
     self::check_logged_in();
  
     $Tuotteet = Tuote::all();
-    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $Tuotteet));
+    $paakayttaja= self::check_user_rights();
+    
+    View::make('Tuote/Tuotteidenlistaus.html', array('oikeudet' => $paakayttaja, 'Tuotteet' => $Tuotteet));
        
   }  // end of tuote_list  
   
@@ -71,9 +73,11 @@ class TuoteController extends BaseController{
      
      self::check_logged_in();
      $listattava_tuote = Tuote::find($tuote_id);
+     $paakayttaja= self::check_user_rights();
+     
      //Kint::dump($listattava_tuote);
 
-     View::make('Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote));
+     View::make('Tuote/Tuotesivu.html', array('tuote' => $listattava_tuote, 'oikeudet' => $paakayttaja));
                    
   } // The end of tuote_show
 

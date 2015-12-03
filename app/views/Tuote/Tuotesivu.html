@@ -33,9 +33,11 @@
              <td>{{tuote.tuotteen_nimi}}</td>  
              <td>{{tuote.valmistaja}}</td>
              <td>{{tuote.kuvaus}}</td>
-             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{tuote.tuote_id}}">Muokkaa</a></th>
-             <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/Poistatuote/{{tuote.tuote_id}}">Poista tuote</a></th>
-          </tr>
+             {% if oikeudet %}
+               <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{tuote.tuote_id}}">Muokkaa</a></th>
+               <th><a class="btn btn-default btn-sm" href="{{base_path}}/Tuote/Poistatuote/{{tuote.tuote_id}}">Poista tuote</a></th>
+            {% endif %}  
+           </tr>
          </tbody>    
       </table>
     </form>    
