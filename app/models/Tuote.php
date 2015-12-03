@@ -73,7 +73,7 @@ class Tuote extends BaseModel {
     $query->execute();
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
-    $tuotteet = (array('limit' => $page_size, 'offset' => $page_size * ($page-1)));
+    $tuotteet = (array('limit' => $page_size, 'offset' => $page_size * ($pages-1)));
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){

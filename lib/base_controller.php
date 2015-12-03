@@ -35,15 +35,15 @@
    
     public static function check_user_rights(){
        
-      //$kayttajan_tiedot = Kayttaja::find($_SESSION['Kayttaja']);        
-      //if ( $kayttajan_tiedot['kayttooikeudet'] == 'true' ) {
-        // Kyseessä on pääkäyttäjä
-        //return true;
-      //}
-        //else {
-          //return false;  
-      //} // end of if
-      //return KayttajaController::kayttooikeudet_check($kayttaja);
+      $kayttajan_tiedot = Kayttaja::find($_SESSION['Kayttaja']);        
+      if ( $kayttajan_tiedot->kayttooikeudet == 'true' ) {
+        //Kyseessä on pääkäyttäjä
+        return true;
+      }
+      else {
+          return false;  
+      } // end of if
+      return KayttajaController::kayttooikeudet_check($kayttaja);
     }
  /*****************************************
   * 

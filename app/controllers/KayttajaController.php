@@ -16,10 +16,12 @@ class KayttajaController extends BaseController {
     public static function Kirjaudu(){
       View::make('/Kayttaja/Kirjaudu.html');
     }
-                     
+                    
     public static function paasivu_show(){
       self::check_logged_in();
-      View::make('Paasivu.html');
+      $paakayttaja= self::check_user_rights();
+      
+      View::make('Paasivu.html', $paakayttaja);
     }
     
     public static function kayttooikeudet_check($kayttaja){

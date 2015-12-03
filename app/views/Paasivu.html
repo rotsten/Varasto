@@ -3,7 +3,7 @@
     
        <H1>Käyttäjän {{user_logged_in.kayttajatunnus}} valittavana olevat toiminnot:</H1>
        
-       {% if check_user_rights %}
+       {% if paakayttaja %}
        <H2>Pääkäyttäjän toiminnot: </H2>
        <br>
        <H4>Tuotetietojen käsittely </H4>
@@ -13,7 +13,7 @@
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
             <br>
         <H4>Varastotietojen käsittely</H4>
-            <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varastojen listaus</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Lisaavarasto">Lisää uusi varasto</A></button>
             <br>
         <H4>Käyttäjiätietojen käsittely</H4>
@@ -30,7 +30,7 @@
              <br>
              
              <H4>Varastotietojen käsittely</H4>
-             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Näytä varastot</A></button>
+             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varastojen listaus</A></button>
              <br>
              
              <H4>Käyttäjätietojen käsittely</H4>
@@ -38,14 +38,14 @@
         {% endif%}
         <H2>Väliaikaisesti nähtävillä kaikki: </H2>
                <br>
-       <H4>Tuotetietojen käsittely </H4>
+        <H4>Tuotetietojen käsittely </H4>
        
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteidenlistaus">Kaikkien tuotteiden listaus</A></button> 
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Tuotteenhakeminen">Tuotteen hakutoiminto</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Tuote/Lisaatuote">Lisää uusi tuote</A></button>
             <br>
         <H4>Varastotietojen käsittely</H4>
-            <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varaston listaus</A></button>
+            <button class="btn btn-default"><A href="{{base_path}}/Varasto/Varastonlistaus">Varastojen listaus</A></button>
             <button class="btn btn-default"><A href="{{base_path}}/Varasto/Lisaavarasto">Lisää uusi varasto</A></button>
             <br>
         <H4>Käyttäjiätietojen käsittely</H4>
