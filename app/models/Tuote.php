@@ -60,7 +60,7 @@ class Tuote extends BaseModel {
      * palauttaa ne Tuotteet -nimisessä taulukossa
      */
           
-    $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
+    $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI LIMIT :limit, OFFSET :offset');
     // Suoritetaan kysely
     $query->execute(array('limit' => $page_size, 'offset' => $page_size * ($page-1)));
     // Haetaan kyselyn tuottamat rivit
