@@ -84,9 +84,14 @@
     TuoteController::tuote_create();
   });
    
-   // tuotteiden listaaminen 
+  // tuotteiden listaaminen 
   $routes->get('/Tuote/Tuotteidenlistaus', 'check_logged_in', function() {
-    TuoteController::tuote_list();
+    TuoteController::tuote_list(1);
+  });
+  
+  // tuotteiden listaaminen 
+  $routes->get('/Tuote/Tuotteidenlistaus/:page', 'check_logged_in', function($page) {
+    TuoteController::tuote_list($page);
   });
   
   // Tulostaa tuotteen hakusivun

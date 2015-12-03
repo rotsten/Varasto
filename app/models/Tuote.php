@@ -54,26 +54,19 @@ class Tuote extends BaseModel {
     return $count;
   }
   
-  public static function all(){
+  public static function all($page){
     /*
      * Tämä funktio hakee kaikki tuotteet tietokannasta ja
      * palauttaa ne Tuotteet -nimisessä taulukossa
      */
-    
-    // Paluttaa, montako riviä taulussa on dataa (esim. 24)
-    $tuote_count = Tuote::count();
-    $page_size = 10;
-    $page = 1;
-    
-    // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
-    $pages = ceil($tuote_count/$page_size);
-        
+          
     $query = DB::connection()->prepare('SELECT * FROM TUOTE ORDER BY TUOTTEEN_NIMI');
     // Suoritetaan kysely
-    $query->execute();
+    $query->execute(array('limit' => $page_size, 'offset' => $page_size * ($page-1)));
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();
-    $tuotteet = (array('limit' => $page_size, 'offset' => $page_size * ($pages-1)));
+    
+    $tuotteet = array();
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){

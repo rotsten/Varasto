@@ -22,7 +22,7 @@ class TuoteController extends BaseController{
      View::make('Aloitussivu.html');
   }  
   
-  public static function tuote_list(){
+  public static function tuote_list($page){
 
     /*
      * Tämä funktio kutsuu, all-funktiota,
@@ -32,11 +32,37 @@ class TuoteController extends BaseController{
      */
 
     self::check_logged_in();
- 
-    $Tuotteet = Tuote::all();
+    
+    // Paluttaa, montako riviä taulussa on dataa (esim. 24)
+    $tuote_count = Tuote::count();
+    $page_size = 10;
+    
+    // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
+    $pages = ceil($tuote_count/$page_size);
+    
+    if ($page+1 < $pages) {
+      $nextpage = $page +1;
+    }
+    else {
+      $nextpage = $pages;
+    }
+    
+    if ($page -1 < 1) {
+      $prevpage = 1;
+    }
+    else {
+      $prevpage = $page-1;
+    }
+        
+    $Tuotteet = Tuote::all($page);
     $paakayttaja= self::check_user_rights();
     
-    View::make('Tuote/Tuotteidenlistaus.html', array('oikeudet' => $paakayttaja, 'Tuotteet' => $Tuotteet));
+    View::make('Tuote/Tuotteidenlistaus.html', array('oikeudet' => $paakayttaja, 
+                                                     'Tuotteet' => $Tuotteet, 
+                                                     'curr_page' => $page, 
+                                                     'pages' => $pages, 
+                                                     'next_page' => $nextpage, 
+                                                     'prev_page' => $prevpage));
        
   }  // end of tuote_list  
   
