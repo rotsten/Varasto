@@ -52,9 +52,8 @@ class TuoteController extends BaseController{
     }
     else {
       $prevpage = $page-1;
-    }¨
+    }
         
-    $Tuotteet (array);
     $Tuotteet = Tuote::all_with_paging($page, $page_size);
     $paakayttaja= self::check_user_rights();
     
