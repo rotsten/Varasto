@@ -48,7 +48,7 @@ class Tuote extends BaseModel {
     $count = $query->fetchColumn(0); 
     
     //$count = $tulos[0];
-    Kint::dump($count);
+    //Kint::dump($count);
     
     // Paluttaa, kuinka monta riviä taulussa oli dataa
     return $count;

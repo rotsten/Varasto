@@ -83,18 +83,8 @@ class VarastoTuoteController extends BaseController{
   
   public static function varastotuote_lisaa_post (){
          
-    self::check_logged_in();
-    
+    self::check_logged_in();  
     $params = $_POST;
-    
-    /*
-     *  - Otetaan POST:n sisältö
-     *  - validointi
-     * 
-     *  - luodaan uusi tuote
-     *  - Kutsutaan Savea.
-     *  - Lopulta palautetaan listaussivulle.
-     */
     
     $uusi_varastotuote = new VarastoTuote(array(
       'varasto_id' => $params['varasto_id'],
@@ -104,8 +94,7 @@ class VarastoTuoteController extends BaseController{
     
     $errors = $uusi_varastotuote->errors();
     
-    if(count($errors) == 0){
-  
+    if(count($errors) == 0){  
       //Kint::dump($uusi_tuote);
       $uusi_varastotuote ->save();
           
@@ -113,7 +102,6 @@ class VarastoTuoteController extends BaseController{
     }  
 
     else {
-      
       View::make('/Varasto/Lisaauusituotevarastotuote.html',array('errors' => $errors));        
     } // end of if
   } // end of varastotuote_lisaa_post  

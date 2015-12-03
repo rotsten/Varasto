@@ -72,8 +72,6 @@ class Kayttaja extends BaseModel {
   
   public static function find($kayttajatunnus){
       
-    Kint::dump($kayttajatunnus);
-      
     $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA WHERE kayttajatunnus = :kayttajatunnus LIMIT 1');
     $query->execute(array('kayttajatunnus' => $kayttajatunnus));
     $row = $query->fetch();
