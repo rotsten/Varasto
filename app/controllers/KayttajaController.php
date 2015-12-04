@@ -258,7 +258,9 @@ class KayttajaController extends BaseController {
     $poistettava_kayttaja->destroy();
     
     // Käyttäjä näkee listauksesta, että kayttajatunnus on poistunut      
-    $Kayttajat = Kayttaja::all();
-    Redirect::to('/Kayttaja/Kayttajienlistaus', array('Kayttajat' => $Kayttajat));
+    //$Kayttajat = Kayttaja::all();
+    //Redirect::to('/Kayttaja/Kayttajienlistaus', array('Kayttajat' => $Kayttajat));
+    
+     View::make('Kayttaja/Poistakayttaja.html', array('tuote' => $etsittava_tuote));
   }
 } // THE END of class

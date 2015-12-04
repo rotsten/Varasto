@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% block content %}
 {% import "macros/forms.html" as forms %}
@@ -14,7 +13,7 @@
   {% endif %}
 
   <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
-  <table class="table table-striped table-bordered">
+  <table class="table table-striped table-bordered" align="center">
     <thead>
       <tr>
         <th>Käyttäjätunnus</th>
@@ -35,14 +34,13 @@
             <td><a href="#"> {{Kayttaja.kayttajatunnus}}</a></td>
             <td>{{Kayttaja.etunimi}}</td>
             <td>{{Kayttaja.sukunimi}}</td>
-            <td>{{Kayttaja.kayttooikeudet}}</td>
+            <td>{{Kayttaja.kayttooikeudet}} </td>
             
             {% if oikeudet %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajasivu/{{Kayttaja.kayttajatunnus}}">Katso tarkemmat käyttäjän tiedot</a></th>
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Muokkaa</a></th>
               
               <th><a class="btn btn-danger" value="submit" href="{{base_path}}/Kayttaja/Poistakayttaja/{{Kayttaja.kayttajatunnus}}">Poista käyttäjä</a></th>                                   
-              <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Poistakayttaja/{{Kayttaja.kayttajatunnus}}  "{{kayttajatunnus}}/Poista">Poista käyttäjä</a></th>
               
               {% else %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajasivu/{{user_logged_in.kayttajatunnus}}">Katso omat käyttäjätietosi</a></th>
