@@ -219,7 +219,7 @@ class TuoteController extends BaseController{
       
       /* 
        * Listataan tuotetiedot, jotta muutos näkyy
-       * Siirrytään ensimmäiselle sivulle
+       * Siirrytään ensimmäiselle sivulle.
        * 
        */
       TuoteController::tuote_list(1); 

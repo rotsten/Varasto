@@ -226,6 +226,7 @@ class Tuote extends BaseModel {
   public function validate_tuote_id_unique() {
           
     // Tarkistaa ettei ID ole jo käytössä
+    $errors = array();
     if (NULL !=($etsittava_tuote = Tuote::find($this->tuote_id))) {
         /* 
          * Tämä funktio on ainoastaa LISÄYS-komentoa varten. 
@@ -233,7 +234,7 @@ class Tuote extends BaseModel {
          * ei tarvitse päätyä. Näistä syistä tämä on erillään muista validointi-
          * funtioista.
          */ 
-        return $errors_tuote_id[] = 'Tuote-id on jo varattu!';
+      return $errors = 'Tuote-id on jo varattu!';
     } // end of if
   } // end of validate_tuote_id_unique() 
   

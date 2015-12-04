@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+  {% if errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
   <h1>Varasto on poistettu!</h1>
 
   <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
