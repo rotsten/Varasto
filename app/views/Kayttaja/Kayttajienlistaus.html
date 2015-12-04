@@ -41,9 +41,8 @@
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajasivu/{{Kayttaja.kayttajatunnus}}">Katso tarkemmat käyttäjän tiedot</a></th>
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{Kayttaja.kayttajatunnus}}">Muokkaa</a></th>
               
-              <th><a class="btn btn-danger" value="submit" href="{{base_path}}/Käyttäjä/Poistakayttaja/{{Kayttaja.kayttajatunnus}}">Poista käyttäjä</a></th>
-                                     
-              <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Käyttäjä/Poistakayttaja/{{Kayttaja.kayttajatunnus}}  "{{kayttajatunnus}}/Poista">Poista käyttäjä</a></th>
+              <th><a class="btn btn-danger" value="submit" href="{{base_path}}/Kayttaja/Poistakayttaja/{{Kayttaja.kayttajatunnus}}">Poista käyttäjä</a></th>                                   
+              <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Poistakayttaja/{{Kayttaja.kayttajatunnus}}  "{{kayttajatunnus}}/Poista">Poista käyttäjä</a></th>
               
               {% else %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajasivu/{{user_logged_in.kayttajatunnus}}">Katso omat käyttäjätietosi</a></th>
