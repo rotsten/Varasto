@@ -23,7 +23,6 @@ class TuoteController extends BaseController{
   }  
   
   public static function tuote_list($page){
-
     /*
      * Tämä funktio kutsuu, all-funktiota,
      * mikä hakee kaikki tuotteet tietokannasta
@@ -79,6 +78,11 @@ class TuoteController extends BaseController{
     self::check_logged_in();
     $paakayttaja= KayttajaController::check_user_rights();  
 
+    $kayttaja = self::get_user_logged_in();
+    Kint::dump($kayttaja);
+    $kayttajan_tiedot = Kayttaja::find($kayttaja);
+    Kint::dump($kayttajan_tiedot['kayttooikeudet']);
+    
     return $Tuotteet = Tuote::all();
        
   }  // end of tuote_list 
