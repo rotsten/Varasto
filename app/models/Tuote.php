@@ -268,7 +268,7 @@ class Tuote extends BaseModel {
      return $errors_valmistaja;
   }
                 
-  public function errors(){
+  public function errors($flag){
     // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
         
     /* Metodi, joka kutsuu näitä kaikkia validointimetoja ja kokoaa 
@@ -283,7 +283,7 @@ class Tuote extends BaseModel {
         
     $errors = array();
       
-    $errors = $this->validate_tuote_id();
+    $errors = $this->validate_tuote_id($flag);
     $errors = array_merge($errors, $this->validate_tuotteen_nimi());
     $errors = array_merge($errors, $this->validate_valmistaja());  
    
