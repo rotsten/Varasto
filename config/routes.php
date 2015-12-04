@@ -64,11 +64,12 @@
   
   // Poistaa käyttäjätiedot
   // Kayttajan poistaminen  
-  /*
+ 
   $routes->get('/Kayttaja/Poistakayttaja/:kayttajatunnus', 'check_logged_in', function($kayttajatunnus){
     KayttajaController::poista_kayttaja($kayttajatunnus);
   });
-  */
+  
+  /* $routes->post('/game/:id/destroy', function($id) */
   
   // Yksi poista-toiminto riittää...
   $routes->post('/Kayttaja/Kayttajienlistaus/:kayttajatunnus', 'check_logged_in', function($kayttajatunnus){

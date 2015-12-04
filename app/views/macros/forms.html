@@ -1,6 +1,6 @@
 {% macro destroy_button(action, text) %}
   <form method="post" action="{{action}}" style="display: inline-block;">
-    {{forms.destroy_button("{base_path}/Kayttaja/Poistakayttaja/#{kayttajatunnus}")}}
+    {{forms.destroy_button("/Poistakayttaja/#{kayttajatunnus}")}}
     <button type="submit" class="btn btn-danger">{{text|default('Poista')}}</button>
   </form>
 {% endmacro %}
