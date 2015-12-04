@@ -261,6 +261,6 @@ class KayttajaController extends BaseController {
     //$Kayttajat = Kayttaja::all();
     //Redirect::to('/Kayttaja/Kayttajienlistaus', array('Kayttajat' => $Kayttajat));
     
-     View::make('Kayttaja/Poistakayttaja.html', array('tuote' => $etsittava_tuote));
+     View::make('Kayttaja/Poistakayttaja.html', array('kayttaja' => $poistettava_kayttaja));
   }
 } // THE END of class
