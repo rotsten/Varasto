@@ -1,15 +1,13 @@
-{% macro destroy_tuote_button() %}
- <form method="post" action="" style="display: inline-block;">
-    {{forms.destroy_button("#{base_path}/Tuote/Poistatuote/#{tuote_id}")}}
-     <!--
-     <button type="submit" class="btn btn-danger">Poista tuote!</button>
-     -->
-  </form>
+{% macro destroy_button() %}
+ <form method="post" action="{{action}}" style="display: inline-block;">
+    {{forms.destroy_button("{base_path}/Tuote/Poistatuote/#{tuote_id}")}}
+      <button type="submit" class="btn btn-danger">{{text|default'Poista tuote'}}</button>
+   </form>
 {% endmacro %}
 
 {% macro destroy_kayttaja_button() %}
-  <form method="post" action="{{kayttajatunnus}}/Poista" style="display: inline-block;">
-    {{forms.destroy_button("#{base_path}/Kayttaja/Poistakayttaja/#{kayttajatunnus}")}}
+  <form method="post" action="{base_path}/Kayttaja/Poistakayttaja/{{kayttajatunnus}}" style="display: inline-block;">  
+    <button type="submit" class="btn btn-danger">Poista käyttäjä!</button>
   </form>
 {% endmacro %}
 

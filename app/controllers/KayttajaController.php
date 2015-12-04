@@ -136,8 +136,7 @@ class KayttajaController extends BaseController {
      View::make('Kayttaja/Kayttajasivu.html', array('kayttaja' => $listattava_kayttaja));                   
   } // The end of kayttaja_show
   
-  public static function kayttajalistaus(){
-   
+  public static function kayttajalistaus(){   
    /*
     * Tämä funktio kutsuu, all-funktiota,
     * mikä hakee varastotilanteen tietokannasta
