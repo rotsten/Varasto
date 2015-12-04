@@ -219,9 +219,11 @@ class TuoteController extends BaseController{
       
       /* 
        * Listataan tuotetiedot, jotta muutos näkyy
-       * siirrytään sivulle ilmen sivuttamista.
+       * Siirrytään ensimmäiselle sivulle
+       * 
        */
-      TuoteController::tuote_list_all(); 
+      TuoteController::tuote_list(1); 
+      
     } 
     else {
       //Kint::dump($errors);
