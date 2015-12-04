@@ -146,7 +146,6 @@ class TuoteController extends BaseController{
     
     $flag = true; // Koska kyseessä on lisäyskomento
     $errors = $uusi_tuote->errors($flag);
-    $errors = array_merge($errors, $errors2 );
     
     if(count($errors) == 0) {
   
