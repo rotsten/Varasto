@@ -253,7 +253,7 @@ class KayttajaController extends BaseController {
     self::check_logged_in();  
       
     $poistettava_kayttaja = new Kayttaja(array('kayttajatunnus' => $kayttajatunnus));
-    Kint::dump($poistettava_kayttaja);
+    //Kint::dump($poistettava_kayttaja);
     
     $poistettava_kayttaja->destroy();
     
