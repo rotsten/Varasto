@@ -145,8 +145,9 @@ class KayttajaController extends BaseController {
     self::check_logged_in();
     
     $Kayttajat = Kayttaja::all();
+    $paakayttaja= TuoteController::check_user_rights();
       
-    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat));
+    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat, 'oikeudet' => $paakayttaja));
     
   } // end of kayttaja_list
 

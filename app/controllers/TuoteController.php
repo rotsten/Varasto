@@ -79,9 +79,9 @@ class TuoteController extends BaseController{
     $paakayttaja= KayttajaController::check_user_rights();  
 
     $kayttaja = self::get_user_logged_in();
-    Kint::dump($kayttaja);
-    $kayttajan_tiedot = Kayttaja::find($kayttaja);
-    Kint::dump($kayttajan_tiedot['kayttooikeudet']);
+    //Kint::dump($kayttaja);
+    //$kayttajan_tiedot = Kayttaja::find($kayttaja);
+    //Kint::dump($kayttajan_tiedot['kayttooikeudet']);
     
     return $Tuotteet = Tuote::all();
        
