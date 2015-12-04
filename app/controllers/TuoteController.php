@@ -145,7 +145,7 @@ class TuoteController extends BaseController{
     ));
     
     $errors = $uusi_tuote->errors();
-    $errors = array_merge($errors, $this->validate_tuote_id_unique());
+    $errors = array_merge($errors, $uusi_tuote->validate_tuote_id_unique());
     
     if(count($errors) == 0) {
   
@@ -225,7 +225,7 @@ class TuoteController extends BaseController{
     } 
     else {
       //Kint::dump($errors);
-      View::make('Tuote/Tuotetietojenmuutos.html', array('errors' => $errors, 'muutettava_tuote' => $muuttujat));
+      View::make('Tuote/Tuotetietojenmuutos.html', array('errors' => $errors, 'muutettava_tuote' => $muutettava_tuote));
     }
   }     
   
