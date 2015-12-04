@@ -146,10 +146,10 @@ class Kayttaja extends BaseModel {
   
   public function destroy () {
                    
-    $query = DB::connection()->prepare ('DELETE FROM KAYTTAJA WHERE kayttajatunnus = :kayttajatunnus');
+    $query = DB::connection()->prepare ('DELETE FROM KAYTTAJA WHERE kayttajatunnus =:kayttajatunnus');
     $query->execute(array('kayttajatunnus' => $this->kayttajatunnus));                  
   } // end of destroy
-             
+   
   public function validate_kayttajatunnus(){
         
     /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
