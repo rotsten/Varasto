@@ -23,7 +23,9 @@
         <th>Käyttöoikeudet</th>
         <th></th>
         <th></th>
-        <th></th>
+        {% if oikeudet %}
+          <th></th>
+        {% endif %}
       </tr>
     </thead>
 
@@ -45,12 +47,13 @@
               {{forms.destroy_button("#{base_path}/Kayttaja/#{kayttajatunnus}/Poista")}}
               --> 
               
-              {{forms.destroy_button("{base_path}/Kayttaja/Poistakayttaja/#{kayttajatunnus}")}}
+              <td>{{forms.destroy_button("/Poistakayttaja/#{Kayttaja.kayttajatunnus}")}}</td>
               
-              <!-- action="{{kayttajatunnus}}/Poista" -->
+              <!-- action="{{kayttajatunnus}}/Poista" 
                             
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Käyttäjä/Poistakayttaja/{{Kayttaja.kayttajatunnus}}  "{{kayttajatunnus}}/Poista">Poista käyttäjä</a></th>
-            
+              -->
+              
               {% else %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajasivu/{{user_logged_in.kayttajatunnus}}">Katso omat käyttäjätietosi</a></th>
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Kayttaja/Kayttajatietojenmuutos/{{user_logged_in.kayttajatunnus}}">Muuta omia käyttäjätietojasi</a></th>
