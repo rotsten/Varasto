@@ -55,7 +55,7 @@ class TuoteController extends BaseController{
     }
         
     $Tuotteet = Tuote::all_with_paging($page, $page_size);
-    $paakayttaja= self::check_user_rights();
+    $paakayttaja= TuoteController::check_user_rights();
     
     View::make('Tuote/Tuotteidenlistaus.html', array('oikeudet' => $paakayttaja, 
                                                      'Tuotteet' => $Tuotteet, 
@@ -77,6 +77,7 @@ class TuoteController extends BaseController{
      */
 
     self::check_logged_in();
+    $paakayttaja= KayttajaController::check_user_rights();  
 
     return $Tuotteet = Tuote::all();
        
