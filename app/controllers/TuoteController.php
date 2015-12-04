@@ -144,8 +144,8 @@ class TuoteController extends BaseController{
       'history_date' => $params['history_date']
     ));
     
-    $errors = $uusi_tuote->errors();
-    $errors2 = $uusi_tuote->validate_tuote_id_unique();
+    $flag = true; // Koska kyseessä on lisäyskomento
+    $errors = $uusi_tuote->errors($flag);
     $errors = array_merge($errors, $errors2 );
     
     if(count($errors) == 0) {
@@ -211,7 +211,8 @@ class TuoteController extends BaseController{
     $muutettava_tuote = new Tuote ($muuttujat);
     
     // tsekataan syötteet
-    $errors = $muutettava_tuote->errors();
+    $flag = false; // Koska ei ole lisäyskomento
+    $errors = $muutettava_tuote->errors($flag);
     
     if(count($errors) == 0){
         

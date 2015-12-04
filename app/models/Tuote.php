@@ -197,7 +197,7 @@ class Tuote extends BaseModel {
     $query->execute(array('tuote_id' => $this->tuote_id));                  
   }
   
-  public function validate_tuote_id(){
+  public function validate_tuote_id($flag){
         
    /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
     * Merkkijonon pitää olla ainakin 5 merkkiä pitkä.
@@ -220,25 +220,20 @@ class Tuote extends BaseModel {
         $errors_tuote_id[] = 'Tuote-id ei saa sisältää muita merkkejä kuin numeroita!';
     }  
     
+    if ($flag == true) {
+        /* 
+         * Tarkistaa ettei ID ole jo käytössä. Tämä tsekkaus on ainoastaan 
+         * LISÄYS-komentoa varten. 
+         */ 
+      if (NULL !=($etsittava_tuote = Tuote::find($this->tuote_id))) {
+
+        return $errors_tuote_id[]= 'Tuote-id on jo varattu!';
+      } // end of if 
+    } // end of if
     return $errors_tuote_id;
   }
   
-  public function validate_tuote_id_unique() {
-          
-    // Tarkistaa ettei ID ole jo käytössä
-    $errors = array();
-    
-    if (NULL !=($etsittava_tuote = Tuote::find($this->tuote_id))) {
-        /* 
-         * Tämä funktio on ainoastaa LISÄYS-komentoa varten. 
-         * Muissa tapauksissa tähän koodihaaraan
-         * ei tarvitse päätyä. Näistä syistä tämä on erillään muista validointi-
-         * funtioista.
-         */ 
-      return $errors[]= 'Tuote-id on jo varattu!';
-    } // end of if
-  } // end of validate_tuote_id_unique() 
-  
+
   public function validate_tuotteen_nimi(){
         
     /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
