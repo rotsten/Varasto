@@ -338,7 +338,10 @@ class TuoteController extends BaseController{
      * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
      */
-      
+ 
+    $input_params = $_POST;   
+    $tuote_id = $input_params['tuote_id'];
+    
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));        
     $poistettava_tuote->destroy();
        
