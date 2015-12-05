@@ -28,6 +28,7 @@
         {% if oikeudet %}
           <th></th>
           <th></th>
+          <th></th>
         {% endif %}
       </tr>
     </thead>
@@ -53,12 +54,15 @@
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotesivu/{{Tuote.tuote_id}}">Katso tarkemmat tuotetiedot</a></th>
             {% if oikeudet %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
-              <th><form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa pelin?">
-                <button type="submit" class="btn btn-danger">Poista</button>
-              </form>
-              <!--
+              
+              <th>
+                <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa pelin?">
+                  <button type="submit" class="btn btn-danger">Poista</button>
+                </form>
+              </th>
+              
               <th><a class="btn btn-danger" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
-              -->
+              
             {% endif %}
           </tr>
       {% endfor %}
