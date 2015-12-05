@@ -14,7 +14,7 @@
       //$paluuarvo = self::check_user_rights();
       //echo $paluuarvo;
       
-      //TuoteController::find_tuote_post_tuotteennimi('Aku');
+      TuoteController::poista_tuote('9789513233259');
       
       //echo user_logged_in.kayttajatunnus;
       

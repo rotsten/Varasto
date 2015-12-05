@@ -339,14 +339,21 @@ class TuoteController extends BaseController{
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
      */
  
+    Kint::dump($tuote_id);
+    
     $input_params = $_POST;   
     $tuote_id = $input_params['tuote_id'];
+    
+    Kint::dump($tuote_id);
     
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));        
     $poistettava_tuote->destroy();
        
-    // Käyttäjä näkee kaikkien tuotteiden listauksesta, että tuote on poistunut      
-    $Tuotteet = Tuote::all();
+    // Käyttäjä näkee kaikkien tuotteiden listauksesta, että tuote on poistunut
+    
+    $page =1;
+    $page_size = 10;
+    $Tuotteet = Tuote::all_with_paging($page, $page_size);
 
     Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
   }
