@@ -157,9 +157,9 @@ class VarastoTuoteController extends BaseController{
     } 
     else {
        //Kint::dump($errors);
-       View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('errors' => $errors, 'Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi));     
+       View::make('VarastoTuote/Lukumaaratiedonmuuttaminen.html', array('errors' => $errors, 'Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi));     
     }  // end of if
-  } // end of tuote_edit_post()    
+  } // end of tuote_edit_post()   
   
   /*****************************************
    * 
