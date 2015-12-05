@@ -62,7 +62,7 @@
               </th>
               
               <th>
-                <form method="post" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa pelin?">
+                <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa pelin?">
                 <a class="btn btn-danger" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
                 </form>
               </th>
