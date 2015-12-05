@@ -5,7 +5,7 @@ $(document).ready(function(){
   // kun lomake lähetetään
   //$('form.destroy-form').on('submit', function(submit){
   
-    $(Poistatuote.destroy-form).on('submit', function(submit){
+    $('form.destroy-form').on('submit', function(submit){
 
     // Otetaan kohdelomakkeesta data-confirm-attribuutin arvo
     var confirm_message = $(this).attr('data-confirm');
