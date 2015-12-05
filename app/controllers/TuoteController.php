@@ -351,10 +351,11 @@ class TuoteController extends BaseController{
        
     // Käyttäjä näkee kaikkien tuotteiden listauksesta, että tuote on poistunut
     
-    $page =1;
-    $page_size = 10;
-    $Tuotteet = Tuote::all_with_paging($page, $page_size);
+    //$page =1;
+    //$page_size = 10;
+    //$Tuotteet = Tuote::all_with_paging($page, $page_size);
 
-    Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
+    Redirect::to('/Tuote/Poistatuote/:tuote_id');
+    //Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
   }
 }
