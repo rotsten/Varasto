@@ -100,8 +100,7 @@ class VarastoTuote extends BaseModel{
     
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
                                         LEFT JOIN tuote
-                                        ON varasto_tuote.tuote_id = tuote.tuote_id
-                                        WHERE tuote_id =:tuote_id;');
+                                        ON varasto_tuote.tuote_id = tuote.tuote_id;');
 
     // Suoritetaan kysely
     $query->execute(array('tuote_id' => $tuote_id));
