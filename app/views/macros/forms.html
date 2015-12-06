@@ -1,17 +1,9 @@
 {% macro destroy_button(action, text) %}
-  <form method="post" action="{{action}}" style="display: inline-block;">
-    {{forms.destroy_button("/Poistakayttaja/#{kayttajatunnus}")}}
+  <form method="post" action="{{action}}" style="display: inline-block;" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa?">
     <button type="submit" class="btn btn-danger">{{text|default('Poista')}}</button>
   </form>
 {% endmacro %}               
                 
-<!--
-{% macro destroy_kayttaja_button() %}
-  <form method="post" action="{base_path}/Kayttaja/Poistakayttaja/{{kayttajatunnus}}" style="display: inline-block;">  
-    <button type="submit" class="btn btn-danger">Poista käyttäjä!</button>
-  </form>
-{% endmacro %}
-
 {% macro destroy_listattu_tuote_button() %}
   <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">Poista tuote!</button>
@@ -21,6 +13,13 @@
         $( "p" ).text( "The DOM is now loaded and can be manipulated." );
       });
       </script>
+  </form>
+{% endmacro %}
+
+<!--
+{% macro destroy_kayttaja_button() %}
+  <form method="post" action="{base_path}/Kayttaja/Poistakayttaja/{{kayttajatunnus}}" style="display: inline-block;">  
+    <button type="submit" class="btn btn-danger">Poista käyttäjä!</button>
   </form>
 {% endmacro %}
 -->
