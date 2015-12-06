@@ -55,9 +55,7 @@ class VarastoTuoteController extends BaseController{
     //Kint::dump($varasto_id);
     
     // Etsi annetussa varastossa talletettujen tuotteiden tiedot
-    $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
-    //Kint::dump($varaston_tuotteet);
-    
+    $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);   
     $varaston_nimi = Varasto::getNimiById($varasto_id);
     //Kint::dump($varaston_nimi);
 
@@ -65,7 +63,6 @@ class VarastoTuoteController extends BaseController{
        
   }  // end of tuote_list
     
-
   /*****************************************
    * 
    * Tuotteiden lisäys varastoon
@@ -77,7 +74,6 @@ class VarastoTuoteController extends BaseController{
     
     $Tuotteet = TuoteController::tuote_list_all();
     View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Tuotteet' => $Tuotteet, 'varasto_id' => $varasto_id));
-    
   }
   
   public static function varastotuote_lisaa_post (){
@@ -105,8 +101,7 @@ class VarastoTuoteController extends BaseController{
     } // end of if
   } // end of varastotuote_lisaa_post  
   
-  /*****************************************
-   * 
+  /****************************************
    * Tuotteiden lukumäärän muutos
    * 
    *****************************************/
@@ -174,10 +169,7 @@ class VarastoTuoteController extends BaseController{
  
   public static function find_tuote_with_tuote_id($tuote_id){
     
-    //$etsittava_tuote = new Tuote();
     $etsittava_tuote = Tuote::find($tuote_id);  
-    //Kint::dump($etsittava_tuote);
-    
     return $etsittava_tuote;
 
   } // end of find_tuote_with_tuote_id[$tuote_id)

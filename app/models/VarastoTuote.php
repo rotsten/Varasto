@@ -76,12 +76,12 @@ class VarastoTuote extends BaseModel{
      */  
     
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
-                                        RIGHT JOIN tuote
-                                        ON varasto_tuote.tuote_id = tuote.tuote_id
-                                        WHERE varasto_id = :varasto_id;');
+      RIGHT JOIN tuote ON varasto_tuote.tuote_id = tuote.tuote_id
+      WHERE varasto_id = :varasto_id;');
+    
     // ORDER BY TUOTE.tuotteen_nimi
     
-    $query->execute(array('tuote_id' => $tuote_id));
+    $query->execute(array());
     // Haetaan kyselyn tuottamat rivit
 
     $rows = $query->fetchAll();
@@ -108,9 +108,9 @@ class VarastoTuote extends BaseModel{
      */  
     
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
-                                        LEFT JOIN tuote
-                                        ON varasto_tuote.tuote_id = tuote.tuote_id
-                                        WHERE varasto_id =:varasto_id;');
+      LEFT JOIN tuote ON varasto_tuote.tuote_id = tuote.tuote_id
+      WHERE varasto_id =:varasto_id;');
+    
     // Suoritetaan kysely
     $query->execute(array('tuote_id' => $tuote_id));
     
@@ -135,15 +135,15 @@ class VarastoTuote extends BaseModel{
 
   public function save(){
     
-    $query = DB::connection()->prepare('INSERT INTO Varasto_Tuote (varasto_id, 
-                                        tuote_id, lukumaara)
-                                        VALUES (:varasto_id, :tuote_id, 
-                                        :lukumaara)');
+    $query = DB::connection()->prepare('INSERT INTO Varasto_Tuote
+      (varasto_id, tuote_id, lukumaara)
+      VALUES (:varasto_id, :tuote_id, :lukumaara)');
    
-    $query->execute(array('varasto_id' => $this->varasto_id,
-                          'tuote_id' => $this->tuote_id, 
-                          'lukumaara' => $this->lukumaara 
-                          ));      
+    $query->execute(array(
+      'varasto_id' => $this->varasto_id,
+      'tuote_id' => $this->tuote_id, 
+      'lukumaara' => $this->lukumaara 
+    ));      
   }
   
   public function validate_lukumaara(){     

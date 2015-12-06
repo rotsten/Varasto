@@ -115,34 +115,36 @@ class Tuote extends BaseModel {
   public function save(){
     
     $query = DB::connection()->prepare('INSERT INTO Tuote (tuote_id,
-            tuotteen_nimi, kuvaus, valmistaja, history_date)
-            VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, 
-            :history_date)');
+      tuotteen_nimi, kuvaus, valmistaja, history_date)
+      VALUES (:tuote_id, :tuotteen_nimi, :kuvaus, :valmistaja, 
+      :history_date)');
    
      $query->execute(array('tuote_id' => $this->tuote_id, 
-                           'tuotteen_nimi' => $this->tuotteen_nimi, 
-                           'kuvaus' => $this->kuvaus,
-                           'valmistaja' => $this->valmistaja, 
-                           'history_date' => $this->history_date
-                           ));      
+       'tuotteen_nimi' => $this->tuotteen_nimi, 
+       'kuvaus' => $this->kuvaus,
+       'valmistaja' => $this->valmistaja, 
+       'history_date' => $this->history_date
+     ));      
   }
   
   public function modify () {
                     
-    $query = DB::connection()->prepare('UPDATE TUOTE SET tuotteen_nimi = :new_tuotteen_nimi,
-                                                         valmistaja = :new_valmistaja,
-                                                         kuvaus = :new_kuvaus,
-                                                         history_date = :new_history_date WHERE tuote_id =:tuote_id;');
-    $query->execute(array('tuote_id' => $this->tuote_id, 
-                          'new_tuotteen_nimi' => $this->tuotteen_nimi, 
-                          'new_kuvaus' => $this->kuvaus,
-                          'new_valmistaja' => $this->valmistaja, 
-                          'new_history_date' => $this->history_date
-                          )); 
+    $query = DB::connection()->prepare(
+      'UPDATE TUOTE SET tuotteen_nimi = :new_tuotteen_nimi,
+      valmistaja = :new_valmistaja,
+      kuvaus = :new_kuvaus,
+      history_date = :new_history_date WHERE tuote_id =:tuote_id;');
+    
+    $query->execute(array(
+      'tuote_id' => $this->tuote_id, 
+      'new_tuotteen_nimi' => $this->tuotteen_nimi, 
+      'new_kuvaus' => $this->kuvaus,
+      'new_valmistaja' => $this->valmistaja, 
+      'new_history_date' => $this->history_date
+    )); 
   }
   
-  public static function find($tuote_id){
-      
+  public static function find($tuote_id){    
     /* 
      * Kutsutaan, kun etsitään tarkkoja tuotetietoja
      */
@@ -152,16 +154,15 @@ class Tuote extends BaseModel {
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
 
-        if($row){
-          $tuote = new Tuote(array(
-            'tuote_id' => $row['tuote_id'],
-            'tuotteen_nimi' => $row['tuotteen_nimi'],
-            'kuvaus' => $row['kuvaus'],  
-            'valmistaja' => $row['valmistaja']
-          ));
-          return $tuote;            
-        } // end of if
-    
+      if($row){
+        $tuote = new Tuote(array(
+          'tuote_id' => $row['tuote_id'],
+          'tuotteen_nimi' => $row['tuotteen_nimi'],
+          'kuvaus' => $row['kuvaus'],  
+          'valmistaja' => $row['valmistaja']
+        ));
+        return $tuote;            
+      } // end of if    
   } // end of find_tuote (tuote_id)
 
   public function find_tuotteen_nimi($tuotteen_nimi){
@@ -235,9 +236,7 @@ class Tuote extends BaseModel {
     return $errors_tuote_id;
   }
   
-
-  public function validate_tuotteen_nimi(){
-        
+  public function validate_tuotteen_nimi(){      
     /* Tarkistaa, onko annettu merkkijono oikeanmittainen.
      * Esimerkiksi merkkijonon pitää olla ainakin 3 merkkiä
      * pitkä.
@@ -284,7 +283,6 @@ class Tuote extends BaseModel {
      */
         
     $errors = array();
-      
     $errors = $this->validate_tuote_id($flag);
     $errors = array_merge($errors, $this->validate_tuotteen_nimi());
     $errors = array_merge($errors, $this->validate_valmistaja());  
