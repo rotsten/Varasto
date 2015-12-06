@@ -44,17 +44,14 @@
             <td>{{Varaston_tuotteet.valmistaja}}</a></td>
             <td>{{Varaston_tuotteet.kuvaus}}</a></td>
             <td>{{Varaston_tuotteet.lukumaara}}</td>
-            <!--
-            Tämä button ei ole tarpeen, koska tuotetiedot eivät voi tarjota mitään lisää tässä näkyvään -päinvastoin...
-            <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotesivu/{{Varaston_tuotteet.tuote_id}}">Katso tarkemmat tuotetiedot</a></th>
-            -->
+
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/VarastoTuote/Lukumaaratiedonmuuttaminen/{{Varaston_tuotteet.tuote_id}}"> Muokkaa</a></th>
           </tr>
       {% endfor %}
     </tbody>
   </table>
 
-  <button class="btn btn-default" value=VarastoTuoteController::varastotuote_lisaa_show{{VarastoTuote.varasto_id}}>Lisää uusi tuote varastoon -tulossa</A></button>
+  <button class="btn btn-default" href={{base_path}}/VarastoTuote/Lisaauusivarastotuote{{VarastoTuote.varasto_id}}">Lisää uusi tuote varastoon</A></button>
   <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
 
 {% endblock %}
