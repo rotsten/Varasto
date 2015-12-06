@@ -111,14 +111,14 @@ class VarastoTuoteController extends BaseController{
    * 
    *****************************************/
 
-  public static function varastotuote_edit($varasto_id){
+  public static function varastotuote_edit($tuote_id){
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
     
     //self::check_logged_in(); 
-    $muutettava_tuote= VarastoTuote::all_in_certain_varasto_join_tuote($varasto_id);
+    $muutettava_tuote= VarastoTuote::all_in_certain_varasto_join_tuote($tuote_id);
     //Kint::dump($muutettava_tuote);
     View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote));
   }

@@ -70,8 +70,7 @@ class VarastoTuote extends BaseModel{
     return $varaston_tuote_idt;
   } // all_in_varasto($varasto_id)
    
-  public static function all_in_varasto_join_tuote($varasto_id){
-      
+  public static function all_in_varasto_join_tuote($tuote_id){
     /* Tulostaa kaikki tuotteet ja niiden tuotetiedot, 
      * jotka ovat tietyssä varastossa.
      */  
@@ -82,7 +81,7 @@ class VarastoTuote extends BaseModel{
                                         WHERE varasto_id = :varasto_id;');
     // ORDER BY TUOTE.tuotteen_nimi
     
-    $query->execute(array('varasto_id' => $varasto_id));
+    $query->execute(array('tuote_id' => $tuote_id));
     // Haetaan kyselyn tuottamat rivit
 
     $rows = $query->fetchAll();
@@ -103,7 +102,7 @@ class VarastoTuote extends BaseModel{
     return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)
   
-  public static function all_in_certain_varasto_join_tuote($varasto_id){    
+  public static function all_in_certain_varasto_join_tuote($tuote_id){    
     /* Tulostaa tuotteen tuotetiedot + lukumäärä niistä, 
      * jotka ovat tietyssä varastossa.
      */  
@@ -113,7 +112,7 @@ class VarastoTuote extends BaseModel{
                                         ON varasto_tuote.tuote_id = tuote.tuote_id
                                         WHERE varasto_id =:varasto_id;');
     // Suoritetaan kysely
-    $query->execute(array('varasto_id' => $varasto_id));
+    $query->execute(array('tuote_id' => $tuote_id));
     
     // Haetaan kyselyn tuottamat rivit
     $rows = $query->fetchAll();    
@@ -147,8 +146,7 @@ class VarastoTuote extends BaseModel{
                           ));      
   }
   
-  public function validate_lukumaara(){
-      
+  public function validate_lukumaara(){     
     /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
      * Lukumäärän antaminen ei ole välttämätöntä.
      */
