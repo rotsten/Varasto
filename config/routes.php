@@ -173,7 +173,6 @@
   });
   
   // Uuden varaston lisääminen 
-  
   // Varaston poistaminen  
   $routes->get('/Varasto/Poistavarasto/:varasto_id', 'check_logged_in', function($varasto_id){
     VarastoController::poista_varasto($varasto_id);
@@ -190,11 +189,11 @@
   });
   
   // Lisätään uusi tuote-lukumäärä -tietopari varasto-tuote -tauluun
-  $routes->get('/VarastoTuote/Lisaauusituotevarastotuote/:varasto_id', 'check_logged_in', function($varasto_id) {
+  $routes->get('/VarastoTuote/Lisaauusivarastotuote/:varasto_id', 'check_logged_in', function($varasto_id) {
     VarastoTuoteController::varastotuote_lisaa_show($varasto_id);
   });
 
-  $routes->post('/VarastoTuote/Lisaauusituotevarastotuote', 'check_logged_in', function(){
+  $routes->post('/VarastoTuote/Lisaauusivarastotuote', 'check_logged_in', function(){
     VarastoTuoteController::varastotuote_lisaa_post();
   });
   

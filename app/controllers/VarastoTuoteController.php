@@ -77,7 +77,7 @@ class VarastoTuoteController extends BaseController{
     self::check_logged_in();
     
     $Tuotteet = TuoteController::tuote_list_all();
-    View::make('VarastoTuote/Lisaauusituotevarastotuote.html', array('Tuotteet' => $Tuotteet, 'varasto_id' => $varasto_id));
+    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Tuotteet' => $Tuotteet, 'varasto_id' => $varasto_id));
     
   }
   
@@ -102,7 +102,7 @@ class VarastoTuoteController extends BaseController{
     }  
 
     else {
-      View::make('/Varasto/Lisaauusituotevarastotuote.html',array('errors' => $errors));        
+      View::make('/Varasto/Lisaauusivarastotuote.html',array('errors' => $errors));        
     } // end of if
   } // end of varastotuote_lisaa_post  
   
