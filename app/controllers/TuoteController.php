@@ -66,7 +66,6 @@ class TuoteController extends BaseController{
   }  // end of tuote_list  
   
   public static function tuote_list_all(){
-
     /*
      * Tämä funktio kutsuu, all-funktiota,
      * mikä hakee kaikki tuotteet tietokannasta
