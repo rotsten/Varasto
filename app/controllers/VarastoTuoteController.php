@@ -102,7 +102,7 @@ class VarastoTuoteController extends BaseController{
     }  
 
     else {
-      View::make('/Varasto/Lisaauusivarastotuote.html',array('errors' => $errors));        
+      View::make('/Varasto/Lisaauusivarastotuote.html', array('errors' => $errors));        
     } // end of if
   } // end of varastotuote_lisaa_post  
   
