@@ -319,9 +319,7 @@ class TuoteController extends BaseController{
       
       View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
     }
-
-    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));
-    
+    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));    
   } // end of find_tuote_post
    
   /*****************************************
@@ -344,19 +342,18 @@ class TuoteController extends BaseController{
     //$input_params = $_POST;   
     //$tuote_id = $input_params['tuote_id'];
     
-    Kint::dump($tuote_id);
-    
     $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));        
     $poistettava_tuote->destroy();
        
     // Käyttäjä näkee kaikkien tuotteiden listauksesta, että tuote on poistunut
+    $message = 'Tuote poistettu';
     
-    //$page =1;
-    //$page_size = 10;
-    //$Tuotteet = Tuote::all_with_paging($page, $page_size);
+    $page =1;
+    $page_size = 10;
+    $Tuotteet = Tuote::all_with_paging($page, $page_size);
 
     //Redirect::to('/Tuote/Poistatuote/:tuote_id');
-    View::make('/Tuote/Poistatuote/:tuote_id');
-    //Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
+    //View::make('/Tuote/Poistatuote/:tuote_id');
+    Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet, 'message' => $message));
   }
 }

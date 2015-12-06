@@ -4,6 +4,14 @@
 
   <h1>Tuotteiden listaussivu</h1>
   
+  {% if message %}
+    <div class="alert alert-danger">
+      <ul>
+        <li>{{message}}</li>
+      </ul>
+    </div>
+  {% endif %}
+  
   {% if errors %}
     <div class="alert alert-danger">
       <ul>
@@ -26,6 +34,7 @@
         <th>Tuotekuvaus</th>
         <th></th>
         {% if oikeudet %}
+          <th></th>
           <th></th>
           <th></th>
           <th></th>
@@ -58,15 +67,11 @@
               <td>{{forms.destroy__listattu_tuote_button("#{base_path}/Tuote/Poistatuote/#{Tuote.tuote_id}")}}</td> 
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
                             
-              <!--
               <th><form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa tuotteen?">
                     <button type="submit" class="btn btn-danger" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote!</a></button>
                 </form>
               </th>
-              -->
-              <th>
-  
-              </th>
+              <th><a class="btn btn-default" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
             {% endif %}
           </tr>
       {% endfor %}

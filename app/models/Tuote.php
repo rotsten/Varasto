@@ -190,7 +190,6 @@ class Tuote extends BaseModel {
     return null;
   } // end of find_tuotteen_nimi
   
-
   public function destroy () {
     
     Kint::dump($this->tuote_id);
@@ -209,17 +208,19 @@ class Tuote extends BaseModel {
     if($this->tuote_id == '' || $this->tuote_id == null){
        $errors_tuote_id[] = 'Tuote-id on pakollinen tieto!';
     }
-     if(strlen($this->tuote_id) < 5){
-       $errors_tuote_id[] = 'Tuote_id:n pitää olla vähintään 5 merkkiä pitkä!';
-     } 
+    
+    if(strlen($this->tuote_id) < 5){
+      $errors_tuote_id[] = 'Tuote_id:n pitää olla vähintään 5 merkkiä pitkä!';
+    } 
        
     // tarkistaa, että sisältää vain numeroita
     if (is_numeric($this->tuote_id)) {
       if ($this->tuote_id < 0) {
           $errors_tuote_id[] = 'Tuote-id on aina positiivinen kokonaisluku!'; 
       }
-    } else {
-        $errors_tuote_id[] = 'Tuote-id ei saa sisältää muita merkkejä kuin numeroita!';
+    } 
+    else {
+      $errors_tuote_id[] = 'Tuote-id ei saa sisältää muita merkkejä kuin numeroita!';
     }  
     
     if ($flag == true) {
