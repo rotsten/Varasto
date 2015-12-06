@@ -55,7 +55,7 @@
             {% if oikeudet %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
               
-              <td>{{forms.destroy_button("#{base_path}/Tuote/Poistatuote/#{{Tuote.tuote_id}}")}}</td> 
+              <td>{{forms.destroy_button("#{base_path}/Tuote/Poistatuote/#{Tuote.tuote_id}")}}</td> 
               
               <th>
                 <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa tuotteen?">
