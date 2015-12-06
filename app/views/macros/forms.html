@@ -1,6 +1,6 @@
 {% macro destroy_button(action, text) %}
-  <form method="post" action="{{action}}" style="display: inline-block;" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa?">
-    <button type="submit" class="btn btn-danger">{{text|default('Poista')}}</button>
+  <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa?">
+    <button type="submit" class="btn btn-danger">'Poista tuote tätä makroa käyttäen'</button>
   </form>
 {% endmacro %}               
                 
