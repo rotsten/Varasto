@@ -103,7 +103,13 @@ class VarastoTuote extends BaseModel{
                                         ON varasto_tuote.tuote_id = tuote.tuote_id;');
 
     // Suoritetaan kysely
-    $query->execute(array('tuote_id' => $tuote_id));
+    $query->execute(array('varasto_id' => $varasto_id,
+                          'tuote_id' => $tuote_id,
+                          'tuotteen_nimi' => $tuotteen_nimi,
+                          'valmistaja' => $valmistaja,
+                          'kuvaus' => $kuvaus,
+                          'lukumaara' => $lukumaara
+                          ));
     // Haetaan kyselyn tuottamat rivit
     $varaston_tuotetiedot = $query->fetchAll();
 
