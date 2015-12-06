@@ -81,11 +81,25 @@ class VarastoTuote extends BaseModel{
                                         ON varasto_tuote.tuote_id = tuote.tuote_id
                                         WHERE varasto_id = :varasto_id;');
     // ORDER BY TUOTE.tuotteen_nimi
-    // Suoritetaan kysely
-    $query->execute(array());
+    
+    $query->execute();
     // Haetaan kyselyn tuottamat rivit
-    $varaston_tuotetiedot = $query->fetchAll();
 
+    $rows = $query->fetchAll();
+    $varaston_tuotetiedot = array();
+    
+    // Käydään kyselyn tuottamat rivit läpi
+    foreach($rows as $row){
+      $varaston_tuotetiedot[] = new VarastoTuote (array(
+        'varasto_id' => $row['varasto_id'],
+        'tuote_id' => $row['tuote_id'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'], 
+        'valmistaja' => $row['valmistaja'],
+        'kuvaus' => $row['kuvaus'], 
+        'lukumaara' => $row['lukumaara']
+       ));
+    } // end of foreach
+    
     return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)
   

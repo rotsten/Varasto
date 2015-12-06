@@ -18,7 +18,6 @@ class VarastoTuoteController extends BaseController{
    *****************************************/
  
   public static function varasto_tuotteet_list($varasto_id){
-
     /*
      * Tämä funktio kutsuu, all-funktiota,
      * mikä hakee kaikki tietyn varaston tuotteet 
@@ -122,7 +121,6 @@ class VarastoTuoteController extends BaseController{
     $muutettava_tuote= VarastoTuote::all_in_certain_varasto_join_tuote($varasto_id);
     //Kint::dump($muutettava_tuote);
     View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote));
-    
   }
   
   public static function varastotuote_edit_post(){

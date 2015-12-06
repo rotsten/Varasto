@@ -159,10 +159,9 @@ class Tuote extends BaseModel {
             'kuvaus' => $row['kuvaus'],  
             'valmistaja' => $row['valmistaja']
           ));
-
-          return $tuote;
-            
-    } // end of if
+          return $tuote;            
+        } // end of if
+    
   } // end of find_tuote (tuote_id)
 
   public function find_tuotteen_nimi($tuotteen_nimi){
