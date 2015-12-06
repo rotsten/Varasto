@@ -355,7 +355,8 @@ class TuoteController extends BaseController{
     //$page_size = 10;
     //$Tuotteet = Tuote::all_with_paging($page, $page_size);
 
-    Redirect::to('/Tuote/Poistatuote/:tuote_id');
+    //Redirect::to('/Tuote/Poistatuote/:tuote_id');
+    View::make('/Tuote/Poistatuote/:tuote_id');
     //Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet));
   }
 }
