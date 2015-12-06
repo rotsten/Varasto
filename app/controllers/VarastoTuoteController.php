@@ -112,7 +112,7 @@ class VarastoTuoteController extends BaseController{
    * 
    *****************************************/
 
-  public static function varastotuote_edit($tuote_id){
+  public static function varastotuote_edit($varasto_id){
     /*
      *  Tuote-id on hakuavain. Sitä ei voi editoida.
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
