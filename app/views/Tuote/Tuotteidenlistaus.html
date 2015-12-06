@@ -64,10 +64,11 @@
             {% if oikeudet %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
                          
-              <th><form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa tuotteen?">
-                    <button type="submit" class="btn btn-danger" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote!</a></button>
-                </form>
+              <th>
+                {{form.destroy_button()}}
+                <a href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="bth btn-danger">Poista tuote makrolla!</a>
               </th>
+              
               <th><a class="btn btn-default" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
             {% endif %}
           </tr>
