@@ -100,18 +100,34 @@ class VarastoTuote extends BaseModel{
     
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
                                         LEFT JOIN tuote
-                                        ON varasto_tuote.tuote_id = tuote.tuote_id;');
+                                        ON varasto_tuote.tuote_id = tuote.tuote_id,
+                                        WHERE varasto_id =:varasto_id;');
 
     // Suoritetaan kysely
-    $query->execute(array('varasto_id' => $varasto_id,
-                          'tuote_id' => $tuote_id,
-                          'tuotteen_nimi' => $tuotteen_nimi,
-                          'valmistaja' => $valmistaja,
-                          'kuvaus' => $kuvaus,
-                          'lukumaara' => $lukumaara
-                          ));
+    $query->execute();
+            
     // Haetaan kyselyn tuottamat rivit
-    $varaston_tuotetiedot = $query->fetchAll();
+    $rows = $query->fetchAll();
+    
+    $varaston_tuotetiedot = array();
+
+    // Käydään kyselyn tuottamat rivit läpi
+    foreach($rows as $row){
+      $varaston_tuotetiedot [] = new VarastoTuote (array(
+        'varasto_id' => $varasto_id,
+        'tuote_id' => $tuote_id,
+        'tuotteen_nimi' => $tuotteen_nimi,
+        'valmistaja' => $valmistaja,
+        'kuvaus' => $kuvaus,
+        'lukumaara' => $lukumaara
+      ));
+    } // end of foreach
+   
+    //$tuotteet = ksort($tuotteet);
+    return $varaston_tuotetiedot; // Tuotteet on Tuote-olioiden kokoelma
+   
+    //$tuotteet = ksort($tuotteet);
+    return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
 
     return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)

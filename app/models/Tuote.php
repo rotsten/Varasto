@@ -151,16 +151,16 @@ class Tuote extends BaseModel {
     
     $query->execute(array('tuote_id' => $tuote_id));
     $row = $query->fetch();
-    
-    if($row){
-      $tuote = new Tuote(array(
-        'tuote_id' => $row['tuote_id'],
-        'tuotteen_nimi' => $row['tuotteen_nimi'],
-        'kuvaus' => $row['kuvaus'],  
-        'valmistaja' => $row['valmistaja']
-      ));
-    
-      return $tuote;
+
+        if($row){
+          $tuote = new Tuote(array(
+            'tuote_id' => $row['tuote_id'],
+            'tuotteen_nimi' => $row['tuotteen_nimi'],
+            'kuvaus' => $row['kuvaus'],  
+            'valmistaja' => $row['valmistaja']
+          ));
+
+          return $tuote;
             
     } // end of if
   } // end of find_tuote (tuote_id)
