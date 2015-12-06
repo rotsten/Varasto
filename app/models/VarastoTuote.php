@@ -89,8 +89,7 @@ class VarastoTuote extends BaseModel{
     return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)
   
-  public static function all_in_certain_varasto_join_tuote($varasto_id){
-      
+  public static function all_in_certain_varasto_join_tuote($varasto_id){    
     /* Tulostaa tuotteen tuotetiedot + lukumäärä niistä, 
      * jotka ovat tietyssä varastossa.
      */  
@@ -117,10 +116,8 @@ class VarastoTuote extends BaseModel{
         'lukumaara' => $lukumaara
       ));
     } // end of foreach
-   
-    //$tuotteet = ksort($tuotteet);
-    return $varaston_tuotetiedot; // Tuotteet on Tuote-olioiden kokoelma
 
+    return $varaston_tuotetiedot; // Tuotteet on Tuote-olioiden kokoelma
   } // all_in_varasto($varasto_id)
 
   public function save(){
