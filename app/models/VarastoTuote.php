@@ -40,8 +40,7 @@ class VarastoTuote extends BaseModel{
         'varasto_id' => $row['varasto_id'],
         'tuote_id' => $row['tuote_id'],
         'lukumaara' => $row['lukumaara']
-      ));
-             
+      ));   
     } // end of foreach
     
     return $varasto_tuote;
@@ -76,12 +75,11 @@ class VarastoTuote extends BaseModel{
     /* Tulostaa kaikki tuotteet ja niiden tuotetiedot, 
      * jotka ovat tietyssä varastossa.
      */  
-    //Kint::dump($varasto_id);
     
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
                                         RIGHT JOIN tuote
                                         ON varasto_tuote.tuote_id = tuote.tuote_id
-                                        WHERE varasto_id =:varasto_id;');
+                                        WHERE varasto_id = :varasto_id;');
     // ORDER BY TUOTE.tuotteen_nimi
     // Suoritetaan kysely
     $query->execute(array('varasto_id' => $varasto_id));
@@ -96,19 +94,16 @@ class VarastoTuote extends BaseModel{
     /* Tulostaa tuotteen tuotetiedot + lukumäärä niistä, 
      * jotka ovat tietyssä varastossa.
      */  
-    //Kint::dump($varasto_id);
     
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
                                         LEFT JOIN tuote
                                         ON varasto_tuote.tuote_id = tuote.tuote_id,
-                                        WHERE varasto_id =:varasto_id;');
-
+                                        WHERE varasto_id = :varasto_id;');
     // Suoritetaan kysely
     $query->execute();
             
     // Haetaan kyselyn tuottamat rivit
-    $rows = $query->fetchAll();
-    
+    $rows = $query->fetchAll();    
     $varaston_tuotetiedot = array();
 
     // Käydään kyselyn tuottamat rivit läpi
@@ -125,11 +120,7 @@ class VarastoTuote extends BaseModel{
    
     //$tuotteet = ksort($tuotteet);
     return $varaston_tuotetiedot; // Tuotteet on Tuote-olioiden kokoelma
-   
-    //$tuotteet = ksort($tuotteet);
-    return $tuotteet; // Tuotteet on Tuote-olioiden kokoelma
 
-    return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)
 
   public function save(){
