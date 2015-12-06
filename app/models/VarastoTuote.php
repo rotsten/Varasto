@@ -70,7 +70,7 @@ class VarastoTuote extends BaseModel{
     return $varaston_tuote_idt;
   } // all_in_varasto($varasto_id)
    
-  public static function all_in_varasto_join_tuote($tuote_id){
+  public static function all_in_varasto_join_tuote($varasto_id){
     /* Tulostaa kaikki tuotteet ja niiden tuotetiedot, 
      * jotka ovat tietyssä varastossa.
      */  
@@ -81,7 +81,7 @@ class VarastoTuote extends BaseModel{
     
     // ORDER BY TUOTE.tuotteen_nimi
     
-    $query->execute(array());
+    $query->execute(array('varasto_id' => $varasto_id));
     // Haetaan kyselyn tuottamat rivit
 
     $rows = $query->fetchAll();
