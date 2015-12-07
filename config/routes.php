@@ -206,7 +206,7 @@
   
   // Ottaa vastaan muutokset (lukumäärän muutokset)
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
-  $routes->post('/VarastoTuote/Lukumaaratiedonmuuttaminen/:varasto_id:tuote_id', 'check_logged_in', function($varasto_id, $tuote_id) {
-    VarastoTuoteController::varastotuote_edit_post($varasto_id, $tuote_id);
+  $routes->post('/VarastoTuote/Lukumaaratiedonmuuttaminen/:tuote_id', 'check_logged_in', function($tuote_id) {
+    VarastoTuoteController::varastotuote_edit_post($tuote_id);
   });
   

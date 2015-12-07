@@ -121,7 +121,7 @@ class VarastoTuoteController extends BaseController{
     
     Kint::dump($muutettava_tuote);
     
-    View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('varasto_id' => $varasto_id, 'muutettava_tuote' => $muutettava_tuote, ));
+    View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote, ));
   }
   
   public static function varastotuote_edit_post(){
