@@ -312,11 +312,11 @@ class TuoteController extends BaseController{
     self::check_logged_in();
     $tulokset = Tuote::find_tuotteen_nimi($tuotteen_nimi);  
     
-    if(empty ($tulokset)) {
+    if(empty ($tulokset)){
       // Ei löytynyt
-      $errors= 'Tuotetta $tuotteen_nimi ei löytynyt.';
-      
-      View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
+      $errors= 'Tuotetta $tuotteen_nimi ei löytynyt.';      
+      //View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
+      Redirect::to('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
     }
     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));    
   } // end of find_tuote_post

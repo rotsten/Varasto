@@ -14,6 +14,19 @@
   {% endif %}
 
   <form method="post"> 
+      
+    <div class="form-group">
+      <label>Anna etsittävän tuotteen nimi tai osa nimestä</label>
+      <input type="text" class="form-control" name="tuotteen_nimi" value="{{tuotteen_nimi}}">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-default" value=TuoteController::tuote_search()>Hae tuotetta!</button>
+      <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle </A></button>
+    </div> 
+        
+    <br>   
+    <br>  
+    
     <div class="form-group">
       <label>Anna etsittävän tuotteen Tuote-ID</label>
       <input type="text" class="form-control" name="tuote_id" value="{{tuote_id}}">
@@ -22,18 +35,6 @@
         <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle </A></button>
       </div>
     </div>
-    <br>   
-    <br>  
-    
-    <div class="form-group">
-      <label>Anna tuotteen nimi tai osa nimestä</label>
-      <input type="text" class="form-control" name="tuotteen_nimi" value="{{tuotteen_nimi}}">
-    </div>
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-default" value=TuoteController::tuote_search()>Hae tuotetta!</button>
-      <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle </A></button>
-    </div> 
 
   </form>
 {% endblock %}
