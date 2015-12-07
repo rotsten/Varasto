@@ -79,7 +79,7 @@ class Varasto extends BaseModel{
   public function save () {
       
     $query = DB::connection()->prepare('INSERT INTO VARASTO (varasto_id, nimi, osoite)
-            VALUES (:nimi, :osoite)');
+            VALUES (:varasto_id, :nimi, :osoite)');
    
      $query->execute(array('varasto_id' => $this->varasto_id, 
                            'nimi' => $this->nimi, 
