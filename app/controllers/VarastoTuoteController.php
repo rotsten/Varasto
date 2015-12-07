@@ -112,9 +112,15 @@ class VarastoTuoteController extends BaseController{
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
     
-    //self::check_logged_in(); 
-    $muutettava_tuote= VarastoTuote::all_in_certain_varasto_join_tuote($tuote_id);
-    //Kint::dump($muutettava_tuote);
+    self::check_logged_in(); 
+      
+    $input_params = $_POST;   
+    $varasto_id = $input_params['varasto_id'];
+    
+    $muutettava_tuote= VarastoTuote::certain_varasto_join_certain_tuote($varasto_id, $tuote_id);
+    
+    Kint::dump($muutettava_tuote);
+    
     View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote));
   }
   

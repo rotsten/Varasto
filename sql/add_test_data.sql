@@ -102,3 +102,22 @@ VALUES ('002', 'Ilvesvuoren teollisuusalue, halli 2');
 
 INSERT INTO VARASTO (varasto_id, nimi)
 VALUES ('003', 'Ilvesvuoren teollisuusalue, halli 3');
+
+INSERT INTO VARASTO_TUOTE (varasto_id, tuote_id, lukumaara)
+VALUES ('001', 'Ilvesvuoren teollisuusalue, halli 1');
+
+INSERT INTO VARASTO_TUOTE (varasto_id, tuote_id, lukumaara)
+VALUES ('001', '9511347032', '4');
+
+INSERT INTO VARASTO_TUOTE (varasto_id, tuote_id, lukumaara)
+VALUES ('001', '5035822416437', '45');
+
+INSERT INTO VARASTO_TUOTE (varasto_id, tuote_id, lukumaara)
+VALUES ('002', '9789513233259', '10');
+
+INSERT INTO VARASTO_TUOTE (varasto_id, tuote_id, lukumaara)
+VALUES ('002', '9512009110', '1');
+
+INSERT INTO VARASTO_TUOTE (varasto_id, tuote_id, lukumaara)
+VALUES ('002', '9789523001084', '12');
+

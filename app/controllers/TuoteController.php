@@ -328,8 +328,7 @@ class TuoteController extends BaseController{
   
   public static function poista_tuote($tuote_id){
     
-    self::check_logged_in();
-      
+    self::check_logged_in(); 
     /*
      * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
@@ -350,8 +349,6 @@ class TuoteController extends BaseController{
     $page_size = 10;
     $Tuotteet = Tuote::all_with_paging($page, $page_size);
 
-    //Redirect::to('/Tuote/Poistatuote/:tuote_id');
-    //View::make('/Tuote/Poistatuote/:tuote_id');
     Redirect::to('/Tuote/Tuotteidenlistaus', array('Tuotteet' => $Tuotteet, 'message' => $message));
   }
 }

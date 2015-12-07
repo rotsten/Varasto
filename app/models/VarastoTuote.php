@@ -102,35 +102,43 @@ class VarastoTuote extends BaseModel{
     return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)
   
-  public static function all_in_certain_varasto_join_tuote($tuote_id){    
+  public static function certain_varasto_join_certain_tuote($varasto_id, $tuotde_id){    
     /* Tulostaa tuotteen tuotetiedot + lukumäärä niistä, 
      * jotka ovat tietyssä varastossa.
      */  
     
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
       LEFT JOIN tuote ON varasto_tuote.tuote_id = tuote.tuote_id
-      WHERE varasto_id =:varasto_id;');
+      WHERE varasto_id =:varasto_id
+      WHERE tuote_id =:tuote_id;');
     
     // Suoritetaan kysely
-    $query->execute(array('tuote_id' => $tuote_id));
+    $query->execute(array('varasto_id' => $varasto_id,
+                          'tuote_id' => $tuote_id));
     
     // Haetaan kyselyn tuottamat rivit
-    $rows = $query->fetchAll();    
-    $varaston_tuotetiedot = array();
+    $row = $query->fetch();
 
-    // Käydään kyselyn tuottamat rivit läpi
-    foreach($rows as $row){
-      $varaston_tuotetiedot [] = new VarastoTuote (array(
+    if($row){
+      $varastotuote = array(
         'varasto_id' => $varasto_id,
-        'tuote_id' => $tuote_id,
-        'tuotteen_nimi' => $tuotteen_nimi,
-        'valmistaja' => $valmistaja,
-        'kuvaus' => $kuvaus,
+        'tuote_id' => $row['tuote_id'],
+        'tuotteen_nimi' => $row['tuotteen_nimi'], 
+        'valmistaja' => $row['valmistaja'],
+        'kuvaus' => $row['kuvaus'], 
+        'lukumaara' => $row[lukumaara]
+    );
+      
+    /*
+    if($row){
+      $varastotuote = new VarastoTuote(array(
+        'varasto_id' => $varasto_id,
+        'tuote_id' => $row['tuote_id'],
         'lukumaara' => $lukumaara
       ));
-    } // end of foreach
-
-    return $varaston_tuotetiedot; // Tuotteet on Tuote-olioiden kokoelma
+      */
+      return $varastotuote;            
+    } // end of 
   } // all_in_varasto($varasto_id)
 
   public function save(){
