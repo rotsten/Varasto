@@ -59,7 +59,7 @@ class VarastoController extends BaseController{
       Redirect::to('/Varasto/Varastosivu/' . $params['varasto_id'], $uusi_varasto);
           
     } else{
-        View::make('Varasto/LisaaVarasto.html', array('errors' => $errors, 'attiributes' => $params));
+        View::make('Varasto/Lisaavarasto.html', array('errors' => $errors, 'attiributes' => $params));
     }
     
     return;
