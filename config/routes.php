@@ -200,13 +200,13 @@
   // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun, joka tarvitsee hakuavaimeiksi varasto_id:n + tuote_id:n.
   // Tiedot haetaan tuote_id:tä käyttäen.
-  $routes->get('/VarastoTuote/Lukumaaratiedonmuuttaminen/:varasto_id, :tuote_id', 'check_logged_in', function($tuote_id) {
+  $routes->get('/VarastoTuote/Lukumaaratiedonmuuttaminen/:varasto_id:tuote_id', 'check_logged_in', function($tuote_id) {
     VarastoTuoteController::varastotuote_edit($varasto_id, $tuote_id);
   });
   
   // Ottaa vastaan muutokset (lukumäärän muutokset)
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun...
-  $routes->post('/VarastoTuote/Lukumaaratiedonmuuttaminen/:varasto_id/:tuote_id', 'check_logged_in', function($varasto_id, $tuote_id) {
+  $routes->post('/VarastoTuote/Lukumaaratiedonmuuttaminen/:varasto_id:tuote_id', 'check_logged_in', function($varasto_id, $tuote_id) {
     VarastoTuoteController::varastotuote_edit_post($varasto_id, $tuote_id);
   });
   

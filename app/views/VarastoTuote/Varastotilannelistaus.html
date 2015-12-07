@@ -38,20 +38,23 @@
       -->
       {% for Varaston_tuotteet in Varaston_tuotteet %}
           <tr>
-            <td><a href="#">{{Varaston_tuotteet.varasto_id}}</a></td>
+            <td><a href="#">{{Varaston_tuotteet.varasto_id}}</a>
+            <input type=hidden name="varasto_id" class="form-control" value="{{varasto_id}}"> 
+            </td>
             <td>{{Varaston_tuotteet.tuote_id}}</a></td>
+            <input type=hidden name="tuote_id" class="form-control" value="{{tuote_id}}"> 
             <td>{{Varaston_tuotteet.tuotteen_nimi}}</a></td>
             <td>{{Varaston_tuotteet.valmistaja}}</a></td>
             <td>{{Varaston_tuotteet.kuvaus}}</a></td>
             <td>{{Varaston_tuotteet.lukumaara}}</td>
 
-            <th><a class="btn btn-default btn-sm" href="{{base_path}}/VarastoTuote/Lukumaaratiedonmuuttaminen/{{Varaston_tuotteet.varasto_id, Varaston_tuotteet.tuote_id}}"> Muokkaa</a></th>
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/VarastoTuote/Lukumaaratiedonmuuttaminen/{{Varaston_tuotteet.varasto_id}}{{Varaston_tuotteet.tuote_id}}"> Muokkaa</a></th>
           </tr>
       {% endfor %}
     </tbody>
   </table>
 
-  <button class="btn btn-default"><A href="{{base_path}}/VarastoTuote/Lisaauusivarastotuote{{Varaston_tuotteet.tuote_id}}">Lisää uusi tuote varastoon</A></button>
+  <button class="btn btn-default" type="submit"><A href="{{base_path}}/VarastoTuote/Lisaauusivarastotuote{{Varaston_tuotteet.tuote_id}}">Lisää uusi tuote varastoon</A></button>
   <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
 
 {% endblock %}
