@@ -81,8 +81,10 @@
                 </form>  
               </th>
               
+              <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa?">
               <th><a class="btn btn-default" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista 4 tuote</a></th>
-            {% endif %}
+              </form>  
+              {% endif %}
           </tr>
       {% endfor %}
     </tbody>    
