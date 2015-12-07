@@ -1,21 +1,13 @@
+
+  <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa?">
+    <button type="submit" class="btn btn-danger"> </button>
+  </form>              
+                
 {% macro destroy_button(action, text) %}
   <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa?">
-    <button type="submit" class="btn btn-danger">'Poista tuote tätä makroa käyttäen'</button>
+    <button type="submit" class="btn btn-danger"> </button>
   </form>
-{% endmacro %}               
-                
-{% macro destroy_listattu_tuote_button() %}
-  <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" style="display: inline-block;">
-    <button type="submit" class="btn btn-danger">Poista tuote!</button>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-   <script>
-      $( document ).ready(function() {
-        $( "p" ).text( "The DOM is now loaded and can be manipulated." );
-      });
-      </script>
-  </form>
-{% endmacro %}
-
+{% endmacro %}  
 <!--
 {% macro destroy_kayttaja_button() %}
   <form method="post" action="{base_path}/Kayttaja/Poistakayttaja/{{kayttajatunnus}}" style="display: inline-block;">  
