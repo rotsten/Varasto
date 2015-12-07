@@ -315,11 +315,9 @@ class TuoteController extends BaseController{
     if(empty ($tulokset)){
       // Ei löytynyt
       $errors= 'Tuotetta $tuotteen_nimi ei löytynyt.';      
-      //View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
-      Redirect::to('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
+      View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
     }
-    //View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));  
-    Redirect::to('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));
+    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));  
   } // end of find_tuote_post
    
   /*****************************************
