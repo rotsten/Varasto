@@ -64,26 +64,7 @@
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotesivu/{{Tuote.tuote_id}}">Katso tarkemmat tuotetiedot</a></th>
             {% if oikeudet %}
               <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Tuotetietojenmuutos/{{Tuote.tuote_id}}">Muokkaa</a></th>
-                         
-              <th>
-                {{form.destroy_button()}}
-                <a href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="bth btn-danger">Poista 1 tuote makrolla!</a>
-              </th>
-              
-              <th>{{form.destroy_button()}}
-                <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class=destroy-form data-confirm="Oletko varma, että haluat poistaa tuotteen?">
-                </form>
-              </th>
-
-              <th>
-                <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa?">
-                    <button type="submit" class="btn btn-danger" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista 3 tuote makrolla sotku!</a></button>
-                </form>  
-              </th>
-              
-              <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa?">
-                 <button class="btn btn-default" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista 4 tuote</button>
-              </form>  
+              <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}">Poista tuote</a></th>
               {% endif %}
           </tr>
       {% endfor %}
