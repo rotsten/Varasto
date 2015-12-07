@@ -89,7 +89,7 @@ class VarastoTuote extends BaseModel{
     
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
-      $varaston_tuotetiedot[] = new VarastoTuote (array(
+      $varaston_tuotetiedot[] = (array(
         'varasto_id' => $row['varasto_id'],
         'tuote_id' => $row['tuote_id'],
         'tuotteen_nimi' => $row['tuotteen_nimi'], 
