@@ -97,6 +97,14 @@ class Varasto extends BaseModel{
                           )); 
   }
   
+  public function destroy () {
+    
+    Kint::dump($this->varasto_id);
+    
+    $query = DB::connection()->prepare ('DELETE FROM VARASTO WHERE varasto_id =:varasto_id');
+    $query->execute(array('varasto_id' => $this->varasto_id));                  
+  }
+  
   public function validate_varaston_nimi(){
         
     /* Tarkistaa, onko annettu merkkijono oikeanmittainen.

@@ -13,7 +13,6 @@
             <th>Katuosoite</th>
             {% if oikeudet %}
               <th></th>
-              <th></th>
             {% endif %}
           </tr>
         </thead>
@@ -24,7 +23,6 @@
              <td>{{varasto.nimi}}</td>  
              <td>{{varasto.osoite}}</td>  
              {% if oikeudet %}
-               <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Varastonmuutos/{{varasto.varasto_id}}">Muokkaa</a></th>
                <th><a class="btn btn-default btn-sm" href="{{base_path}}/Varasto/Poistavarasto/{{varasto.varasto_id}}">Poista varasto (Toiminto tulossa myöhemmin)</a></th>
              {% endif %}
            </tr>
