@@ -11,7 +11,7 @@
     </div>
   {% endif %}
   
-<H2>Varaston: {{varastonnimi}} kaikkien tuotteiden listaus/inventointi</H2>
+<H2>Varaston: {{Varastonnimi}} kaikkien tuotteiden listaus/inventointi</H2>
 
 <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
    
@@ -45,7 +45,7 @@
             <td>{{Varaston_tuotteet.kuvaus}}</a></td>
             <td>{{Varaston_tuotteet.lukumaara}}</td>
 
-            <th><a class="btn btn-default btn-sm" href="{{base_path}}/VarastoTuote/Lukumaaratiedonmuuttaminen/{{Varaston_tuotteet.varasto_id}}{{Varaston_tuotteet.tuote_id}}"> Muokkaa</a></th>
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/VarastoTuote/Lukumaaratiedonmuuttaminen/{{Varaston_tuotteet.varasto_id Varaston_tuotteet.tuote_id}}"> Muokkaa</a></th>
           </tr>
       {% endfor %}
     </tbody>
