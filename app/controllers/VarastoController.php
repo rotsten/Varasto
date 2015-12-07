@@ -40,7 +40,7 @@ class VarastoController extends BaseController{
     // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
     $params = $_POST;
      
-    $uusi_varasto = new VarastoTuote(array(
+    $uusi_varasto = new Varasto(array(
       'varasto_id' => $params['varasto_id'], 
       'nimi' => $params['nimi'],
       'osoite' => $params['osoite']
