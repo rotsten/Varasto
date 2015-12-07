@@ -112,7 +112,10 @@ class VarastoTuoteController extends BaseController{
      *  Käyttäjän pitää tietysti ensin nähdä tuotteen nykyiset tiedot.
      */
     
-    self::check_logged_in(); 
+    self::check_logged_in();
+    
+    Kint::dump($varasto_id);
+    Kint::dump($tuote_id);
     
     $muutettava_tuote= VarastoTuote::certain_varasto_join_certain_tuote($varasto_id, $tuote_id);
     
