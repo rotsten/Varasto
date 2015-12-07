@@ -318,7 +318,8 @@ class TuoteController extends BaseController{
       //View::make('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
       Redirect::to('Tuote/Tuotteidenlistaus.html', array('errors' => $errors, 'Tuotteet' => $tulokset));
     }
-    View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));    
+    //View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));  
+    Redirect::to('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));
   } // end of find_tuote_post
    
   /*****************************************
