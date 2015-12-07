@@ -70,9 +70,9 @@
                 <a href="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="bth btn-danger">Poista 1 tuote makrolla!</a>
               </th>
               
-              <th><form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa tuotteen?">
-                {{form.destroy_button()}}
-              </form>
+              <th>{{form.destroy_button()}}
+                <form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa tuotteen?">
+                </form>
               </th>
 
               <th><form method="post" action="{{base_path}}/Tuote/Poistatuote/{{Tuote.tuote_id}}" class="destroy-form" data-confirm="Oletko varma, että haluat poistaa tuotteen?">
