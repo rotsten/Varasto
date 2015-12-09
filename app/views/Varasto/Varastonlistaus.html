@@ -30,13 +30,16 @@
             <td>{{Varasto.nimi}}</td>
             <td>{{Varasto.osoite}}</td>
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Varasto/Varastosivu/{{Varasto.varasto_id}}">Katso tarkemmat varaston tiedot</a></th>
-            <th><a class="btn btn-default btn-sm" href="{{base_path}}/VarastoTuote/Varastotilannelistaus/{{Varasto.varasto_id}}">Näytä kaikki varaston tuotteet</a></th>            
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/VarastoTuote/Varastotilannelistaus/{{Varasto.varasto_id}}">Näytä kaikki varaston tuotteet</a></th>     
+            {% if oikeudet %}
+              <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/Varasto/Poistavarsto/{{Varasto.varasto_id}}">Poista varasto</a></th>
+            {% endif %} 
           </tr>
       {% endfor %}
     </tbody>
   </table>
 
-  <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Lisää uusi varasto (toiminto tulossa)</A></button>
+  <button class="btn btn-default"><A href="{{base_path}}/Varasto/Lisaavarasto">Lisää uusi varasto</A></button>
   <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
 
 {% endblock %}
