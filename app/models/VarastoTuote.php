@@ -107,10 +107,11 @@ class VarastoTuote extends BaseModel{
      * jotka ovat tietyssä varastossa.
      */  
     
+      // Ensin etsitään kaikki, jotka ovat oikeassa varastossa
     $query = DB::connection()->prepare('SELECT * FROM varasto_tuote 
       LEFT JOIN tuote ON varasto_tuote.tuote_id = tuote.tuote_id
-      WHERE varasto_id =:varasto_id AND tuote_id =:tuote_id;');
-    
+      WHERE tuote.tuote_id = :tuote_id AND varasto_tuote.varasto_id = :varasto_id');
+        
     // Suoritetaan kysely
     $query->execute(array('varasto_id' => $varasto_id,
                           'tuote_id' => $tuote_id));
