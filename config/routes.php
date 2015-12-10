@@ -201,7 +201,7 @@
   // Tämä kohdistuisi jatkossa VARASTO_TUOTE-tauluun, joka tarvitsee hakuavaimeiksi varasto_id:n + tuote_id:n.
   // Tiedot haetaan tuote_id:tä käyttäen.
  
-  $routes->get('/VarastoTuote/Lukumaaratiedonmuuttaminen/', 'check_logged_in', function($varasto_id, $tuote_id) { 
+  $routes->get('/VarastoTuote/Lukumaaratiedonmuuttaminen/:varasto_id/_tuote_id', 'check_logged_in', function($varasto_id, $tuote_id) { 
     VarastoTuoteController::varastotuote_edit($varasto_id, $tuote_id);
   });
   
