@@ -242,8 +242,7 @@ class Kayttaja extends BaseModel {
      * -validate_kayttooikeudet();
      */
         
-    $errors = array();
-      
+    $errors = array();  
     $errors = $this->validate_kayttajatunnus();
     $errors = array_merge($errors, $this->validate_salasana());
     $errors = array_merge($errors, $this->validate_kayttooikeudet());

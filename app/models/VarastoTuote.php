@@ -114,31 +114,28 @@ class VarastoTuote extends BaseModel{
         
     // Suoritetaan kysely
     $query->execute(array('varasto_id' => $varasto_id,
-                          'tuote_id' => $tuote_id));
+                          'tuote_id' => $tuote_id
+                          ));
     
     // Haetaan kyselyn tuottamat rivit
     $row = $query->fetch();
+    
+    Kint::dump($row);
 
-    if($row){
+    if (!empty($row)) {
       $varastotuote = array(
         'varasto_id' => $varasto_id,
-        'tuote_id' => $row['tuote_id'],
+        'tuote_id' => $tuote_id,
         'tuotteen_nimi' => $row['tuotteen_nimi'], 
         'valmistaja' => $row['valmistaja'],
         'kuvaus' => $row['kuvaus'], 
         'lukumaara' => $row['lukumaara']
-    );
+      );
       
-    /*
-    if($row){
-      $varastotuote = new VarastoTuote(array(
-        'varasto_id' => $varasto_id,
-        'tuote_id' => $row['tuote_id'],
-        'lukumaara' => $lukumaara
-      ));
-      */
+       Kint::dump($varastotuote);
+      
       return $varastotuote;            
-    } // end of 
+    } // end of if 
   } // all_in_varasto($varasto_id)
 
   public function save(){
