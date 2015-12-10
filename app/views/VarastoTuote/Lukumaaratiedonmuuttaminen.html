@@ -14,19 +14,19 @@
   <form  method="post">
     <div class="form-group">
       <label>Varasto-ID</label>
-      <input type="hidden" class="form-control" name="varasto_id" value="{{muutettava_tuote.varasto_id}}">
+      <input type="hidden" class="form-control" name="varasto_id" value="{{varasto_id}}">
     </div>
     <div class="form-group">
       <label>Tuote-ID</label>
-      <input type="hidden" class="form-control" name="tuote_id" value="{{muutettava_tuote_id}}">
+      <input type="hidden" class="form-control" name="tuote_id" value="{{tuote_id}}">
     </div>
     <div class="form-group">
       <label>Tuotteen nimi</label>
-      <input type="hidden" class="form-control" value="{{muutettava_tuote.tuotteen_nimi}}">
+      <input type="hidden" class="form-control" value="{{tuotteen_nimi}}">
     </div>
     <div class="form-group">
       <label>Lukumaara</label>
-      <input type="text" class="form-control" value="{{muutettava_tuote.lukumaara}}">
+      <input type="text" class="form-control" value="{{lukumaara}}">
     </div>
     <div class="form-group">
       <button type ="submit" class="btn btn-default" value="VarastoTuoteController::varastotuote_edit_post()">Tallenna muutokset</button>
