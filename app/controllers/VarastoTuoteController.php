@@ -114,13 +114,6 @@ class VarastoTuoteController extends BaseController{
     
     self::check_logged_in();
     
-    $input_params = $_POST;   
-    $tuote_id = $input_params['varasto_id'];
-    $tuote_id = $input_params['tuote_id'];
-        
-    Kint::dump($varasto_id);
-    Kint::dump($tuote_id);
-    
     $muutettava_tuote= VarastoTuote::certain_varasto_join_certain_tuote($varasto_id, $tuote_id);
     
     Kint::dump($muutettava_tuote);
@@ -130,9 +123,8 @@ class VarastoTuoteController extends BaseController{
   
   public static function varastotuote_edit_post(){
     
-    $uudet_tiedot = $_POST; 
-    Kint::dump($uudet_tiedot);
-
+    $uudet_tiedot = $_POST;   
+    
     //self::check_logged_in(); 
   
     //Luodaan uusi tuote, jolla kutsutaan modifya...  
