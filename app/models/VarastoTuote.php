@@ -102,7 +102,7 @@ class VarastoTuote extends BaseModel{
     return $varaston_tuotetiedot;
   } // all_in_varasto($varasto_id)
   
-  public static function certain_varasto_join_certain_tuote($varasto_id, $tuotde_id){    
+  public static function certain_varasto_join_certain_tuote($varasto_id, $tuote_id){    
     /* Tulostaa tuotteen tuotetiedot + lukumäärä niistä, 
      * jotka ovat tietyssä varastossa.
      */  
