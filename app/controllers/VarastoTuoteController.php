@@ -114,11 +114,10 @@ class VarastoTuoteController extends BaseController{
     
     self::check_logged_in();
     
-    $muutettava_tuote= VarastoTuote::certain_varasto_join_certain_tuote($varasto_id, $tuote_id);
-    
+    $muutettava_tuote= VarastoTuote::certain_varasto_join_certain_tuote($varasto_id, $tuote_id);   
     Kint::dump($muutettava_tuote);
     
-    View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote, ));
+    View::make('VarastoTuote/Lukumaaratietojenmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote));
   }
   
   public static function varastotuote_edit_post(){
