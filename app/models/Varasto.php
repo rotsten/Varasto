@@ -82,10 +82,7 @@ class Varasto extends BaseModel{
             VALUES (:varasto_id, :nimi, :osoite)');
    
      $query->execute(array('varasto_id' => $this->varasto_id, 
-cd tsoha
-         
-         
-         'nimi' => $this->nimi, 
+                           'nimi' => $this->nimi, 
                            'osoite' => $this->osoite
                            ));      
   }
