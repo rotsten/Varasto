@@ -126,7 +126,7 @@ class VarastoTuote extends BaseModel{
         'tuotteen_nimi' => $row['tuotteen_nimi'], 
         'valmistaja' => $row['valmistaja'],
         'kuvaus' => $row['kuvaus'], 
-        'lukumaara' => $row[lukumaara]
+        'lukumaara' => $row['lukumaara']
     );
       
     /*
