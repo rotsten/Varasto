@@ -151,6 +151,19 @@ class VarastoTuote extends BaseModel{
     ));      
   }
   
+  public function modify () {
+                    
+    $query = DB::connection()->prepare(
+      'UPDATE VARASTO:TUOTE SET varasto_id = :new_varasto_id,
+      lukumaara = :new_lukumaara WHERE tuote_id =:tuote_id;');
+    
+    $query->execute(array(
+      'new_varasto_id' => $this->varasto_id_id,   
+      'new_tuote_id' => $this->tuote_id, 
+      'new_lukumaara' => $this->lukumaara
+    )); 
+  }
+  
   public function validate_lukumaara(){     
     /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
      * Lukumäärän antaminen ei ole välttämätöntä.
