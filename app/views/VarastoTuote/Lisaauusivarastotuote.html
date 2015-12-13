@@ -30,14 +30,11 @@
           <option value="{{Tuote.tuotteen_nimi}}">{{Tuote.tuotteen_nimi}}</option>
         {% endfor %}
       </select> 
-    </div>
 
-    <!--Muut tuotetiedot välittyvät käyttäjältä piilossa -->
-    <div class="form-group">
       <input type= "hidden" name ="tuote_id" value="{{Tuote.tuote_id}}">
       <input type= "hidden" name ="varasto_id" value="{{Tuote.varasto_id}}">
-      <input type ="hidden" name ="valmistaja" class="form-control" value="{{Tuote.valmistaja}}">
-      <input type ="hidden" name ="kuvaus" class="form-control" value="{{Tuote.kuvaus}}">
+      <input type ="hidden" name ="valmistaja" value="{{Tuote.valmistaja}}">
+      <input type ="hidden" name ="kuvaus" value="{{Tuote.kuvaus}}">
     </div>
     
     <div class="form-group">
@@ -45,7 +42,7 @@
       <input type ="number" name ="lukumaara" class="form-control">
     </div>
     
-    <button type ="submit" class="btn btn-default" value=VarastoTuoteController::varastotuote_lisaa_post()>Lisää tuote varastoon</button>
+    <button type ="submit" class="btn btn-default" value="VarastoTuoteController::varastotuote_lisaa_post()">Lisää tuote varastoon</button>
     <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu tallentamatta</A></button>
   </form>
 
