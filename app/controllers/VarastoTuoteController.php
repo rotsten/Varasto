@@ -72,12 +72,16 @@ class VarastoTuoteController extends BaseController{
   public static function varastotuote_lisaa_show ($varasto_id){
       
     self::check_logged_in();
+    Kint::dump($params['varasto_id']);
     
     // Hae ja listaa kaikki tuotteet tähän taulukkoon
     $Tuotteet = TuoteController::tuote_list_all();
-                        
-    Redirect::to('/VarastoTuote/Lisaauusivarastotuote/'.$varasto_id, array('Tuotteet' => $Tuotteet)); 
     
+    Kint::dump($params['$Tuotteet']);
+    //Redirect::to('/VarastoTuote/Lisaauusivarastotuote/'.$varasto_id, array('Tuotteet' => $Tuotteet)); 
+
+    
+    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Varaston_tuotteet' => $Tuotteet)); 
     //View::make('VarastoTuote/Lisaauusivarastotuote.html'/$varasto_id, array('Tuotteet' => $Tuotteet, 
     //                                                            'varasto_id' => $varasto_id));
   }
@@ -103,8 +107,6 @@ class VarastoTuoteController extends BaseController{
       //Kint::dump($uusi_tuote);
       $uusi_varastotuote ->save();
           
-      //Redirect::to('/VarastoTuote/VarastoTuotesivu/' . $params['varasto_id'] . $params['tuote_id'], $uusi_varastotuote);
-
       $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
       $varaston_nimi = Varasto::getNimiById($varasto_id);
       View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
