@@ -77,7 +77,7 @@ class VarastoTuoteController extends BaseController{
     // Hae ja listaa kaikki tuotteet tähän taulukkoon
     $Tuotteet = TuoteController::tuote_list_all();
     
-    Kint::dump($params['$Tuotteet']);
+    Kint::dump($Tuotteet);
     //Redirect::to('/VarastoTuote/Lisaauusivarastotuote/'.$varasto_id, array('Tuotteet' => $Tuotteet)); 
 
     
