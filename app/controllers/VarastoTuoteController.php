@@ -69,11 +69,12 @@ class VarastoTuoteController extends BaseController{
    * 
    ******************************************/
   public static function varastotuote_lisaa_show ($varasto_id){
-
+      
     self::check_logged_in();
     
+    // Hae ja listaa kaikki tuotteet tähän taulukkoon
     $Tuotteet = TuoteController::tuote_list_all();
-    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Tuotteet' => $Tuotteet, 
+    View::make('VarastoTuote/Lisaauusivarastotuote.html', array(/*'Tuotteet' => $Tuotteet,*/ 
                                                                 'varasto_id' => $varasto_id));
   }
   
