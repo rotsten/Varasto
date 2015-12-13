@@ -12,7 +12,7 @@
   {% endif %}
   
 
-<H2>Varaston nro:{{Varaston_tuotteet.varasto_id}} kaikkien tuotteiden listaus/inventointi</H2>
+<H2>Varaston nro:{{varasto_id}} kaikkien tuotteiden listaus/inventointi</H2>
 
 <button class="btn btn-default"> <A href="{{base_path}}/Paasivu"> Paluu pääsivulle </a></button>
    
@@ -53,6 +53,8 @@
   </table>
 
   <button type="submit" class="btn btn-default"><A href="{{base_path}}/VarastoTuote/Lisaauusivarastotuote/{{Varaston_tuotteet.varasto_id}}">Lisää uusi tuote tähän varastoon</A></button>
+  <button type="submit" class="btn btn-default"><A href="{{base_path}}/VarastoTuote/Lisaauusivarastotuote/{{varasto_id}}">Lisää uusi tuote tähän varastoon</A></button>
+    
   <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
 
 {% endblock %}

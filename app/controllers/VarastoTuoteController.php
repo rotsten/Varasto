@@ -109,7 +109,7 @@ class VarastoTuoteController extends BaseController{
           
       $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
       $varaston_nimi = Varasto::getNimiById($varasto_id);
-      View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
+      View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varasto_id' => $varasto_id)); 
     }  
     else {
       View::make('VarastoTuote/Lisaauusivarastotuote.html', array('errors' => $errors));        
