@@ -147,7 +147,7 @@ class VarastoTuoteController extends BaseController{
     $muuttujat= array(
       'varasto_id' => $varasto_id,
       'tuote_id' => $tuote_id,
-      'lukumaara' => $uudet_tiedot['lukumaara']
+      'lukumaara' => $lukumaara
     );
     
     $muutettava_varastotuote = new VarastoTuote($muuttujat);
