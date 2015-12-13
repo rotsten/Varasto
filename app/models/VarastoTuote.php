@@ -119,8 +119,6 @@ class VarastoTuote extends BaseModel{
     
     // Haetaan kyselyn tuottamat rivit
     $row = $query->fetch();
-    
-    Kint::dump($row);
 
     if (!empty($row)) {
       $varastotuote = array(
@@ -129,11 +127,10 @@ class VarastoTuote extends BaseModel{
         'tuotteen_nimi' => $row['tuotteen_nimi'], 
         'valmistaja' => $row['valmistaja'],
         'kuvaus' => $row['kuvaus'], 
-        'lukumaara' => $row['lukumaara']
+        'lukumaara' => $row['lukumaara'],
+        'history_date' => $row['history_date']
       );
-      
-       Kint::dump($varastotuote);
-      
+
       return $varastotuote;            
     } // end of if 
   } // all_in_varasto($varasto_id)

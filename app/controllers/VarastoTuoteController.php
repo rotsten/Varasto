@@ -116,7 +116,7 @@ class VarastoTuoteController extends BaseController{
     self::check_logged_in();
     
     $muutettava_tuote= VarastoTuote::certain_varasto_join_certain_tuote($varasto_id, $tuote_id);   
-    Kint::dump($muutettava_tuote);
+    //Kint::dump($muutettava_tuote);
     
     View::make('VarastoTuote/Lukumaaratiedonmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote));
   }
@@ -138,7 +138,6 @@ class VarastoTuoteController extends BaseController{
     
     // tsekataan syötteet
     $errors = $muutettava_varastotuote->errors();
-    Kint::dump($errors);
     
     if(count($errors) == 0){
         
