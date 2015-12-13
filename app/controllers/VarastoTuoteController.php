@@ -75,15 +75,11 @@ class VarastoTuoteController extends BaseController{
     Kint::dump($varasto_id);
     
     // Hae ja listaa kaikki tuotteet tähän taulukkoon
-    $Tuotteet = TuoteController::tuote_list_all();
-    
-    Kint::dump($Tuotteet);
-    //Redirect::to('/VarastoTuote/Lisaauusivarastotuote/'.$varasto_id, array('Tuotteet' => $Tuotteet)); 
+    $Tuotteet = TuoteController::tuote_list_all(); 
+    Kint::dump($Tuotteet); 
+   
+    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Tuotteet' => $Tuotteet)); 
 
-    
-    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Varaston_tuotteet' => $Tuotteet)); 
-    //View::make('VarastoTuote/Lisaauusivarastotuote.html'/$varasto_id, array('Tuotteet' => $Tuotteet, 
-    //                                                            'varasto_id' => $varasto_id));
   }
   
   public static function varastotuote_lisaa_post (){
