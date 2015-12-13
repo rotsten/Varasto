@@ -44,7 +44,7 @@
   
   // Käyttäjien listaussivun näyttäminen
   $routes->get('/Kayttaja/Kayttajienlistaus', 'check_logged_in', function(){
-    KayttajaController::kayttajalistaus();
+    KayttajaController::kayttajalistaus(1);
   });
   
   // Näyttää käyttäjätietojen muutossivun
@@ -155,7 +155,7 @@
   
   // Varaston listaamiseen liittyvä sivu
   $routes->get('/Varasto/Varastonlistaus', 'check_logged_in', function() {
-    VarastoController::varasto_list();
+    VarastoController::varasto_list(1);
   });
 
   // Varaston muuttamiseen liittyvä sivu 

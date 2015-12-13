@@ -18,13 +18,13 @@
     </thead>
     
     <ul class="pagination">
-      <li class="{% if not prev_page %}disabled{% endif %}"><a href="{{base_path}}/Tuote/Tuotteidenlistaus/{{prev_page}}"><span aria-hidden="true">«</span><span class="sr-only">Edellinen</span></a>
+      <li class="{% if not prev_page %}disabled{% endif %}"><a href="{{base_path}}/Varasto/Varastonlistaus/{{prev_page}}"><span aria-hidden="true">«</span><span class="sr-only">Edellinen</span></a>
       </li>
       {% for page in 1..pages %}
-        <li class="{% if curr_page == page %}active{% endif %}"><a href="{{base_path}}/Tuote/Tuotteidenlistaus/{{page}}">{{page}}</a>
+        <li class="{% if curr_page == page %}active{% endif %}"><a href="{{base_path}}/Varasto/Varastonlistaus/{{page}}">{{page}}</a>
         </li>
       {% endfor %}
-      <li class="{% if not next_page %}disabled{% endif %}"><a href="{{base_path}}/Tuote/Tuotteidenlistaus/{{next_page}}"><span aria-hidden="true">»</span><span class="sr-only">Seuraava</span></a>
+      <li class="{% if not next_page %}disabled{% endif %}"><a href="{{base_path}}/Varasto/Varastonlistaus/{{next_page}}"><span aria-hidden="true">»</span><span class="sr-only">Seuraava</span></a>
       </li>
     </ul>
 
