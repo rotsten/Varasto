@@ -155,7 +155,7 @@ class VarastoTuote extends BaseModel{
                     
     $query = DB::connection()->prepare(
       'UPDATE VARASTO:TUOTE SET varasto_id = :new_varasto_id,
-      lukumaara = :new_lukumaara WHERE tuote_id =:tuote_id;');
+      lukumaara = :new_lukumaara WHERE tuote_id = :new_tuote_id');
     
     $query->execute(array(
       'new_varasto_id' => $this->varasto_id,   
