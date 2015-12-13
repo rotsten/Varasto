@@ -16,7 +16,29 @@ class VarastoController extends BaseController{
   public static function index(){
       
     self::check_logged_in(); 
-    $varastotilanne = Varasto::all();
+    
+    // Paluttaa, montako riviä taulussa on dataa (esim. 24)
+    $varasto_count = Varasto::count();
+    $page_size = 10;
+    
+    // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
+    $pages = ceil($tuote_count/$page_size);
+    
+    if ($page+1 < $pages) {
+      $nextpage = $page +1;
+    }
+    else {
+      $nextpage = $pages;
+    }
+    
+    if ($page -1 < 1) {
+      $prevpage = 1;
+    }
+    else {
+      $prevpage = $page-1;
+    }
+    
+    $varastotilanne = Varasto::all_with_paging($page, $page_size);
     View::make('varastotilanne/Varastotilanteenmuutos.html', array('varastotilanne' => $varastotilanne));
   }
 

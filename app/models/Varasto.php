@@ -37,7 +37,6 @@ class Varasto extends BaseModel{
 
     // Käydään kyselyn tuottamat rivit läpi
     foreach($rows as $row){
-
       $varastotilanne[] = new Varasto(array(
         'varasto_id' => $row['varasto_id'],
         'nimi' => $row['nimi'],
@@ -48,6 +47,47 @@ class Varasto extends BaseModel{
     
     return $varastotilanne;
   }
+  
+  public function count (){
+      
+    $query = DB::connection()->prepare('SELECT COUNT(varasto_id) FROM VARASTO');
+    // Suoritetaan kysely
+    $query->execute();
+    // Haetaan kyselyn tuottamat rivit, taulukkomuodossa
+    //$tulos = $query->fetchAll();
+    $count = $query->fetchColumn(0); 
+    
+    // Paluttaa, kuinka monta riviä taulussa oli dataa
+    return $count;
+  }
+  
+    public static function all_with_paging($page, $page_size){
+    /*
+     * Tämä funktio hakee kaikki tuotteet tietokannasta ja
+     * palauttaa ne Tuotteet -nimisessä taulukossa
+     */
+          
+    $query = DB::connection()->prepare('SELECT * FROM VARASTO ORDER BY NIMI :limit OFFSET :offset');
+    // Suoritetaan kysely
+    $query->execute(array('limit' => $page_size, 'offset' => $page_size * ($page-1)));
+    // Haetaan kyselyn tuottamat rivit
+    $rows = $query->fetchAll();
+    
+    $tuotteet = array();
+
+    // Käydään kyselyn tuottamat rivit läpi
+    foreach($rows as $row){
+      $varastotilanne[] = new Varasto(array(
+        'varasto_id' => $row['varasto_id'],
+        'nimi' => $row['nimi'],
+        'osoite' => $row['osoite']
+      ));
+             
+    } // end of foreach
+   
+    return $varastotilanne; // Tuotteet on Tuote-olioiden kokoelma
+  } // end of function all
+  
   
   public static function getNimiById ($varasto_id) {
   

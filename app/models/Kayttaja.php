@@ -89,15 +89,12 @@ class Kayttaja extends BaseModel {
   
   public function count (){
       
-    $query = DB::connection()->prepare('SELECT COUNT(kayttajatunnus) FROM KAUTTAJA');
+    $query = DB::connection()->prepare('SELECT COUNT(kayttajatunnus) FROM KAYTTAJA');
     // Suoritetaan kysely
     $query->execute();
     // Haetaan kyselyn tuottamat rivit, taulukkomuodossa
     //$tulos = $query->fetchAll();
     $count = $query->fetchColumn(0); 
-    
-    //$count = $tulos[0];
-    //Kint::dump($count);
     
     // Paluttaa, kuinka monta riviä taulussa oli dataa
     return $count;
