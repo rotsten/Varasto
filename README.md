@@ -8,25 +8,6 @@ Yleisiä linkkejä:
 * [Linkki dokumentaatiooni](https://github.com/rotsten/Varasto/blob/master/doc/dokumentaatio.pdf)
 * [Linkki Tietokantakuvaukseen] http://rotsten.users.cs.helsinki.fi/Varasto/tietokantayhteys
 
-Tällä hetkellä Varasto-tietokantasovelluksessa on edelleen joitain puutteita.
-Toimivaa on: 
-- kirjautuminen sisään. Käyttäjätunnus ja salasana tarkastetaan tietokannasta. Testauskäyttöä varten on
-käytössä pari: testing testing. 
-- Tuotteen lisääminen toimii.
-- Tuotteiden listaaminen toimii. 
-- Näytä tarkemmat tuotetiedot toimii
-- Tuotetietojen muuttaminen toimii 
-- Tuotteen poistaminen 
-- Tuotteen hakeminen
-- Käyttäjien listaaminen toimii
-- Varaston listaaminen toimii 
-
-Toimimatonta: 
-- Käyttäjätietojen muutos 
-
-Tulossa:
-- Lisää käyttäjä, poista käyttäjä
-- Käyttäjäoikeuksien tarkastaminen eri toimintojen aluksi.
 
 ## Varastotietokantasovellus
 
