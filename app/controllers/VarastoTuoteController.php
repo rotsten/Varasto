@@ -139,7 +139,7 @@ class VarastoTuoteController extends BaseController{
     View::make('VarastoTuote/Lukumaaratiedonmuuttaminen.html', array('muutettava_tuote' => $muutettava_tuote));
   }
   
-  public static function varastotuote_edit_post($varasto_id, $tuote_id){
+  public static function varastotuote_edit_post($varasto_id, $tuote_id, $lukumaara){
     
     self::check_logged_in();
     
