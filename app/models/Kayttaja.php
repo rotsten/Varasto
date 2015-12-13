@@ -60,7 +60,48 @@ class Kayttaja extends BaseModel {
     return $kayttajat;
   }  // end of kayttaja_list
   
-  // olioon liittyvä julkinen metodi
+  public static function all_with_paging($page, $page_size){
+    /*
+     * Tämä funktio hakee kaikki tuotteet tietokannasta ja
+     * palauttaa ne Tuotteet -nimisessä taulukossa
+     */
+    
+    $query = DB::connection()->prepare('SELECT * FROM KAYTTAJA ORDER BY KAYTTAJATUNNUS LIMIT :limit OFFSET :offset');
+    // Suoritetaan kysely
+    $query->execute(array('limit' => $page_size, 'offset' => $page_size * ($page-1)));
+    // Haetaan kyselyn tuottamat rivit
+    $rows = $query->fetchAll();
+    
+    $tuotteet = array();
+
+    // Käydään kyselyn tuottamat rivit läpi
+   foreach($rows as $row){
+      $kayttajat[] = new Kayttaja(array(
+        'kayttajatunnus' => $row['kayttajatunnus'],
+        'salasana' => $row['salasana'],
+        'etunimi' => $row['etunimi'],
+        'sukunimi' => $row['sukunimi'],
+        'kayttooikeudet' => $row['kayttooikeudet']
+      ));
+    } // end of foreach
+    return $kayttajat;
+  } // end of function all
+  
+  public function count (){
+      
+    $query = DB::connection()->prepare('SELECT COUNT(kayttajatunnus) FROM KAUTTAJA');
+    // Suoritetaan kysely
+    $query->execute();
+    // Haetaan kyselyn tuottamat rivit, taulukkomuodossa
+    //$tulos = $query->fetchAll();
+    $count = $query->fetchColumn(0); 
+    
+    //$count = $tulos[0];
+    //Kint::dump($count);
+    
+    // Paluttaa, kuinka monta riviä taulussa oli dataa
+    return $count;
+  }
   
   public static function edit($salasana, $etunimi, $sukunimi, $kayttooikeudet){
     // Käyttäjätunnusta ei voi editoida

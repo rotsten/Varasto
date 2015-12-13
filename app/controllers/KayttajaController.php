@@ -136,7 +136,7 @@ class KayttajaController extends BaseController {
      View::make('Kayttaja/Kayttajasivu.html', array('kayttaja' => $listattava_kayttaja));                   
   } // The end of kayttaja_show
   
-  public static function kayttajalistaus(){   
+  public static function kayttajalistaus($page){   
    /*
     * Tämä funktio kutsuu, all-funktiota,
     * mikä hakee varastotilanteen tietokannasta
@@ -144,10 +144,36 @@ class KayttajaController extends BaseController {
     
     self::check_logged_in();
     
-    $Kayttajat = Kayttaja::all();
+    // Paluttaa, montako riviä taulussa on dataa (esim. 24)
+    $kayttaja_count = Kayttaja::count();
+    $page_size = 10;
+    
+    // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
+    $pages = ceil($tuote_count/$page_size);
+    
+    if ($page+1 < $pages) {
+      $nextpage = $page +1;
+    }
+    else {
+      $nextpage = $pages;
+    }
+    
+    if ($page -1 < 1) {
+      $prevpage = 1;
+    }
+    else {
+      $prevpage = $page-1;
+    }
+    
+    $Kayttajat = Kayttaja::all_with_paging($page, $page_size);
     $paakayttaja= TuoteController::check_user_rights();
       
-    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat, 'oikeudet' => $paakayttaja));
+    View::make('Kayttaja/Kayttajienlistaus.html', array('Kayttajat' => $Kayttajat, 
+                                                        'oikeudet' => $paakayttaja,
+                                                        'curr_page' => $page, 
+                                                        'pages' => $pages, 
+                                                        'next_page' => $nextpage, 
+                                                        'prev_page' => $prevpage));
     
   } // end of kayttaja_list
 
