@@ -137,7 +137,7 @@ class VarastoTuoteController extends BaseController{
     $muutettava_varastotuote = new VarastoTuote($muuttujat);
     
     // tsekataan syötteet
-    $errors = $muutettava_tuote->errors();
+    $errors = $muutettava_varastotuote->errors();
     Kint::dump($errors);
     
     if(count($errors) == 0){
