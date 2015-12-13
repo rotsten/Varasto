@@ -135,13 +135,7 @@
   $routes->get('/Tuote/Poistatuote/:tuote_id', 'check_logged_in', function($tuote_id){
     TuoteController::poista_tuote($tuote_id);
   });
-  
-  /*
-  $routes->get('/Tuote/Tuotteidenlistaus:tuote_id', 'check_logged_in', function($tuote_id){
-    TuoteController::poista_tuote($tuote_id);
-  });
-  */
-    
+     
   // Varastoon liittyvät
   // varaston lisäyslomakkeen näyttäminen
   $routes->get('/Varasto/Lisaavarasto', 'check_logged_in', function(){
