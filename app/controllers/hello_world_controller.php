@@ -14,7 +14,7 @@
       //$paluuarvo = self::check_user_rights();
       //echo $paluuarvo;
       
-      VarastoTuoteController::varastotuote_lisaa_show(15);
+      //VarastoTuoteController::varastotuote_lisaa_show(15);
       
       //TuoteController::poista_tuote('9789513233259');
       
