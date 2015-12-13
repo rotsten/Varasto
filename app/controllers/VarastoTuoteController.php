@@ -73,7 +73,8 @@ class VarastoTuoteController extends BaseController{
     self::check_logged_in();
     
     $Tuotteet = TuoteController::tuote_list_all();
-    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Tuotteet' => $Tuotteet, 'varasto_id' => $varasto_id));
+    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Tuotteet' => $Tuotteet, 
+                                                                'varasto_id' => $varasto_id));
   }
   
   public static function varastotuote_lisaa_post (){
