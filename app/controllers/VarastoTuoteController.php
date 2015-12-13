@@ -74,7 +74,7 @@ class VarastoTuoteController extends BaseController{
     
     // Hae ja listaa kaikki tuotteet tähän taulukkoon
     $Tuotteet = TuoteController::tuote_list_all();
-    View::make('VarastoTuote/Lisaauusivarastotuote.html', array(/*'Tuotteet' => $Tuotteet,*/ 
+    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Tuotteet' => $Tuotteet, 
                                                                 'varasto_id' => $varasto_id));
   }
   

@@ -3,6 +3,14 @@
 
 <H2>Lisää uusi tuote varastoitavaksi {{varasto_id}}</H2>
 
+  {% if message %}
+    <div class="alert alert-danger">
+      <ul>
+        <li>{{message}}</li>
+      </ul>
+    </div>
+  {% endif %}
+  
   {% if errors %}
     <div class="alert alert-danger">
       <ul>
@@ -15,14 +23,13 @@
   
   <form method="post">
     
-    <!--
+  
     <div class="form-group">
       <select class="form-control" name="tuotteen_nimi">
         {% for Tuote in Tuotteet %}
           <option value="{{Tuote.tuotteen_nimi}}">{{Tuote.tuotteen_nimi}}</option>
         {% endfor %}
       </select> 
-    
     </div>
     -->
 
