@@ -155,8 +155,7 @@ class VarastoTuoteController extends BaseController{
     // tsekataan syötteet
     $errors = $muutettava_varastotuote->errors();
     
-    if(count($errors) == 0){
-        
+    if(count($errors) == 0){    
       // Ei virheitä syötteissä
       $muutettava_varastotuote ->modify();    
       
