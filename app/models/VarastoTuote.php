@@ -164,6 +164,15 @@ class VarastoTuote extends BaseModel{
     )); 
   }
   
+  public function destroy () {
+    
+    Kint::dump($this->tuote_id);
+    
+    $query = DB::connection()->prepare ('DELETE FROM VARASTO_TUOTE WHERE tuote_id =:tuote_id AND varasto_id =:varasto_id');
+    $query->execute(array('tuote_id' => $this->tuote_id,
+                          'varasto_id' => $this->varasto_id));                  
+  }
+  
   public function validate_lukumaara(){     
     /* Tarkistaa, onko annettu merkkijono sisältää vain numeroita.
      * Lukumäärän antaminen ei ole välttämätöntä.

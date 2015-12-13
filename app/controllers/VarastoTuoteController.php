@@ -214,16 +214,25 @@ class VarastoTuoteController extends BaseController{
    * 
    *****************************************/
   
-  public static function poista_tuote($tuote_id){
+  public static function poista_varastotuote($tuote_id, $varasto_id){
     
     /*
      * Tämän funktion avulla käyttäjä pystyy poistamaan tuotteen
      * kokonaan varastokirjanpidosta (tuote poistuu valikoimasta).
+     * 
+     * Ensin tuote pitää poistaa tuotteista, sitten varasto_tuote -taulusta.
      */
     
-    //self::check_logged_in(); 
-    $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));        
+    //self::check_logged_in();
+     
+    // Poistetaan tuote
+    $poistettava_tuote = new Tuote(array('tuote_id' => $tuote_id));  
     $poistettava_tuote->destroy();
+    
+    // Poistetaan varasto_tuote
+    $poistettava_varastotuote = new VarastoTuoteTuote(array('varasto_id' => $varasto_id,
+                                                            'tuote_id' => $tuote_id));  
+    $poistettava_varastotuote->destroy();
        
     // Käyttäjä näkee kaikkien tuotteiden listauksesta, että tuote on poistunut      
     $Tuotteet = Tuote::all();
