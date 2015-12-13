@@ -83,6 +83,10 @@ class VarastoTuoteController extends BaseController{
     self::check_logged_in();  
     $params = $_POST;
     
+    Kint::dump($params['varasto_id']);
+    Kint::dump($params['tuote_id']);
+    Kint::dump($params['lukumaara']);
+    
     $uusi_varastotuote = new VarastoTuote(array(
       'varasto_id' => $params['varasto_id'],
       'tuote_id' => $params['tuote_id'], 
@@ -96,7 +100,10 @@ class VarastoTuoteController extends BaseController{
       $uusi_varastotuote ->save();
           
       //Redirect::to('/VarastoTuote/VarastoTuotesivu/' . $params['varasto_id'] . $params['tuote_id'], $uusi_varastotuote);
-      Redirect::to('/VarastoTuote/Varastotilannelistaus/' . $params['varasto_id']);
+
+      $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
+      $varaston_nimi = Varasto::getNimiById($varasto_id);
+      View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
     }  
     else {
       View::make('/VarastoTuote/Lisaauusivarastotuote.html', array('errors' => $errors));        
