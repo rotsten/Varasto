@@ -158,7 +158,7 @@ class VarastoTuote extends BaseModel{
       lukumaara = :new_lukumaara WHERE tuote_id =:tuote_id;');
     
     $query->execute(array(
-      'new_varasto_id' => $this->varasto_id_id,   
+      'new_varasto_id' => $this->varasto_id,   
       'new_tuote_id' => $this->tuote_id, 
       'new_lukumaara' => $this->lukumaara
     )); 

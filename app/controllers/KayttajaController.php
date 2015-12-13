@@ -149,7 +149,7 @@ class KayttajaController extends BaseController {
     $page_size = 5;
     
     // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
-    $pages = ceil($tuote_count/$page_size);
+    $pages = ceil($kayttaja_count/$page_size);
     
     if ($page+1 < $pages) {
       $nextpage = $page +1;
