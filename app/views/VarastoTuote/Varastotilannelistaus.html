@@ -49,13 +49,12 @@
             <td>{{Varaston_tuotteet.lukumaara}}</td>
 
             <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/VarastoTuote/Lukumaaratiedonmuuttaminen/{{Varaston_tuotteet.varasto_id}}/{{Varaston_tuotteet.tuote_id}}/{{Varaston_tuotteet.lukumaara}}">Muokkaa</a></th>
-            <th><a class="btn btn-default btn-sm" value="submit" href="{{base_path}}/VarastoTuote/Lukumaaratiedonmuuttaminen/{{Varaston_tuotteet.varasto_id}}/{{Varaston_tuotteet.tuote_id}}/{{Varaston_tuotteet.lukumaara}}">Muokkaa</a></th>
           </tr>
       {% endfor %}
     </tbody>
   </table>
 
-  <button class="btn btn-default" type="submit"><A href="{{base_path}}/VarastoTuote/Lisaauusivarastotuote/{{Varaston_tuotteet.tuote_id}}">Lisää uusi tuote varastoon</A></button>
+  <button class="btn btn-default" type="submit"><A href="{{base_path}}/VarastoTuote/Lisaauusivarastotuote/{{Varaston_tuotteet.varasto_id}}">Lisää uusi tuote varastoon</A></button>
   <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle</A></button>
 
 {% endblock %}

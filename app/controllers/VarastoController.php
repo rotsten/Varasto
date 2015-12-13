@@ -19,7 +19,7 @@ class VarastoController extends BaseController{
     
     // Paluttaa, montako riviä taulussa on dataa (esim. 24)
     $varasto_count = Varasto::count();
-    $page_size = 10;
+    $page_size = 5;
     
     // Leikkaa desimaalit pois ja antaa osamäärää yhtä isomman kokonaisluvun.
     $pages = ceil($tuote_count/$page_size);
