@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
+
+  {% if errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
   <h1>Muokkaa käyttäjän {{muutettava_kayttaja.kayttajatunnus}} tietoja</h1>
 
   <form  method="post">
