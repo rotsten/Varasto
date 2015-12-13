@@ -82,10 +82,11 @@ class VarastoTuoteController extends BaseController{
 
   }
   
-  public static function varastotuote_lisaa_post (){
+  public static function varastotuote_lisaa_post ($varasto_id, $tuote_id, $lukumaara){
          
     self::check_logged_in();  
-    $params = $_POST;
+    
+    /*$params = $_POST;
     
     Kint::dump($params['varasto_id']);
     Kint::dump($params['tuote_id']);
@@ -95,6 +96,13 @@ class VarastoTuoteController extends BaseController{
       'varasto_id' => $params['varasto_id'],
       'tuote_id' => $params['tuote_id'], 
       'lukumaara' => $params['lukumaara']
+    ));
+    */
+    
+    $uusi_varastotuote = new VarastoTuote(array(
+      'varasto_id' => $varasto_id,
+      'tuote_id' => $tuote_id, 
+      'lukumaara' => $lukumaara
     ));
     
     $errors = $uusi_varastotuote->errors();
