@@ -264,7 +264,7 @@ class KayttajaController extends BaseController {
       KayttajaController::kayttajalistaus(1); // Parametri sivuttamiseen
     } 
     else {
-      View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'muutettava_kayttaja' => $Kayttajatietojen_muutokset));
+      View::make('Kayttaja/Kayttajatietojenmuutos.html', array('errors' => $errors, 'muutettava_kayttaja' => $Kayttajatietojen_muutokset));
     }   
   } // end of kayttaja_edit_post
   
