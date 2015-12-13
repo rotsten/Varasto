@@ -179,11 +179,13 @@ class VarastoTuote extends BaseModel{
      $errors_lukumaara = array();
       
      // tarkistaa, että sisältää vain numeroita
-     if (is_numeric($this->tuote_id)) {
-       if ($this->tuote_id < 0) {
+     if (is_numeric($this->lukumaara)) {
+       // annettu
+       if ($this->lukumaara < 0) {
            $errors_lukumaara[] = 'lukumäärä on aina positiivinen kokonaisluku!'; 
        }
-     } else {
+     } 
+     else {
          $errors_lukumaara[] = 'Lukumäärä ei saa sisältää muita merkkejä kuin numeroita!';
      }  
        
