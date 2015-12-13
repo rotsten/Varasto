@@ -95,9 +95,9 @@ class VarastoTuoteController extends BaseController{
       //Kint::dump($uusi_tuote);
       $uusi_varastotuote ->save();
           
-      Redirect::to('/VarastoTuote/VarastoTuotesivu/' . $params['varasto_id'] . $params['tuote_id'], $uusi_varastotuote);
+      //Redirect::to('/VarastoTuote/VarastoTuotesivu/' . $params['varasto_id'] . $params['tuote_id'], $uusi_varastotuote);
+      Redirect::to('/VarastoTuote/Varastotilannelistaus/' . $params['varasto_id']);
     }  
-
     else {
       View::make('/VarastoTuote/Lisaauusivarastotuote.html', array('errors' => $errors));        
     } // end of if
