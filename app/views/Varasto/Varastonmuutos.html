@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
+  {% if message %}
+    <div class="alert alert-danger">
+      <ul>
+        <li>{{message}}</li>
+      </ul>
+    </div>
+  {% endif %}
+  
   {% if errors %}
     <div class="alert alert-danger">
       <ul>
@@ -11,23 +19,23 @@
     </div>
   {% endif %}
 
- <form  method="post">
-   <div class="form-group">
-     <label>Varasto-ID </label>
-     <input type="hidden" name="varasto_id" class="form-control" value="{{Varasto.varasto_id}}">
-   </div>
-   <div class="form-group">
-     <label>Varaston nimi</label>
-     <input type="text" name="nimi" class="form-control" value="{{Varasto.nimi}}">
-   </div>
-   <div class="form-group">
-     <label>Varaston osoite</label>
-     <input type="text" name="osoite" class="form-control" value="{{Varasto.osoite}}">
-   </div>
-   <div class="form-group">
-     <button type ="submit" class="btn btn-default" value=varasto_post_edit{{Varasto.varasto_id}}>Tallenna muutokset</button>
-     <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle tallentamatta</A></button>
-   </div>
- </form>
+  <form  method="post">
+    <div class="form-group">
+      <label>Varasto-ID </label>
+      <input type="hidden" name="varasto_id" class="form-control" value="{{Varasto.varasto_id}}">
+    </div>
+    <div class="form-group">
+      <label>Varaston nimi</label>
+      <input type="text" name="nimi" class="form-control" value="{{Varasto.nimi}}">
+    </div>
+    <div class="form-group">
+      <label>Varaston osoite</label>
+      <input type="text" name="osoite" class="form-control" value="{{Varasto.osoite}}">
+    </div>
+    <div class="form-group">
+      <button type ="submit" class="btn btn-default" value=varasto_post_edit{{Varasto.varasto_id}}>Tallenna muutokset</button>
+      <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu pääsivulle tallentamatta</A></button>
+    </div>
+  </form>
         
 {% endblock %}

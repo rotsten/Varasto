@@ -165,9 +165,7 @@ class VarastoController extends BaseController{
     );
 
     $muuttunut_varasto = new Varasto($muuttujat);   
-    
     $errors = $muuttunut_varasto->errors();
-    // Kint::dump($errors);
 
     if(count($errors) == 0){     
       // Ei virheitä syötteissä
@@ -176,8 +174,7 @@ class VarastoController extends BaseController{
       $varastot = Varasto::all();
       View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
     } else {
-        Kint::dump($errors);
-        View::make('Varastonmuutos.html', array('errors' => $errors, 'Varasto' => $muuttunut_varasto));
+      View::make('Varastonmuutos.html', array('errors' => $errors, 'Varasto' => $muuttunut_varasto));
     }
   }  // end of varasto_edit_post
   
