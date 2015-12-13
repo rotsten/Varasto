@@ -123,7 +123,7 @@ class VarastoTuoteController extends BaseController{
   
   public static function varastotuote_edit_post($varasto_id, $tuote_id, $lukumaara){
     
-    //$uudet_tiedot = $_POST;   
+    $uudet_tiedot = $_POST;   
     
     //self::check_logged_in(); 
   
@@ -131,10 +131,10 @@ class VarastoTuoteController extends BaseController{
     $muuttujat= array(
       'varasto_id' => $varasto_id,
       'tuote_id' => $tuote_id,
-      'lukumaara'=> $lukumaara
+      'lukumaara' => $uudet_tiedot['lukumaara']
     );
     
-    $muutettava_tuote = new VarastoTuote($muuttujat);
+    $muutettava_varastotuote = new VarastoTuote($muuttujat);
     
     // tsekataan syötteet
     $errors = $muutettava_tuote->errors();
@@ -143,7 +143,7 @@ class VarastoTuoteController extends BaseController{
     if(count($errors) == 0){
         
       // Ei virheitä syötteissä
-      $muutettava_tuote ->modify();    
+      $muutettava_varastotuote ->modify();    
       
       // Listataan tuotetiedot, jotta muutos näkyy
       $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
