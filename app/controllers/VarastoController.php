@@ -192,6 +192,8 @@ class VarastoController extends BaseController{
     self::check_logged_in();   
     $poistettava_varasto = new Varasto(array('varasto_id' => $varasto_id));  
     
+    //Entä, jos varastossa on tuotteita??
+    
     $poistettava_varasto->destroy();
        
     // Käyttäjä näkee kaikkien varastojen listauksesta, että varasto on poistunut      

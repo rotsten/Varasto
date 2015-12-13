@@ -39,7 +39,7 @@
       {% for Varaston_tuotteet in Varaston_tuotteet %}
           <tr>
             <td><a href="#">{{Varaston_tuotteet.varasto_id}}</a>
-            <input type=hidden name="varasto_id" class="form-control" value="{{varasto_id}}"> 
+            <input type=text name="varasto_id" class="form-control" value="{{varasto_id}}"> 
             </td>
             <td>{{Varaston_tuotteet.tuote_id}}</a></td>
             <input type=hidden name="tuote_id" class="form-control" value="{{tuote_id}}"> 
