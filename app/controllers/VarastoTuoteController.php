@@ -72,7 +72,7 @@ class VarastoTuoteController extends BaseController{
   public static function varastotuote_lisaa_show ($varasto_id){
       
     self::check_logged_in();
-    Kint::dump($params['varasto_id']);
+    Kint::dump($varasto_id);
     
     // Hae ja listaa kaikki tuotteet tähän taulukkoon
     $Tuotteet = TuoteController::tuote_list_all();
