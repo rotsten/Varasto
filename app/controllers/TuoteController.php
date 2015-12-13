@@ -299,8 +299,8 @@ class TuoteController extends BaseController{
         
     if (empty($etsittava_tuote)) {
         // Ei löytynyt
-        $errors='Etsittävää tuotetta ei löytynyt $tuote_id';
-        View::make('Tuote/Tuotesivu.html', array('errors' => $errors, 'tuote' => $etsittava_tuote));
+        $message='Tuotetta ei löytynyt';
+        View::make('Tuote/Tuotesivu.html', array('message' => $message));
     }
     
     View::make('Tuote/Tuotesivu.html', array('tuote' => $etsittava_tuote));
@@ -314,7 +314,7 @@ class TuoteController extends BaseController{
     
     if(empty ($tulokset)){
       // Ei löytynyt
-      $message= 'Tuotetta $tuotteen_nimi ei löytynyt.';      
+      $message= 'Tuotetta ei löytynyt.';      
       View::make('Tuote/Tuotteidenlistaus.html', array('message' => $message));
     }
     View::make('Tuote/Tuotteidenlistaus.html', array('Tuotteet' => $tulokset));  
