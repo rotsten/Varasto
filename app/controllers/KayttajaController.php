@@ -261,7 +261,7 @@ class KayttajaController extends BaseController {
     if(count($errors) == 0){
 
       $Kayttajatietojen_muutokset->modify();      
-      KayttajaController::kayttajalistaus();
+      KayttajaController::kayttajalistaus(1); // Parametri sivuttamiseen
     } 
     else {
       View::make('Kayttajatietojenmuutos.html', array('errors' => $errors, 'attributes' => $Kayttajatietojen_muutokset));

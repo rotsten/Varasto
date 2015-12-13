@@ -165,6 +165,7 @@ class VarastoController extends BaseController{
     );
 
     $muuttunut_varasto = new Varasto($muuttujat);   
+    
     $errors = $muuttunut_varasto->errors();
 
     if(count($errors) == 0){     
@@ -174,7 +175,7 @@ class VarastoController extends BaseController{
       $varastot = Varasto::all();
       View::make('Varasto/Varastonlistaus.html', array('varastot' => $varastot));
     } else {
-      View::make('Varastonmuutos.html', array('errors' => $errors, 'Varasto' => $muuttunut_varasto));
+      View::make('Varasto/Varastonmuutos.html', array('errors' => $errors, 'Varasto' => $muuttunut_varasto));
     }
   }  // end of varasto_edit_post
   
