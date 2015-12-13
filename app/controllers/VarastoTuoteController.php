@@ -141,9 +141,7 @@ class VarastoTuoteController extends BaseController{
   
   public static function varastotuote_edit_post($varasto_id, $tuote_id, $lukumaara){
     
-    $uudet_tiedot = $_POST;   
-    
-    //self::check_logged_in(); 
+    self::check_logged_in(); 
   
     //Luodaan uusi tuote, jolla kutsutaan modifya...  
     $muuttujat= array(

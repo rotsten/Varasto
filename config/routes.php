@@ -187,8 +187,8 @@
     VarastoTuoteController::varastotuote_lisaa_show($varasto_id);
   });
 
-  $routes->post('/VarastoTuote/Lisaauusivarastotuote/:varasto_id', 'check_logged_in', function($varasto_id){
-    VarastoTuoteController::varastotuote_lisaa_post($varasto_id);
+  $routes->post('/VarastoTuote/Lisaauusivarastotuote/:varasto_id/:tuote_id/:lukumaara', 'check_logged_in', function($varasto_id, $tuote_id, $lukumaara){
+    VarastoTuoteController::varastotuote_lisaa_post($varasto_id, $tuote_id, $lukumaara);
   });
   
   // Varaston muuttamiseen (varaston inventointiin) liittyvä sivu
