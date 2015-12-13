@@ -142,8 +142,7 @@ class VarastoTuoteController extends BaseController{
   public static function varastotuote_edit_post($varasto_id, $tuote_id, $lukumaara){
     
     self::check_logged_in(); 
-  
-    //Luodaan uusi tuote, jolla kutsutaan modifya...  
+
     $muuttujat= array(
       'varasto_id' => $varasto_id,
       'tuote_id' => $tuote_id,
@@ -154,7 +153,6 @@ class VarastoTuoteController extends BaseController{
     
     // tsekataan syötteet
     $errors = $muutettava_varastotuote->errors();
-    
     if(count($errors) == 0){    
       // Ei virheitä syötteissä
       $muutettava_varastotuote ->modify();    
@@ -162,6 +160,7 @@ class VarastoTuoteController extends BaseController{
       // Listataan tuotetiedot, jotta muutos näkyy
       $varaston_tuotteet = VarastoTuote::all_in_varasto_join_tuote($varasto_id);
       $varaston_nimi = Varasto::getNimiById($varasto_id);
+      
       View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
     } 
     else {
