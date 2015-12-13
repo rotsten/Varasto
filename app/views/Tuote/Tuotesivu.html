@@ -2,6 +2,14 @@
 {% block content %}
 {% import "macros/forms.html" as forms %}
 
+  {% if message %}
+    <div class="alert alert-danger">
+      <ul>
+        <li>{{message}}</li>
+      </ul>
+    </div>
+  {% endif %}
+  
   {% if errors %}
     <div class="alert alert-danger">
       <ul>
