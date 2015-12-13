@@ -75,8 +75,11 @@ class VarastoTuoteController extends BaseController{
     
     // Hae ja listaa kaikki tuotteet tähän taulukkoon
     $Tuotteet = TuoteController::tuote_list_all();
-    View::make('VarastoTuote/Lisaauusivarastotuote.html', array('Tuotteet' => $Tuotteet, 
-                                                                'varasto_id' => $varasto_id));
+                        
+    Redirect::to('/VarastoTuote/Lisaauusivarastotuote/'.$varasto_id, array('Tuotteet' => $Tuotteet)); 
+    
+    //View::make('VarastoTuote/Lisaauusivarastotuote.html'/$varasto_id, array('Tuotteet' => $Tuotteet, 
+    //                                                            'varasto_id' => $varasto_id));
   }
   
   public static function varastotuote_lisaa_post (){
@@ -107,7 +110,7 @@ class VarastoTuoteController extends BaseController{
       View::make('VarastoTuote/Varastotilannelistaus.html', array('Varaston_tuotteet' => $varaston_tuotteet, 'varastonnimi' => $varaston_nimi)); 
     }  
     else {
-      View::make('/VarastoTuote/Lisaauusivarastotuote.html', array('errors' => $errors));        
+      View::make('VarastoTuote/Lisaauusivarastotuote.html', array('errors' => $errors));        
     } // end of if
   } // end of varastotuote_lisaa_post  
   
