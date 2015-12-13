@@ -23,7 +23,7 @@
   
   <form method="post">
     
-  
+  <H4>Valitse lisättävä tuote alasvetovalikosta</H4>
     <div class="form-group">
       <select class="form-control" name="tuotteen_nimi">
         {% for Tuote in Tuotteet %}
@@ -31,7 +31,6 @@
         {% endfor %}
       </select> 
     </div>
-    -->
 
     <!--Muut tuotetiedot välittyvät käyttäjältä piilossa -->
     <div class="form-group">
@@ -45,7 +44,7 @@
       <input type ="text" name ="lukumaara" class="form-control">
     </div>
     
-    <button type ="submit" class="btn btn-default" value=varastotuote_lisaa_post()>Lisää tuote varastoon</button>
+    <button type ="submit" class="btn btn-default" value=VarastoTuoteController::varastotuote_lisaa_post()>Lisää tuote varastoon</button>
     <button class="btn btn-default"><A href="{{base_path}}/Paasivu">Paluu tallentamatta</A></button>
   </form>
 
